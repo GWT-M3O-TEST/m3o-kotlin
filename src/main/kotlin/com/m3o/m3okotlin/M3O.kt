@@ -1,4 +1,4 @@
-package com.cyb3rko.m3okotlin
+package com.m3o.m3okotlin
 
 import io.ktor.client.*
 import io.ktor.client.engine.apache.*

@@ -1,4 +1,4 @@
-package com.cyb3rko.m3okotlin
+package com.m3o.m3okotlin
 
 import com.cyb3rko.m3okotlin.M3O.authorization
 import java.lang.Exception

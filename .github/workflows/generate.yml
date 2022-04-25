@@ -31,7 +31,7 @@ jobs:
           # sync the clients to m3o-kotlin/clinets
           rsync -avz clients/kotlin/ ../m3o-kotlin/
           # sync the examples to m3o-kotlin/examples
-          rsync -avz examples/kotlin/ ../m3o-kotlin/examples/
+          # rsync -avz examples/kotlin/ ../m3o-kotlin/examples/
       
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.0.0

@@ -20,7 +20,7 @@ jobs:
           path: services
 
       - name: Generate m3o-kotlin examples
-        uses: m3o/m3o-generator-action@main
+        uses: GWT-M3O-TEST/m3o-generator-action@main
         with:
           target: 'kotlin'
           services_path: services

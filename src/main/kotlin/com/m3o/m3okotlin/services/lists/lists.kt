@@ -62,9 +62,9 @@ data class ListsDeleteResponse({List? list,})
 internal data class ListsEventsRequest({/// optionally specify a list id
 String? id,})
 @Serializable
-data class ListsEventsResponse({/// the event which occured; create, delete, update
-String? event, /// the list which the operation occured on
-List? list,})
+data class ListsEventsResponse({/// the list which the operation occured on
+List? list, /// the event which occured; create, delete, update
+String? event,})
 @Serializable
 internal data class ListsList({/// time at which the list was created
 String? created, /// unique id for the list, generated if not specified

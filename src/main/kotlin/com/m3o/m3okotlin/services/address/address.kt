@@ -25,15 +25,15 @@ String? postcode,})
 @Serializable
 data class AddressLookupPostcodeResponse({List<Record>? addresses,})
 @Serializable
-internal data class AddressRecord({/// building name
-String? building_name, /// line two of address
-String? line_two, /// the postcode
+internal data class AddressRecord({/// the premise
+String? premise, /// post town
+String? town, /// building name
+String? building_name, /// line one of address
+String? line_one, /// dependent locality
+String? locality, /// organisation if present
+String? organisation, /// the postcode
 String? postcode, /// street name
 String? street, /// the complete address
 String? summary, /// the county
-String? county, /// line one of address
-String? line_one, /// dependent locality
-String? locality, /// organisation if present
-String? organisation, /// the premise
-String? premise, /// post town
-String? town,})
+String? county, /// line two of address
+String? line_two,})

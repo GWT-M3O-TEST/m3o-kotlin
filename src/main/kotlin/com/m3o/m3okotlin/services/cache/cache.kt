@@ -94,13 +94,13 @@ internal data class CacheListKeysRequest()
 @Serializable
 data class CacheListKeysResponse({List<String>? keys,})
 @Serializable
-internal data class CacheSetRequest({/// The value to set
-String? value, /// The key to update
+internal data class CacheSetRequest({/// The key to update
 String? key, /// Time to live in seconds
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? ttl
-	,})
+	, /// The value to set
+String? value,})
 @Serializable
 data class CacheSetResponse({/// Returns "ok" if successful
 String? status,})

@@ -35,23 +35,23 @@ object TwitterService {
     }
 }
 @Serializable
-internal data class TwitterProfile({/// the user description
+internal data class TwitterProfile({/// display name of the user
+String? name, /// if the account is private
+bool? private, /// if the account is verified
+bool? verified, /// the account creation date
+String? created_at, /// the user description
 String? description, /// the follower count
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? followers
-	, /// the user's location
-String? location, /// display name of the user
-String? name, /// if the account is private
-bool? private, /// the username
-String? username, /// if the account is verified
-bool? verified, /// the account creation date
-String? created_at, /// The user's profile picture
-String? image_url, /// the user id
+	, /// the user id
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? id
-	,})
+	, /// The user's profile picture
+String? image_url, /// the user's location
+String? location, /// the username
+String? username,})
 @Serializable
 internal data class TwitterSearchRequest({/// number of tweets to return. default: 20
 int? limit, /// the query to search for
@@ -80,8 +80,7 @@ internal data class TwitterTrendsRequest()
 data class TwitterTrendsResponse({/// a list of trending topics
 List<Trend>? trends,})
 @Serializable
-internal data class TwitterTweet({/// time of tweet
-String? created_at, /// number of times favourited
+internal data class TwitterTweet({/// number of times favourited
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? favourited_count
@@ -95,7 +94,8 @@ String? created_at, /// number of times favourited
 	int? retweeted_count
 	, /// text of the tweet
 String? text, /// username of the person who tweeted
-String? username,})
+String? username, /// time of tweet
+String? created_at,})
 @Serializable
 internal data class TwitterUserRequest({/// the username to lookup
 String? username,})

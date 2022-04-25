@@ -41,30 +41,30 @@ int? hadiths, /// number of the book e.g 1
 int? id, /// name of the book
 String? name,})
 @Serializable
-internal data class SunnahBooksRequest({/// Name of the collection
+internal data class SunnahBooksRequest({/// The page in the pagination
+int? page, /// Name of the collection
 String? collection, /// Limit the number of books returned
-int? limit, /// The page in the pagination
-int? page,})
+int? limit,})
 @Serializable
-data class SunnahBooksResponse({/// The limit specified
+data class SunnahBooksResponse({/// A list of books
+List<Book>? books, /// Name of the collection
+String? collection, /// The limit specified
 int? limit, /// The page requested
 int? page, /// The total overall books
-int? total, /// A list of books
-List<Book>? books, /// Name of the collection
-String? collection,})
+int? total,})
 @Serializable
-internal data class SunnahChapter({/// the chapter key e.g 1.00
-String? key, /// title of the chapter
-String? title, /// arabic title
+internal data class SunnahChapter({/// arabic title
 String? arabic_title, /// the book number
 int? book, /// the chapter id e.g 1
-int? id,})
+int? id, /// the chapter key e.g 1.00
+String? key, /// title of the chapter
+String? title,})
 @Serializable
-internal data class SunnahChaptersRequest({/// Limit the number of chapters returned
-int? limit, /// The page in the pagination
-int? page, /// number of the book
+internal data class SunnahChaptersRequest({/// number of the book
 int? book, /// name of the collection
-String? collection,})
+String? collection, /// Limit the number of chapters returned
+int? limit, /// The page in the pagination
+int? page,})
 @Serializable
 data class SunnahChaptersResponse({/// number of the book
 int? book, /// The chapters of the book
@@ -87,20 +87,20 @@ int? page,})
 @Serializable
 data class SunnahCollectionsResponse({List<Collection>? collections,})
 @Serializable
-internal data class SunnahHadith({/// the arabic chapter title
+internal data class SunnahHadith({/// the chapter title
+String? chapter_title, /// hadith id
+int? id, /// hadith text
+String? text, /// the arabic chapter title
 String? arabic_chapter_title, /// the arabic text
 String? arabic_text, /// the chapter id
 int? chapter, /// the chapter key
-String? chapter_key, /// the chapter title
-String? chapter_title, /// hadith id
-int? id, /// hadith text
-String? text,})
+String? chapter_key,})
 @Serializable
-internal data class SunnahHadithsRequest({/// number of the book
-int? book, /// name of the collection
+internal data class SunnahHadithsRequest({/// name of the collection
 String? collection, /// Limit the number of hadiths
 int? limit, /// The page in the pagination
-int? page,})
+int? page, /// number of the book
+int? book,})
 @Serializable
 data class SunnahHadithsResponse({/// number of the book
 int? book, /// name of the collection

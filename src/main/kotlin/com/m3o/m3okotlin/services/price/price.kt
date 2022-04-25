@@ -40,13 +40,13 @@ object PriceService {
     }
 }
 @Serializable
-internal data class PriceAddRequest({/// source of the price
-String? source, /// symbol of value
+internal data class PriceAddRequest({/// symbol of value
 String? symbol, /// author of the price
 String? author, /// currency e.g USD
 String? currency, /// name of the thing e.g bitcoin
 String? name, /// price of the thing e.g 10001.00
-double? price,})
+double? price, /// source of the price
+String? source,})
 @Serializable
 data class PriceAddResponse({Value? value,})
 @Serializable
@@ -57,10 +57,10 @@ String? symbol,})
 @Serializable
 data class PriceGetResponse({List<Value>? values,})
 @Serializable
-internal data class PriceIndex({/// symbol of item
-String? symbol, /// currency of value
+internal data class PriceIndex({/// currency of value
 String? currency, /// name of item
-String? name,})
+String? name, /// symbol of item
+String? symbol,})
 @Serializable
 internal data class PriceIndexRequest()
 @Serializable

@@ -47,12 +47,12 @@ object CommentsService {
     }
 }
 @Serializable
-internal data class CommentsComment({/// time at which the comment was created
+internal data class CommentsComment({/// text of the comment
+String? text, /// time at which the comment was updated
+String? updated, /// time at which the comment was created
 String? created, /// unique id for the comment, generated if not specified
 String? id, /// subject of the comment
-String? subject, /// text of the comment
-String? text, /// time at which the comment was updated
-String? updated,})
+String? subject,})
 @Serializable
 internal data class CommentsCreateRequest({/// comment subject
 String? subject, /// comment items
@@ -69,9 +69,9 @@ data class CommentsDeleteResponse({Comment? comment,})
 internal data class CommentsEventsRequest({/// optionally specify a comment id
 String? id,})
 @Serializable
-data class CommentsEventsResponse({/// the event which occured; create, delete, update
-String? event, /// the comment which the operation occured on
-Comment? comment,})
+data class CommentsEventsResponse({/// the comment which the operation occured on
+Comment? comment, /// the event which occured; create, delete, update
+String? event,})
 @Serializable
 internal data class CommentsListRequest()
 @Serializable

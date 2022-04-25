@@ -34,14 +34,14 @@ internal data class StockHistoryRequest({/// date to retrieve as YYYY-MM-DD
 String? date, /// the stock symbol e.g AAPL
 String? stock,})
 @Serializable
-data class StockHistoryResponse({/// the peak price
+data class StockHistoryResponse({/// the close price
+double? close, /// the date
+String? date, /// the peak price
 double? high, /// the low price
 double? low, /// the open price
 double? open, /// the stock symbol
 String? symbol, /// the volume
-int? volume, /// the close price
-double? close, /// the date
-String? date,})
+int? volume,})
 @Serializable
 internal data class StockPriceRequest({/// stock symbol e.g AAPL
 String? symbol,})
@@ -53,10 +53,10 @@ String? symbol,})
 internal data class StockQuoteRequest({/// the stock symbol e.g AAPL
 String? symbol,})
 @Serializable
-data class StockQuoteResponse({/// the UTC timestamp of the quote
-String? timestamp, /// the asking price
+data class StockQuoteResponse({/// the asking price
 double? ask_price, /// the ask size
 int? ask_size, /// the bidding price
 double? bid_price, /// the bid size
 int? bid_size, /// the stock symbol
-String? symbol,})
+String? symbol, /// the UTC timestamp of the quote
+String? timestamp,})

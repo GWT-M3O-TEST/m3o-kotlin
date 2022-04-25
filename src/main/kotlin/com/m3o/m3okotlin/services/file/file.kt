@@ -41,12 +41,12 @@ String? project,})
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest({/// Defaults to '/', ie. lists all files in a project.
+internal data class FileListRequest({/// Project, required for listing.
+String? project, /// Defaults to '/', ie. lists all files in a project.
 /// Supply path to a folder if you want to list
 /// files inside that folder
 /// eg. '/docs'
-String? path, /// Project, required for listing.
-String? project,})
+String? path,})
 @Serializable
 data class FileListResponse({List<Record>? files,})
 @Serializable

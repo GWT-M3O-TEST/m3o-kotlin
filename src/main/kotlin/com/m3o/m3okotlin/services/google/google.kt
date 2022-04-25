@@ -26,10 +26,10 @@ String? query,})
 data class GoogleSearchResponse({/// List of results for the query
 List<SearchResult>? results,})
 @Serializable
-internal data class GoogleSearchResult({/// abridged version of this search result’s URL, e.g. www.exampe.com
-String? display_url, /// id of the result
-String? id, /// kind of result; "search"
+internal data class GoogleSearchResult({/// kind of result; "search"
 String? kind, /// the result snippet
 String? snippet, /// title of the result
 String? title, /// the full url for the result
-String? url,})
+String? url, /// abridged version of this search result’s URL, e.g. www.exampe.com
+String? display_url, /// id of the result
+String? id,})

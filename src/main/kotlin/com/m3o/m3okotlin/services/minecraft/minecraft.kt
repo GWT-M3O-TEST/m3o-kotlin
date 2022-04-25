@@ -23,16 +23,16 @@ object MinecraftService {
 internal data class MinecraftPingRequest({/// address of the server
 String? address,})
 @Serializable
-data class MinecraftPingResponse({/// Latency (ms) between us and the server (EU)
+data class MinecraftPingResponse({/// Version of the server
+String? version, /// Favicon in base64
+String? favicon, /// Latency (ms) between us and the server (EU)
 int? latency, /// Max players ever
 int? max_players, /// Message of the day
 String? motd, /// Number of players online
 int? players, /// Protocol number of the server
 int? protocol, /// List of connected players
-List<PlayerSample>? sample, /// Version of the server
-String? version, /// Favicon in base64
-String? favicon,})
+List<PlayerSample>? sample,})
 @Serializable
-internal data class MinecraftPlayerSample({/// name of the player
-String? name, /// unique id of player
-String? uuid,})
+internal data class MinecraftPlayerSample({/// unique id of player
+String? uuid, /// name of the player
+String? name,})

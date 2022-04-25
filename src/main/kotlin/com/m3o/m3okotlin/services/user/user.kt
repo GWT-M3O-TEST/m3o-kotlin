@@ -95,15 +95,7 @@ object UserService {
     }
 }
 @Serializable
-internal data class UserAccount({/// if the account is verified
-bool? verified, /// unix timestamp
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? created
-	, /// an email address
-String? email, /// unique account id
-String? id, /// Store any custom data you want about your users in this fields.
-Map<String, String>? profile, /// unix timestamp
+internal data class UserAccount({/// unix timestamp
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? updated
@@ -112,14 +104,22 @@ String? username, /// date of verification
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? verification_date
-	,})
+	, /// if the account is verified
+bool? verified, /// unix timestamp
+
+	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+	int? created
+	, /// an email address
+String? email, /// unique account id
+String? id, /// Store any custom data you want about your users in this fields.
+Map<String, String>? profile,})
 @Serializable
-internal data class UserCreateRequest({/// the email address
+internal data class UserCreateRequest({/// optional user profile as map<string,string>
+Map<String, String>? profile, /// the username
+String? username, /// the email address
 String? email, /// optional account id
 String? id, /// the user password
-String? password, /// optional user profile as map<string,string>
-Map<String, String>? profile, /// the username
-String? username,})
+String? password,})
 @Serializable
 data class UserCreateResponse({Account? account,})
 @Serializable
@@ -165,23 +165,23 @@ String? session_id,})
 data class UserReadSessionResponse({/// the session for the user
 Session? session,})
 @Serializable
-internal data class UserResetPasswordRequest({/// the new password
-String? new_password, /// The code from the verification email
+internal data class UserResetPasswordRequest({/// The code from the verification email
 String? code, /// confirm new password
 String? confirm_password, /// the email to reset the password for
-String? email,})
+String? email, /// the new password
+String? new_password,})
 @Serializable
 data class UserResetPasswordResponse()
 @Serializable
-internal data class UserSendMagicLinkRequest({/// Your web site address, example www.example.com or user.example.com
-String? address, /// the email address of the user
-String? email, /// Endpoint name where your http request handler handles MagicLink by
+internal data class UserSendMagicLinkRequest({/// Endpoint name where your http request handler handles MagicLink by
 /// calling M3O VerifyToken endpoint. You can return as a result a success,
 /// failed or redirect to another page.
 String? endpoint, /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
 String? from_name, String? subject, /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
 /// HTML emails are not available currently.
-String? text_content,})
+String? text_content, /// Your web site address, example www.example.com or user.example.com
+String? address, /// the email address of the user
+String? email,})
 @Serializable
 data class UserSendMagicLinkResponse()
 @Serializable
@@ -198,18 +198,17 @@ String? email,})
 @Serializable
 data class UserSendPasswordResetEmailResponse()
 @Serializable
-internal data class UserSendVerificationEmailRequest({/// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-String? from_name, /// The url to redirect to after successful verification
-String? redirect_url, /// subject of the email
-String? subject, /// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
+internal data class UserSendVerificationEmailRequest({/// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
 String? text_content, /// email address to send the verification code
 String? email, /// The url to redirect to incase of failure
-String? failure_redirect_url,})
+String? failure_redirect_url, /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
+String? from_name, /// The url to redirect to after successful verification
+String? redirect_url, /// subject of the email
+String? subject,})
 @Serializable
 data class UserSendVerificationEmailResponse()
 @Serializable
-internal data class UserSession({/// the associated user id
-String? userId, /// unix timestamp
+internal data class UserSession({/// unix timestamp
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? created
@@ -218,21 +217,22 @@ String? userId, /// unix timestamp
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? expires
 	, /// the session id
-String? id,})
-@Serializable
-internal data class UserUpdatePasswordRequest({/// confirm new password
-String? confirm_password, /// the new password
-String? new_password, /// the old password
-String? old_password, /// the account id
+String? id, /// the associated user id
 String? userId,})
+@Serializable
+internal data class UserUpdatePasswordRequest({/// the old password
+String? old_password, /// the account id
+String? userId, /// confirm new password
+String? confirm_password, /// the new password
+String? new_password,})
 @Serializable
 data class UserUpdatePasswordResponse()
 @Serializable
-internal data class UserUpdateRequest({/// the account id
+internal data class UserUpdateRequest({/// the new email address
+String? email, /// the account id
 String? id, /// the user profile as map<string,string>
 Map<String, String>? profile, /// the new username
-String? username, /// the new email address
-String? email,})
+String? username,})
 @Serializable
 data class UserUpdateResponse()
 @Serializable
@@ -243,4 +243,4 @@ data class UserVerifyEmailResponse()
 @Serializable
 internal data class UserVerifyTokenRequest({String? token,})
 @Serializable
-data class UserVerifyTokenResponse({String? message, Session? session, bool? is_valid,})
+data class UserVerifyTokenResponse({bool? is_valid, String? message, Session? session,})

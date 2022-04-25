@@ -58,10 +58,10 @@ internal data class CurrencyHistoryRequest({/// currency code e.g USD
 String? code, /// date formatted as YYYY-MM-DD
 String? date,})
 @Serializable
-data class CurrencyHistoryResponse({/// The date requested
+data class CurrencyHistoryResponse({/// The code of the request
+String? code, /// The date requested
 String? date, /// The rate for the day as code:rate
-Map<String, double>? rates, /// The code of the request
-String? code,})
+Map<String, double>? rates,})
 @Serializable
 internal data class CurrencyRatesRequest({/// The currency code to get rates for e.g USD
 String? code,})

@@ -54,9 +54,9 @@ internal data class StreamListMessagesRequest({/// The channel to subscribe to
 String? channel, /// number of message to return
 int? limit,})
 @Serializable
-data class StreamListMessagesResponse({/// The channel subscribed to
-String? channel, /// Messages are chronological order
-List<Message>? messages,})
+data class StreamListMessagesResponse({/// Messages are chronological order
+List<Message>? messages, /// The channel subscribed to
+String? channel,})
 @Serializable
 internal data class StreamMessage({/// the channel name
 String? channel, /// id of the message

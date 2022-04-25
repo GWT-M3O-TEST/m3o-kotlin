@@ -25,11 +25,11 @@ object GeocodingService {
     }
 }
 @Serializable
-internal data class GeocodingAddress({String? line_one, String? line_two, String? postcode, String? city, String? country,})
+internal data class GeocodingAddress({String? line_two, String? postcode, String? city, String? country, String? line_one,})
 @Serializable
 internal data class GeocodingLocation({double? latitude, double? longitude,})
 @Serializable
-internal data class GeocodingLookupRequest({String? country, String? postcode, String? address, String? city,})
+internal data class GeocodingLookupRequest({String? address, String? city, String? country, String? postcode,})
 @Serializable
 data class GeocodingLookupResponse({Address? address, Location? location,})
 @Serializable

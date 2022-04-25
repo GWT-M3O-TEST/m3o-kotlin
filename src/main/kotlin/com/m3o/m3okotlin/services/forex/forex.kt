@@ -33,14 +33,14 @@ object ForexService {
 internal data class ForexHistoryRequest({/// the forex symbol e.g GBPUSD
 String? symbol,})
 @Serializable
-data class ForexHistoryResponse({/// the close price
+data class ForexHistoryResponse({/// the volume
+double? volume, /// the close price
 double? close, /// the date
 String? date, /// the peak price
 double? high, /// the low price
 double? low, /// the open price
 double? open, /// the forex symbol
-String? symbol, /// the volume
-double? volume,})
+String? symbol,})
 @Serializable
 internal data class ForexPriceRequest({/// forex symbol e.g GBPUSD
 String? symbol,})

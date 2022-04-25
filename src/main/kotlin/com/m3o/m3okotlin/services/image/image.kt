@@ -35,12 +35,12 @@ object ImageService {
     }
 }
 @Serializable
-internal data class ImageConvertRequest({/// base64 encoded image to resize,
-String? base64, /// The image file to convert
+internal data class ImageConvertRequest({/// The image file to convert
 String? file, /// output name of the image including extension, ie. "cat.png"
 String? name, /// make output a URL and not a base64 response
 bool? outputURL, /// url of the image to resize
-String? url,})
+String? url, /// base64 encoded image to resize,
+String? base64,})
 @Serializable
 data class ImageConvertResponse({String? base64, String? url,})
 @Serializable
@@ -59,9 +59,12 @@ data class ImageDeleteResponse()
 @Serializable
 internal data class ImagePoint({int? x, int? y,})
 @Serializable
-internal data class ImageRectangle({Point? min, Point? max,})
+internal data class ImageRectangle({Point? max, Point? min,})
 @Serializable
-internal data class ImageResizeRequest({/// The image file to resize
+internal data class ImageResizeRequest({/// optional crop options
+/// if provided, after resize, the image
+/// will be cropped
+CropOptions? cropOptions, /// The image file to resize
 String? file, 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? height
@@ -72,12 +75,9 @@ String? url,
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? width
 	, /// base64 encoded image to resize,
-String? base64, /// optional crop options
-/// if provided, after resize, the image
-/// will be cropped
-CropOptions? cropOptions,})
+String? base64,})
 @Serializable
-data class ImageResizeResponse({String? base64, String? url,})
+data class ImageResizeResponse({String? url, String? base64,})
 @Serializable
 internal data class ImageUploadRequest({/// Base64 encoded image to upload,
 String? base64, /// The image file to upload

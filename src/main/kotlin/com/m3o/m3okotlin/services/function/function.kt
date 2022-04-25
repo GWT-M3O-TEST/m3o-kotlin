@@ -82,20 +82,20 @@ String? name,})
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-internal data class FunctionDeployRequest({/// environment variables to pass in at runtime
-Map<String, String>? env_vars, /// github url for a repo
-String? repo, /// runtime/lanaguage of the function e.g php74,
+internal data class FunctionDeployRequest({/// runtime/lanaguage of the function e.g php74,
 /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
 /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
 /// python37, python38, python39
 String? runtime, /// inline source code
-String? source, /// optional subfolder path
-String? subfolder, /// branch to deploy. defaults to master
-String? branch, /// function name
+String? source, /// function name
 String? name, /// region to deploy in. defaults to europe-west1
-String? region, /// entry point, ie. handler name in the source code
+String? region, /// github url for a repo
+String? repo, /// optional subfolder path
+String? subfolder, /// branch to deploy. defaults to master
+String? branch, /// entry point, ie. handler name in the source code
 /// if not provided, defaults to the name parameter
-String? entrypoint,})
+String? entrypoint, /// environment variables to pass in at runtime
+Map<String, String>? env_vars,})
 @Serializable
 data class FunctionDeployResponse({Func? function,})
 @Serializable
@@ -105,25 +105,25 @@ String? name,})
 data class FunctionDescribeResponse({/// The function requested
 Func? function,})
 @Serializable
-internal data class FunctionFunc({/// associated env vars
+internal data class FunctionFunc({/// time of creation
+String? created, /// associated env vars
 Map<String, String>? env_vars, /// git repo address
-String? repo, /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-String? status, /// time it was updated
-String? updated, /// function name
+String? repo, /// subfolder path to entrypoint
+String? subfolder, /// name of handler in source code
+String? entrypoint, /// function name
 /// limitation: must be unique across projects
-String? name, /// region to deploy in. defaults to europe-west1
-String? region, /// runtime/language of the function e.g php74,
+String? name, /// runtime/language of the function e.g php74,
 /// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
 /// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
 /// python37, python38, python39
-String? runtime, /// name of handler in source code
-String? entrypoint, /// id of the function
-String? id, /// the source code
-String? source, /// branch to deploy. defaults to master
-String? branch, /// time of creation
-String? created, /// subfolder path to entrypoint
-String? subfolder, /// unique url of the function
-String? url,})
+String? runtime, /// time it was updated
+String? updated, /// unique url of the function
+String? url, /// branch to deploy. defaults to master
+String? branch, /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
+String? status, /// id of the function
+String? id, /// region to deploy in. defaults to europe-west1
+String? region, /// the source code
+String? source,})
 @Serializable
 internal data class FunctionListRequest()
 @Serializable
@@ -146,12 +146,12 @@ internal data class FunctionRegionsRequest()
 @Serializable
 data class FunctionRegionsResponse({List<String>? regions,})
 @Serializable
-internal data class FunctionReservation({/// name of the app
+internal data class FunctionReservation({/// time reservation expires
+String? expires, /// name of the app
 String? name, /// owner id
 String? owner, /// associated token
 String? token, /// time of reservation
-String? created, /// time reservation expires
-String? expires,})
+String? created,})
 @Serializable
 internal data class FunctionReserveRequest({/// name of your app e.g helloworld
 String? name,})

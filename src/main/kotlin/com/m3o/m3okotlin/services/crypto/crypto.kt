@@ -50,14 +50,14 @@ String? url,})
 internal data class CryptoHistoryRequest({/// the crypto symbol e.g BTCUSD
 String? symbol,})
 @Serializable
-data class CryptoHistoryResponse({/// the date
+data class CryptoHistoryResponse({/// the crypto symbol
+String? symbol, /// the volume
+double? volume, /// the close price
+double? close, /// the date
 String? date, /// the peak price
 double? high, /// the low price
 double? low, /// the open price
-double? open, /// the crypto symbol
-String? symbol, /// the volume
-double? volume, /// the close price
-double? close,})
+double? open,})
 @Serializable
 internal data class CryptoNewsRequest({/// cryptocurrency ticker to request news for e.g BTC
 String? symbol,})

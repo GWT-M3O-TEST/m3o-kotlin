@@ -22,13 +22,13 @@ object CarbonService {
 @Serializable
 internal data class CarbonOffsetRequest()
 @Serializable
-data class CarbonOffsetResponse({/// the metric used e.g KG or Tonnes
-String? metric, /// projects it was allocated to
-List<Project>? projects, /// number of tonnes
+data class CarbonOffsetResponse({/// number of tonnes
 double? tonnes, /// number of units purchased
-int? units,})
+int? units, /// the metric used e.g KG or Tonnes
+String? metric, /// projects it was allocated to
+List<Project>? projects,})
 @Serializable
-internal data class CarbonProject({/// name of the project
-String? name, /// percentage that went to this
+internal data class CarbonProject({/// percentage that went to this
 double? percentage, /// amount in tonnes
-double? tonnes,})
+double? tonnes, /// name of the project
+String? name,})

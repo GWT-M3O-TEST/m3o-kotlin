@@ -40,14 +40,14 @@ String? query,})
 data class YoutubeSearchResponse({/// List of results for the query
 List<SearchResult>? results,})
 @Serializable
-internal data class YoutubeSearchResult({/// title of the result
-String? title, /// the channel title
-String? channel_title, /// kind of result: "video", "channel", "playlist"
-String? kind, /// published at time
-String? published_at, /// id of the result
-String? id, /// the associated url
-String? url, /// if live broadcast then indicates activity:
+internal data class YoutubeSearchResult({/// if live broadcast then indicates activity:
 /// none, upcoming, live, completed
-String? broadcasting, /// the channel id
-String? channel_id, /// the result description
+String? broadcasting, /// id of the result
+String? id, /// the associated url
+String? url, /// kind of result: "video", "channel", "playlist"
+String? kind, /// published at time
+String? published_at, /// title of the result
+String? title, /// the channel id
+String? channel_id, /// the channel title
+String? channel_title, /// the result description
 String? description,})

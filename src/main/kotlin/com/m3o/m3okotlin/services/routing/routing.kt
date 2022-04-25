@@ -30,14 +30,14 @@ object RoutingService {
     }
 }
 @Serializable
-internal data class RoutingDirection({/// human readable instruction
+internal data class RoutingDirection({/// distance to travel in meters
+double? distance, /// duration to travel in seconds
+double? duration, /// human readable instruction
 String? instruction, /// intersections on route
 List<Intersection>? intersections, /// maneuver to take
 Maneuver? maneuver, /// street name or location
 String? name, /// alternative reference
-String? reference, /// distance to travel in meters
-double? distance, /// duration to travel in seconds
-double? duration,})
+String? reference,})
 @Serializable
 internal data class RoutingDirectionsRequest({/// The destination of the journey
 Point? destination, /// The staring point for the journey
@@ -60,7 +60,7 @@ double? duration,})
 @Serializable
 internal data class RoutingIntersection({List<double>? bearings, Point? location,})
 @Serializable
-internal data class RoutingManeuver({String? action, double? bearing_after, double? bearing_before, String? direction, Point? location,})
+internal data class RoutingManeuver({Point? location, String? action, double? bearing_after, double? bearing_before, String? direction,})
 @Serializable
 internal data class RoutingPoint({/// Lat e.g 52.523219
 double? latitude, /// Long e.g 13.428555

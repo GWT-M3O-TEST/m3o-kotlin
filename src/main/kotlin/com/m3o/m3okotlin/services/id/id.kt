@@ -28,9 +28,9 @@ object IdService {
 internal data class IdGenerateRequest({/// type of id e.g uuid, shortid, snowflake (64 bit), bigflake (128 bit)
 String? type,})
 @Serializable
-data class IdGenerateResponse({/// the unique id generated
-String? id, /// the type of id generated
-String? type,})
+data class IdGenerateResponse({/// the type of id generated
+String? type, /// the unique id generated
+String? id,})
 @Serializable
 internal data class IdTypesRequest()
 @Serializable

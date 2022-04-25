@@ -80,12 +80,12 @@ internal data class AppRegionsRequest()
 @Serializable
 data class AppRegionsResponse({List<String>? regions,})
 @Serializable
-internal data class AppReservation({/// name of the app
+internal data class AppReservation({/// time reservation expires
+String? expires, /// name of the app
 String? name, /// owner id
 String? owner, /// associated token
 String? token, /// time of reservation
-String? created, /// time reservation expires
-String? expires,})
+String? created,})
 @Serializable
 internal data class AppReserveRequest({/// name of your app e.g helloworld
 String? name,})
@@ -99,29 +99,29 @@ String? id,})
 data class AppResolveResponse({/// the end provider url
 String? url,})
 @Serializable
-internal data class AppRunRequest({/// source repository
-String? repo, /// branch. defaults to master
-String? branch, /// associated env vars to pass in
-Map<String, String>? env_vars, /// name of the app
+internal data class AppRunRequest({/// name of the app
 String? name, /// port to run on
 int? port, /// region to run in
-String? region,})
+String? region, /// source repository
+String? repo, /// branch. defaults to master
+String? branch, /// associated env vars to pass in
+Map<String, String>? env_vars,})
 @Serializable
 data class AppRunResponse({/// The running service
 Service? service,})
 @Serializable
-internal data class AppService({/// branch of code
-String? branch, /// time of creation
-String? created, /// custom domains
-List<String>? custom_domains, /// unique id
-String? id, /// name of the app
-String? name, /// port running on
-int? port, /// region running in
-String? region, /// last updated
-String? updated, /// associated env vars
-Map<String, String>? env_vars, /// source repository
+internal data class AppService({/// time of creation
+String? created, /// name of the app
+String? name, /// region running in
+String? region, /// source repository
 String? repo, /// status of the app
-String? status, /// app url
+String? status, /// last updated
+String? updated, /// branch of code
+String? branch, /// custom domains
+List<String>? custom_domains, /// associated env vars
+Map<String, String>? env_vars, /// unique id
+String? id, /// port running on
+int? port, /// app url
 String? url,})
 @Serializable
 internal data class AppStatusRequest({/// name of the app

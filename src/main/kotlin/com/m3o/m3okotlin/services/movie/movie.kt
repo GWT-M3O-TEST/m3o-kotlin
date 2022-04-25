@@ -20,7 +20,7 @@ object MovieService {
     }
 }
 @Serializable
-internal data class MovieMovieInfo({int? id, double? popularity, double? vote_average, String? overview, String? title, String? release_date, bool? video, bool? adult, String? backdrop_path, String? original_title, String? poster_path, List<int>? genre_ids, String? original_language, int? vote_count,})
+internal data class MovieMovieInfo({String? backdrop_path, int? id, String? original_title, String? poster_path, int? vote_count, String? original_language, String? title, bool? video, bool? adult, List<int>? genre_ids, double? popularity, String? release_date, String? overview, double? vote_average,})
 @Serializable
 internal data class MovieSearchRequest({/// a ISO 639-1 value to display translated data
 String? language, /// page to query

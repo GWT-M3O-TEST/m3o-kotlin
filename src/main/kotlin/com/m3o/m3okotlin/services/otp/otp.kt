@@ -25,15 +25,15 @@ object OtpService {
     }
 }
 @Serializable
-internal data class OtpGenerateRequest({/// unique id, email or user to generate an OTP for
+internal data class OtpGenerateRequest({/// expiration in seconds (default: 60)
+
+	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
+	int? expiry
+	, /// unique id, email or user to generate an OTP for
 String? id, /// number of characters (default: 6)
 
 	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
 	int? size
-	, /// expiration in seconds (default: 60)
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? expiry
 	,})
 @Serializable
 data class OtpGenerateResponse({/// one time pass code

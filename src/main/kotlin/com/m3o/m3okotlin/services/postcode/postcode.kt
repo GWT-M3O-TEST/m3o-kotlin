@@ -33,7 +33,18 @@ object PostcodeService {
 internal data class PostcodeLookupRequest({/// UK postcode e.g SW1A 2AA
 String? postcode,})
 @Serializable
-data class PostcodeLookupResponse({/// country e.g United Kingdom
+data class PostcodeLookupResponse({/// UK postcode e.g SW1A 2AA
+String? postcode, /// related region e.g London
+String? region, /// e.g St James's
+String? ward, /// country e.g United Kingdom
+String? country, /// e.g Westminster
+String? district, /// e.g 51.50354
+double? latitude, /// e.g -0.127695
+double? longitude,})
+@Serializable
+internal data class PostcodeRandomRequest()
+@Serializable
+data class PostcodeRandomResponse({/// country e.g United Kingdom
 String? country, /// e.g Westminster
 String? district, /// e.g 51.50354
 double? latitude, /// e.g -0.127695
@@ -41,17 +52,6 @@ double? longitude, /// UK postcode e.g SW1A 2AA
 String? postcode, /// related region e.g London
 String? region, /// e.g St James's
 String? ward,})
-@Serializable
-internal data class PostcodeRandomRequest()
-@Serializable
-data class PostcodeRandomResponse({/// e.g St James's
-String? ward, /// country e.g United Kingdom
-String? country, /// e.g Westminster
-String? district, /// e.g 51.50354
-double? latitude, /// e.g -0.127695
-double? longitude, /// UK postcode e.g SW1A 2AA
-String? postcode, /// related region e.g London
-String? region,})
 @Serializable
 internal data class PostcodeValidateRequest({/// UK postcode e.g SW1A 2AA
 String? postcode,})

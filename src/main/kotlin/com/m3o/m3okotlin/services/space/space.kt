@@ -99,18 +99,18 @@ String? name,})
 data class SpaceReadResponse({/// The object itself
 SpaceObject? object,})
 @Serializable
-internal data class SpaceSpaceObject({/// the data within the object
+internal data class SpaceSpaceObject({/// when was this created
+String? created, /// the data within the object
 String? data, /// when was this last modified
 String? modified, /// name of object
 String? name, /// URL to access the object if it is public
 String? url, /// is this public or private
-String? visibility, /// when was this created
-String? created,})
-@Serializable
-internal data class SpaceUpdateRequest({/// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-String? name, /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-String? object, /// Who can see this object? "public" or "private", defaults to "private"
 String? visibility,})
+@Serializable
+internal data class SpaceUpdateRequest({/// Who can see this object? "public" or "private", defaults to "private"
+String? visibility, /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
+String? name, /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
+String? object,})
 @Serializable
 data class SpaceUpdateResponse({/// A public URL to access the object if visibility is "public"
 String? url,})

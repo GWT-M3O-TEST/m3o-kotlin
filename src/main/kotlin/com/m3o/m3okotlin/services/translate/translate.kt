@@ -33,7 +33,7 @@ String? target,})
 data class TranslateTextResponse({/// The translated text
 Translation? translation,})
 @Serializable
-internal data class TranslateTranslation({/// The translation result
-String? text, /// The model used in translation
+internal data class TranslateTranslation({/// The model used in translation
 String? model, /// The source of the query string
-String? source,})
+String? source, /// The translation result
+String? text,})

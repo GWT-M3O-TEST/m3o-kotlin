@@ -71,12 +71,12 @@ internal data class NotesListRequest()
 data class NotesListResponse({/// the list of notes
 List<Note>? notes,})
 @Serializable
-internal data class NotesNote({/// text within the note
+internal data class NotesNote({/// unique id for the note, generated if not specified
+String? id, /// text within the note
 String? text, /// title of the note
 String? title, /// time at which the note was updated
 String? updated, /// time at which the note was created
-String? created, /// unique id for the note, generated if not specified
-String? id,})
+String? created,})
 @Serializable
 internal data class NotesReadRequest({/// the note id
 String? id,})

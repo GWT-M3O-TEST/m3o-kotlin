@@ -20,8 +20,8 @@ object ThumbnailService {
     }
 }
 @Serializable
-internal data class ThumbnailScreenshotRequest({/// height of the browser window, optional
-int? height, String? url, /// width of the browser window. optional
-int? width,})
+internal data class ThumbnailScreenshotRequest({String? url, /// width of the browser window. optional
+int? width, /// height of the browser window, optional
+int? height,})
 @Serializable
 data class ThumbnailScreenshotResponse({String? imageURL,})

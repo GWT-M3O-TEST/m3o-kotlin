@@ -37,13 +37,13 @@ data class EmailParseResponse({/// the email address
 String? address, /// associated name e.g Joe Blogs
 String? name,})
 @Serializable
-internal data class EmailSendRequest({/// the text body
-String? text_body, /// the email address of the recipient
-String? to, /// the display name of the sender
+internal data class EmailSendRequest({/// the display name of the sender
 String? from, /// the html body
 String? html_body, /// an optional reply to email address
 String? reply_to, /// the email subject
-String? subject,})
+String? subject, /// the text body
+String? text_body, /// the email address of the recipient
+String? to,})
 @Serializable
 data class EmailSendResponse()
 @Serializable

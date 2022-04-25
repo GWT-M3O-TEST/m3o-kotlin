@@ -66,17 +66,17 @@ String? table,})
 data class DbCountResponse({/// the number of records in the table
 int? count,})
 @Serializable
-internal data class DbCreateRequest({/// JSON encoded record or records (can be array or object)
+internal data class DbCreateRequest({/// optional record id to use
+String? id, /// JSON encoded record or records (can be array or object)
 Map<String, dynamic>? record, /// Optional table name. Defaults to 'default'
-String? table, /// optional record id to use
-String? id,})
+String? table,})
 @Serializable
 data class DbCreateResponse({/// The id of the record (either specified or automatically created)
 String? id,})
 @Serializable
-internal data class DbDeleteRequest({/// Optional table name. Defaults to 'default'
-String? table, /// id of the record
-String? id,})
+internal data class DbDeleteRequest({/// id of the record
+String? id, /// Optional table name. Defaults to 'default'
+String? table,})
 @Serializable
 data class DbDeleteResponse()
 @Serializable
@@ -115,9 +115,9 @@ internal data class DbTruncateRequest({String? table,})
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest({/// The id of the record. If not specified it is inferred from the 'id' field of the record
+internal data class DbUpdateRequest({/// Optional table name. Defaults to 'default'
+String? table, /// The id of the record. If not specified it is inferred from the 'id' field of the record
 String? id, /// record, JSON object
-Map<String, dynamic>? record, /// Optional table name. Defaults to 'default'
-String? table,})
+Map<String, dynamic>? record,})
 @Serializable
 data class DbUpdateResponse()

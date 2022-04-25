@@ -40,22 +40,22 @@ object ContactService {
     }
 }
 @Serializable
-internal data class ContactAddress({/// the label of the address
-String? label, /// the address location
-String? location,})
+internal data class ContactAddress({/// the address location
+String? location, /// the label of the address
+String? label,})
 @Serializable
-internal data class ContactContactInfo({/// the address
-List<Address>? addresses, /// the birthday
-String? birthday, /// create date string in RFC3339
-String? created_at, /// contact id
-String? id, /// the contact links
-List<Link>? links, /// note of the contact
-String? note, /// the social media username
-List<SocialMedia>? social_medias, /// the emails
+internal data class ContactContactInfo({/// the social media username
+List<SocialMedia>? social_medias, /// the address
+List<Address>? addresses, /// create date string in RFC3339
+String? created_at, /// the emails
 List<Email>? emails, /// the contact name
-String? name, /// the phone numbers
+String? name, /// note of the contact
+String? note, /// the phone numbers
 List<Phone>? phones, /// update date string in RFC3339
-String? updated_at,})
+String? updated_at, /// the birthday
+String? birthday, /// contact id
+String? id, /// the contact links
+List<Link>? links,})
 @Serializable
 internal data class ContactCreateRequest({/// optional, note of the contact
 String? note, /// optional, phone numbers
@@ -100,15 +100,15 @@ internal data class ContactSocialMedia({/// the label of the social
 String? label, /// the username of social media
 String? username,})
 @Serializable
-internal data class ContactUpdateRequest({/// optional, addresses
+internal data class ContactUpdateRequest({/// required, the contact id
+String? id, /// optional, phone number
+List<Phone>? phones, /// optional, social media
+List<SocialMedia>? social_medias, /// optional, addresses
 List<Address>? addresses, /// optional, birthday
 String? birthday, /// optional, emails
-List<Email>? emails, /// required, the contact id
-String? id, /// required, the name
-String? name, /// optional, links
-List<Link>? links, /// optional, note
-String? note, /// optional, phone number
-List<Phone>? phones, /// optional, social media
-List<SocialMedia>? social_medias,})
+List<Email>? emails, /// optional, links
+List<Link>? links, /// required, the name
+String? name, /// optional, note
+String? note,})
 @Serializable
 data class ContactUpdateResponse({ContactInfo? contact,})

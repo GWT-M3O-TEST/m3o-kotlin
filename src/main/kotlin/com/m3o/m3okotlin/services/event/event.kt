@@ -37,11 +37,11 @@ String? group, /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:
 String? offset, /// The topic to subscribe to
 String? topic,})
 @Serializable
-data class EventConsumeResponse({/// Timestamp of publishing
-String? timestamp, /// The topic subscribed to
-String? topic, /// Unique message id
+data class EventConsumeResponse({/// Unique message id
 String? id, /// The next json message on the topic
-Map<String, dynamic>? message,})
+Map<String, dynamic>? message, /// Timestamp of publishing
+String? timestamp, /// The topic subscribed to
+String? topic,})
 @Serializable
 internal data class EventEv({/// event id
 String? id, /// event message

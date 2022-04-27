@@ -25,10 +25,10 @@ object OtpService {
     }
 }
 @Serializable
-internal data class OtpGenerateRequest()
+internal data class OtpGenerateRequest(val expiry: Long, val id: String, val size: Long)
 @Serializable
-data class OtpGenerateResponse()
+data class OtpGenerateResponse(val code: String)
 @Serializable
-internal data class OtpValidateRequest()
+internal data class OtpValidateRequest(val code: String, val id: String)
 @Serializable
-data class OtpValidateResponse()
+data class OtpValidateResponse(val success: Boolean)

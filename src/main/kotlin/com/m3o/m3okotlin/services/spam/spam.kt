@@ -20,6 +20,6 @@ object SpamService {
     }
 }
 @Serializable
-internal data class SpamClassifyRequest()
+internal data class SpamClassifyRequest(val subject: String, val text_body: String, val to: String, val email_body: String, val from: String, val html_body: String)
 @Serializable
-data class SpamClassifyResponse()
+data class SpamClassifyResponse(val details: List<SpamString>, val is_spam: Boolean, val score: Double)

@@ -35,20 +35,20 @@ object AnalyticsService {
     }
 }
 @Serializable
-internal data class AnalyticsDeleteRequest()
+internal data class AnalyticsDeleteRequest(val name: String)
 @Serializable
-data class AnalyticsDeleteResponse()
+data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
 @Serializable
-internal data class AnalyticsEvent()
+internal data class AnalyticsEvent(val created: String, val name: String, val value: Long)
 @Serializable
 internal data class AnalyticsListRequest()
 @Serializable
-data class AnalyticsListResponse()
+data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
 @Serializable
-internal data class AnalyticsReadRequest()
+internal data class AnalyticsReadRequest(val name: String)
 @Serializable
-data class AnalyticsReadResponse()
+data class AnalyticsReadResponse(val event: AnalyticsEvent)
 @Serializable
-internal data class AnalyticsTrackRequest()
+internal data class AnalyticsTrackRequest(val name: String)
 @Serializable
 data class AnalyticsTrackResponse()

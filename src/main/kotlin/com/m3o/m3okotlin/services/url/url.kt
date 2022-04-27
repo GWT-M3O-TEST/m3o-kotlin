@@ -30,16 +30,16 @@ object UrlService {
     }
 }
 @Serializable
-internal data class UrlListRequest()
+internal data class UrlListRequest(val shortURL: String)
 @Serializable
-data class UrlListResponse()
+data class UrlListResponse(val urlPairs: UrlURLPair)
 @Serializable
-internal data class UrlProxyRequest()
+internal data class UrlProxyRequest(val shortURL: String)
 @Serializable
-data class UrlProxyResponse()
+data class UrlProxyResponse(val destinationURL: String)
 @Serializable
-internal data class UrlShortenRequest()
+internal data class UrlShortenRequest(val destinationURL: String)
 @Serializable
-data class UrlShortenResponse()
+data class UrlShortenResponse(val shortURL: String)
 @Serializable
-internal data class UrlURLPair()
+internal data class UrlURLPair(val shortURL: String, val created: String, val destinationURL: String, val hitCount: Long)

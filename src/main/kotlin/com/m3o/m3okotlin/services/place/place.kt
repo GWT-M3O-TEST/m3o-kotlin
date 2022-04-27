@@ -29,12 +29,12 @@ internal data class PlaceAutocompleteRequest()
 @Serializable
 data class PlaceAutocompleteResponse()
 @Serializable
-internal data class PlaceNearbyRequest()
+internal data class PlaceNearbyRequest(val keyword: String, val location: String, val name: String, val open_now: Boolean, val radius: Int, val type: String)
 @Serializable
-data class PlaceNearbyResponse()
+data class PlaceNearbyResponse(val results: List<PlaceResult>)
 @Serializable
-internal data class PlaceResult()
+internal data class PlaceResult(val vicinity: String, val location: String, val name: String, val open_now: Boolean, val rating: Double, val types: List<PlaceString>, val address: String, val icon_url: String, val opening_hours: List<PlaceString>, val type: String)
 @Serializable
-internal data class PlaceSearchRequest()
+internal data class PlaceSearchRequest(val location: String, val open_now: Boolean, val query: String, val radius: Int, val type: String)
 @Serializable
-data class PlaceSearchResponse()
+data class PlaceSearchResponse(val results: List<PlaceResult>)

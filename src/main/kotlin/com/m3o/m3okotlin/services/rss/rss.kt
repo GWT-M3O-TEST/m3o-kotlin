@@ -35,22 +35,22 @@ object RssService {
     }
 }
 @Serializable
-internal data class RssAddRequest()
+internal data class RssAddRequest(val url: String, val category: String, val name: String)
 @Serializable
 data class RssAddResponse()
 @Serializable
-internal data class RssEntry()
+internal data class RssEntry(val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String)
 @Serializable
-internal data class RssFeed()
+internal data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable
-internal data class RssFeedRequest()
+internal data class RssFeedRequest(val name: String, val offset: Long, val limit: Long)
 @Serializable
-data class RssFeedResponse()
+data class RssFeedResponse(val entries: List<RssEntry>)
 @Serializable
 internal data class RssListRequest()
 @Serializable
-data class RssListResponse()
+data class RssListResponse(val feeds: List<RssFeed>)
 @Serializable
-internal data class RssRemoveRequest()
+internal data class RssRemoveRequest(val name: String)
 @Serializable
 data class RssRemoveResponse()

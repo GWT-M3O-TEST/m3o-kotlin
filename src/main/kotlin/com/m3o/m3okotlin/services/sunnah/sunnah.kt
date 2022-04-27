@@ -35,26 +35,26 @@ object SunnahService {
     }
 }
 @Serializable
-internal data class SunnahBook()
+internal data class SunnahBook(val arabic_name: String, val hadiths: Int, val id: Int, val name: String)
 @Serializable
-internal data class SunnahBooksRequest()
+internal data class SunnahBooksRequest(val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahBooksResponse()
+data class SunnahBooksResponse(val books: List<SunnahBook>, val collection: String, val limit: Int, val page: Int, val total: Int)
 @Serializable
-internal data class SunnahChapter()
+internal data class SunnahChapter(val id: Int, val key: String, val title: String, val arabic_title: String, val book: Int)
 @Serializable
-internal data class SunnahChaptersRequest()
+internal data class SunnahChaptersRequest(val book: Int, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahChaptersResponse()
+data class SunnahChaptersResponse(val limit: Int, val page: Int, val total: Int, val book: Int, val chapters: List<SunnahChapter>, val collection: String)
 @Serializable
-internal data class SunnahCollection()
+internal data class SunnahCollection(val name: String, val summary: String, val title: String, val arabic_title: String, val hadiths: Int)
 @Serializable
-internal data class SunnahCollectionsRequest()
+internal data class SunnahCollectionsRequest(val limit: Int, val page: Int)
 @Serializable
-data class SunnahCollectionsResponse()
+data class SunnahCollectionsResponse(val collections: List<SunnahCollection>)
 @Serializable
-internal data class SunnahHadith()
+internal data class SunnahHadith(val arabic_chapter_title: String, val arabic_text: String, val chapter: Int, val chapter_key: String, val chapter_title: String, val id: Int, val text: String)
 @Serializable
-internal data class SunnahHadithsRequest()
+internal data class SunnahHadithsRequest(val book: Int, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahHadithsResponse()
+data class SunnahHadithsResponse(val total: Int, val book: Int, val collection: String, val hadiths: List<SunnahHadith>, val limit: Int, val page: Int)

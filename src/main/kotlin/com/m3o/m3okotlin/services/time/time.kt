@@ -25,10 +25,10 @@ object TimeService {
     }
 }
 @Serializable
-internal data class TimeNowRequest()
+internal data class TimeNowRequest(val location: String)
 @Serializable
-data class TimeNowResponse()
+data class TimeNowResponse(val localtime: String, val location: String, val timestamp: String, val timezone: String, val unix: Long)
 @Serializable
-internal data class TimeZoneRequest()
+internal data class TimeZoneRequest(val location: String)
 @Serializable
-data class TimeZoneResponse()
+data class TimeZoneResponse(val dst: Boolean, val localtime: String, val location: String, val longitude: Double, val region: String, val abbreviation: String, val latitude: Double, val offset: Int, val timezone: String, val country: String)

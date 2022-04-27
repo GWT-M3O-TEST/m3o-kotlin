@@ -60,38 +60,38 @@ object DbService {
     }
 }
 @Serializable
-internal data class DbCountRequest()
+internal data class DbCountRequest(val table: String)
 @Serializable
-data class DbCountResponse()
+data class DbCountResponse(val count: Int)
 @Serializable
-internal data class DbCreateRequest()
+internal data class DbCreateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
 @Serializable
-data class DbCreateResponse()
+data class DbCreateResponse(val id: String)
 @Serializable
-internal data class DbDeleteRequest()
+internal data class DbDeleteRequest(val id: String, val table: String)
 @Serializable
 data class DbDeleteResponse()
 @Serializable
-internal data class DbDropTableRequest()
+internal data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbDropTableResponse()
 @Serializable
 internal data class DbListTablesRequest()
 @Serializable
-data class DbListTablesResponse()
+data class DbListTablesResponse(val tables: List<DbString>)
 @Serializable
-internal data class DbReadRequest()
+internal data class DbReadRequest(val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int, val offset: Int)
 @Serializable
-data class DbReadResponse()
+data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-internal data class DbRenameTableRequest()
+internal data class DbRenameTableRequest(val from: String, val to: String)
 @Serializable
 data class DbRenameTableResponse()
 @Serializable
-internal data class DbTruncateRequest()
+internal data class DbTruncateRequest(val table: String)
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest()
+internal data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
 @Serializable
 data class DbUpdateResponse()

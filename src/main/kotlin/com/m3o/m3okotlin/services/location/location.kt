@@ -30,18 +30,18 @@ object LocationService {
     }
 }
 @Serializable
-internal data class LocationEntity()
+internal data class LocationEntity(val id: String, val location: LocationPoint, val type: String)
 @Serializable
-internal data class LocationPoint()
+internal data class LocationPoint(val latitude: Double, val longitude: Double, val timestamp: Long)
 @Serializable
-internal data class LocationReadRequest()
+internal data class LocationReadRequest(val id: String)
 @Serializable
-data class LocationReadResponse()
+data class LocationReadResponse(val entity: LocationEntity)
 @Serializable
-internal data class LocationSaveRequest()
+internal data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
 data class LocationSaveResponse()
 @Serializable
-internal data class LocationSearchRequest()
+internal data class LocationSearchRequest(val numEntities: Long, val radius: Double, val type: String, val center: LocationPoint)
 @Serializable
-data class LocationSearchResponse()
+data class LocationSearchResponse(val entities: List<LocationEntity>)

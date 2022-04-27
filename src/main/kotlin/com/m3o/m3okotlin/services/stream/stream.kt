@@ -35,22 +35,22 @@ object StreamService {
     }
 }
 @Serializable
-internal data class StreamChannel()
+internal data class StreamChannel(val description: String, val last_active: String, val name: String)
 @Serializable
-internal data class StreamCreateChannelRequest()
+internal data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable
 data class StreamCreateChannelResponse()
 @Serializable
 internal data class StreamListChannelsRequest()
 @Serializable
-data class StreamListChannelsResponse()
+data class StreamListChannelsResponse(val channels: List<StreamChannel>)
 @Serializable
-internal data class StreamListMessagesRequest()
+internal data class StreamListMessagesRequest(val limit: Int, val channel: String)
 @Serializable
-data class StreamListMessagesResponse()
+data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
 @Serializable
-internal data class StreamMessage()
+internal data class StreamMessage(val timestamp: String, val channel: String, val id: String, val metadata: Map<String, String>, val text: String)
 @Serializable
-internal data class StreamSendMessageRequest()
+internal data class StreamSendMessageRequest(val channel: String, val text: String)
 @Serializable
 data class StreamSendMessageResponse()

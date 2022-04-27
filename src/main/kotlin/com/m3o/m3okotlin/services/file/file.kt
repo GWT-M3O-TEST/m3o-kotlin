@@ -35,20 +35,20 @@ object FileService {
     }
 }
 @Serializable
-internal data class FileDeleteRequest()
+internal data class FileDeleteRequest(val path: String, val project: String)
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest()
+internal data class FileListRequest(val path: String, val project: String)
 @Serializable
-data class FileListResponse()
+data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-internal data class FileReadRequest()
+internal data class FileReadRequest(val path: String, val project: String)
 @Serializable
-data class FileReadResponse()
+data class FileReadResponse(val file: FileRecord)
 @Serializable
-internal data class FileRecord()
+internal data class FileRecord(val path: String, val project: String, val updated: String, val content: String, val created: String, val metadata: Map<String, String>)
 @Serializable
-internal data class FileSaveRequest()
+internal data class FileSaveRequest(val public: Boolean, val file: FileRecord)
 @Serializable
-data class FileSaveResponse()
+data class FileSaveResponse(val url: String)

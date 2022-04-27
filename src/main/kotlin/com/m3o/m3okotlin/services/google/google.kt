@@ -20,8 +20,8 @@ object GoogleService {
     }
 }
 @Serializable
-internal data class GoogleSearchRequest()
+internal data class GoogleSearchRequest(val query: String)
 @Serializable
-data class GoogleSearchResponse()
+data class GoogleSearchResponse(val results: List<GoogleSearchResult>)
 @Serializable
-internal data class GoogleSearchResult()
+internal data class GoogleSearchResult(val snippet: String, val title: String, val url: String, val display_url: String, val id: String, val kind: String)

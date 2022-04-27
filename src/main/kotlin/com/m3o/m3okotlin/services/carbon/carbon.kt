@@ -22,6 +22,6 @@ object CarbonService {
 @Serializable
 internal data class CarbonOffsetRequest()
 @Serializable
-data class CarbonOffsetResponse()
+data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
 @Serializable
-internal data class CarbonProject()
+internal data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)

@@ -20,8 +20,8 @@ object TranslateService {
     }
 }
 @Serializable
-internal data class TranslateTextRequest()
+internal data class TranslateTextRequest(val target: String, val content: String, val format: String, val model: String, val source: String)
 @Serializable
-data class TranslateTextResponse()
+data class TranslateTextResponse(val translation: TranslateTranslation)
 @Serializable
-internal data class TranslateTranslation()
+internal data class TranslateTranslation(val model: String, val source: String, val text: String)

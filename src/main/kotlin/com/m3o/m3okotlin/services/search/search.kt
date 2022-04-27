@@ -40,26 +40,26 @@ object SearchService {
     }
 }
 @Serializable
-internal data class SearchCreateIndexRequest()
+internal data class SearchCreateIndexRequest(val index: String)
 @Serializable
 data class SearchCreateIndexResponse()
 @Serializable
-internal data class SearchDeleteIndexRequest()
+internal data class SearchDeleteIndexRequest(val index: String)
 @Serializable
 data class SearchDeleteIndexResponse()
 @Serializable
-internal data class SearchDeleteRequest()
+internal data class SearchDeleteRequest(val id: String, val index: String)
 @Serializable
 data class SearchDeleteResponse()
 @Serializable
-internal data class SearchField()
+internal data class SearchField(val name: String, val type: String)
 @Serializable
-internal data class SearchIndexRequest()
+internal data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
 @Serializable
-data class SearchIndexResponse()
+data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
-internal data class SearchRecord()
+internal data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
 @Serializable
-internal data class SearchSearchRequest()
+internal data class SearchSearchRequest(val index: String, val query: String)
 @Serializable
-data class SearchSearchResponse()
+data class SearchSearchResponse(val records: List<SearchRecord>)

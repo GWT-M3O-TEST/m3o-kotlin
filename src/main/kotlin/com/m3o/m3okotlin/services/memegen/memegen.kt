@@ -25,14 +25,14 @@ object MemegenService {
     }
 }
 @Serializable
-internal data class MemegenBox()
+internal data class MemegenBox(val color: String, val height: Int, val outline: String, val text: String, val width: Int, val x: Int, val y: Int)
 @Serializable
-internal data class MemegenGenerateRequest()
+internal data class MemegenGenerateRequest(val top_text: String, val bottom_text: String, val font: String, val id: String, val max_font_size: String)
 @Serializable
-data class MemegenGenerateResponse()
+data class MemegenGenerateResponse(val url: String)
 @Serializable
-internal data class MemegenTemplate()
+internal data class MemegenTemplate(val name: String, val url: String, val width: Int, val box_count: Int, val height: Int, val id: String)
 @Serializable
 internal data class MemegenTemplatesRequest()
 @Serializable
-data class MemegenTemplatesResponse()
+data class MemegenTemplatesResponse(val templates: List<MemegenTemplate>)

@@ -30,14 +30,14 @@ object PostcodeService {
     }
 }
 @Serializable
-internal data class PostcodeLookupRequest()
+internal data class PostcodeLookupRequest(val postcode: String)
 @Serializable
-data class PostcodeLookupResponse()
+data class PostcodeLookupResponse(val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double)
 @Serializable
 internal data class PostcodeRandomRequest()
 @Serializable
-data class PostcodeRandomResponse()
+data class PostcodeRandomResponse(val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String, val district: String)
 @Serializable
-internal data class PostcodeValidateRequest()
+internal data class PostcodeValidateRequest(val postcode: String)
 @Serializable
-data class PostcodeValidateResponse()
+data class PostcodeValidateResponse(val valid: Boolean)

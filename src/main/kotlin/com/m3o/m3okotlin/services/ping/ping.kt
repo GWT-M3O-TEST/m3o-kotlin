@@ -30,14 +30,14 @@ object PingService {
     }
 }
 @Serializable
-internal data class PingIpRequest()
+internal data class PingIpRequest(val address: String)
 @Serializable
-data class PingIpResponse()
+data class PingIpResponse(val latency: String, val status: String)
 @Serializable
-internal data class PingTcpRequest()
+internal data class PingTcpRequest(val address: String, val data: String)
 @Serializable
-data class PingTcpResponse()
+data class PingTcpResponse(val data: String, val status: String)
 @Serializable
-internal data class PingUrlRequest()
+internal data class PingUrlRequest(val address: String, val method: String)
 @Serializable
-data class PingUrlResponse()
+data class PingUrlResponse(val code: Int, val status: String)

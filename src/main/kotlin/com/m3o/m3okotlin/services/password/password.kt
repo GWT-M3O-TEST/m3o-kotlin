@@ -20,6 +20,6 @@ object PasswordService {
     }
 }
 @Serializable
-internal data class PasswordGenerateRequest()
+internal data class PasswordGenerateRequest(val length: Int, val lowercase: Boolean, val numbers: Boolean, val special: Boolean, val uppercase: Boolean)
 @Serializable
-data class PasswordGenerateResponse()
+data class PasswordGenerateResponse(val password: String)

@@ -47,28 +47,28 @@ object CommentsService {
     }
 }
 @Serializable
-internal data class CommentsComment()
+internal data class CommentsComment(val text: String, val updated: String, val created: String, val id: String, val subject: String)
 @Serializable
-internal data class CommentsCreateRequest()
+internal data class CommentsCreateRequest(val subject: String, val text: String)
 @Serializable
-data class CommentsCreateResponse()
+data class CommentsCreateResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsDeleteRequest()
+internal data class CommentsDeleteRequest(val id: String)
 @Serializable
-data class CommentsDeleteResponse()
+data class CommentsDeleteResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsEventsRequest()
+internal data class CommentsEventsRequest(val id: String)
 @Serializable
-data class CommentsEventsResponse()
+data class CommentsEventsResponse(val comment: CommentsComment, val event: String)
 @Serializable
 internal data class CommentsListRequest()
 @Serializable
-data class CommentsListResponse()
+data class CommentsListResponse(val comments: List<CommentsComment>)
 @Serializable
-internal data class CommentsReadRequest()
+internal data class CommentsReadRequest(val id: String)
 @Serializable
-data class CommentsReadResponse()
+data class CommentsReadResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsUpdateRequest()
+internal data class CommentsUpdateRequest(val comment: CommentsComment)
 @Serializable
-data class CommentsUpdateResponse()
+data class CommentsUpdateResponse(val comment: CommentsComment)

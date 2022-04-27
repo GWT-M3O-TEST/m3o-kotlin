@@ -47,28 +47,28 @@ object NotesService {
     }
 }
 @Serializable
-internal data class NotesCreateRequest()
+internal data class NotesCreateRequest(val text: String, val title: String)
 @Serializable
-data class NotesCreateResponse()
+data class NotesCreateResponse(val note: NotesNote)
 @Serializable
-internal data class NotesDeleteRequest()
+internal data class NotesDeleteRequest(val id: String)
 @Serializable
-data class NotesDeleteResponse()
+data class NotesDeleteResponse(val note: NotesNote)
 @Serializable
-internal data class NotesEventsRequest()
+internal data class NotesEventsRequest(val id: String)
 @Serializable
-data class NotesEventsResponse()
+data class NotesEventsResponse(val event: String, val note: NotesNote)
 @Serializable
 internal data class NotesListRequest()
 @Serializable
-data class NotesListResponse()
+data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-internal data class NotesNote()
+internal data class NotesNote(val created: String, val id: String, val text: String, val title: String, val updated: String)
 @Serializable
-internal data class NotesReadRequest()
+internal data class NotesReadRequest(val id: String)
 @Serializable
-data class NotesReadResponse()
+data class NotesReadResponse(val note: NotesNote)
 @Serializable
-internal data class NotesUpdateRequest()
+internal data class NotesUpdateRequest(val note: NotesNote)
 @Serializable
-data class NotesUpdateResponse()
+data class NotesUpdateResponse(val note: NotesNote)

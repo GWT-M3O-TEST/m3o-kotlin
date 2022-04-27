@@ -47,28 +47,28 @@ object ListsService {
     }
 }
 @Serializable
-internal data class ListsCreateRequest()
+internal data class ListsCreateRequest(val items: List<ListsString>, val name: String)
 @Serializable
-data class ListsCreateResponse()
+data class ListsCreateResponse(val list: ListsList)
 @Serializable
-internal data class ListsDeleteRequest()
+internal data class ListsDeleteRequest(val id: String)
 @Serializable
-data class ListsDeleteResponse()
+data class ListsDeleteResponse(val list: ListsList)
 @Serializable
-internal data class ListsEventsRequest()
+internal data class ListsEventsRequest(val id: String)
 @Serializable
-data class ListsEventsResponse()
+data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
-internal data class ListsList()
+internal data class ListsList(val created: String, val id: String, val items: List<ListsString>, val name: String, val updated: String)
 @Serializable
 internal data class ListsListRequest()
 @Serializable
-data class ListsListResponse()
+data class ListsListResponse(val lists: List<ListsList>)
 @Serializable
-internal data class ListsReadRequest()
+internal data class ListsReadRequest(val id: String)
 @Serializable
-data class ListsReadResponse()
+data class ListsReadResponse(val list: ListsList)
 @Serializable
-internal data class ListsUpdateRequest()
+internal data class ListsUpdateRequest(val list: ListsList)
 @Serializable
-data class ListsUpdateResponse()
+data class ListsUpdateResponse(val list: ListsList)

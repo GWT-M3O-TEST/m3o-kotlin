@@ -27,12 +27,12 @@ object HolidaysService {
 @Serializable
 internal data class HolidaysCountriesRequest()
 @Serializable
-data class HolidaysCountriesResponse()
+data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>)
 @Serializable
-internal data class HolidaysCountry()
+internal data class HolidaysCountry(val code: String, val name: String)
 @Serializable
-internal data class HolidaysHoliday()
+internal data class HolidaysHoliday(val date: String, val local_name: String, val name: String, val regions: List<HolidaysString>, val types: List<HolidaysString>, val country_code: String)
 @Serializable
-internal data class HolidaysListRequest()
+internal data class HolidaysListRequest(val country_code: String, val year: Long)
 @Serializable
-data class HolidaysListResponse()
+data class HolidaysListResponse(val holidays: List<HolidaysHoliday>)

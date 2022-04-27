@@ -30,14 +30,14 @@ object ForexService {
     }
 }
 @Serializable
-internal data class ForexHistoryRequest()
+internal data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse()
+data class ForexHistoryResponse(val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double)
 @Serializable
-internal data class ForexPriceRequest()
+internal data class ForexPriceRequest(val symbol: String)
 @Serializable
-data class ForexPriceResponse()
+data class ForexPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class ForexQuoteRequest()
+internal data class ForexQuoteRequest(val symbol: String)
 @Serializable
-data class ForexQuoteResponse()
+data class ForexQuoteResponse(val ask_price: Double, val bid_price: Double, val symbol: String, val timestamp: String)

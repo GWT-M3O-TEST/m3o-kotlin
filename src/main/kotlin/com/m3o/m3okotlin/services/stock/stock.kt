@@ -30,14 +30,14 @@ object StockService {
     }
 }
 @Serializable
-internal data class StockHistoryRequest()
+internal data class StockHistoryRequest(val date: String, val stock: String)
 @Serializable
-data class StockHistoryResponse()
+data class StockHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Int, val close: Double, val date: String)
 @Serializable
-internal data class StockPriceRequest()
+internal data class StockPriceRequest(val symbol: String)
 @Serializable
-data class StockPriceResponse()
+data class StockPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class StockQuoteRequest()
+internal data class StockQuoteRequest(val symbol: String)
 @Serializable
-data class StockQuoteResponse()
+data class StockQuoteResponse(val ask_price: Double, val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String)

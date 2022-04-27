@@ -20,6 +20,6 @@ object AnswerService {
     }
 }
 @Serializable
-internal data class AnswerQuestionRequest()
+internal data class AnswerQuestionRequest(val query: String)
 @Serializable
-data class AnswerQuestionResponse()
+data class AnswerQuestionResponse(val answer: String, val image: String, val url: String)

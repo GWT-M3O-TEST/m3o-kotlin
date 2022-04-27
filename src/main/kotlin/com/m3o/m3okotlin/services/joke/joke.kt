@@ -20,8 +20,8 @@ object JokeService {
     }
 }
 @Serializable
-internal data class JokeJokeInfo()
+internal data class JokeJokeInfo(val body: String, val category: String, val id: String, val source: String, val title: String)
 @Serializable
-internal data class JokeRandomRequest()
+internal data class JokeRandomRequest(val count: Int)
 @Serializable
-data class JokeRandomResponse()
+data class JokeRandomResponse(val jokes: List<JokeJokeInfo>)

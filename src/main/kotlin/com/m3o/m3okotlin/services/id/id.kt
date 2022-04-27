@@ -25,10 +25,10 @@ object IdService {
     }
 }
 @Serializable
-internal data class IdGenerateRequest()
+internal data class IdGenerateRequest(val type: String)
 @Serializable
-data class IdGenerateResponse()
+data class IdGenerateResponse(val id: String, val type: String)
 @Serializable
 internal data class IdTypesRequest()
 @Serializable
-data class IdTypesResponse()
+data class IdTypesResponse(val types: List<IdString>)

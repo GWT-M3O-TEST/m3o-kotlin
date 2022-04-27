@@ -20,6 +20,6 @@ object SmsService {
     }
 }
 @Serializable
-internal data class SmsSendRequest()
+internal data class SmsSendRequest(val from: String, val message: String, val to: String)
 @Serializable
-data class SmsSendResponse()
+data class SmsSendResponse(val info: String, val status: String)

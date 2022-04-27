@@ -40,26 +40,26 @@ object CryptoService {
     }
 }
 @Serializable
-internal data class CryptoArticle()
+internal data class CryptoArticle(val date: String, val description: String, val source: String, val title: String, val url: String)
 @Serializable
-internal data class CryptoHistoryRequest()
+internal data class CryptoHistoryRequest(val symbol: String)
 @Serializable
-data class CryptoHistoryResponse()
+data class CryptoHistoryResponse(val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double)
 @Serializable
-internal data class CryptoNewsRequest()
+internal data class CryptoNewsRequest(val symbol: String)
 @Serializable
-data class CryptoNewsResponse()
+data class CryptoNewsResponse(val articles: List<CryptoArticle>, val symbol: String)
 @Serializable
-internal data class CryptoPriceRequest()
+internal data class CryptoPriceRequest(val symbol: String)
 @Serializable
-data class CryptoPriceResponse()
+data class CryptoPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class CryptoQuoteRequest()
+internal data class CryptoQuoteRequest(val symbol: String)
 @Serializable
-data class CryptoQuoteResponse()
+data class CryptoQuoteResponse(val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String, val ask_price: Double)
 @Serializable
-internal data class CryptoSymbol()
+internal data class CryptoSymbol(val name: String, val symbol: String)
 @Serializable
 internal data class CryptoSymbolsRequest()
 @Serializable
-data class CryptoSymbolsResponse()
+data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>)

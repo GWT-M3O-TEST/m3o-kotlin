@@ -45,26 +45,26 @@ object CacheService {
     }
 }
 @Serializable
-internal data class CacheDecrementRequest()
+internal data class CacheDecrementRequest(val key: String, val value: Long)
 @Serializable
-data class CacheDecrementResponse()
+data class CacheDecrementResponse(val key: String, val value: Long)
 @Serializable
-internal data class CacheDeleteRequest()
+internal data class CacheDeleteRequest(val key: String)
 @Serializable
-data class CacheDeleteResponse()
+data class CacheDeleteResponse(val status: String)
 @Serializable
-internal data class CacheGetRequest()
+internal data class CacheGetRequest(val key: String)
 @Serializable
-data class CacheGetResponse()
+data class CacheGetResponse(val key: String, val ttl: Long, val value: String)
 @Serializable
-internal data class CacheIncrementRequest()
+internal data class CacheIncrementRequest(val key: String, val value: Long)
 @Serializable
-data class CacheIncrementResponse()
+data class CacheIncrementResponse(val key: String, val value: Long)
 @Serializable
 internal data class CacheListKeysRequest()
 @Serializable
-data class CacheListKeysResponse()
+data class CacheListKeysResponse(val keys: List<CacheString>)
 @Serializable
-internal data class CacheSetRequest()
+internal data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
 @Serializable
-data class CacheSetResponse()
+data class CacheSetResponse(val status: String)

@@ -55,68 +55,40 @@ object SpaceService {
     }
 }
 @Serializable
-internal data class SpaceCreateRequest({/// Who can see this object? "public" or "private", defaults to "private"
-String? visibility, /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-String? name, /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-String? object,})
+internal data class SpaceCreateRequest()
 @Serializable
-data class SpaceCreateResponse({/// A public URL to access the object if visibility is "public"
-String? url,})
+data class SpaceCreateResponse()
 @Serializable
-internal data class SpaceDeleteRequest({/// Name of the object
-String? name,})
+internal data class SpaceDeleteRequest()
 @Serializable
 data class SpaceDeleteResponse()
 @Serializable
-internal data class SpaceDownloadRequest({/// name of object
-String? name,})
+internal data class SpaceDownloadRequest()
 @Serializable
-data class SpaceDownloadResponse({/// presigned url
-String? url,})
+data class SpaceDownloadResponse()
 @Serializable
-internal data class SpaceHeadObject({/// when was this created
-String? created, /// when was this last modified
-String? modified, String? name, /// URL to access the object if it is public
-String? url, /// is this public or private
-String? visibility,})
+internal data class SpaceHeadObject()
 @Serializable
-internal data class SpaceHeadRequest({/// name of the object
-String? name,})
+internal data class SpaceHeadRequest()
 @Serializable
-data class SpaceHeadResponse({HeadObject? object,})
+data class SpaceHeadResponse()
 @Serializable
-internal data class SpaceListObject({String? created, /// when was this last modified
-String? modified, String? name, String? url, String? visibility,})
+internal data class SpaceListObject()
 @Serializable
-internal data class SpaceListRequest({/// optional prefix for the name e.g. to return all the objects in the images directory pass images/
-String? prefix,})
+internal data class SpaceListRequest()
 @Serializable
-data class SpaceListResponse({List<ListObject>? objects,})
+data class SpaceListResponse()
 @Serializable
-internal data class SpaceReadRequest({/// name of the object
-String? name,})
+internal data class SpaceReadRequest()
 @Serializable
-data class SpaceReadResponse({/// The object itself
-SpaceObject? object,})
+data class SpaceReadResponse()
 @Serializable
-internal data class SpaceSpaceObject({/// when was this created
-String? created, /// the data within the object
-String? data, /// when was this last modified
-String? modified, /// name of object
-String? name, /// URL to access the object if it is public
-String? url, /// is this public or private
-String? visibility,})
+internal data class SpaceSpaceObject()
 @Serializable
-internal data class SpaceUpdateRequest({/// Who can see this object? "public" or "private", defaults to "private"
-String? visibility, /// The name of the object. Use forward slash delimiter to implement a nested directory-like structure e.g. images/foo.jpg
-String? name, /// The contents of the object. Either base64 encoded if sending request as application/json or raw bytes if using multipart/form-data format
-String? object,})
+internal data class SpaceUpdateRequest()
 @Serializable
-data class SpaceUpdateResponse({/// A public URL to access the object if visibility is "public"
-String? url,})
+data class SpaceUpdateResponse()
 @Serializable
-internal data class SpaceUploadRequest({String? name, /// is this object public or private
-String? visibility,})
+internal data class SpaceUploadRequest()
 @Serializable
-data class SpaceUploadResponse({/// a presigned url to be used for uploading. To use the URL call it with HTTP PUT and pass the object as the request data
-String? url,})
+data class SpaceUploadResponse()

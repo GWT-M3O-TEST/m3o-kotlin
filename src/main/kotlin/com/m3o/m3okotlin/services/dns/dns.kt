@@ -20,18 +20,10 @@ object DnsService {
     }
 }
 @Serializable
-internal data class DnsAnswer({/// the answer
-String? data, /// name resolved
-String? name, /// type of record
-int? type, /// time to live
-int? TTL,})
+internal data class DnsAnswer()
 @Serializable
-internal data class DnsQueryRequest({/// name to resolve
-String? name, /// type of query e.g A, AAAA, MX, SRV
-String? type,})
+internal data class DnsQueryRequest()
 @Serializable
-data class DnsQueryResponse({bool? AD, bool? RA, bool? TC, List<Answer>? answer, int? status, bool? CD, bool? RD, String? provider, List<Question>? question,})
+data class DnsQueryResponse()
 @Serializable
-internal data class DnsQuestion({/// name to query
-String? name, /// type of record
-int? type,})
+internal data class DnsQuestion()

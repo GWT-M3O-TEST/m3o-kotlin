@@ -25,33 +25,14 @@ object MemegenService {
     }
 }
 @Serializable
-internal data class MemegenBox({/// y axis position
-int? y, /// colour hex code
-String? color, /// height in pixels
-int? height, /// outline color hex code
-String? outline, /// text to display
-String? text, /// width in pixels
-int? width, /// x axis position
-int? x,})
+internal data class MemegenBox()
 @Serializable
-internal data class MemegenGenerateRequest({/// top text
-String? top_text, /// bottom text
-String? bottom_text, /// font: arial or impact
-String? font, /// the template id to use
-String? id, /// font size; defaults to 50px
-String? max_font_size,})
+internal data class MemegenGenerateRequest()
 @Serializable
-data class MemegenGenerateResponse({/// url of the memegen
-String? url,})
+data class MemegenGenerateResponse()
 @Serializable
-internal data class MemegenTemplate({/// number of boxes used
-int? box_count, /// height in pixels
-int? height, /// id of the memegen
-String? id, /// name of the memegen
-String? name, /// url of the memegen
-String? url, /// width in pixels
-int? width,})
+internal data class MemegenTemplate()
 @Serializable
 internal data class MemegenTemplatesRequest()
 @Serializable
-data class MemegenTemplatesResponse({List<Template>? templates,})
+data class MemegenTemplatesResponse()

@@ -35,54 +35,24 @@ object ImageService {
     }
 }
 @Serializable
-internal data class ImageConvertRequest({/// The image file to convert
-String? file, /// output name of the image including extension, ie. "cat.png"
-String? name, /// make output a URL and not a base64 response
-bool? outputURL, /// url of the image to resize
-String? url, /// base64 encoded image to resize,
-String? base64,})
+internal data class ImageConvertRequest()
 @Serializable
-data class ImageConvertResponse({String? base64, String? url,})
+data class ImageConvertResponse()
 @Serializable
-internal data class ImageCropOptions({/// Crop anchor point: "top", "top left", "top right",
-/// "left", "center", "right"
-/// "bottom left", "bottom", "bottom right".
-/// Optional. Defaults to center.
-String? anchor, /// height to crop to
-int? height, /// width to crop to
-int? width,})
+internal data class ImageCropOptions()
 @Serializable
-internal data class ImageDeleteRequest({/// url of the image to delete e.g. https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.jpeg
-String? url,})
+internal data class ImageDeleteRequest()
 @Serializable
 data class ImageDeleteResponse()
 @Serializable
-internal data class ImagePoint({int? x, int? y,})
+internal data class ImagePoint()
 @Serializable
-internal data class ImageRectangle({Point? max, Point? min,})
+internal data class ImageRectangle()
 @Serializable
-internal data class ImageResizeRequest({/// optional crop options
-/// if provided, after resize, the image
-/// will be cropped
-CropOptions? cropOptions, /// The image file to resize
-String? file, 
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? height
-	, /// output name of the image including extension, ie. "cat.png"
-String? name, /// make output a URL and not a base64 response
-bool? outputURL, /// url of the image to resize
-String? url, 
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? width
-	, /// base64 encoded image to resize,
-String? base64,})
+internal data class ImageResizeRequest()
 @Serializable
-data class ImageResizeResponse({String? url, String? base64,})
+data class ImageResizeResponse()
 @Serializable
-internal data class ImageUploadRequest({/// Base64 encoded image to upload,
-String? base64, /// The image file to upload
-String? file, /// Output name of the image including extension, ie. "cat.png"
-String? name, /// URL of the image to upload
-String? url,})
+internal data class ImageUploadRequest()
 @Serializable
-data class ImageUploadResponse({String? url,})
+data class ImageUploadResponse()

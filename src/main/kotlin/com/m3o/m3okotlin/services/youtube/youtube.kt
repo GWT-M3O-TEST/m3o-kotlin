@@ -25,29 +25,12 @@ object YoutubeService {
     }
 }
 @Serializable
-internal data class YoutubeEmbedRequest({/// provide the youtube url
-String? url,})
+internal data class YoutubeEmbedRequest()
 @Serializable
-data class YoutubeEmbedResponse({/// the embeddable link
-String? embed_url, /// the script code
-String? html_script, /// the full url
-String? long_url, /// the short url
-String? short_url,})
+data class YoutubeEmbedResponse()
 @Serializable
-internal data class YoutubeSearchRequest({/// Query to search for
-String? query,})
+internal data class YoutubeSearchRequest()
 @Serializable
-data class YoutubeSearchResponse({/// List of results for the query
-List<SearchResult>? results,})
+data class YoutubeSearchResponse()
 @Serializable
-internal data class YoutubeSearchResult({/// if live broadcast then indicates activity:
-/// none, upcoming, live, completed
-String? broadcasting, /// id of the result
-String? id, /// the associated url
-String? url, /// kind of result: "video", "channel", "playlist"
-String? kind, /// published at time
-String? published_at, /// title of the result
-String? title, /// the channel id
-String? channel_id, /// the channel title
-String? channel_title, /// the result description
-String? description,})
+internal data class YoutubeSearchResult()

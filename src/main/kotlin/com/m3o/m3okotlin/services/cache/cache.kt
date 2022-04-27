@@ -45,62 +45,26 @@ object CacheService {
     }
 }
 @Serializable
-internal data class CacheDecrementRequest({/// The amount to decrement the value by
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? value
-	, /// The key to decrement
-String? key,})
+internal data class CacheDecrementRequest()
 @Serializable
-data class CacheDecrementResponse({/// The key decremented
-String? key, /// The new value
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? value
-	,})
+data class CacheDecrementResponse()
 @Serializable
-internal data class CacheDeleteRequest({/// The key to delete
-String? key,})
+internal data class CacheDeleteRequest()
 @Serializable
-data class CacheDeleteResponse({/// Returns "ok" if successful
-String? status,})
+data class CacheDeleteResponse()
 @Serializable
-internal data class CacheGetRequest({/// The key to retrieve
-String? key,})
+internal data class CacheGetRequest()
 @Serializable
-data class CacheGetResponse({/// The key
-String? key, /// Time to live in seconds
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? ttl
-	, /// The value
-String? value,})
+data class CacheGetResponse()
 @Serializable
-internal data class CacheIncrementRequest({/// The key to increment
-String? key, /// The amount to increment the value by
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? value
-	,})
+internal data class CacheIncrementRequest()
 @Serializable
-data class CacheIncrementResponse({/// The key incremented
-String? key, /// The new value
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? value
-	,})
+data class CacheIncrementResponse()
 @Serializable
 internal data class CacheListKeysRequest()
 @Serializable
-data class CacheListKeysResponse({List<String>? keys,})
+data class CacheListKeysResponse()
 @Serializable
-internal data class CacheSetRequest({/// The key to update
-String? key, /// Time to live in seconds
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? ttl
-	, /// The value to set
-String? value,})
+internal data class CacheSetRequest()
 @Serializable
-data class CacheSetResponse({/// Returns "ok" if successful
-String? status,})
+data class CacheSetResponse()

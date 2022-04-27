@@ -35,38 +35,22 @@ object StreamService {
     }
 }
 @Serializable
-internal data class StreamChannel({/// description for the channel
-String? description, /// last activity time
-String? last_active, /// name of the channel
-String? name,})
+internal data class StreamChannel()
 @Serializable
-internal data class StreamCreateChannelRequest({/// description for the channel
-String? description, /// name of the channel
-String? name,})
+internal data class StreamCreateChannelRequest()
 @Serializable
 data class StreamCreateChannelResponse()
 @Serializable
 internal data class StreamListChannelsRequest()
 @Serializable
-data class StreamListChannelsResponse({List<Channel>? channels,})
+data class StreamListChannelsResponse()
 @Serializable
-internal data class StreamListMessagesRequest({/// The channel to subscribe to
-String? channel, /// number of message to return
-int? limit,})
+internal data class StreamListMessagesRequest()
 @Serializable
-data class StreamListMessagesResponse({/// Messages are chronological order
-List<Message>? messages, /// The channel subscribed to
-String? channel,})
+data class StreamListMessagesResponse()
 @Serializable
-internal data class StreamMessage({/// the channel name
-String? channel, /// id of the message
-String? id, /// the associated metadata
-Map<String, String>? metadata, /// text of the message
-String? text, /// time of message creation
-String? timestamp,})
+internal data class StreamMessage()
 @Serializable
-internal data class StreamSendMessageRequest({/// The channel to send to
-String? channel, /// The message text to send
-String? text,})
+internal data class StreamSendMessageRequest()
 @Serializable
 data class StreamSendMessageResponse()

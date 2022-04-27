@@ -20,15 +20,6 @@ object IpService {
     }
 }
 @Serializable
-internal data class IpLookupRequest({/// IP to lookup
-String? ip,})
+internal data class IpLookupRequest()
 @Serializable
-data class IpLookupResponse({/// Autonomous system number
-int? asn, /// Name of the city
-String? city, /// Name of the continent
-String? continent, /// Name of the country
-String? country, /// IP of the query
-String? ip, /// Latitude e.g 52.523219
-double? latitude, /// Longitude e.g 13.428555
-double? longitude, /// Timezone e.g Europe/Rome
-String? timezone,})
+data class IpLookupResponse()

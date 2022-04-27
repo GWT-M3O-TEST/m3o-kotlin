@@ -20,23 +20,8 @@ object NewsService {
     }
 }
 @Serializable
-internal data class NewsArticle({/// categories
-List<String>? categories, /// article description
-String? description, /// article id
-String? id, /// image url
-String? image_url, /// related keywords
-String? keywords, /// the locale
-String? locale, /// url of the article
-String? url, /// the article language
-String? language, /// time it was published
-String? published_at, /// first 60 characters of article body
-String? snippet, /// source of news
-String? source, /// article title
-String? title,})
+internal data class NewsArticle()
 @Serializable
-internal data class NewsHeadlinesRequest({/// date published on in YYYY-MM-DD format
-String? date, /// comma separated list of languages to retrieve in e.g en,es
-String? language, /// comma separated list of countries to include e.g us,ca
-String? locale,})
+internal data class NewsHeadlinesRequest()
 @Serializable
-data class NewsHeadlinesResponse({List<Article>? articles,})
+data class NewsHeadlinesResponse()

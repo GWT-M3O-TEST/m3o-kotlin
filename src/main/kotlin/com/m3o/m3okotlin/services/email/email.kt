@@ -30,23 +30,14 @@ object EmailService {
     }
 }
 @Serializable
-internal data class EmailParseRequest({/// The address to parse. Can be of the format "Joe Blogs <joe@example.com>" or "joe@example.com"
-String? address,})
+internal data class EmailParseRequest()
 @Serializable
-data class EmailParseResponse({/// the email address
-String? address, /// associated name e.g Joe Blogs
-String? name,})
+data class EmailParseResponse()
 @Serializable
-internal data class EmailSendRequest({/// the display name of the sender
-String? from, /// the html body
-String? html_body, /// an optional reply to email address
-String? reply_to, /// the email subject
-String? subject, /// the text body
-String? text_body, /// the email address of the recipient
-String? to,})
+internal data class EmailSendRequest()
 @Serializable
 data class EmailSendResponse()
 @Serializable
-internal data class EmailValidateRequest({String? address,})
+internal data class EmailValidateRequest()
 @Serializable
-data class EmailValidateResponse({bool? is_valid,})
+data class EmailValidateResponse()

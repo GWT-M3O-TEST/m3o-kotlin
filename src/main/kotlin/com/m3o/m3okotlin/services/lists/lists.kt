@@ -47,43 +47,28 @@ object ListsService {
     }
 }
 @Serializable
-internal data class ListsCreateRequest({/// list items
-List<String>? items, /// list name
-String? name,})
+internal data class ListsCreateRequest()
 @Serializable
-data class ListsCreateResponse({/// The created list
-List? list,})
+data class ListsCreateResponse()
 @Serializable
-internal data class ListsDeleteRequest({/// specify the id of the list
-String? id,})
+internal data class ListsDeleteRequest()
 @Serializable
-data class ListsDeleteResponse({List? list,})
+data class ListsDeleteResponse()
 @Serializable
-internal data class ListsEventsRequest({/// optionally specify a list id
-String? id,})
+internal data class ListsEventsRequest()
 @Serializable
-data class ListsEventsResponse({/// the list which the operation occured on
-List? list, /// the event which occured; create, delete, update
-String? event,})
+data class ListsEventsResponse()
 @Serializable
-internal data class ListsList({/// time at which the list was created
-String? created, /// unique id for the list, generated if not specified
-String? id, /// items within the list
-List<String>? items, /// name of the list
-String? name, /// time at which the list was updated
-String? updated,})
+internal data class ListsList()
 @Serializable
 internal data class ListsListRequest()
 @Serializable
-data class ListsListResponse({/// the list of lists
-List<List>? lists,})
+data class ListsListResponse()
 @Serializable
-internal data class ListsReadRequest({/// the list id
-String? id,})
+internal data class ListsReadRequest()
 @Serializable
-data class ListsReadResponse({/// The list
-List? list,})
+data class ListsReadResponse()
 @Serializable
-internal data class ListsUpdateRequest({List? list,})
+internal data class ListsUpdateRequest()
 @Serializable
-data class ListsUpdateResponse({List? list,})
+data class ListsUpdateResponse()

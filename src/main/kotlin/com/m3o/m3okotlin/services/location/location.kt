@@ -30,29 +30,18 @@ object LocationService {
     }
 }
 @Serializable
-internal data class LocationEntity({String? type, String? id, Point? location,})
+internal data class LocationEntity()
 @Serializable
-internal data class LocationPoint({double? latitude, double? longitude, 
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? timestamp
-	,})
+internal data class LocationPoint()
 @Serializable
-internal data class LocationReadRequest({/// the entity id
-String? id,})
+internal data class LocationReadRequest()
 @Serializable
-data class LocationReadResponse({Entity? entity,})
+data class LocationReadResponse()
 @Serializable
-internal data class LocationSaveRequest({Entity? entity,})
+internal data class LocationSaveRequest()
 @Serializable
 data class LocationSaveResponse()
 @Serializable
-internal data class LocationSearchRequest({/// Maximum number of entities to return
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? numEntities
-	, /// radius in meters
-double? radius, /// type of entities to filter
-String? type, /// Central position to search from
-Point? center,})
+internal data class LocationSearchRequest()
 @Serializable
-data class LocationSearchResponse({List<Entity>? entities,})
+data class LocationSearchResponse()

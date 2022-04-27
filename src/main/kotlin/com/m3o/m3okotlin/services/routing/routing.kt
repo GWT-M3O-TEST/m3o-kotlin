@@ -30,51 +30,24 @@ object RoutingService {
     }
 }
 @Serializable
-internal data class RoutingDirection({/// distance to travel in meters
-double? distance, /// duration to travel in seconds
-double? duration, /// human readable instruction
-String? instruction, /// intersections on route
-List<Intersection>? intersections, /// maneuver to take
-Maneuver? maneuver, /// street name or location
-String? name, /// alternative reference
-String? reference,})
+internal data class RoutingDirection()
 @Serializable
-internal data class RoutingDirectionsRequest({/// The destination of the journey
-Point? destination, /// The staring point for the journey
-Point? origin,})
+internal data class RoutingDirectionsRequest()
 @Serializable
-data class RoutingDirectionsResponse({/// Turn by turn directions
-List<Direction>? directions, /// Estimated distance of the route in meters
-double? distance, /// Estimated duration of the route in seconds
-double? duration, /// The waypoints on the route
-List<Waypoint>? waypoints,})
+data class RoutingDirectionsResponse()
 @Serializable
-internal data class RoutingEtaRequest({/// The end point for the eta calculation
-Point? destination, /// The starting point for the eta calculation
-Point? origin, /// speed in kilometers
-double? speed, /// type of transport. Only "car" is supported currently.
-String? type,})
+internal data class RoutingEtaRequest()
 @Serializable
-data class RoutingEtaResponse({/// eta in seconds
-double? duration,})
+data class RoutingEtaResponse()
 @Serializable
-internal data class RoutingIntersection({List<double>? bearings, Point? location,})
+internal data class RoutingIntersection()
 @Serializable
-internal data class RoutingManeuver({Point? location, String? action, double? bearing_after, double? bearing_before, String? direction,})
+internal data class RoutingManeuver()
 @Serializable
-internal data class RoutingPoint({/// Lat e.g 52.523219
-double? latitude, /// Long e.g 13.428555
-double? longitude,})
+internal data class RoutingPoint()
 @Serializable
-internal data class RoutingRouteRequest({/// Point of destination for the trip
-Point? destination, /// Point of origin for the trip
-Point? origin,})
+internal data class RoutingRouteRequest()
 @Serializable
-data class RoutingRouteResponse({/// estimated distance in meters
-double? distance, /// estimated duration in seconds
-double? duration, /// waypoints on the route
-List<Waypoint>? waypoints,})
+data class RoutingRouteResponse()
 @Serializable
-internal data class RoutingWaypoint({/// gps point coordinates
-Point? location, /// street name or related reference
-String? name,})
+internal data class RoutingWaypoint()

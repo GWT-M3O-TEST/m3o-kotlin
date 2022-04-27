@@ -30,30 +30,14 @@ object ForexService {
     }
 }
 @Serializable
-internal data class ForexHistoryRequest({/// the forex symbol e.g GBPUSD
-String? symbol,})
+internal data class ForexHistoryRequest()
 @Serializable
-data class ForexHistoryResponse({/// the volume
-double? volume, /// the close price
-double? close, /// the date
-String? date, /// the peak price
-double? high, /// the low price
-double? low, /// the open price
-double? open, /// the forex symbol
-String? symbol,})
+data class ForexHistoryResponse()
 @Serializable
-internal data class ForexPriceRequest({/// forex symbol e.g GBPUSD
-String? symbol,})
+internal data class ForexPriceRequest()
 @Serializable
-data class ForexPriceResponse({/// the last price
-double? price, /// the forex symbol e.g GBPUSD
-String? symbol,})
+data class ForexPriceResponse()
 @Serializable
-internal data class ForexQuoteRequest({/// the forex symbol e.g GBPUSD
-String? symbol,})
+internal data class ForexQuoteRequest()
 @Serializable
-data class ForexQuoteResponse({/// the asking price
-double? ask_price, /// the bidding price
-double? bid_price, /// the forex symbol
-String? symbol, /// the UTC timestamp of the quote
-String? timestamp,})
+data class ForexQuoteResponse()

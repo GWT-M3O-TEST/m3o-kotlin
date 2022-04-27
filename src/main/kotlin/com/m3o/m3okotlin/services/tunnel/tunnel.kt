@@ -20,17 +20,6 @@ object TunnelService {
     }
 }
 @Serializable
-internal data class TunnelSendRequest({/// alternatively specify a full url e.g https://www.google.com/news
-String? url, /// body of the request
-String? body, /// headers to include e.g Content-Type: application/json
-Map<String, String>? headers, /// host to send to e.g www.google.com
-String? host, /// method of the request e.g GET, POST, DELETE
-String? method, /// request params to include
-Map<String, String>? params, /// path to request e.g /news
-String? path,})
+internal data class TunnelSendRequest()
 @Serializable
-data class TunnelSendResponse({/// body of the response
-String? body, /// headers included
-Map<String, String>? headers, /// the status
-String? status, /// the status code
-int? status_code,})
+data class TunnelSendResponse()

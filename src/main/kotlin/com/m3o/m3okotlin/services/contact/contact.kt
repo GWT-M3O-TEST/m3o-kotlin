@@ -40,75 +40,34 @@ object ContactService {
     }
 }
 @Serializable
-internal data class ContactAddress({/// the address location
-String? location, /// the label of the address
-String? label,})
+internal data class ContactAddress()
 @Serializable
-internal data class ContactContactInfo({/// the social media username
-List<SocialMedia>? social_medias, /// the address
-List<Address>? addresses, /// create date string in RFC3339
-String? created_at, /// the emails
-List<Email>? emails, /// the contact name
-String? name, /// note of the contact
-String? note, /// the phone numbers
-List<Phone>? phones, /// update date string in RFC3339
-String? updated_at, /// the birthday
-String? birthday, /// contact id
-String? id, /// the contact links
-List<Link>? links,})
+internal data class ContactContactInfo()
 @Serializable
-internal data class ContactCreateRequest({/// optional, note of the contact
-String? note, /// optional, phone numbers
-List<Phone>? phones, /// optional, social media
-List<SocialMedia>? social_medias, /// optional, location
-List<Address>? addresses, /// optional, birthday
-String? birthday, /// optional, emails
-List<Email>? emails, /// optional, links
-List<Link>? links, /// required, the name of the contact
-String? name,})
+internal data class ContactCreateRequest()
 @Serializable
-data class ContactCreateResponse({ContactInfo? contact,})
+data class ContactCreateResponse()
 @Serializable
-internal data class ContactDeleteRequest({/// the id of the contact
-String? id,})
+internal data class ContactDeleteRequest()
 @Serializable
 data class ContactDeleteResponse()
 @Serializable
-internal data class ContactEmail({/// the email address
-String? address, /// the label of the email
-String? label,})
+internal data class ContactEmail()
 @Serializable
-internal data class ContactLink({/// the label of the link
-String? label, /// the url of the contact
-String? url,})
+internal data class ContactLink()
 @Serializable
-internal data class ContactListRequest({/// optional, default is 30
-int? limit, /// optional
-int? offset,})
+internal data class ContactListRequest()
 @Serializable
-data class ContactListResponse({List<ContactInfo>? contacts,})
+data class ContactListResponse()
 @Serializable
-internal data class ContactPhone({/// the label of the phone number
-String? label, /// phone number
-String? number,})
+internal data class ContactPhone()
 @Serializable
-internal data class ContactReadRequest({String? id,})
+internal data class ContactReadRequest()
 @Serializable
-data class ContactReadResponse({ContactInfo? contact,})
+data class ContactReadResponse()
 @Serializable
-internal data class ContactSocialMedia({/// the label of the social
-String? label, /// the username of social media
-String? username,})
+internal data class ContactSocialMedia()
 @Serializable
-internal data class ContactUpdateRequest({/// required, the contact id
-String? id, /// optional, phone number
-List<Phone>? phones, /// optional, social media
-List<SocialMedia>? social_medias, /// optional, addresses
-List<Address>? addresses, /// optional, birthday
-String? birthday, /// optional, emails
-List<Email>? emails, /// optional, links
-List<Link>? links, /// required, the name
-String? name, /// optional, note
-String? note,})
+internal data class ContactUpdateRequest()
 @Serializable
-data class ContactUpdateResponse({ContactInfo? contact,})
+data class ContactUpdateResponse()

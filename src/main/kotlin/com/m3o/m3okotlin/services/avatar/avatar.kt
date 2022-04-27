@@ -20,14 +20,6 @@ object AvatarService {
     }
 }
 @Serializable
-internal data class AvatarGenerateRequest({/// encode format of avatar image: `png` or `jpeg`; default is `jpeg`
-String? format, /// avatar's gender: `male` or `female`; default is `male`
-String? gender, /// set to true to upload to the M3O CDN and receive the url
-bool? upload, /// avatar's username, unique username will generate the unique avatar;
-/// if empty, every request generates a random avatar;
-/// if upload == true, username will be the CDN filename rather than a random uuid string
-String? username,})
+internal data class AvatarGenerateRequest()
 @Serializable
-data class AvatarGenerateResponse({/// base64 encoded string of the avatar image
-String? base64, /// M3O's CDN url of the avatar image
-String? url,})
+data class AvatarGenerateResponse()

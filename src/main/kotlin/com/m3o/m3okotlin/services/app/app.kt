@@ -60,78 +60,42 @@ object AppService {
     }
 }
 @Serializable
-internal data class AppDeleteRequest({/// name of the app
-String? name,})
+internal data class AppDeleteRequest()
 @Serializable
 data class AppDeleteResponse()
 @Serializable
 internal data class AppListRequest()
 @Serializable
-data class AppListResponse({/// all the apps
-List<Service>? services,})
+data class AppListResponse()
 @Serializable
-internal data class AppLogsRequest({/// type of logs to retrieve, currently supported options - "build"
-String? logs_type, /// name of the app
-String? name,})
+internal data class AppLogsRequest()
 @Serializable
-data class AppLogsResponse({String? logs,})
+data class AppLogsResponse()
 @Serializable
 internal data class AppRegionsRequest()
 @Serializable
-data class AppRegionsResponse({List<String>? regions,})
+data class AppRegionsResponse()
 @Serializable
-internal data class AppReservation({/// time reservation expires
-String? expires, /// name of the app
-String? name, /// owner id
-String? owner, /// associated token
-String? token, /// time of reservation
-String? created,})
+internal data class AppReservation()
 @Serializable
-internal data class AppReserveRequest({/// name of your app e.g helloworld
-String? name,})
+internal data class AppReserveRequest()
 @Serializable
-data class AppReserveResponse({/// The app reservation
-Reservation? reservation,})
+data class AppReserveResponse()
 @Serializable
-internal data class AppResolveRequest({/// the service id
-String? id,})
+internal data class AppResolveRequest()
 @Serializable
-data class AppResolveResponse({/// the end provider url
-String? url,})
+data class AppResolveResponse()
 @Serializable
-internal data class AppRunRequest({/// name of the app
-String? name, /// port to run on
-int? port, /// region to run in
-String? region, /// source repository
-String? repo, /// branch. defaults to master
-String? branch, /// associated env vars to pass in
-Map<String, String>? env_vars,})
+internal data class AppRunRequest()
 @Serializable
-data class AppRunResponse({/// The running service
-Service? service,})
+data class AppRunResponse()
 @Serializable
-internal data class AppService({/// time of creation
-String? created, /// name of the app
-String? name, /// region running in
-String? region, /// source repository
-String? repo, /// status of the app
-String? status, /// last updated
-String? updated, /// branch of code
-String? branch, /// custom domains
-List<String>? custom_domains, /// associated env vars
-Map<String, String>? env_vars, /// unique id
-String? id, /// port running on
-int? port, /// app url
-String? url,})
+internal data class AppService()
 @Serializable
-internal data class AppStatusRequest({/// name of the app
-String? name,})
+internal data class AppStatusRequest()
 @Serializable
-data class AppStatusResponse({/// running service info
-Service? service,})
+data class AppStatusResponse()
 @Serializable
-internal data class AppUpdateRequest({/// Additional env vars to update
-Map<String, String>? env_vars, /// name of the app
-String? name,})
+internal data class AppUpdateRequest()
 @Serializable
 data class AppUpdateResponse()

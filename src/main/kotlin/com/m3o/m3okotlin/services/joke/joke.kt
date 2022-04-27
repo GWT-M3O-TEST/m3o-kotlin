@@ -20,9 +20,8 @@ object JokeService {
     }
 }
 @Serializable
-internal data class JokeJokeInfo({String? category, String? id, String? source, String? title, String? body,})
+internal data class JokeJokeInfo()
 @Serializable
-internal data class JokeRandomRequest({/// the count of random jokes want, maximum: 10
-int? count,})
+internal data class JokeRandomRequest()
 @Serializable
-data class JokeRandomResponse({List<JokeInfo>? jokes,})
+data class JokeRandomResponse()

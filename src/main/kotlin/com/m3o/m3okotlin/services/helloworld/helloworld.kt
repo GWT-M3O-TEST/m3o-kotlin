@@ -27,18 +27,10 @@ object HelloworldService {
     }
 }
 @Serializable
-internal data class HelloworldCallRequest({/// name to append to the message e.g Alice
-String? name,})
+internal data class HelloworldCallRequest()
 @Serializable
-data class HelloworldCallResponse({/// message including name e.g Hello Alice
-String? message,})
+data class HelloworldCallResponse()
 @Serializable
-internal data class HelloworldStreamRequest({/// the number of messages to send back
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? messages
-	, /// name to append to the message e.g Alice
-String? name,})
+internal data class HelloworldStreamRequest()
 @Serializable
-data class HelloworldStreamResponse({/// message including name e.g Hello Alice
-String? message,})
+data class HelloworldStreamResponse()

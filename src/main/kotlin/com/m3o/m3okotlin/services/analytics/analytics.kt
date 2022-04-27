@@ -35,27 +35,20 @@ object AnalyticsService {
     }
 }
 @Serializable
-internal data class AnalyticsDeleteRequest({String? name,})
+internal data class AnalyticsDeleteRequest()
 @Serializable
-data class AnalyticsDeleteResponse({Event? event,})
+data class AnalyticsDeleteResponse()
 @Serializable
-internal data class AnalyticsEvent({/// time at which the event was created
-String? created, /// event name
-String? name, /// the amount of times the event was triggered
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? value
-	,})
+internal data class AnalyticsEvent()
 @Serializable
 internal data class AnalyticsListRequest()
 @Serializable
-data class AnalyticsListResponse({List<Event>? events,})
+data class AnalyticsListResponse()
 @Serializable
-internal data class AnalyticsReadRequest({String? name,})
+internal data class AnalyticsReadRequest()
 @Serializable
-data class AnalyticsReadResponse({Event? event,})
+data class AnalyticsReadResponse()
 @Serializable
-internal data class AnalyticsTrackRequest({/// event name
-String? name,})
+internal data class AnalyticsTrackRequest()
 @Serializable
 data class AnalyticsTrackResponse()

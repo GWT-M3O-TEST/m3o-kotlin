@@ -32,32 +32,16 @@ object EventService {
     }
 }
 @Serializable
-internal data class EventConsumeRequest({/// Optional group for the subscription
-String? group, /// Optional offset to read from e.g "2006-01-02T15:04:05.999Z07:00"
-String? offset, /// The topic to subscribe to
-String? topic,})
+internal data class EventConsumeRequest()
 @Serializable
-data class EventConsumeResponse({/// Unique message id
-String? id, /// The next json message on the topic
-Map<String, dynamic>? message, /// Timestamp of publishing
-String? timestamp, /// The topic subscribed to
-String? topic,})
+data class EventConsumeResponse()
 @Serializable
-internal data class EventEv({/// event id
-String? id, /// event message
-Map<String, dynamic>? message, /// event timestamp
-String? timestamp,})
+internal data class EventEv()
 @Serializable
-internal data class EventPublishRequest({/// The json message to publish
-Map<String, dynamic>? message, /// The topic to publish to
-String? topic,})
+internal data class EventPublishRequest()
 @Serializable
 data class EventPublishResponse()
 @Serializable
-internal data class EventReadRequest({/// number of events to read; default 25
-int? limit, /// offset for the events; default 0
-int? offset, /// topic to read from
-String? topic,})
+internal data class EventReadRequest()
 @Serializable
-data class EventReadResponse({/// the events
-List<Ev>? events,})
+data class EventReadResponse()

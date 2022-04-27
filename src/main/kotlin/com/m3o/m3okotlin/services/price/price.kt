@@ -40,53 +40,28 @@ object PriceService {
     }
 }
 @Serializable
-internal data class PriceAddRequest({/// symbol of value
-String? symbol, /// author of the price
-String? author, /// currency e.g USD
-String? currency, /// name of the thing e.g bitcoin
-String? name, /// price of the thing e.g 10001.00
-double? price, /// source of the price
-String? source,})
+internal data class PriceAddRequest()
 @Serializable
-data class PriceAddResponse({Value? value,})
+data class PriceAddResponse()
 @Serializable
-internal data class PriceGetRequest({/// currency to get
-String? currency, /// name of the value
-String? name, /// symbol of value
-String? symbol,})
+internal data class PriceGetRequest()
 @Serializable
-data class PriceGetResponse({List<Value>? values,})
+data class PriceGetResponse()
 @Serializable
-internal data class PriceIndex({/// currency of value
-String? currency, /// name of item
-String? name, /// symbol of item
-String? symbol,})
+internal data class PriceIndex()
 @Serializable
 internal data class PriceIndexRequest()
 @Serializable
-data class PriceIndexResponse({List<Index>? index,})
+data class PriceIndexResponse()
 @Serializable
-internal data class PriceListRequest({/// currency to get
-String? currency, /// limit number of values
-int? limit, /// offset to read from
-int? offset,})
+internal data class PriceListRequest()
 @Serializable
-data class PriceListResponse({List<Value>? values,})
+data class PriceListResponse()
 @Serializable
-internal data class PriceReport({String? symbol, String? author, String? comment, String? name,})
+internal data class PriceReport()
 @Serializable
-internal data class PriceReportRequest({/// additional comment
-String? comment, /// name of value
-String? name, /// symbol of value
-String? symbol,})
+internal data class PriceReportRequest()
 @Serializable
 data class PriceReportResponse()
 @Serializable
-internal data class PriceValue({/// currency of thing
-String? currency, /// name of thing
-String? name, /// price of thing
-double? price, /// where it came from
-String? source, /// symbol of value
-String? symbol, /// time it was added
-String? timestamp, /// who added it
-String? author,})
+internal data class PriceValue()

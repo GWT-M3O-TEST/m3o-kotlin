@@ -30,28 +30,16 @@ object UrlService {
     }
 }
 @Serializable
-internal data class UrlListRequest({/// filter by short URL, optional
-String? shortURL,})
+internal data class UrlListRequest()
 @Serializable
-data class UrlListResponse({URLPair? urlPairs,})
+data class UrlListResponse()
 @Serializable
-internal data class UrlProxyRequest({/// short url ID, without the domain, eg. if your short URL is
-/// `m3o.one/u/someshorturlid` then pass in `someshorturlid`
-String? shortURL,})
+internal data class UrlProxyRequest()
 @Serializable
-data class UrlProxyResponse({String? destinationURL,})
+data class UrlProxyResponse()
 @Serializable
-internal data class UrlShortenRequest({/// the url to shorten
-String? destinationURL,})
+internal data class UrlShortenRequest()
 @Serializable
-data class UrlShortenResponse({/// the shortened url
-String? shortURL,})
+data class UrlShortenResponse()
 @Serializable
-internal data class UrlURLPair({/// time of creation
-String? created, /// destination url
-String? destinationURL, /// The number of times the short URL has been resolved
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? hitCount
-	, /// shortened url
-String? shortURL,})
+internal data class UrlURLPair()

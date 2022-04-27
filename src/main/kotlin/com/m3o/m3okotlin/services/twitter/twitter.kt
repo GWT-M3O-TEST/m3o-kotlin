@@ -35,71 +35,24 @@ object TwitterService {
     }
 }
 @Serializable
-internal data class TwitterProfile({/// display name of the user
-String? name, /// if the account is private
-bool? private, /// if the account is verified
-bool? verified, /// the account creation date
-String? created_at, /// the user description
-String? description, /// the follower count
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? followers
-	, /// the user id
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? id
-	, /// The user's profile picture
-String? image_url, /// the user's location
-String? location, /// the username
-String? username,})
+internal data class TwitterProfile()
 @Serializable
-internal data class TwitterSearchRequest({/// number of tweets to return. default: 20
-int? limit, /// the query to search for
-String? query,})
+internal data class TwitterSearchRequest()
 @Serializable
-data class TwitterSearchResponse({/// the related tweets for the search
-List<Tweet>? tweets,})
+data class TwitterSearchResponse()
 @Serializable
-internal data class TwitterTimelineRequest({/// number of tweets to return. default: 20
-int? limit, /// the username to request the timeline for
-String? username,})
+internal data class TwitterTimelineRequest()
 @Serializable
-data class TwitterTimelineResponse({/// The recent tweets for the user
-List<Tweet>? tweets,})
+data class TwitterTimelineResponse()
 @Serializable
-internal data class TwitterTrend({/// name of the trend
-String? name, /// the volume of tweets in last 24 hours
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? tweet_volume
-	, /// the twitter url
-String? url,})
+internal data class TwitterTrend()
 @Serializable
 internal data class TwitterTrendsRequest()
 @Serializable
-data class TwitterTrendsResponse({/// a list of trending topics
-List<Trend>? trends,})
+data class TwitterTrendsResponse()
 @Serializable
-internal data class TwitterTweet({/// number of times favourited
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? favourited_count
-	, /// id of the tweet
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? id
-	, /// number of times retweeted
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? retweeted_count
-	, /// text of the tweet
-String? text, /// username of the person who tweeted
-String? username, /// time of tweet
-String? created_at,})
+internal data class TwitterTweet()
 @Serializable
-internal data class TwitterUserRequest({/// the username to lookup
-String? username,})
+internal data class TwitterUserRequest()
 @Serializable
-data class TwitterUserResponse({/// The requested user profile
-Profile? profile, /// the current user status
-Tweet? status,})
+data class TwitterUserResponse()

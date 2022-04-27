@@ -35,51 +35,22 @@ object RssService {
     }
 }
 @Serializable
-internal data class RssAddRequest({/// rss feed url
-/// eg. http://a16z.com/feed/
-String? url, /// category to add e.g news
-String? category, /// rss feed name
-/// eg. a16z
-String? name,})
+internal data class RssAddRequest()
 @Serializable
 data class RssAddResponse()
 @Serializable
-internal data class RssEntry({/// article summary
-String? summary, /// title of the entry
-String? title, /// article content
-String? content, /// data of the entry
-String? date, /// the rss feed where it came from
-String? feed, /// unique id of the entry
-String? id, /// rss feed url of the entry
-String? link,})
+internal data class RssEntry()
 @Serializable
-internal data class RssFeed({/// rss feed url
-/// eg. http://a16z.com/feed/
-String? url, /// category of the feed e.g news
-String? category, /// unique id
-String? id, /// rss feed name
-/// eg. a16z
-String? name,})
+internal data class RssFeed()
 @Serializable
-internal data class RssFeedRequest({/// limit entries returned
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? limit
-	, /// rss feed name
-String? name, /// offset entries
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? offset
-	,})
+internal data class RssFeedRequest()
 @Serializable
-data class RssFeedResponse({List<Entry>? entries,})
+data class RssFeedResponse()
 @Serializable
 internal data class RssListRequest()
 @Serializable
-data class RssListResponse({List<Feed>? feeds,})
+data class RssListResponse()
 @Serializable
-internal data class RssRemoveRequest({/// rss feed name
-/// eg. a16z
-String? name,})
+internal data class RssRemoveRequest()
 @Serializable
 data class RssRemoveResponse()

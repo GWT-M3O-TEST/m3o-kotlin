@@ -47,43 +47,28 @@ object NotesService {
     }
 }
 @Serializable
-internal data class NotesCreateRequest({/// note text
-String? text, /// note title
-String? title,})
+internal data class NotesCreateRequest()
 @Serializable
-data class NotesCreateResponse({/// The created note
-Note? note,})
+data class NotesCreateResponse()
 @Serializable
-internal data class NotesDeleteRequest({/// specify the id of the note
-String? id,})
+internal data class NotesDeleteRequest()
 @Serializable
-data class NotesDeleteResponse({Note? note,})
+data class NotesDeleteResponse()
 @Serializable
-internal data class NotesEventsRequest({/// optionally specify a note id
-String? id,})
+internal data class NotesEventsRequest()
 @Serializable
-data class NotesEventsResponse({/// the event which occured; create, delete, update
-String? event, /// the note which the operation occured on
-Note? note,})
+data class NotesEventsResponse()
 @Serializable
 internal data class NotesListRequest()
 @Serializable
-data class NotesListResponse({/// the list of notes
-List<Note>? notes,})
+data class NotesListResponse()
 @Serializable
-internal data class NotesNote({/// unique id for the note, generated if not specified
-String? id, /// text within the note
-String? text, /// title of the note
-String? title, /// time at which the note was updated
-String? updated, /// time at which the note was created
-String? created,})
+internal data class NotesNote()
 @Serializable
-internal data class NotesReadRequest({/// the note id
-String? id,})
+internal data class NotesReadRequest()
 @Serializable
-data class NotesReadResponse({/// The note
-Note? note,})
+data class NotesReadResponse()
 @Serializable
-internal data class NotesUpdateRequest({Note? note,})
+internal data class NotesUpdateRequest()
 @Serializable
-data class NotesUpdateResponse({Note? note,})
+data class NotesUpdateResponse()

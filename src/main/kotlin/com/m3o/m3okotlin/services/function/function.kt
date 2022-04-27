@@ -70,101 +70,50 @@ object FunctionService {
     }
 }
 @Serializable
-internal data class FunctionCallRequest({/// Name of the function
-String? name, /// Request body that will be passed to the function
-Map<String, dynamic>? request,})
+internal data class FunctionCallRequest()
 @Serializable
-data class FunctionCallResponse({/// Response body that the function returned
-Map<String, dynamic>? response,})
+data class FunctionCallResponse()
 @Serializable
-internal data class FunctionDeleteRequest({/// The name of the function
-String? name,})
+internal data class FunctionDeleteRequest()
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-internal data class FunctionDeployRequest({/// runtime/lanaguage of the function e.g php74,
-/// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-/// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-/// python37, python38, python39
-String? runtime, /// inline source code
-String? source, /// function name
-String? name, /// region to deploy in. defaults to europe-west1
-String? region, /// github url for a repo
-String? repo, /// optional subfolder path
-String? subfolder, /// branch to deploy. defaults to master
-String? branch, /// entry point, ie. handler name in the source code
-/// if not provided, defaults to the name parameter
-String? entrypoint, /// environment variables to pass in at runtime
-Map<String, String>? env_vars,})
+internal data class FunctionDeployRequest()
 @Serializable
-data class FunctionDeployResponse({Func? function,})
+data class FunctionDeployResponse()
 @Serializable
-internal data class FunctionDescribeRequest({/// The name of the function
-String? name,})
+internal data class FunctionDescribeRequest()
 @Serializable
-data class FunctionDescribeResponse({/// The function requested
-Func? function,})
+data class FunctionDescribeResponse()
 @Serializable
-internal data class FunctionFunc({/// time of creation
-String? created, /// associated env vars
-Map<String, String>? env_vars, /// git repo address
-String? repo, /// subfolder path to entrypoint
-String? subfolder, /// name of handler in source code
-String? entrypoint, /// function name
-/// limitation: must be unique across projects
-String? name, /// runtime/language of the function e.g php74,
-/// nodejs6, nodejs8, nodejs10, nodejs12, nodejs14, nodejs16,
-/// dotnet3, java11, ruby26, ruby27, go111, go113, go116,
-/// python37, python38, python39
-String? runtime, /// time it was updated
-String? updated, /// unique url of the function
-String? url, /// branch to deploy. defaults to master
-String? branch, /// eg. ACTIVE, DEPLOY_IN_PROGRESS, OFFLINE etc
-String? status, /// id of the function
-String? id, /// region to deploy in. defaults to europe-west1
-String? region, /// the source code
-String? source,})
+internal data class FunctionFunc()
 @Serializable
 internal data class FunctionListRequest()
 @Serializable
-data class FunctionListResponse({/// List of functions deployed
-List<Func>? functions,})
+data class FunctionListResponse()
 @Serializable
-internal data class FunctionLogsRequest({/// type of logs to retrieve, currently supported options - "build"
-String? logs_type, /// the name of the function
-String? name,})
+internal data class FunctionLogsRequest()
 @Serializable
-data class FunctionLogsResponse({String? logs,})
+data class FunctionLogsResponse()
 @Serializable
-internal data class FunctionProxyRequest({/// id of the function
-String? id,})
+internal data class FunctionProxyRequest()
 @Serializable
-data class FunctionProxyResponse({/// backend url
-String? url,})
+data class FunctionProxyResponse()
 @Serializable
 internal data class FunctionRegionsRequest()
 @Serializable
-data class FunctionRegionsResponse({List<String>? regions,})
+data class FunctionRegionsResponse()
 @Serializable
-internal data class FunctionReservation({/// time reservation expires
-String? expires, /// name of the app
-String? name, /// owner id
-String? owner, /// associated token
-String? token, /// time of reservation
-String? created,})
+internal data class FunctionReservation()
 @Serializable
-internal data class FunctionReserveRequest({/// name of your app e.g helloworld
-String? name,})
+internal data class FunctionReserveRequest()
 @Serializable
-data class FunctionReserveResponse({/// The app reservation
-Reservation? reservation,})
+data class FunctionReserveResponse()
 @Serializable
 internal data class FunctionRuntimesRequest()
 @Serializable
-data class FunctionRuntimesResponse({List<String>? runtimes,})
+data class FunctionRuntimesResponse()
 @Serializable
-internal data class FunctionUpdateRequest({/// function name
-String? name, /// inline source code
-String? source,})
+internal data class FunctionUpdateRequest()
 @Serializable
 data class FunctionUpdateResponse()

@@ -20,9 +20,6 @@ object SentimentService {
     }
 }
 @Serializable
-internal data class SentimentAnalyzeRequest({/// The language. Defaults to english.
-String? lang, /// The text to analyze
-String? text,})
+internal data class SentimentAnalyzeRequest()
 @Serializable
-data class SentimentAnalyzeResponse({/// The score of the text {positive is 1, negative is 0}
-double? score,})
+data class SentimentAnalyzeResponse()

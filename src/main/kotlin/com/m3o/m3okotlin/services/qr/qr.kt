@@ -20,12 +20,6 @@ object QrService {
     }
 }
 @Serializable
-internal data class QrGenerateRequest({/// the size (height and width) in pixels of the generated QR code. Defaults to 256
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? size
-	, /// the text to encode as a QR code (URL, phone number, email, etc)
-String? text,})
+internal data class QrGenerateRequest()
 @Serializable
-data class QrGenerateResponse({/// link to the QR code image in PNG format
-String? qr,})
+data class QrGenerateResponse()

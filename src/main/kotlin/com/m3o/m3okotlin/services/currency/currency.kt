@@ -35,37 +35,20 @@ object CurrencyService {
     }
 }
 @Serializable
-internal data class CurrencyCode({/// e.g United States Dollar
-String? currency, /// e.g USD
-String? name,})
+internal data class CurrencyCode()
 @Serializable
 internal data class CurrencyCodesRequest()
 @Serializable
-data class CurrencyCodesResponse({List<Code>? codes,})
+data class CurrencyCodesResponse()
 @Serializable
-internal data class CurrencyConvertRequest({/// optional amount to convert e.g 10.0
-double? amount, /// base code to convert from e.g USD
-String? from, /// target code to convert to e.g GBP
-String? to,})
+internal data class CurrencyConvertRequest()
 @Serializable
-data class CurrencyConvertResponse({/// converted amount e.g 7.10
-double? amount, /// the base code e.g USD
-String? from, /// conversion rate e.g 0.71
-double? rate, /// the target code e.g GBP
-String? to,})
+data class CurrencyConvertResponse()
 @Serializable
-internal data class CurrencyHistoryRequest({/// currency code e.g USD
-String? code, /// date formatted as YYYY-MM-DD
-String? date,})
+internal data class CurrencyHistoryRequest()
 @Serializable
-data class CurrencyHistoryResponse({/// The code of the request
-String? code, /// The date requested
-String? date, /// The rate for the day as code:rate
-Map<String, double>? rates,})
+data class CurrencyHistoryResponse()
 @Serializable
-internal data class CurrencyRatesRequest({/// The currency code to get rates for e.g USD
-String? code,})
+internal data class CurrencyRatesRequest()
 @Serializable
-data class CurrencyRatesResponse({/// The code requested e.g USD
-String? code, /// The rates for the given code as key-value pairs code:rate
-Map<String, double>? rates,})
+data class CurrencyRatesResponse()

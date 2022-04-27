@@ -60,64 +60,38 @@ object DbService {
     }
 }
 @Serializable
-internal data class DbCountRequest({/// specify the table name
-String? table,})
+internal data class DbCountRequest()
 @Serializable
-data class DbCountResponse({/// the number of records in the table
-int? count,})
+data class DbCountResponse()
 @Serializable
-internal data class DbCreateRequest({/// optional record id to use
-String? id, /// JSON encoded record or records (can be array or object)
-Map<String, dynamic>? record, /// Optional table name. Defaults to 'default'
-String? table,})
+internal data class DbCreateRequest()
 @Serializable
-data class DbCreateResponse({/// The id of the record (either specified or automatically created)
-String? id,})
+data class DbCreateResponse()
 @Serializable
-internal data class DbDeleteRequest({/// id of the record
-String? id, /// Optional table name. Defaults to 'default'
-String? table,})
+internal data class DbDeleteRequest()
 @Serializable
 data class DbDeleteResponse()
 @Serializable
-internal data class DbDropTableRequest({String? table,})
+internal data class DbDropTableRequest()
 @Serializable
 data class DbDropTableResponse()
 @Serializable
 internal data class DbListTablesRequest()
 @Serializable
-data class DbListTablesResponse({/// list of tables
-List<String>? tables,})
+data class DbListTablesResponse()
 @Serializable
-internal data class DbReadRequest({int? offset, /// 'asc' (default), 'desc'
-String? order, /// field name to order by
-String? orderBy, /// Examples: 'age >= 18', 'age >= 18 and verified == true'
-/// Comparison operators: '==', '!=', '<', '>', '<=', '>='
-/// Logical operator: 'and'
-/// Dot access is supported, eg: 'user.age == 11'
-/// Accessing list elements is not supported yet.
-String? query, /// Optional table name. Defaults to 'default'
-String? table, /// Read by id. Equivalent to 'id == "your-id"'
-String? id, /// Maximum number of records to return. Default limit is 25.
-/// Maximum limit is 1000. Anything higher will return an error.
-int? limit,})
+internal data class DbReadRequest()
 @Serializable
-data class DbReadResponse({/// JSON encoded records
-List<Map<String, dynamic>>? records,})
+data class DbReadResponse()
 @Serializable
-internal data class DbRenameTableRequest({/// current table name
-String? from, /// new table name
-String? to,})
+internal data class DbRenameTableRequest()
 @Serializable
 data class DbRenameTableResponse()
 @Serializable
-internal data class DbTruncateRequest({String? table,})
+internal data class DbTruncateRequest()
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest({/// Optional table name. Defaults to 'default'
-String? table, /// The id of the record. If not specified it is inferred from the 'id' field of the record
-String? id, /// record, JSON object
-Map<String, dynamic>? record,})
+internal data class DbUpdateRequest()
 @Serializable
 data class DbUpdateResponse()

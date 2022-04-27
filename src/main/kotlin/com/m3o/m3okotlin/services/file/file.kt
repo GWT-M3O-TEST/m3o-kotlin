@@ -35,40 +35,20 @@ object FileService {
     }
 }
 @Serializable
-internal data class FileDeleteRequest({/// Path to the file
-String? path, /// The project name
-String? project,})
+internal data class FileDeleteRequest()
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest({/// Project, required for listing.
-String? project, /// Defaults to '/', ie. lists all files in a project.
-/// Supply path to a folder if you want to list
-/// files inside that folder
-/// eg. '/docs'
-String? path,})
+internal data class FileListRequest()
 @Serializable
-data class FileListResponse({List<Record>? files,})
+data class FileListResponse()
 @Serializable
-internal data class FileReadRequest({/// Path to the file
-String? path, /// Project name
-String? project,})
+internal data class FileReadRequest()
 @Serializable
-data class FileReadResponse({/// Returns the file
-Record? file,})
+data class FileReadResponse()
 @Serializable
-internal data class FileRecord({/// File contents
-String? content, /// Time the file was created e.g 2021-05-20T13:37:21Z
-String? created, /// Any other associated metadata as a map of key-value pairs
-Map<String, String>? metadata, /// Path to file or folder eg. '/documents/text-files/file.txt'.
-String? path, /// A custom project to group files
-/// eg. file-of-mywebsite.com
-String? project, /// Time the file was updated e.g 2021-05-20T13:37:21Z
-String? updated,})
+internal data class FileRecord()
 @Serializable
-internal data class FileSaveRequest({/// Make the file public: true or false
-bool? public, /// The file to save
-Record? file,})
+internal data class FileSaveRequest()
 @Serializable
-data class FileSaveResponse({/// The permalink for the file if made public
-String? url,})
+data class FileSaveResponse()

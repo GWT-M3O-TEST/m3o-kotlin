@@ -95,152 +95,70 @@ object UserService {
     }
 }
 @Serializable
-internal data class UserAccount({/// unix timestamp
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? updated
-	, /// alphanumeric username
-String? username, /// date of verification
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? verification_date
-	, /// if the account is verified
-bool? verified, /// unix timestamp
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? created
-	, /// an email address
-String? email, /// unique account id
-String? id, /// Store any custom data you want about your users in this fields.
-Map<String, String>? profile,})
+internal data class UserAccount()
 @Serializable
-internal data class UserCreateRequest({/// optional user profile as map<string,string>
-Map<String, String>? profile, /// the username
-String? username, /// the email address
-String? email, /// optional account id
-String? id, /// the user password
-String? password,})
+internal data class UserCreateRequest()
 @Serializable
-data class UserCreateResponse({Account? account,})
+data class UserCreateResponse()
 @Serializable
-internal data class UserDeleteRequest({/// the account id
-String? id,})
+internal data class UserDeleteRequest()
 @Serializable
 data class UserDeleteResponse()
 @Serializable
-internal data class UserListRequest({/// Maximum number of records to return. Default limit is 25.
-/// Maximum limit is 1000. Anything higher will return an error.
-int? limit, int? offset,})
+internal data class UserListRequest()
 @Serializable
-data class UserListResponse({List<Account>? users,})
+data class UserListResponse()
 @Serializable
-internal data class UserLoginRequest({/// The email address of the user
-String? email, /// The password of the user
-String? password, /// The username of the user
-String? username,})
+internal data class UserLoginRequest()
 @Serializable
-data class UserLoginResponse({/// The session of the logged in  user
-Session? session,})
+data class UserLoginResponse()
 @Serializable
-internal data class UserLogoutAllRequest({/// the user to logout
-String? user_id,})
+internal data class UserLogoutAllRequest()
 @Serializable
 data class UserLogoutAllResponse()
 @Serializable
-internal data class UserLogoutRequest({/// the session id for the user to logout
-String? session_id,})
+internal data class UserLogoutRequest()
 @Serializable
 data class UserLogoutResponse()
 @Serializable
-internal data class UserReadRequest({/// the account email
-String? email, /// the account id
-String? id, /// the account username
-String? username,})
+internal data class UserReadRequest()
 @Serializable
-data class UserReadResponse({Account? account,})
+data class UserReadResponse()
 @Serializable
-internal data class UserReadSessionRequest({/// The unique session id
-String? session_id,})
+internal data class UserReadSessionRequest()
 @Serializable
-data class UserReadSessionResponse({/// the session for the user
-Session? session,})
+data class UserReadSessionResponse()
 @Serializable
-internal data class UserResetPasswordRequest({/// The code from the verification email
-String? code, /// confirm new password
-String? confirm_password, /// the email to reset the password for
-String? email, /// the new password
-String? new_password,})
+internal data class UserResetPasswordRequest()
 @Serializable
 data class UserResetPasswordResponse()
 @Serializable
-internal data class UserSendMagicLinkRequest({/// Endpoint name where your http request handler handles MagicLink by
-/// calling M3O VerifyToken endpoint. You can return as a result a success,
-/// failed or redirect to another page.
-String? endpoint, /// Display name of the sender for the email. Note: the email address will still be 'support@m3o.com'
-String? from_name, String? subject, /// Text content of the email. Don't forget to include the string '$micro_verification_link' which will be replaced by the real verification link
-/// HTML emails are not available currently.
-String? text_content, /// Your web site address, example www.example.com or user.example.com
-String? address, /// the email address of the user
-String? email,})
+internal data class UserSendMagicLinkRequest()
 @Serializable
 data class UserSendMagicLinkResponse()
 @Serializable
-internal data class UserSendPasswordResetEmailRequest({/// Number of secs that the password reset email is valid for, defaults to 1800 secs (30 mins)
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? expiration
-	, /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-String? from_name, /// subject of the email
-String? subject, /// Text content of the email. Don't forget to include the string '$code' which will be replaced by the real verification link
-/// HTML emails are not available currently.
-String? text_content, /// email address to send reset for
-String? email,})
+internal data class UserSendPasswordResetEmailRequest()
 @Serializable
 data class UserSendPasswordResetEmailResponse()
 @Serializable
-internal data class UserSendVerificationEmailRequest({/// Text content of the email. Include '$micro_verification_link' which will be replaced by a verification link
-String? text_content, /// email address to send the verification code
-String? email, /// The url to redirect to incase of failure
-String? failure_redirect_url, /// Display name of the sender for the email. Note: the email address will still be 'noreply@email.m3ocontent.com'
-String? from_name, /// The url to redirect to after successful verification
-String? redirect_url, /// subject of the email
-String? subject,})
+internal data class UserSendVerificationEmailRequest()
 @Serializable
 data class UserSendVerificationEmailResponse()
 @Serializable
-internal data class UserSession({/// unix timestamp
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? created
-	, /// unix timestamp
-
-	@JsonKey(fromJson: int64FromString, toJson: int64ToString)
-	int? expires
-	, /// the session id
-String? id, /// the associated user id
-String? userId,})
+internal data class UserSession()
 @Serializable
-internal data class UserUpdatePasswordRequest({/// the old password
-String? old_password, /// the account id
-String? userId, /// confirm new password
-String? confirm_password, /// the new password
-String? new_password,})
+internal data class UserUpdatePasswordRequest()
 @Serializable
 data class UserUpdatePasswordResponse()
 @Serializable
-internal data class UserUpdateRequest({/// the new email address
-String? email, /// the account id
-String? id, /// the user profile as map<string,string>
-Map<String, String>? profile, /// the new username
-String? username,})
+internal data class UserUpdateRequest()
 @Serializable
 data class UserUpdateResponse()
 @Serializable
-internal data class UserVerifyEmailRequest({/// The token from the verification email
-String? token,})
+internal data class UserVerifyEmailRequest()
 @Serializable
 data class UserVerifyEmailResponse()
 @Serializable
-internal data class UserVerifyTokenRequest({String? token,})
+internal data class UserVerifyTokenRequest()
 @Serializable
-data class UserVerifyTokenResponse({bool? is_valid, String? message, Session? session,})
+data class UserVerifyTokenResponse()

@@ -27,15 +27,10 @@ object MqService {
     }
 }
 @Serializable
-internal data class MqPublishRequest({/// The json message to publish
-Map<String, dynamic>? message, /// The topic to publish to
-String? topic,})
+internal data class MqPublishRequest()
 @Serializable
 data class MqPublishResponse()
 @Serializable
-internal data class MqSubscribeRequest({/// The topic to subscribe to
-String? topic,})
+internal data class MqSubscribeRequest()
 @Serializable
-data class MqSubscribeResponse({/// The next json message on the topic
-Map<String, dynamic>? message, /// The topic subscribed to
-String? topic,})
+data class MqSubscribeResponse()

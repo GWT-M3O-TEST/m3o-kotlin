@@ -30,25 +30,14 @@ object PingService {
     }
 }
 @Serializable
-internal data class PingIpRequest({/// address to ping
-String? address,})
+internal data class PingIpRequest()
 @Serializable
-data class PingIpResponse({/// response status
-String? status, /// average latency e.g 10ms
-String? latency,})
+data class PingIpResponse()
 @Serializable
-internal data class PingTcpRequest({/// address to dial
-String? address, /// optional data to send
-String? data,})
+internal data class PingTcpRequest()
 @Serializable
-data class PingTcpResponse({/// response data if any
-String? data, /// response status
-String? status,})
+data class PingTcpResponse()
 @Serializable
-internal data class PingUrlRequest({/// address to use
-String? address, /// method of the call
-String? method,})
+internal data class PingUrlRequest()
 @Serializable
-data class PingUrlResponse({/// the response code
-int? code, /// the response status
-String? status,})
+data class PingUrlResponse()

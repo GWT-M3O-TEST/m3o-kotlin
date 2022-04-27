@@ -62,78 +62,42 @@ object ChatService {
     }
 }
 @Serializable
-internal data class ChatCreateRequest({/// chat description
-String? description, /// name of the room
-String? name, /// whether its a private room
-bool? private, /// optional list of user ids
-List<String>? user_ids,})
+internal data class ChatCreateRequest()
 @Serializable
-data class ChatCreateResponse({/// the unique chat room
-Room? room,})
+data class ChatCreateResponse()
 @Serializable
-internal data class ChatDeleteRequest({/// the chat room id to delete
-String? room_id,})
+internal data class ChatDeleteRequest()
 @Serializable
-data class ChatDeleteResponse({Room? room,})
+data class ChatDeleteResponse()
 @Serializable
-internal data class ChatHistoryRequest({/// the chat room id to get
-String? room_id,})
+internal data class ChatHistoryRequest()
 @Serializable
-data class ChatHistoryResponse({/// messages in the chat room
-List<Message>? messages,})
+data class ChatHistoryResponse()
 @Serializable
-internal data class ChatInviteRequest({/// the room id
-String? room_id, /// the user id
-String? user_id,})
+internal data class ChatInviteRequest()
 @Serializable
-data class ChatInviteResponse({Room? room,})
+data class ChatInviteResponse()
 @Serializable
-internal data class ChatJoinRequest({/// chat room to join
-String? room_id, /// user id joining
-String? user_id,})
+internal data class ChatJoinRequest()
 @Serializable
-data class ChatJoinResponse({Message? message,})
+data class ChatJoinResponse()
 @Serializable
-internal data class ChatKickRequest({/// the chat room id
-String? room_id, /// the user id
-String? user_id,})
+internal data class ChatKickRequest()
 @Serializable
-data class ChatKickResponse({Room? room,})
+data class ChatKickResponse()
 @Serializable
-internal data class ChatLeaveRequest({/// the chat room id
-String? room_id, /// the user id
-String? user_id,})
+internal data class ChatLeaveRequest()
 @Serializable
-data class ChatLeaveResponse({Room? room,})
+data class ChatLeaveResponse()
 @Serializable
-internal data class ChatListRequest({/// optional user id to filter by
-String? user_id,})
+internal data class ChatListRequest()
 @Serializable
-data class ChatListResponse({List<Room>? rooms,})
+data class ChatListResponse()
 @Serializable
-internal data class ChatMessage({/// a client side id, should be validated by the server to make the request retry safe
-String? client, /// id of the message, allocated by the server
-String? id, /// id of the chat the message is being sent to / from
-String? room_id, /// time the message was sent in RFC3339 format
-String? sent_at, /// subject of the message
-String? subject, /// text of the message
-String? text, /// id of the user who sent the message
-String? user_id,})
+internal data class ChatMessage()
 @Serializable
-internal data class ChatRoom({/// list of users
-List<String>? user_ids, /// time of creation
-String? created_at, /// description of the that
-String? description, /// unique room id
-String? id, /// name of the chat
-String? name, /// whether its a private room
-bool? private,})
+internal data class ChatRoom()
 @Serializable
-internal data class ChatSendRequest({/// a client side id, should be validated by the server to make the request retry safe
-String? client, /// id of the chat room the message is being sent to / from
-String? room_id, /// subject of the message
-String? subject, /// text of the message
-String? text, /// id of the user who sent the message
-String? user_id,})
+internal data class ChatSendRequest()
 @Serializable
-data class ChatSendResponse({/// the message which was created
-Message? message,})
+data class ChatSendResponse()

@@ -40,52 +40,26 @@ object CryptoService {
     }
 }
 @Serializable
-internal data class CryptoArticle({/// the date published
-String? date, /// its description
-String? description, /// the source
-String? source, /// title of the article
-String? title, /// the source url
-String? url,})
+internal data class CryptoArticle()
 @Serializable
-internal data class CryptoHistoryRequest({/// the crypto symbol e.g BTCUSD
-String? symbol,})
+internal data class CryptoHistoryRequest()
 @Serializable
-data class CryptoHistoryResponse({/// the crypto symbol
-String? symbol, /// the volume
-double? volume, /// the close price
-double? close, /// the date
-String? date, /// the peak price
-double? high, /// the low price
-double? low, /// the open price
-double? open,})
+data class CryptoHistoryResponse()
 @Serializable
-internal data class CryptoNewsRequest({/// cryptocurrency ticker to request news for e.g BTC
-String? symbol,})
+internal data class CryptoNewsRequest()
 @Serializable
-data class CryptoNewsResponse({/// list of articles
-List<Article>? articles, /// symbol requested for
-String? symbol,})
+data class CryptoNewsResponse()
 @Serializable
-internal data class CryptoPriceRequest({/// the crypto symbol e.g BTCUSD
-String? symbol,})
+internal data class CryptoPriceRequest()
 @Serializable
-data class CryptoPriceResponse({/// the last price
-double? price, /// the crypto symbol e.g BTCUSD
-String? symbol,})
+data class CryptoPriceResponse()
 @Serializable
-internal data class CryptoQuoteRequest({/// the crypto symbol e.g BTCUSD
-String? symbol,})
+internal data class CryptoQuoteRequest()
 @Serializable
-data class CryptoQuoteResponse({/// the ask size
-double? ask_size, /// the bidding price
-double? bid_price, /// the bid size
-double? bid_size, /// the crypto symbol
-String? symbol, /// the UTC timestamp of the quote
-String? timestamp, /// the asking price
-double? ask_price,})
+data class CryptoQuoteResponse()
 @Serializable
-internal data class CryptoSymbol({String? name, String? symbol,})
+internal data class CryptoSymbol()
 @Serializable
 internal data class CryptoSymbolsRequest()
 @Serializable
-data class CryptoSymbolsResponse({List<Symbol>? symbols,})
+data class CryptoSymbolsResponse()

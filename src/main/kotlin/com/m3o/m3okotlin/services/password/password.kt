@@ -20,12 +20,6 @@ object PasswordService {
     }
 }
 @Serializable
-internal data class PasswordGenerateRequest({/// include lowercase letters
-bool? lowercase, /// include numbers
-bool? numbers, /// include special characters (!@#$%&*)
-bool? special, /// include uppercase letters
-bool? uppercase, /// password length; defaults to 8 chars
-int? length,})
+internal data class PasswordGenerateRequest()
 @Serializable
-data class PasswordGenerateResponse({/// The generated password
-String? password,})
+data class PasswordGenerateResponse()

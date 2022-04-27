@@ -40,41 +40,26 @@ object SearchService {
     }
 }
 @Serializable
-internal data class SearchCreateIndexRequest({/// The name of the index
-String? index,})
+internal data class SearchCreateIndexRequest()
 @Serializable
 data class SearchCreateIndexResponse()
 @Serializable
-internal data class SearchDeleteIndexRequest({/// The name of the index to delete
-String? index,})
+internal data class SearchDeleteIndexRequest()
 @Serializable
 data class SearchDeleteIndexResponse()
 @Serializable
-internal data class SearchDeleteRequest({/// The ID of the record to delete
-String? id, /// The index the record belongs to
-String? index,})
+internal data class SearchDeleteRequest()
 @Serializable
 data class SearchDeleteResponse()
 @Serializable
-internal data class SearchField({/// The name of the field. Use a `.` separator to define nested fields e.g. foo.bar
-String? name, /// The type of the field - string, number
-String? type,})
+internal data class SearchField()
 @Serializable
-internal data class SearchIndexRequest({/// The data to index
-Map<String, dynamic>? data, /// Optional ID for the record
-String? id, /// The index this record belongs to
-String? index,})
+internal data class SearchIndexRequest()
 @Serializable
-data class SearchIndexResponse({/// the indexed record
-Record? record,})
+data class SearchIndexResponse()
 @Serializable
-internal data class SearchRecord({/// The JSON contents of the record
-Map<String, dynamic>? data, /// The ID for this record. If blank, one will be generated
-String? id,})
+internal data class SearchRecord()
 @Serializable
-internal data class SearchSearchRequest({/// The index the record belongs to
-String? index, /// The query. See docs for query language examples
-String? query,})
+internal data class SearchSearchRequest()
 @Serializable
-data class SearchSearchResponse({/// The matching records
-List<Record>? records,})
+data class SearchSearchResponse()

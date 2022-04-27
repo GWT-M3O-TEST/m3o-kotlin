@@ -20,10 +20,6 @@ object AnswerService {
     }
 }
 @Serializable
-internal data class AnswerQuestionRequest({/// the question to answer
-String? query,})
+internal data class AnswerQuestionRequest()
 @Serializable
-data class AnswerQuestionResponse({/// a related url
-String? url, /// the answer to your question
-String? answer, /// any related image
-String? image,})
+data class AnswerQuestionResponse()

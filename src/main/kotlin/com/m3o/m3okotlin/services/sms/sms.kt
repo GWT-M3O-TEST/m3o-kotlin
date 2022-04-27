@@ -20,11 +20,6 @@ object SmsService {
     }
 }
 @Serializable
-internal data class SmsSendRequest({/// who is the message from? The message will be suffixed with "Sent from <from>"
-String? from, /// the main body of the message to send
-String? message, /// the destination phone number including the international dialling code (e.g. +44)
-String? to,})
+internal data class SmsSendRequest()
 @Serializable
-data class SmsSendResponse({/// any additional info
-String? info, /// will return "ok" if successful
-String? status,})
+data class SmsSendResponse()

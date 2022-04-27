@@ -20,16 +20,8 @@ object GoogleService {
     }
 }
 @Serializable
-internal data class GoogleSearchRequest({/// Query to search for
-String? query,})
+internal data class GoogleSearchRequest()
 @Serializable
-data class GoogleSearchResponse({/// List of results for the query
-List<SearchResult>? results,})
+data class GoogleSearchResponse()
 @Serializable
-internal data class GoogleSearchResult({/// kind of result; "search"
-String? kind, /// the result snippet
-String? snippet, /// title of the result
-String? title, /// the full url for the result
-String? url, /// abridged version of this search result’s URL, e.g. www.exampe.com
-String? display_url, /// id of the result
-String? id,})
+internal data class GoogleSearchResult()

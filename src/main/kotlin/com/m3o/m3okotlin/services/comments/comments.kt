@@ -47,43 +47,28 @@ object CommentsService {
     }
 }
 @Serializable
-internal data class CommentsComment({/// text of the comment
-String? text, /// time at which the comment was updated
-String? updated, /// time at which the comment was created
-String? created, /// unique id for the comment, generated if not specified
-String? id, /// subject of the comment
-String? subject,})
+internal data class CommentsComment()
 @Serializable
-internal data class CommentsCreateRequest({/// comment subject
-String? subject, /// comment items
-String? text,})
+internal data class CommentsCreateRequest()
 @Serializable
-data class CommentsCreateResponse({/// The created comment
-Comment? comment,})
+data class CommentsCreateResponse()
 @Serializable
-internal data class CommentsDeleteRequest({/// specify the id of the comment
-String? id,})
+internal data class CommentsDeleteRequest()
 @Serializable
-data class CommentsDeleteResponse({Comment? comment,})
+data class CommentsDeleteResponse()
 @Serializable
-internal data class CommentsEventsRequest({/// optionally specify a comment id
-String? id,})
+internal data class CommentsEventsRequest()
 @Serializable
-data class CommentsEventsResponse({/// the comment which the operation occured on
-Comment? comment, /// the event which occured; create, delete, update
-String? event,})
+data class CommentsEventsResponse()
 @Serializable
 internal data class CommentsListRequest()
 @Serializable
-data class CommentsListResponse({/// the comment of comments
-List<Comment>? comments,})
+data class CommentsListResponse()
 @Serializable
-internal data class CommentsReadRequest({/// the comment id
-String? id,})
+internal data class CommentsReadRequest()
 @Serializable
-data class CommentsReadResponse({/// The comment
-Comment? comment,})
+data class CommentsReadResponse()
 @Serializable
-internal data class CommentsUpdateRequest({Comment? comment,})
+internal data class CommentsUpdateRequest()
 @Serializable
-data class CommentsUpdateResponse({Comment? comment,})
+data class CommentsUpdateResponse()

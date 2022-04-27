@@ -20,9 +20,6 @@ object BitcoinService {
     }
 }
 @Serializable
-internal data class BitcoinPriceRequest({/// symbol to use e.g BTCUSD
-String? symbol,})
+internal data class BitcoinPriceRequest()
 @Serializable
-data class BitcoinPriceResponse({/// The price of bitcoin
-double? price, /// The symbol of pricing e.g BTCUSD
-String? symbol,})
+data class BitcoinPriceResponse()

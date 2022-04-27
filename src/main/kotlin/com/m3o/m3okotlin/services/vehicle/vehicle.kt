@@ -20,23 +20,6 @@ object VehicleService {
     }
 }
 @Serializable
-internal data class VehicleLookupRequest({/// the vehicle registration number
-String? registration,})
+internal data class VehicleLookupRequest()
 @Serializable
-data class VehicleLookupResponse({/// engine capacity
-int? engine_capacity, /// fuel type e.g petrol, diesel
-String? fuel_type, /// wheel plan
-String? wheelplan, /// co2 emmissions
-double? co2_emissions, /// url of logo for the make
-String? logo_url, /// mot expiry
-String? mot_expiry, /// date of last v5 issue
-String? last_v5_issued, /// tax due data
-String? tax_due_date, /// type approvale
-String? type_approval, /// year of manufacture
-int? year_of_manufacture, /// make of vehicle
-String? make, /// month of first registration
-String? month_of_first_registration, /// mot status
-String? mot_status, /// registration number
-String? registration, /// tax status
-String? tax_status, /// colour of vehicle
-String? colour,})
+data class VehicleLookupResponse()

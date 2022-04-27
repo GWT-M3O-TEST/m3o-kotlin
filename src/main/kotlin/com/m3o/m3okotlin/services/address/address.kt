@@ -20,20 +20,8 @@ object AddressService {
     }
 }
 @Serializable
-internal data class AddressLookupPostcodeRequest({/// UK postcode e.g SW1A 2AA
-String? postcode,})
+internal data class AddressLookupPostcodeRequest()
 @Serializable
-data class AddressLookupPostcodeResponse({List<Record>? addresses,})
+data class AddressLookupPostcodeResponse()
 @Serializable
-internal data class AddressRecord({/// the premise
-String? premise, /// post town
-String? town, /// building name
-String? building_name, /// line one of address
-String? line_one, /// dependent locality
-String? locality, /// organisation if present
-String? organisation, /// the postcode
-String? postcode, /// street name
-String? street, /// the complete address
-String? summary, /// the county
-String? county, /// line two of address
-String? line_two,})
+internal data class AddressRecord()

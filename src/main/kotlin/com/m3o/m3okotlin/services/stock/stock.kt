@@ -30,33 +30,14 @@ object StockService {
     }
 }
 @Serializable
-internal data class StockHistoryRequest({/// date to retrieve as YYYY-MM-DD
-String? date, /// the stock symbol e.g AAPL
-String? stock,})
+internal data class StockHistoryRequest()
 @Serializable
-data class StockHistoryResponse({/// the close price
-double? close, /// the date
-String? date, /// the peak price
-double? high, /// the low price
-double? low, /// the open price
-double? open, /// the stock symbol
-String? symbol, /// the volume
-int? volume,})
+data class StockHistoryResponse()
 @Serializable
-internal data class StockPriceRequest({/// stock symbol e.g AAPL
-String? symbol,})
+internal data class StockPriceRequest()
 @Serializable
-data class StockPriceResponse({/// the last price
-double? price, /// the stock symbol e.g AAPL
-String? symbol,})
+data class StockPriceResponse()
 @Serializable
-internal data class StockQuoteRequest({/// the stock symbol e.g AAPL
-String? symbol,})
+internal data class StockQuoteRequest()
 @Serializable
-data class StockQuoteResponse({/// the asking price
-double? ask_price, /// the ask size
-int? ask_size, /// the bidding price
-double? bid_price, /// the bid size
-int? bid_size, /// the stock symbol
-String? symbol, /// the UTC timestamp of the quote
-String? timestamp,})
+data class StockQuoteResponse()

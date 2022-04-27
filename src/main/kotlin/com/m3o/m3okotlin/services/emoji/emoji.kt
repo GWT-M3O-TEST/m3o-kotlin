@@ -30,20 +30,14 @@ object EmojiService {
     }
 }
 @Serializable
-internal data class EmojiFindRequest({/// the alias code e.g :beer:
-String? alias,})
+internal data class EmojiFindRequest()
 @Serializable
-data class EmojiFindResponse({/// the unicode emoji 🍺
-String? emoji,})
+data class EmojiFindResponse()
 @Serializable
-internal data class EmojiFlagRequest({/// country code e.g GB
-String? code,})
+internal data class EmojiFlagRequest()
 @Serializable
-data class EmojiFlagResponse({/// the emoji flag
-String? flag,})
+data class EmojiFlagResponse()
 @Serializable
-internal data class EmojiPrintRequest({/// text including any alias e.g let's grab a :beer:
-String? text,})
+internal data class EmojiPrintRequest()
 @Serializable
-data class EmojiPrintResponse({/// text with rendered emojis
-String? text,})
+data class EmojiPrintResponse()

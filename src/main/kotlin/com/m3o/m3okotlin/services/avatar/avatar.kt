@@ -20,6 +20,6 @@ object AvatarService {
     }
 }
 @Serializable
-internal data class AvatarGenerateRequest(val format: String, val gender: String, val upload: Boolean, val username: String)
+internal data class AvatarGenerateRequest(val gender: String, val upload: Boolean, val username: String, val format: String)
 @Serializable
 data class AvatarGenerateResponse(val base64: String, val url: String)

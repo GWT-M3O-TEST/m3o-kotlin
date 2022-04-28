@@ -29,6 +29,6 @@ internal data class OtpGenerateRequest(val expiry: Long, val id: String, val siz
 @Serializable
 data class OtpGenerateResponse(val code: String)
 @Serializable
-internal data class OtpValidateRequest(val code: String, val id: String)
+internal data class OtpValidateRequest(val id: String, val code: String)
 @Serializable
 data class OtpValidateResponse(val success: Boolean)

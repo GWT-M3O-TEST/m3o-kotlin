@@ -35,19 +35,19 @@ object CurrencyService {
     }
 }
 @Serializable
-internal data class CurrencyCode(val name: String, val currency: String)
+internal data class CurrencyCode(val currency: String, val name: String)
 @Serializable
 internal data class CurrencyCodesRequest()
 @Serializable
 data class CurrencyCodesResponse(val codes: List<CurrencyCode>)
 @Serializable
-internal data class CurrencyConvertRequest(val to: String, val amount: Double, val from: String)
+internal data class CurrencyConvertRequest(val amount: Double, val from: String, val to: String)
 @Serializable
 data class CurrencyConvertResponse(val amount: Double, val from: String, val rate: Double, val to: String)
 @Serializable
 internal data class CurrencyHistoryRequest(val code: String, val date: String)
 @Serializable
-data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
+data class CurrencyHistoryResponse(val rates: Map<String, Double>, val code: String, val date: String)
 @Serializable
 internal data class CurrencyRatesRequest(val code: String)
 @Serializable

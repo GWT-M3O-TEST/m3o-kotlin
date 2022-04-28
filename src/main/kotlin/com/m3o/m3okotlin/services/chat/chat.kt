@@ -62,7 +62,7 @@ object ChatService {
     }
 }
 @Serializable
-internal data class ChatCreateRequest(val description: String, val name: String, val private: Boolean, val user_ids: List<ChatString>)
+internal data class ChatCreateRequest(val name: String, val private: Boolean, val user_ids: List<ChatString>, val description: String)
 @Serializable
 data class ChatCreateResponse(val room: ChatRoom)
 @Serializable
@@ -74,7 +74,7 @@ internal data class ChatHistoryRequest(val room_id: String)
 @Serializable
 data class ChatHistoryResponse(val messages: List<ChatMessage>)
 @Serializable
-internal data class ChatInviteRequest(val room_id: String, val user_id: String)
+internal data class ChatInviteRequest(val user_id: String, val room_id: String)
 @Serializable
 data class ChatInviteResponse(val room: ChatRoom)
 @Serializable
@@ -94,7 +94,7 @@ internal data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-internal data class ChatMessage(val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String, val client: String)
+internal data class ChatMessage(val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String, val client: String, val id: String)
 @Serializable
 internal data class ChatRoom(val name: String, val private: Boolean, val user_ids: List<ChatString>, val created_at: String, val description: String, val id: String)
 @Serializable

@@ -25,12 +25,12 @@ object WeatherService {
     }
 }
 @Serializable
-internal data class WeatherForecast(val max_wind_mph: Double, val min_temp_f: Double, val sunrise: String, val date: String, val icon_url: String, val max_wind_kph: Double, val will_it_rain: Boolean, val chance_of_rain: Int, val avg_temp_f: Double, val condition: String, val max_temp_c: Double, val max_temp_f: Double, val min_temp_c: Double, val sunset: String, val avg_temp_c: Double)
+internal data class WeatherForecast(val max_temp_c: Double, val condition: String, val chance_of_rain: Int, val icon_url: String, val max_temp_f: Double, val will_it_rain: Boolean, val avg_temp_c: Double, val max_wind_kph: Double, val min_temp_c: Double, val sunset: String, val date: String, val max_wind_mph: Double, val min_temp_f: Double, val sunrise: String, val avg_temp_f: Double)
 @Serializable
 internal data class WeatherForecastRequest(val days: Int, val location: String)
 @Serializable
-data class WeatherForecastResponse(val country: String, val forecast: List<WeatherForecast>, val latitude: Double, val local_time: String, val location: String, val longitude: Double, val region: String, val timezone: String)
+data class WeatherForecastResponse(val longitude: Double, val region: String, val timezone: String, val country: String, val forecast: List<WeatherForecast>, val latitude: Double, val local_time: String, val location: String)
 @Serializable
 internal data class WeatherNowRequest(val location: String)
 @Serializable
-data class WeatherNowResponse(val humidity: Int, val icon_url: String, val temp_f: Double, val cloud: Int, val local_time: String, val temp_c: Double, val timezone: String, val daytime: Boolean, val feels_like_f: Double, val region: String, val wind_degree: Int, val wind_mph: Double, val feels_like_c: Double, val country: String, val latitude: Double, val location: String, val longitude: Double, val wind_direction: String, val wind_kph: Double, val condition: String)
+data class WeatherNowResponse(val condition: String, val feels_like_c: Double, val latitude: Double, val wind_degree: Int, val wind_mph: Double, val wind_direction: String, val wind_kph: Double, val cloud: Int, val country: String, val humidity: Int, val local_time: String, val location: String, val temp_c: Double, val daytime: Boolean, val feels_like_f: Double, val temp_f: Double, val timezone: String, val icon_url: String, val longitude: Double, val region: String)

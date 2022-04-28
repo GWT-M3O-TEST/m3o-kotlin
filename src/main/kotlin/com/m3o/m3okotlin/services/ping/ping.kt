@@ -34,7 +34,7 @@ internal data class PingIpRequest(val address: String)
 @Serializable
 data class PingIpResponse(val latency: String, val status: String)
 @Serializable
-internal data class PingTcpRequest(val address: String, val data: String)
+internal data class PingTcpRequest(val data: String, val address: String)
 @Serializable
 data class PingTcpResponse(val data: String, val status: String)
 @Serializable

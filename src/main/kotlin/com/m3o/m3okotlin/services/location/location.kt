@@ -32,7 +32,7 @@ object LocationService {
 @Serializable
 internal data class LocationEntity(val id: String, val location: LocationPoint, val type: String)
 @Serializable
-internal data class LocationPoint(val latitude: Double, val longitude: Double, val timestamp: Long)
+internal data class LocationPoint(val longitude: Double, val timestamp: Long, val latitude: Double)
 @Serializable
 internal data class LocationReadRequest(val id: String)
 @Serializable
@@ -42,6 +42,6 @@ internal data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
 data class LocationSaveResponse()
 @Serializable
-internal data class LocationSearchRequest(val numEntities: Long, val radius: Double, val type: String, val center: LocationPoint)
+internal data class LocationSearchRequest(val center: LocationPoint, val numEntities: Long, val radius: Double, val type: String)
 @Serializable
 data class LocationSearchResponse(val entities: List<LocationEntity>)

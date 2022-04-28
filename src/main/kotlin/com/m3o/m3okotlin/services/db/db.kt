@@ -80,11 +80,11 @@ internal data class DbListTablesRequest()
 @Serializable
 data class DbListTablesResponse(val tables: List<DbString>)
 @Serializable
-internal data class DbReadRequest(val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int, val offset: Int)
+internal data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
 @Serializable
 data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-internal data class DbRenameTableRequest(val from: String, val to: String)
+internal data class DbRenameTableRequest(val to: String, val from: String)
 @Serializable
 data class DbRenameTableResponse()
 @Serializable
@@ -92,6 +92,6 @@ internal data class DbTruncateRequest(val table: String)
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
+internal data class DbUpdateRequest(val table: String, val id: String, val record: DbMap<String, dynamic>)
 @Serializable
 data class DbUpdateResponse()

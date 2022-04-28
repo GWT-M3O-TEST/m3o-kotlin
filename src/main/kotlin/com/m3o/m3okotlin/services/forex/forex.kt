@@ -32,7 +32,7 @@ object ForexService {
 @Serializable
 internal data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double)
+data class ForexHistoryResponse(val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double, val open: Double)
 @Serializable
 internal data class ForexPriceRequest(val symbol: String)
 @Serializable

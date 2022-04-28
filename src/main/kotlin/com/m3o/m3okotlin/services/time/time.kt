@@ -27,8 +27,8 @@ object TimeService {
 @Serializable
 internal data class TimeNowRequest(val location: String)
 @Serializable
-data class TimeNowResponse(val localtime: String, val location: String, val timestamp: String, val timezone: String, val unix: Long)
+data class TimeNowResponse(val timezone: String, val unix: Long, val localtime: String, val location: String, val timestamp: String)
 @Serializable
 internal data class TimeZoneRequest(val location: String)
 @Serializable
-data class TimeZoneResponse(val dst: Boolean, val localtime: String, val location: String, val longitude: Double, val region: String, val abbreviation: String, val latitude: Double, val offset: Int, val timezone: String, val country: String)
+data class TimeZoneResponse(val region: String, val abbreviation: String, val dst: Boolean, val latitude: Double, val localtime: String, val location: String, val offset: Int, val country: String, val longitude: Double, val timezone: String)

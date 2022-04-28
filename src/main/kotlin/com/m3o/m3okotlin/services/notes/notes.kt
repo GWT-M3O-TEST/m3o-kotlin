@@ -63,7 +63,7 @@ internal data class NotesListRequest()
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-internal data class NotesNote(val created: String, val id: String, val text: String, val title: String, val updated: String)
+internal data class NotesNote(val id: String, val text: String, val title: String, val updated: String, val created: String)
 @Serializable
 internal data class NotesReadRequest(val id: String)
 @Serializable

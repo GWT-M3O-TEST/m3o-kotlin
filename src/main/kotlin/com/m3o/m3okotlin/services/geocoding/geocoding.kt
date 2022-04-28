@@ -25,7 +25,7 @@ object GeocodingService {
     }
 }
 @Serializable
-internal data class GeocodingAddress(val postcode: String, val city: String, val country: String, val line_one: String, val line_two: String)
+internal data class GeocodingAddress(val line_two: String, val postcode: String, val city: String, val country: String, val line_one: String)
 @Serializable
 internal data class GeocodingLocation(val latitude: Double, val longitude: Double)
 @Serializable

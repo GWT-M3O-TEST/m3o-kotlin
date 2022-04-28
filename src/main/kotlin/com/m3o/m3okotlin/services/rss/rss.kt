@@ -39,11 +39,11 @@ internal data class RssAddRequest(val url: String, val category: String, val nam
 @Serializable
 data class RssAddResponse()
 @Serializable
-internal data class RssEntry(val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String)
+internal data class RssEntry(val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String)
 @Serializable
 internal data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable
-internal data class RssFeedRequest(val name: String, val offset: Long, val limit: Long)
+internal data class RssFeedRequest(val offset: Long, val limit: Long, val name: String)
 @Serializable
 data class RssFeedResponse(val entries: List<RssEntry>)
 @Serializable

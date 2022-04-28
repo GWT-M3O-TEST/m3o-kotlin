@@ -42,4 +42,4 @@ internal data class UrlShortenRequest(val destinationURL: String)
 @Serializable
 data class UrlShortenResponse(val shortURL: String)
 @Serializable
-internal data class UrlURLPair(val shortURL: String, val created: String, val destinationURL: String, val hitCount: Long)
+internal data class UrlURLPair(val created: String, val destinationURL: String, val hitCount: Long, val shortURL: String)

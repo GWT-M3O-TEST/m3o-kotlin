@@ -24,4 +24,4 @@ internal data class AddressLookupPostcodeRequest(val postcode: String)
 @Serializable
 data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>)
 @Serializable
-internal data class AddressRecord(val summary: String, val line_two: String, val locality: String, val line_one: String, val organisation: String, val postcode: String, val premise: String, val street: String, val town: String, val building_name: String, val county: String)
+internal data class AddressRecord(val line_one: String, val line_two: String, val organisation: String, val postcode: String, val street: String, val town: String, val building_name: String, val locality: String, val premise: String, val summary: String, val county: String)

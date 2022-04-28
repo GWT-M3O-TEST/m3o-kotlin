@@ -59,7 +59,7 @@ internal data class ListsEventsRequest(val id: String)
 @Serializable
 data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
-internal data class ListsList(val created: String, val id: String, val items: List<ListsString>, val name: String, val updated: String)
+internal data class ListsList(val name: String, val updated: String, val created: String, val id: String, val items: List<ListsString>)
 @Serializable
 internal data class ListsListRequest()
 @Serializable

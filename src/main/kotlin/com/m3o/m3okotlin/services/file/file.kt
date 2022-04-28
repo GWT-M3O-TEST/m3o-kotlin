@@ -49,6 +49,6 @@ data class FileReadResponse(val file: FileRecord)
 @Serializable
 internal data class FileRecord(val path: String, val project: String, val updated: String, val content: String, val created: String, val metadata: Map<String, String>)
 @Serializable
-internal data class FileSaveRequest(val public: Boolean, val file: FileRecord)
+internal data class FileSaveRequest(val file: FileRecord, val public: Boolean)
 @Serializable
 data class FileSaveResponse(val url: String)

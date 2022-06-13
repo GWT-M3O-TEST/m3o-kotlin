@@ -57,7 +57,7 @@ internal data class CacheGetRequest(val key: String)
 @Serializable
 data class CacheGetResponse(val key: String, val ttl: Long, val value: String)
 @Serializable
-internal data class CacheIncrementRequest(val value: Long, val key: String)
+internal data class CacheIncrementRequest(val key: String, val value: Long)
 @Serializable
 data class CacheIncrementResponse(val key: String, val value: Long)
 @Serializable

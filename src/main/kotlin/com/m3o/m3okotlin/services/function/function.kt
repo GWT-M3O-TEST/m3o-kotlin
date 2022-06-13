@@ -78,7 +78,7 @@ internal data class FunctionDeleteRequest(val name: String)
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-internal data class FunctionDeployRequest(val branch: String, val entrypoint: String, val runtime: String, val subfolder: String, val env_vars: Map<String, String>, val name: String, val region: String, val repo: String, val source: String)
+internal data class FunctionDeployRequest(val source: String, val branch: String, val repo: String, val runtime: String, val region: String, val subfolder: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -86,13 +86,13 @@ internal data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-internal data class FunctionFunc(val status: String, val created: String, val region: String, val id: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String, val subfolder: String, val runtime: String, val source: String, val updated: String, val url: String, val branch: String, val repo: String)
+internal data class FunctionFunc(val id: String, val entrypoint: String, val branch: String, val env_vars: Map<String, String>, val name: String, val repo: String, val subfolder: String, val url: String, val created: String, val region: String, val runtime: String, val source: String, val status: String, val updated: String)
 @Serializable
 internal data class FunctionListRequest()
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
-internal data class FunctionLogsRequest(val logs_type: String, val name: String)
+internal data class FunctionLogsRequest(val name: String, val logs_type: String)
 @Serializable
 data class FunctionLogsResponse(val logs: String)
 @Serializable
@@ -104,7 +104,7 @@ internal data class FunctionRegionsRequest()
 @Serializable
 data class FunctionRegionsResponse(val regions: List<FunctionString>)
 @Serializable
-internal data class FunctionReservation(val owner: String, val token: String, val created: String, val expires: String, val name: String)
+internal data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
 @Serializable
 internal data class FunctionReserveRequest(val name: String)
 @Serializable

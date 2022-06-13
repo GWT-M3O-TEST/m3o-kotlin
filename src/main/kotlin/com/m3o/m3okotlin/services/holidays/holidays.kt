@@ -31,7 +31,7 @@ data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>)
 @Serializable
 internal data class HolidaysCountry(val code: String, val name: String)
 @Serializable
-internal data class HolidaysHoliday(val date: String, val local_name: String, val name: String, val regions: List<HolidaysString>, val types: List<HolidaysString>, val country_code: String)
+internal data class HolidaysHoliday(val country_code: String, val date: String, val local_name: String, val name: String, val regions: List<HolidaysString>, val types: List<HolidaysString>)
 @Serializable
 internal data class HolidaysListRequest(val country_code: String, val year: Long)
 @Serializable

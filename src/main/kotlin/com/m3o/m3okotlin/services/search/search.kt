@@ -48,13 +48,13 @@ internal data class SearchDeleteIndexRequest(val index: String)
 @Serializable
 data class SearchDeleteIndexResponse()
 @Serializable
-internal data class SearchDeleteRequest(val id: String, val index: String)
+internal data class SearchDeleteRequest(val index: String, val id: String)
 @Serializable
 data class SearchDeleteResponse()
 @Serializable
-internal data class SearchField(val name: String, val type: String)
+internal data class SearchField(val type: String, val name: String)
 @Serializable
-internal data class SearchIndexRequest(val index: String, val data: SearchMap<String, dynamic>, val id: String)
+internal data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable

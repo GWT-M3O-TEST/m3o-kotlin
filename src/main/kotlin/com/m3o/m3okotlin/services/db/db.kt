@@ -64,11 +64,11 @@ internal data class DbCountRequest(val table: String)
 @Serializable
 data class DbCountResponse(val count: Int)
 @Serializable
-internal data class DbCreateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
+internal data class DbCreateRequest(val table: String, val id: String, val record: DbMap<String, dynamic>)
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
-internal data class DbDeleteRequest(val table: String, val id: String)
+internal data class DbDeleteRequest(val id: String, val table: String)
 @Serializable
 data class DbDeleteResponse()
 @Serializable
@@ -92,6 +92,6 @@ internal data class DbTruncateRequest(val table: String)
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest(val table: String, val id: String, val record: DbMap<String, dynamic>)
+internal data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
 @Serializable
 data class DbUpdateResponse()

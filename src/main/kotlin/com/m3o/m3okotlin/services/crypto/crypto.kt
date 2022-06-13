@@ -44,7 +44,7 @@ internal data class CryptoArticle(val title: String, val url: String, val date: 
 @Serializable
 internal data class CryptoHistoryRequest(val symbol: String)
 @Serializable
-data class CryptoHistoryResponse(val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double)
+data class CryptoHistoryResponse(val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double, val open: Double)
 @Serializable
 internal data class CryptoNewsRequest(val symbol: String)
 @Serializable
@@ -56,7 +56,7 @@ data class CryptoPriceResponse(val price: Double, val symbol: String)
 @Serializable
 internal data class CryptoQuoteRequest(val symbol: String)
 @Serializable
-data class CryptoQuoteResponse(val bid_size: Double, val symbol: String, val timestamp: String, val ask_price: Double, val ask_size: Double, val bid_price: Double)
+data class CryptoQuoteResponse(val ask_price: Double, val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String)
 @Serializable
 internal data class CryptoSymbol(val name: String, val symbol: String)
 @Serializable

@@ -40,15 +40,15 @@ object PriceService {
     }
 }
 @Serializable
-internal data class PriceAddRequest(val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String)
+internal data class PriceAddRequest(val price: Double, val source: String, val symbol: String, val author: String, val currency: String, val name: String)
 @Serializable
 data class PriceAddResponse(val value: PriceValue)
 @Serializable
-internal data class PriceGetRequest(val symbol: String, val currency: String, val name: String)
+internal data class PriceGetRequest(val currency: String, val name: String, val symbol: String)
 @Serializable
 data class PriceGetResponse(val values: List<PriceValue>)
 @Serializable
-internal data class PriceIndex(val name: String, val symbol: String, val currency: String)
+internal data class PriceIndex(val currency: String, val name: String, val symbol: String)
 @Serializable
 internal data class PriceIndexRequest()
 @Serializable
@@ -64,4 +64,4 @@ internal data class PriceReportRequest(val comment: String, val name: String, va
 @Serializable
 data class PriceReportResponse()
 @Serializable
-internal data class PriceValue(val symbol: String, val timestamp: String, val author: String, val currency: String, val name: String, val price: Double, val source: String)
+internal data class PriceValue(val source: String, val symbol: String, val timestamp: String, val author: String, val currency: String, val name: String, val price: Double)

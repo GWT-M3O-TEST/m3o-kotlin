@@ -39,7 +39,7 @@ internal data class AnalyticsDeleteRequest(val name: String)
 @Serializable
 data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
 @Serializable
-internal data class AnalyticsEvent(val value: Long, val created: String, val name: String)
+internal data class AnalyticsEvent(val created: String, val name: String, val value: Long)
 @Serializable
 internal data class AnalyticsListRequest()
 @Serializable

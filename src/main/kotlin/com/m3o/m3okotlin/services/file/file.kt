@@ -39,11 +39,11 @@ internal data class FileDeleteRequest(val path: String, val project: String)
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest(val project: String, val path: String)
+internal data class FileListRequest(val path: String, val project: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-internal data class FileReadRequest(val project: String, val path: String)
+internal data class FileReadRequest(val path: String, val project: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable

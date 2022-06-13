@@ -51,4 +51,4 @@ data class CurrencyHistoryResponse(val code: String, val date: String, val rates
 @Serializable
 internal data class CurrencyRatesRequest(val code: String)
 @Serializable
-data class CurrencyRatesResponse(val rates: Map<String, Double>, val code: String)
+data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)

@@ -36,9 +36,9 @@ internal data class EventConsumeRequest(val group: String, val offset: String, v
 @Serializable
 data class EventConsumeResponse(val id: String, val message: EventMap<String, dynamic>, val timestamp: String, val topic: String)
 @Serializable
-internal data class EventEv(val id: String, val message: EventMap<String, dynamic>, val timestamp: String)
+internal data class EventEv(val message: EventMap<String, dynamic>, val timestamp: String, val id: String)
 @Serializable
-internal data class EventPublishRequest(val topic: String, val message: EventMap<String, dynamic>)
+internal data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic: String)
 @Serializable
 data class EventPublishResponse()
 @Serializable

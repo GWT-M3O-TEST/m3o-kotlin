@@ -20,6 +20,6 @@ object SentimentService {
     }
 }
 @Serializable
-internal data class SentimentAnalyzeRequest(val text: String, val lang: String)
+internal data class SentimentAnalyzeRequest(val lang: String, val text: String)
 @Serializable
 data class SentimentAnalyzeResponse(val score: Double)

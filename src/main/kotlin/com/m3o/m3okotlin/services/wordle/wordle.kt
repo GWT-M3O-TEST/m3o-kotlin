@@ -31,7 +31,7 @@ internal data class WordleGuess(val chars: List<WordleChar>, val highlight: Stri
 @Serializable
 internal data class WordleGuessRequest(val player: String, val word: String)
 @Serializable
-data class WordleGuessResponse(val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String, val correct: Boolean)
+data class WordleGuessResponse(val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String)
 @Serializable
 internal data class WordleNextRequest()
 @Serializable

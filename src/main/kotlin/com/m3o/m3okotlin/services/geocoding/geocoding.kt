@@ -31,7 +31,7 @@ internal data class GeocodingLocation(val latitude: Double, val longitude: Doubl
 @Serializable
 internal data class GeocodingLookupRequest(val address: String, val city: String, val country: String, val postcode: String)
 @Serializable
-data class GeocodingLookupResponse(val address: GeocodingAddress, val location: GeocodingLocation)
+data class GeocodingLookupResponse(val location: GeocodingLocation, val address: GeocodingAddress)
 @Serializable
 internal data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
 @Serializable

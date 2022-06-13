@@ -47,7 +47,7 @@ object NotesService {
     }
 }
 @Serializable
-internal data class NotesCreateRequest(val text: String, val title: String)
+internal data class NotesCreateRequest(val title: String, val text: String)
 @Serializable
 data class NotesCreateResponse(val note: NotesNote)
 @Serializable

@@ -94,10 +94,10 @@ internal data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-internal data class ChatMessage(val user_id: String, val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String)
+internal data class ChatMessage(val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String)
 @Serializable
-internal data class ChatRoom(val created_at: String, val description: String, val id: String, val name: String, val private: Boolean, val user_ids: List<ChatString>)
+internal data class ChatRoom(val name: String, val private: Boolean, val user_ids: List<ChatString>, val created_at: String, val description: String, val id: String)
 @Serializable
-internal data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
+internal data class ChatSendRequest(val user_id: String, val client: String, val room_id: String, val subject: String, val text: String)
 @Serializable
 data class ChatSendResponse(val message: ChatMessage)

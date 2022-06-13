@@ -13,15 +13,15 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "prayer"
 
 object PrayerService {
-    suspend fun times(name: String): PrayerTimesResponse {
+    suspend fun times(req: PrayerTimesRequest): PrayerTimesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Times")) {
-          body = PrayerTimesRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class PrayerPrayerTime(val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String)
+internal data class PrayerPrayerTime(val isha: String, val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String)
 @Serializable
-internal data class PrayerTimesRequest(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
+internal data class PrayerTimesRequest(val latitude: Double, val location: String, val longitude: Double, val date: String, val days: Int)
 @Serializable
-data class PrayerTimesResponse(val times: List<PrayerPrayerTime>, val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
+data class PrayerTimesResponse(val location: String, val longitude: Double, val times: List<PrayerPrayerTime>, val date: String, val days: Int, val latitude: Double)

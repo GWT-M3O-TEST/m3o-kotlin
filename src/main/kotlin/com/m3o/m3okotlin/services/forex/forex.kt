@@ -13,26 +13,26 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "forex"
 
 object ForexService {
-    suspend fun history(name: String): ForexHistoryResponse {
+    suspend fun history(req: ForexHistoryRequest): ForexHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
-          body = ForexHistoryRequest(name)
+          body = req
         }
     }
-    suspend fun price(name: String): ForexPriceResponse {
+    suspend fun price(req: ForexPriceRequest): ForexPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
-          body = ForexPriceRequest(name)
+          body = req
         }
     }
-    suspend fun quote(name: String): ForexQuoteResponse {
+    suspend fun quote(req: ForexQuoteRequest): ForexQuoteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Quote")) {
-          body = ForexQuoteRequest(name)
+          body = req
         }
     }
 }
 @Serializable
 internal data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double, val open: Double)
+data class ForexHistoryResponse(val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double)
 @Serializable
 internal data class ForexPriceRequest(val symbol: String)
 @Serializable
@@ -40,4 +40,4 @@ data class ForexPriceResponse(val price: Double, val symbol: String)
 @Serializable
 internal data class ForexQuoteRequest(val symbol: String)
 @Serializable
-data class ForexQuoteResponse(val ask_price: Double, val bid_price: Double, val symbol: String, val timestamp: String)
+data class ForexQuoteResponse(val timestamp: String, val ask_price: Double, val bid_price: Double, val symbol: String)

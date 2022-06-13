@@ -14,20 +14,20 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "mq"
 
 object MqService {
-    suspend fun publish(name: String): MqPublishResponse {
+    suspend fun publish(req: MqPublishRequest): MqPublishResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Publish")) {
-          body = MqPublishRequest(name)
+          body = req
         }
     }
-    fun subscribe(name: String, messages: Int = 1, action: (Exception?, MqSubscribeResponse?) -> Unit) {
+    fun subscribe(req: MqSubscribeRequest, action: (Exception?, MqSubscribeResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Subscribe", true)
-        WebSocket(url, Json.encodeToString(MqSubscribeRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
 }
 @Serializable
-internal data class MqPublishRequest(val topic: String, val message: MqMap<String, dynamic>)
+internal data class MqPublishRequest(val message: MqMap<String, dynamic>, val topic: String)
 @Serializable
 data class MqPublishResponse()
 @Serializable

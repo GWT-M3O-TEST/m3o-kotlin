@@ -13,31 +13,31 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "stream"
 
 object StreamService {
-    suspend fun createChannel(name: String): StreamCreateChannelResponse {
+    suspend fun createChannel(req: StreamCreateChannelRequest): StreamCreateChannelResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "CreateChannel")) {
-          body = StreamCreateChannelRequest(name)
+          body = req
         }
     }
-    suspend fun listChannels(name: String): StreamListChannelsResponse {
+    suspend fun listChannels(req: StreamListChannelsRequest): StreamListChannelsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListChannels")) {
-          body = StreamListChannelsRequest(name)
+          body = req
         }
     }
-    suspend fun listMessages(name: String): StreamListMessagesResponse {
+    suspend fun listMessages(req: StreamListMessagesRequest): StreamListMessagesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListMessages")) {
-          body = StreamListMessagesRequest(name)
+          body = req
         }
     }
-    suspend fun sendMessage(name: String): StreamSendMessageResponse {
+    suspend fun sendMessage(req: StreamSendMessageRequest): StreamSendMessageResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "SendMessage")) {
-          body = StreamSendMessageRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class StreamChannel(val last_active: String, val name: String, val description: String)
+internal data class StreamChannel(val description: String, val last_active: String, val name: String)
 @Serializable
-internal data class StreamCreateChannelRequest(val name: String, val description: String)
+internal data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable
 data class StreamCreateChannelResponse()
 @Serializable

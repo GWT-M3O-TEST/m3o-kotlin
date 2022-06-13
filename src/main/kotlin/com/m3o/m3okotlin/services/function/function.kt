@@ -13,59 +13,59 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "function"
 
 object FunctionService {
-    suspend fun call(name: String): FunctionCallResponse {
+    suspend fun call(req: FunctionCallRequest): FunctionCallResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Call")) {
-          body = FunctionCallRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): FunctionDeleteResponse {
+    suspend fun delete(req: FunctionDeleteRequest): FunctionDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = FunctionDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun deploy(name: String): FunctionDeployResponse {
+    suspend fun deploy(req: FunctionDeployRequest): FunctionDeployResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Deploy")) {
-          body = FunctionDeployRequest(name)
+          body = req
         }
     }
-    suspend fun describe(name: String): FunctionDescribeResponse {
+    suspend fun describe(req: FunctionDescribeRequest): FunctionDescribeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Describe")) {
-          body = FunctionDescribeRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): FunctionListResponse {
+    suspend fun list(req: FunctionListRequest): FunctionListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = FunctionListRequest(name)
+          body = req
         }
     }
-    suspend fun logs(name: String): FunctionLogsResponse {
+    suspend fun logs(req: FunctionLogsRequest): FunctionLogsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Logs")) {
-          body = FunctionLogsRequest(name)
+          body = req
         }
     }
-    suspend fun proxy(name: String): FunctionProxyResponse {
+    suspend fun proxy(req: FunctionProxyRequest): FunctionProxyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Proxy")) {
-          body = FunctionProxyRequest(name)
+          body = req
         }
     }
-    suspend fun regions(name: String): FunctionRegionsResponse {
+    suspend fun regions(req: FunctionRegionsRequest): FunctionRegionsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Regions")) {
-          body = FunctionRegionsRequest(name)
+          body = req
         }
     }
-    suspend fun reserve(name: String): FunctionReserveResponse {
+    suspend fun reserve(req: FunctionReserveRequest): FunctionReserveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reserve")) {
-          body = FunctionReserveRequest(name)
+          body = req
         }
     }
-    suspend fun runtimes(name: String): FunctionRuntimesResponse {
+    suspend fun runtimes(req: FunctionRuntimesRequest): FunctionRuntimesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Runtimes")) {
-          body = FunctionRuntimesRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): FunctionUpdateResponse {
+    suspend fun update(req: FunctionUpdateRequest): FunctionUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = FunctionUpdateRequest(name)
+          body = req
         }
     }
 }
@@ -78,7 +78,7 @@ internal data class FunctionDeleteRequest(val name: String)
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-internal data class FunctionDeployRequest(val branch: String, val repo: String, val name: String, val region: String, val runtime: String, val source: String, val subfolder: String, val entrypoint: String, val env_vars: Map<String, String>)
+internal data class FunctionDeployRequest(val branch: String, val entrypoint: String, val runtime: String, val subfolder: String, val env_vars: Map<String, String>, val name: String, val region: String, val repo: String, val source: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -86,7 +86,7 @@ internal data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-internal data class FunctionFunc(val created: String, val repo: String, val runtime: String, val status: String, val url: String, val branch: String, val region: String, val source: String, val env_vars: Map<String, String>, val updated: String, val name: String, val id: String, val subfolder: String, val entrypoint: String)
+internal data class FunctionFunc(val status: String, val created: String, val region: String, val id: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String, val subfolder: String, val runtime: String, val source: String, val updated: String, val url: String, val branch: String, val repo: String)
 @Serializable
 internal data class FunctionListRequest()
 @Serializable

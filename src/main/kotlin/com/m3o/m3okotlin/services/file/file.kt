@@ -13,24 +13,24 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "file"
 
 object FileService {
-    suspend fun delete(name: String): FileDeleteResponse {
+    suspend fun delete(req: FileDeleteRequest): FileDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = FileDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): FileListResponse {
+    suspend fun list(req: FileListRequest): FileListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = FileListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): FileReadResponse {
+    suspend fun read(req: FileReadRequest): FileReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = FileReadRequest(name)
+          body = req
         }
     }
-    suspend fun save(name: String): FileSaveResponse {
+    suspend fun save(req: FileSaveRequest): FileSaveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Save")) {
-          body = FileSaveRequest(name)
+          body = req
         }
     }
 }
@@ -39,15 +39,15 @@ internal data class FileDeleteRequest(val path: String, val project: String)
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest(val path: String, val project: String)
+internal data class FileListRequest(val project: String, val path: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-internal data class FileReadRequest(val path: String, val project: String)
+internal data class FileReadRequest(val project: String, val path: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable
-internal data class FileRecord(val path: String, val project: String, val updated: String, val content: String, val created: String, val metadata: Map<String, String>)
+internal data class FileRecord(val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String, val content: String)
 @Serializable
 internal data class FileSaveRequest(val file: FileRecord, val public: Boolean)
 @Serializable

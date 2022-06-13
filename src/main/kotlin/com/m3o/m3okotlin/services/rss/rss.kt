@@ -13,33 +13,33 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "rss"
 
 object RssService {
-    suspend fun add(name: String): RssAddResponse {
+    suspend fun add(req: RssAddRequest): RssAddResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Add")) {
-          body = RssAddRequest(name)
+          body = req
         }
     }
-    suspend fun feed(name: String): RssFeedResponse {
+    suspend fun feed(req: RssFeedRequest): RssFeedResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Feed")) {
-          body = RssFeedRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): RssListResponse {
+    suspend fun list(req: RssListRequest): RssListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = RssListRequest(name)
+          body = req
         }
     }
-    suspend fun remove(name: String): RssRemoveResponse {
+    suspend fun remove(req: RssRemoveRequest): RssRemoveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Remove")) {
-          body = RssRemoveRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class RssAddRequest(val url: String, val category: String, val name: String)
+internal data class RssAddRequest(val category: String, val name: String, val url: String)
 @Serializable
 data class RssAddResponse()
 @Serializable
-internal data class RssEntry(val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String)
+internal data class RssEntry(val id: String, val link: String, val summary: String, val title: String, val content: String, val date: String, val feed: String)
 @Serializable
 internal data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable

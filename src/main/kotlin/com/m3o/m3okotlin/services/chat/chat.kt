@@ -14,55 +14,55 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "chat"
 
 object ChatService {
-    suspend fun create(name: String): ChatCreateResponse {
+    suspend fun create(req: ChatCreateRequest): ChatCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = ChatCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): ChatDeleteResponse {
+    suspend fun delete(req: ChatDeleteRequest): ChatDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = ChatDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun history(name: String): ChatHistoryResponse {
+    suspend fun history(req: ChatHistoryRequest): ChatHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
-          body = ChatHistoryRequest(name)
+          body = req
         }
     }
-    suspend fun invite(name: String): ChatInviteResponse {
+    suspend fun invite(req: ChatInviteRequest): ChatInviteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Invite")) {
-          body = ChatInviteRequest(name)
+          body = req
         }
     }
-    fun join(name: String, messages: Int = 1, action: (Exception?, ChatJoinResponse?) -> Unit) {
+    fun join(req: ChatJoinRequest, action: (Exception?, ChatJoinResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Join", true)
-        WebSocket(url, Json.encodeToString(ChatJoinRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
-    suspend fun kick(name: String): ChatKickResponse {
+    suspend fun kick(req: ChatKickRequest): ChatKickResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Kick")) {
-          body = ChatKickRequest(name)
+          body = req
         }
     }
-    suspend fun leave(name: String): ChatLeaveResponse {
+    suspend fun leave(req: ChatLeaveRequest): ChatLeaveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Leave")) {
-          body = ChatLeaveRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): ChatListResponse {
+    suspend fun list(req: ChatListRequest): ChatListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = ChatListRequest(name)
+          body = req
         }
     }
-    suspend fun send(name: String): ChatSendResponse {
+    suspend fun send(req: ChatSendRequest): ChatSendResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
-          body = ChatSendRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class ChatCreateRequest(val name: String, val private: Boolean, val user_ids: List<ChatString>, val description: String)
+internal data class ChatCreateRequest(val description: String, val name: String, val private: Boolean, val user_ids: List<ChatString>)
 @Serializable
 data class ChatCreateResponse(val room: ChatRoom)
 @Serializable
@@ -74,7 +74,7 @@ internal data class ChatHistoryRequest(val room_id: String)
 @Serializable
 data class ChatHistoryResponse(val messages: List<ChatMessage>)
 @Serializable
-internal data class ChatInviteRequest(val user_id: String, val room_id: String)
+internal data class ChatInviteRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatInviteResponse(val room: ChatRoom)
 @Serializable
@@ -94,9 +94,9 @@ internal data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-internal data class ChatMessage(val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String, val client: String, val id: String)
+internal data class ChatMessage(val user_id: String, val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String)
 @Serializable
-internal data class ChatRoom(val name: String, val private: Boolean, val user_ids: List<ChatString>, val created_at: String, val description: String, val id: String)
+internal data class ChatRoom(val created_at: String, val description: String, val id: String, val name: String, val private: Boolean, val user_ids: List<ChatString>)
 @Serializable
 internal data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
 @Serializable

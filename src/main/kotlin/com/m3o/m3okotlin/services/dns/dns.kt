@@ -13,17 +13,17 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "dns"
 
 object DnsService {
-    suspend fun query(name: String): DnsQueryResponse {
+    suspend fun query(req: DnsQueryRequest): DnsQueryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Query")) {
-          body = DnsQueryRequest(name)
+          body = req
         }
     }
 }
 @Serializable
 internal data class DnsAnswer(val TTL: Int, val data: String, val name: String, val type: Int)
 @Serializable
-internal data class DnsQueryRequest(val name: String, val type: String)
+internal data class DnsQueryRequest(val type: String, val name: String)
 @Serializable
-data class DnsQueryResponse(val CD: Boolean, val answer: List<DnsAnswer>, val provider: String, val question: List<DnsQuestion>, val AD: Boolean, val RD: Boolean, val TC: Boolean, val status: Int, val RA: Boolean)
+data class DnsQueryResponse(val status: Int, val AD: Boolean, val CD: Boolean, val RA: Boolean, val RD: Boolean, val answer: List<DnsAnswer>, val question: List<DnsQuestion>, val TC: Boolean, val provider: String)
 @Serializable
 internal data class DnsQuestion(val name: String, val type: Int)

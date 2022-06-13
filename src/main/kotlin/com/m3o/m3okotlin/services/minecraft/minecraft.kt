@@ -13,15 +13,15 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "minecraft"
 
 object MinecraftService {
-    suspend fun ping(name: String): MinecraftPingResponse {
+    suspend fun ping(req: MinecraftPingRequest): MinecraftPingResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Ping")) {
-          body = MinecraftPingRequest(name)
+          body = req
         }
     }
 }
 @Serializable
 internal data class MinecraftPingRequest(val address: String)
 @Serializable
-data class MinecraftPingResponse(val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int, val protocol: Int, val sample: List<MinecraftPlayerSample>)
+data class MinecraftPingResponse(val protocol: Int, val sample: List<MinecraftPlayerSample>, val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int)
 @Serializable
 internal data class MinecraftPlayerSample(val name: String, val uuid: String)

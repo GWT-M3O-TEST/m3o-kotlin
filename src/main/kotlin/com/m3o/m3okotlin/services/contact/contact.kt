@@ -13,38 +13,38 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "contact"
 
 object ContactService {
-    suspend fun create(name: String): ContactCreateResponse {
+    suspend fun create(req: ContactCreateRequest): ContactCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = ContactCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): ContactDeleteResponse {
+    suspend fun delete(req: ContactDeleteRequest): ContactDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = ContactDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): ContactListResponse {
+    suspend fun list(req: ContactListRequest): ContactListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = ContactListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): ContactReadResponse {
+    suspend fun read(req: ContactReadRequest): ContactReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = ContactReadRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): ContactUpdateResponse {
+    suspend fun update(req: ContactUpdateRequest): ContactUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = ContactUpdateRequest(name)
+          body = req
         }
     }
 }
 @Serializable
 internal data class ContactAddress(val label: String, val location: String)
 @Serializable
-internal data class ContactContactInfo(val emails: List<ContactEmail>, val links: List<ContactLink>, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val created_at: String, val id: String, val name: String, val updated_at: String)
+internal data class ContactContactInfo(val birthday: String, val id: String, val links: List<ContactLink>, val name: String, val updated_at: String, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val created_at: String, val emails: List<ContactEmail>, val note: String, val phones: List<ContactPhone>)
 @Serializable
-internal data class ContactCreateRequest(val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>)
+internal data class ContactCreateRequest(val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String, val phones: List<ContactPhone>)
 @Serializable
 data class ContactCreateResponse(val contact: ContactContactInfo)
 @Serializable
@@ -68,6 +68,6 @@ data class ContactReadResponse(val contact: ContactContactInfo)
 @Serializable
 internal data class ContactSocialMedia(val label: String, val username: String)
 @Serializable
-internal data class ContactUpdateRequest(val name: String, val social_medias: List<ContactSocialMedia>, val birthday: String, val emails: List<ContactEmail>, val id: String, val links: List<ContactLink>, val note: String, val phones: List<ContactPhone>, val addresses: List<ContactAddress>)
+internal data class ContactUpdateRequest(val addresses: List<ContactAddress>, val birthday: String, val id: String, val name: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val emails: List<ContactEmail>, val links: List<ContactLink>, val note: String)
 @Serializable
 data class ContactUpdateResponse(val contact: ContactContactInfo)

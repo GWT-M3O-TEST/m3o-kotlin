@@ -13,9 +13,9 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "address"
 
 object AddressService {
-    suspend fun lookupPostcode(name: String): AddressLookupPostcodeResponse {
+    suspend fun lookupPostcode(req: AddressLookupPostcodeRequest): AddressLookupPostcodeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "LookupPostcode")) {
-          body = AddressLookupPostcodeRequest(name)
+          body = req
         }
     }
 }
@@ -24,4 +24,4 @@ internal data class AddressLookupPostcodeRequest(val postcode: String)
 @Serializable
 data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>)
 @Serializable
-internal data class AddressRecord(val line_one: String, val line_two: String, val organisation: String, val postcode: String, val street: String, val town: String, val building_name: String, val locality: String, val premise: String, val summary: String, val county: String)
+internal data class AddressRecord(val street: String, val summary: String, val county: String, val line_two: String, val organisation: String, val premise: String, val town: String, val building_name: String, val line_one: String, val locality: String, val postcode: String)

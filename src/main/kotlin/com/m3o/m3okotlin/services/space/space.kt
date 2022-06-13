@@ -13,44 +13,44 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "space"
 
 object SpaceService {
-    suspend fun create(name: String): SpaceCreateResponse {
+    suspend fun create(req: SpaceCreateRequest): SpaceCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = SpaceCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): SpaceDeleteResponse {
+    suspend fun delete(req: SpaceDeleteRequest): SpaceDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = SpaceDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun download(name: String): SpaceDownloadResponse {
+    suspend fun download(req: SpaceDownloadRequest): SpaceDownloadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Download")) {
-          body = SpaceDownloadRequest(name)
+          body = req
         }
     }
-    suspend fun head(name: String): SpaceHeadResponse {
+    suspend fun head(req: SpaceHeadRequest): SpaceHeadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Head")) {
-          body = SpaceHeadRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): SpaceListResponse {
+    suspend fun list(req: SpaceListRequest): SpaceListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = SpaceListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): SpaceReadResponse {
+    suspend fun read(req: SpaceReadRequest): SpaceReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = SpaceReadRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): SpaceUpdateResponse {
+    suspend fun update(req: SpaceUpdateRequest): SpaceUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = SpaceUpdateRequest(name)
+          body = req
         }
     }
-    suspend fun upload(name: String): SpaceUploadResponse {
+    suspend fun upload(req: SpaceUploadRequest): SpaceUploadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Upload")) {
-          body = SpaceUploadRequest(name)
+          body = req
         }
     }
 }
@@ -73,7 +73,7 @@ internal data class SpaceHeadRequest(val name: String)
 @Serializable
 data class SpaceHeadResponse(val object: SpaceHeadObject)
 @Serializable
-internal data class SpaceListObject(val created: String, val modified: String, val name: String, val url: String, val visibility: String)
+internal data class SpaceListObject(val name: String, val url: String, val visibility: String, val created: String, val modified: String)
 @Serializable
 internal data class SpaceListRequest(val prefix: String)
 @Serializable
@@ -83,9 +83,9 @@ internal data class SpaceReadRequest(val name: String)
 @Serializable
 data class SpaceReadResponse(val object: SpaceSpaceObject)
 @Serializable
-internal data class SpaceSpaceObject(val url: String, val visibility: String, val created: String, val data: String, val modified: String, val name: String)
+internal data class SpaceSpaceObject(val created: String, val data: String, val modified: String, val name: String, val url: String, val visibility: String)
 @Serializable
-internal data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
+internal data class SpaceUpdateRequest(val object: String, val visibility: String, val name: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable

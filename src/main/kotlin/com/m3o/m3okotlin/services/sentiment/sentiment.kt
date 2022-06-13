@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "sentiment"
 
 object SentimentService {
-    suspend fun analyze(name: String): SentimentAnalyzeResponse {
+    suspend fun analyze(req: SentimentAnalyzeRequest): SentimentAnalyzeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Analyze")) {
-          body = SentimentAnalyzeRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class SentimentAnalyzeRequest(val lang: String, val text: String)
+internal data class SentimentAnalyzeRequest(val text: String, val lang: String)
 @Serializable
 data class SentimentAnalyzeResponse(val score: Double)

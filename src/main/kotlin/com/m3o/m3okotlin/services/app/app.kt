@@ -13,49 +13,49 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "app"
 
 object AppService {
-    suspend fun delete(name: String): AppDeleteResponse {
+    suspend fun delete(req: AppDeleteRequest): AppDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = AppDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): AppListResponse {
+    suspend fun list(req: AppListRequest): AppListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = AppListRequest(name)
+          body = req
         }
     }
-    suspend fun logs(name: String): AppLogsResponse {
+    suspend fun logs(req: AppLogsRequest): AppLogsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Logs")) {
-          body = AppLogsRequest(name)
+          body = req
         }
     }
-    suspend fun regions(name: String): AppRegionsResponse {
+    suspend fun regions(req: AppRegionsRequest): AppRegionsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Regions")) {
-          body = AppRegionsRequest(name)
+          body = req
         }
     }
-    suspend fun reserve(name: String): AppReserveResponse {
+    suspend fun reserve(req: AppReserveRequest): AppReserveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reserve")) {
-          body = AppReserveRequest(name)
+          body = req
         }
     }
-    suspend fun resolve(name: String): AppResolveResponse {
+    suspend fun resolve(req: AppResolveRequest): AppResolveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resolve")) {
-          body = AppResolveRequest(name)
+          body = req
         }
     }
-    suspend fun run(name: String): AppRunResponse {
+    suspend fun run(req: AppRunRequest): AppRunResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Run")) {
-          body = AppRunRequest(name)
+          body = req
         }
     }
-    suspend fun status(name: String): AppStatusResponse {
+    suspend fun status(req: AppStatusRequest): AppStatusResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Status")) {
-          body = AppStatusRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): AppUpdateResponse {
+    suspend fun update(req: AppUpdateRequest): AppUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = AppUpdateRequest(name)
+          body = req
         }
     }
 }
@@ -68,7 +68,7 @@ internal data class AppListRequest()
 @Serializable
 data class AppListResponse(val services: List<AppService>)
 @Serializable
-internal data class AppLogsRequest(val name: String, val logs_type: String)
+internal data class AppLogsRequest(val logs_type: String, val name: String)
 @Serializable
 data class AppLogsResponse(val logs: String)
 @Serializable
@@ -76,7 +76,7 @@ internal data class AppRegionsRequest()
 @Serializable
 data class AppRegionsResponse(val regions: List<AppString>)
 @Serializable
-internal data class AppReservation(val name: String, val owner: String, val token: String, val created: String, val expires: String)
+internal data class AppReservation(val owner: String, val token: String, val created: String, val expires: String, val name: String)
 @Serializable
 internal data class AppReserveRequest(val name: String)
 @Serializable
@@ -90,7 +90,7 @@ internal data class AppRunRequest(val branch: String, val env_vars: Map<String, 
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-internal data class AppService(val created: String, val name: String, val region: String, val updated: String, val branch: String, val custom_domains: List<AppString>, val env_vars: Map<String, String>, val id: String, val port: Int, val repo: String, val status: String, val url: String)
+internal data class AppService(val id: String, val port: Int, val repo: String, val updated: String, val branch: String, val env_vars: Map<String, String>, val name: String, val region: String, val status: String, val url: String, val created: String, val custom_domains: List<AppString>)
 @Serializable
 internal data class AppStatusRequest(val name: String)
 @Serializable

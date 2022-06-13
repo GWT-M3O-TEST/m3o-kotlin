@@ -13,29 +13,29 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "search"
 
 object SearchService {
-    suspend fun createIndex(name: String): SearchCreateIndexResponse {
+    suspend fun createIndex(req: SearchCreateIndexRequest): SearchCreateIndexResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "CreateIndex")) {
-          body = SearchCreateIndexRequest(name)
+          body = req
         }
     }
-    suspend fun deleteIndex(name: String): SearchDeleteIndexResponse {
+    suspend fun deleteIndex(req: SearchDeleteIndexRequest): SearchDeleteIndexResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "DeleteIndex")) {
-          body = SearchDeleteIndexRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): SearchDeleteResponse {
+    suspend fun delete(req: SearchDeleteRequest): SearchDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = SearchDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun index(name: String): SearchIndexResponse {
+    suspend fun index(req: SearchIndexRequest): SearchIndexResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Index")) {
-          body = SearchIndexRequest(name)
+          body = req
         }
     }
-    suspend fun search(name: String): SearchSearchResponse {
+    suspend fun search(req: SearchSearchRequest): SearchSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
-          body = SearchSearchRequest(name)
+          body = req
         }
     }
 }
@@ -54,7 +54,7 @@ data class SearchDeleteResponse()
 @Serializable
 internal data class SearchField(val name: String, val type: String)
 @Serializable
-internal data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
+internal data class SearchIndexRequest(val index: String, val data: SearchMap<String, dynamic>, val id: String)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable

@@ -13,9 +13,9 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "carbon"
 
 object CarbonService {
-    suspend fun offset(name: String): CarbonOffsetResponse {
+    suspend fun offset(req: CarbonOffsetRequest): CarbonOffsetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Offset")) {
-          body = CarbonOffsetRequest(name)
+          body = req
         }
     }
 }

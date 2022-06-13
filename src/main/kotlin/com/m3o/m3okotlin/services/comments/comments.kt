@@ -14,40 +14,40 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "comments"
 
 object CommentsService {
-    suspend fun create(name: String): CommentsCreateResponse {
+    suspend fun create(req: CommentsCreateRequest): CommentsCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = CommentsCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): CommentsDeleteResponse {
+    suspend fun delete(req: CommentsDeleteRequest): CommentsDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = CommentsDeleteRequest(name)
+          body = req
         }
     }
-    fun events(name: String, messages: Int = 1, action: (Exception?, CommentsEventsResponse?) -> Unit) {
+    fun events(req: CommentsEventsRequest, action: (Exception?, CommentsEventsResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Events", true)
-        WebSocket(url, Json.encodeToString(CommentsEventsRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
-    suspend fun list(name: String): CommentsListResponse {
+    suspend fun list(req: CommentsListRequest): CommentsListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = CommentsListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): CommentsReadResponse {
+    suspend fun read(req: CommentsReadRequest): CommentsReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = CommentsReadRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): CommentsUpdateResponse {
+    suspend fun update(req: CommentsUpdateRequest): CommentsUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = CommentsUpdateRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class CommentsComment(val subject: String, val text: String, val updated: String, val created: String, val id: String)
+internal data class CommentsComment(val text: String, val updated: String, val created: String, val id: String, val subject: String)
 @Serializable
 internal data class CommentsCreateRequest(val subject: String, val text: String)
 @Serializable

@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "sms"
 
 object SmsService {
-    suspend fun send(name: String): SmsSendResponse {
+    suspend fun send(req: SmsSendRequest): SmsSendResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
-          body = SmsSendRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class SmsSendRequest(val message: String, val to: String, val from: String)
+internal data class SmsSendRequest(val from: String, val message: String, val to: String)
 @Serializable
 data class SmsSendResponse(val info: String, val status: String)

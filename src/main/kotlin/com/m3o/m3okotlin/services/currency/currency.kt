@@ -13,24 +13,24 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "currency"
 
 object CurrencyService {
-    suspend fun codes(name: String): CurrencyCodesResponse {
+    suspend fun codes(req: CurrencyCodesRequest): CurrencyCodesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Codes")) {
-          body = CurrencyCodesRequest(name)
+          body = req
         }
     }
-    suspend fun convert(name: String): CurrencyConvertResponse {
+    suspend fun convert(req: CurrencyConvertRequest): CurrencyConvertResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Convert")) {
-          body = CurrencyConvertRequest(name)
+          body = req
         }
     }
-    suspend fun history(name: String): CurrencyHistoryResponse {
+    suspend fun history(req: CurrencyHistoryRequest): CurrencyHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
-          body = CurrencyHistoryRequest(name)
+          body = req
         }
     }
-    suspend fun rates(name: String): CurrencyRatesResponse {
+    suspend fun rates(req: CurrencyRatesRequest): CurrencyRatesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Rates")) {
-          body = CurrencyRatesRequest(name)
+          body = req
         }
     }
 }
@@ -47,8 +47,8 @@ data class CurrencyConvertResponse(val amount: Double, val from: String, val rat
 @Serializable
 internal data class CurrencyHistoryRequest(val code: String, val date: String)
 @Serializable
-data class CurrencyHistoryResponse(val rates: Map<String, Double>, val code: String, val date: String)
+data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
 @Serializable
 internal data class CurrencyRatesRequest(val code: String)
 @Serializable
-data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)
+data class CurrencyRatesResponse(val rates: Map<String, Double>, val code: String)

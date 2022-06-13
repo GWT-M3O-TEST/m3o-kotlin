@@ -13,42 +13,42 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "price"
 
 object PriceService {
-    suspend fun add(name: String): PriceAddResponse {
+    suspend fun add(req: PriceAddRequest): PriceAddResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Add")) {
-          body = PriceAddRequest(name)
+          body = req
         }
     }
-    suspend fun get(name: String): PriceGetResponse {
+    suspend fun get(req: PriceGetRequest): PriceGetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Get")) {
-          body = PriceGetRequest(name)
+          body = req
         }
     }
-    suspend fun index(name: String): PriceIndexResponse {
+    suspend fun index(req: PriceIndexRequest): PriceIndexResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Index")) {
-          body = PriceIndexRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): PriceListResponse {
+    suspend fun list(req: PriceListRequest): PriceListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = PriceListRequest(name)
+          body = req
         }
     }
-    suspend fun report(name: String): PriceReportResponse {
+    suspend fun report(req: PriceReportRequest): PriceReportResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Report")) {
-          body = PriceReportRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class PriceAddRequest(val name: String, val price: Double, val source: String, val symbol: String, val author: String, val currency: String)
+internal data class PriceAddRequest(val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String)
 @Serializable
 data class PriceAddResponse(val value: PriceValue)
 @Serializable
-internal data class PriceGetRequest(val currency: String, val name: String, val symbol: String)
+internal data class PriceGetRequest(val symbol: String, val currency: String, val name: String)
 @Serializable
 data class PriceGetResponse(val values: List<PriceValue>)
 @Serializable
-internal data class PriceIndex(val currency: String, val name: String, val symbol: String)
+internal data class PriceIndex(val name: String, val symbol: String, val currency: String)
 @Serializable
 internal data class PriceIndexRequest()
 @Serializable
@@ -58,10 +58,10 @@ internal data class PriceListRequest(val currency: String, val limit: Int, val o
 @Serializable
 data class PriceListResponse(val values: List<PriceValue>)
 @Serializable
-internal data class PriceReport(val name: String, val symbol: String, val author: String, val comment: String)
+internal data class PriceReport(val author: String, val comment: String, val name: String, val symbol: String)
 @Serializable
 internal data class PriceReportRequest(val comment: String, val name: String, val symbol: String)
 @Serializable
 data class PriceReportResponse()
 @Serializable
-internal data class PriceValue(val source: String, val symbol: String, val timestamp: String, val author: String, val currency: String, val name: String, val price: Double)
+internal data class PriceValue(val symbol: String, val timestamp: String, val author: String, val currency: String, val name: String, val price: Double, val source: String)

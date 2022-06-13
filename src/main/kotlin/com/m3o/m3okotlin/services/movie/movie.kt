@@ -13,15 +13,15 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "movie"
 
 object MovieService {
-    suspend fun search(name: String): MovieSearchResponse {
+    suspend fun search(req: MovieSearchRequest): MovieSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
-          body = MovieSearchRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class MovieMovieInfo(val backdrop_path: String, val genre_ids: List<MovieInt>, val popularity: Double, val release_date: String, val vote_count: Int, val adult: Boolean, val original_title: String, val vote_average: Double, val original_language: String, val overview: String, val video: Boolean, val id: Int, val title: String, val poster_path: String)
+internal data class MovieMovieInfo(val backdrop_path: String, val original_title: String, val vote_average: Double, val id: Int, val original_language: String, val overview: String, val vote_count: Int, val adult: Boolean, val release_date: String, val title: String, val video: Boolean, val genre_ids: List<MovieInt>, val popularity: Double, val poster_path: String)
 @Serializable
-internal data class MovieSearchRequest(val language: String, val page: Int, val primary_release_year: Int, val query: String, val region: String, val year: Int)
+internal data class MovieSearchRequest(val region: String, val year: Int, val language: String, val page: Int, val primary_release_year: Int, val query: String)
 @Serializable
-data class MovieSearchResponse(val page: Int, val results: List<MovieMovieInfo>, val total_pages: Int, val total_results: Int)
+data class MovieSearchResponse(val total_pages: Int, val total_results: Int, val page: Int, val results: List<MovieMovieInfo>)

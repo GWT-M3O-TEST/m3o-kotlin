@@ -13,26 +13,26 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "stock"
 
 object StockService {
-    suspend fun history(name: String): StockHistoryResponse {
+    suspend fun history(req: StockHistoryRequest): StockHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
-          body = StockHistoryRequest(name)
+          body = req
         }
     }
-    suspend fun price(name: String): StockPriceResponse {
+    suspend fun price(req: StockPriceRequest): StockPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
-          body = StockPriceRequest(name)
+          body = req
         }
     }
-    suspend fun quote(name: String): StockQuoteResponse {
+    suspend fun quote(req: StockQuoteRequest): StockQuoteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Quote")) {
-          body = StockQuoteRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class StockHistoryRequest(val stock: String, val date: String)
+internal data class StockHistoryRequest(val date: String, val stock: String)
 @Serializable
-data class StockHistoryResponse(val volume: Int, val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String)
+data class StockHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Int, val close: Double, val date: String)
 @Serializable
 internal data class StockPriceRequest(val symbol: String)
 @Serializable

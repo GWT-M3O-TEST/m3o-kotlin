@@ -13,19 +13,19 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "url"
 
 object UrlService {
-    suspend fun list(name: String): UrlListResponse {
+    suspend fun list(req: UrlListRequest): UrlListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = UrlListRequest(name)
+          body = req
         }
     }
-    suspend fun proxy(name: String): UrlProxyResponse {
+    suspend fun proxy(req: UrlProxyRequest): UrlProxyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Proxy")) {
-          body = UrlProxyRequest(name)
+          body = req
         }
     }
-    suspend fun shorten(name: String): UrlShortenResponse {
+    suspend fun shorten(req: UrlShortenRequest): UrlShortenResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Shorten")) {
-          body = UrlShortenRequest(name)
+          body = req
         }
     }
 }

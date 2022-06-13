@@ -13,14 +13,14 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "joke"
 
 object JokeService {
-    suspend fun random(name: String): JokeRandomResponse {
+    suspend fun random(req: JokeRandomRequest): JokeRandomResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Random")) {
-          body = JokeRandomRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class JokeJokeInfo(val source: String, val title: String, val body: String, val category: String, val id: String)
+internal data class JokeJokeInfo(val body: String, val category: String, val id: String, val source: String, val title: String)
 @Serializable
 internal data class JokeRandomRequest(val count: Int)
 @Serializable

@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "password"
 
 object PasswordService {
-    suspend fun generate(name: String): PasswordGenerateResponse {
+    suspend fun generate(req: PasswordGenerateRequest): PasswordGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
-          body = PasswordGenerateRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class PasswordGenerateRequest(val uppercase: Boolean, val length: Int, val lowercase: Boolean, val numbers: Boolean, val special: Boolean)
+internal data class PasswordGenerateRequest(val length: Int, val lowercase: Boolean, val numbers: Boolean, val special: Boolean, val uppercase: Boolean)
 @Serializable
 data class PasswordGenerateResponse(val password: String)

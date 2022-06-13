@@ -14,35 +14,35 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "lists"
 
 object ListsService {
-    suspend fun create(name: String): ListsCreateResponse {
+    suspend fun create(req: ListsCreateRequest): ListsCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = ListsCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): ListsDeleteResponse {
+    suspend fun delete(req: ListsDeleteRequest): ListsDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = ListsDeleteRequest(name)
+          body = req
         }
     }
-    fun events(name: String, messages: Int = 1, action: (Exception?, ListsEventsResponse?) -> Unit) {
+    fun events(req: ListsEventsRequest, action: (Exception?, ListsEventsResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Events", true)
-        WebSocket(url, Json.encodeToString(ListsEventsRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
-    suspend fun list(name: String): ListsListResponse {
+    suspend fun list(req: ListsListRequest): ListsListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = ListsListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): ListsReadResponse {
+    suspend fun read(req: ListsReadRequest): ListsReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = ListsReadRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): ListsUpdateResponse {
+    suspend fun update(req: ListsUpdateRequest): ListsUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = ListsUpdateRequest(name)
+          body = req
         }
     }
 }

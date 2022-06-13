@@ -13,9 +13,9 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "thumbnail"
 
 object ThumbnailService {
-    suspend fun screenshot(name: String): ThumbnailScreenshotResponse {
+    suspend fun screenshot(req: ThumbnailScreenshotRequest): ThumbnailScreenshotResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Screenshot")) {
-          body = ThumbnailScreenshotRequest(name)
+          body = req
         }
     }
 }

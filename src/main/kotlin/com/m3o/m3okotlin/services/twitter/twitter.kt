@@ -13,31 +13,31 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "twitter"
 
 object TwitterService {
-    suspend fun search(name: String): TwitterSearchResponse {
+    suspend fun search(req: TwitterSearchRequest): TwitterSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
-          body = TwitterSearchRequest(name)
+          body = req
         }
     }
-    suspend fun timeline(name: String): TwitterTimelineResponse {
+    suspend fun timeline(req: TwitterTimelineRequest): TwitterTimelineResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Timeline")) {
-          body = TwitterTimelineRequest(name)
+          body = req
         }
     }
-    suspend fun trends(name: String): TwitterTrendsResponse {
+    suspend fun trends(req: TwitterTrendsRequest): TwitterTrendsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Trends")) {
-          body = TwitterTrendsRequest(name)
+          body = req
         }
     }
-    suspend fun user(name: String): TwitterUserResponse {
+    suspend fun user(req: TwitterUserRequest): TwitterUserResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "User")) {
-          body = TwitterUserRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class TwitterProfile(val image_url: String, val name: String, val verified: Boolean, val description: String, val followers: Long, val id: Long, val username: String, val created_at: String, val location: String, val private: Boolean)
+internal data class TwitterProfile(val location: String, val private: Boolean, val verified: Boolean, val description: String, val followers: Long, val id: Long, val image_url: String, val name: String, val username: String, val created_at: String)
 @Serializable
-internal data class TwitterSearchRequest(val limit: Int, val query: String)
+internal data class TwitterSearchRequest(val query: String, val limit: Int)
 @Serializable
 data class TwitterSearchResponse(val tweets: List<TwitterTweet>)
 @Serializable
@@ -51,7 +51,7 @@ internal data class TwitterTrendsRequest()
 @Serializable
 data class TwitterTrendsResponse(val trends: List<TwitterTrend>)
 @Serializable
-internal data class TwitterTweet(val created_at: String, val favourited_count: Long, val id: Long, val retweeted_count: Long, val text: String, val username: String)
+internal data class TwitterTweet(val text: String, val username: String, val created_at: String, val favourited_count: Long, val id: Long, val retweeted_count: Long)
 @Serializable
 internal data class TwitterUserRequest(val username: String)
 @Serializable

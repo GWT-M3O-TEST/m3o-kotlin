@@ -13,14 +13,14 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "youtube"
 
 object YoutubeService {
-    suspend fun embed(name: String): YoutubeEmbedResponse {
+    suspend fun embed(req: YoutubeEmbedRequest): YoutubeEmbedResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Embed")) {
-          body = YoutubeEmbedRequest(name)
+          body = req
         }
     }
-    suspend fun search(name: String): YoutubeSearchResponse {
+    suspend fun search(req: YoutubeSearchRequest): YoutubeSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
-          body = YoutubeSearchRequest(name)
+          body = req
         }
     }
 }
@@ -33,4 +33,4 @@ internal data class YoutubeSearchRequest(val query: String)
 @Serializable
 data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
 @Serializable
-internal data class YoutubeSearchResult(val broadcasting: String, val channel_id: String, val channel_title: String, val kind: String, val description: String, val id: String, val published_at: String, val title: String, val url: String)
+internal data class YoutubeSearchResult(val broadcasting: String, val channel_id: String, val description: String, val published_at: String, val channel_title: String, val id: String, val kind: String, val title: String, val url: String)

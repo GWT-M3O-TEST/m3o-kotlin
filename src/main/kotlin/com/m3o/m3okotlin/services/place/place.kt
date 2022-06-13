@@ -13,14 +13,14 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "place"
 
 object PlaceService {
-    suspend fun nearby(name: String): PlaceNearbyResponse {
+    suspend fun nearby(req: PlaceNearbyRequest): PlaceNearbyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Nearby")) {
-          body = PlaceNearbyRequest(name)
+          body = req
         }
     }
-    suspend fun search(name: String): PlaceSearchResponse {
+    suspend fun search(req: PlaceSearchRequest): PlaceSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
-          body = PlaceSearchRequest(name)
+          body = req
         }
     }
 }
@@ -29,12 +29,12 @@ internal data class PlaceAutocompleteRequest()
 @Serializable
 data class PlaceAutocompleteResponse()
 @Serializable
-internal data class PlaceNearbyRequest(val type: String, val keyword: String, val location: String, val name: String, val open_now: Boolean, val radius: Int)
+internal data class PlaceNearbyRequest(val location: String, val name: String, val open_now: Boolean, val radius: Int, val type: String, val keyword: String)
 @Serializable
 data class PlaceNearbyResponse(val results: List<PlaceResult>)
 @Serializable
-internal data class PlaceResult(val name: String, val open_now: Boolean, val type: String, val address: String, val icon_url: String, val location: String, val opening_hours: List<PlaceString>, val rating: Double, val types: List<PlaceString>, val vicinity: String)
+internal data class PlaceResult(val open_now: Boolean, val opening_hours: List<PlaceString>, val rating: Double, val type: String, val icon_url: String, val name: String, val types: List<PlaceString>, val vicinity: String, val address: String, val location: String)
 @Serializable
-internal data class PlaceSearchRequest(val location: String, val open_now: Boolean, val query: String, val radius: Int, val type: String)
+internal data class PlaceSearchRequest(val type: String, val location: String, val open_now: Boolean, val query: String, val radius: Int)
 @Serializable
 data class PlaceSearchResponse(val results: List<PlaceResult>)

@@ -13,14 +13,14 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "holidays"
 
 object HolidaysService {
-    suspend fun countries(name: String): HolidaysCountriesResponse {
+    suspend fun countries(req: HolidaysCountriesRequest): HolidaysCountriesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Countries")) {
-          body = HolidaysCountriesRequest(name)
+          body = req
         }
     }
-    suspend fun list(name: String): HolidaysListResponse {
+    suspend fun list(req: HolidaysListRequest): HolidaysListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = HolidaysListRequest(name)
+          body = req
         }
     }
 }
@@ -31,7 +31,7 @@ data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>)
 @Serializable
 internal data class HolidaysCountry(val code: String, val name: String)
 @Serializable
-internal data class HolidaysHoliday(val country_code: String, val date: String, val local_name: String, val name: String, val regions: List<HolidaysString>, val types: List<HolidaysString>)
+internal data class HolidaysHoliday(val date: String, val local_name: String, val name: String, val regions: List<HolidaysString>, val types: List<HolidaysString>, val country_code: String)
 @Serializable
 internal data class HolidaysListRequest(val country_code: String, val year: Long)
 @Serializable

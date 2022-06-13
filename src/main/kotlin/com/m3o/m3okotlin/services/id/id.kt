@@ -13,14 +13,14 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "id"
 
 object IdService {
-    suspend fun generate(name: String): IdGenerateResponse {
+    suspend fun generate(req: IdGenerateRequest): IdGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
-          body = IdGenerateRequest(name)
+          body = req
         }
     }
-    suspend fun types(name: String): IdTypesResponse {
+    suspend fun types(req: IdTypesRequest): IdTypesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Types")) {
-          body = IdTypesRequest(name)
+          body = req
         }
     }
 }

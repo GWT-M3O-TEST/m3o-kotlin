@@ -14,34 +14,34 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "event"
 
 object EventService {
-    fun consume(name: String, messages: Int = 1, action: (Exception?, EventConsumeResponse?) -> Unit) {
+    fun consume(req: EventConsumeRequest, action: (Exception?, EventConsumeResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Consume", true)
-        WebSocket(url, Json.encodeToString(EventConsumeRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
-    suspend fun publish(name: String): EventPublishResponse {
+    suspend fun publish(req: EventPublishRequest): EventPublishResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Publish")) {
-          body = EventPublishRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): EventReadResponse {
+    suspend fun read(req: EventReadRequest): EventReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = EventReadRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class EventConsumeRequest(val offset: String, val topic: String, val group: String)
+internal data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
 @Serializable
 data class EventConsumeResponse(val id: String, val message: EventMap<String, dynamic>, val timestamp: String, val topic: String)
 @Serializable
 internal data class EventEv(val id: String, val message: EventMap<String, dynamic>, val timestamp: String)
 @Serializable
-internal data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic: String)
+internal data class EventPublishRequest(val topic: String, val message: EventMap<String, dynamic>)
 @Serializable
 data class EventPublishResponse()
 @Serializable
-internal data class EventReadRequest(val offset: Int, val topic: String, val limit: Int)
+internal data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
 @Serializable
 data class EventReadResponse(val events: List<EventEv>)

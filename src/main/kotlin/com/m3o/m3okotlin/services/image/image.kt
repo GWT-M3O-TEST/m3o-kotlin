@@ -13,24 +13,24 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "image"
 
 object ImageService {
-    suspend fun convert(name: String): ImageConvertResponse {
+    suspend fun convert(req: ImageConvertRequest): ImageConvertResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Convert")) {
-          body = ImageConvertRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): ImageDeleteResponse {
+    suspend fun delete(req: ImageDeleteRequest): ImageDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = ImageDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun resize(name: String): ImageResizeResponse {
+    suspend fun resize(req: ImageResizeRequest): ImageResizeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resize")) {
-          body = ImageResizeRequest(name)
+          body = req
         }
     }
-    suspend fun upload(name: String): ImageUploadResponse {
+    suspend fun upload(req: ImageUploadRequest): ImageUploadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Upload")) {
-          body = ImageUploadRequest(name)
+          body = req
         }
     }
 }
@@ -49,9 +49,9 @@ internal data class ImagePoint(val x: Int, val y: Int)
 @Serializable
 internal data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-internal data class ImageResizeRequest(val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions)
+internal data class ImageResizeRequest(val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean)
 @Serializable
-data class ImageResizeResponse(val url: String, val base64: String)
+data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable
 internal data class ImageUploadRequest(val file: String, val name: String, val url: String, val base64: String)
 @Serializable

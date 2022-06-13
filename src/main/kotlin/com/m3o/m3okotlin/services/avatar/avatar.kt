@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "avatar"
 
 object AvatarService {
-    suspend fun generate(name: String): AvatarGenerateResponse {
+    suspend fun generate(req: AvatarGenerateRequest): AvatarGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
-          body = AvatarGenerateRequest(name)
+          body = req
         }
     }
 }
 @Serializable
-internal data class AvatarGenerateRequest(val gender: String, val upload: Boolean, val username: String, val format: String)
+internal data class AvatarGenerateRequest(val username: String, val format: String, val gender: String, val upload: Boolean)
 @Serializable
-data class AvatarGenerateResponse(val base64: String, val url: String)
+data class AvatarGenerateResponse(val url: String, val base64: String)

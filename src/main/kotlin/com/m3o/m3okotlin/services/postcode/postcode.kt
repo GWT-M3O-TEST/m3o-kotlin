@@ -13,26 +13,26 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "postcode"
 
 object PostcodeService {
-    suspend fun lookup(name: String): PostcodeLookupResponse {
+    suspend fun lookup(req: PostcodeLookupRequest): PostcodeLookupResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Lookup")) {
-          body = PostcodeLookupRequest(name)
+          body = req
         }
     }
-    suspend fun random(name: String): PostcodeRandomResponse {
+    suspend fun random(req: PostcodeRandomRequest): PostcodeRandomResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Random")) {
-          body = PostcodeRandomRequest(name)
+          body = req
         }
     }
-    suspend fun validate(name: String): PostcodeValidateResponse {
+    suspend fun validate(req: PostcodeValidateRequest): PostcodeValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
-          body = PostcodeValidateRequest(name)
+          body = req
         }
     }
 }
 @Serializable
 internal data class PostcodeLookupRequest(val postcode: String)
 @Serializable
-data class PostcodeLookupResponse(val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String)
+data class PostcodeLookupResponse(val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String)
 @Serializable
 internal data class PostcodeRandomRequest()
 @Serializable

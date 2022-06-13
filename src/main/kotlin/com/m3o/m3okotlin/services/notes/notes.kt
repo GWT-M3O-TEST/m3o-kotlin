@@ -14,35 +14,35 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "notes"
 
 object NotesService {
-    suspend fun create(name: String): NotesCreateResponse {
+    suspend fun create(req: NotesCreateRequest): NotesCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
-          body = NotesCreateRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): NotesDeleteResponse {
+    suspend fun delete(req: NotesDeleteRequest): NotesDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = NotesDeleteRequest(name)
+          body = req
         }
     }
-    fun events(name: String, messages: Int = 1, action: (Exception?, NotesEventsResponse?) -> Unit) {
+    fun events(req: NotesEventsRequest, action: (Exception?, NotesEventsResponse?) -> Unit) {
         val url = getUrl(SERVICE, "Events", true)
-        WebSocket(url, Json.encodeToString(NotesEventsRequest(name, messages))) { e, response ->
+        WebSocket(url, Json.encodeToString(req)) { e, response ->
             action(e, if (response != null) Json.decodeFromString(response) else null)
         }.connect()
     }
-    suspend fun list(name: String): NotesListResponse {
+    suspend fun list(req: NotesListRequest): NotesListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = NotesListRequest(name)
+          body = req
         }
     }
-    suspend fun read(name: String): NotesReadResponse {
+    suspend fun read(req: NotesReadRequest): NotesReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
-          body = NotesReadRequest(name)
+          body = req
         }
     }
-    suspend fun update(name: String): NotesUpdateResponse {
+    suspend fun update(req: NotesUpdateRequest): NotesUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = NotesUpdateRequest(name)
+          body = req
         }
     }
 }
@@ -63,7 +63,7 @@ internal data class NotesListRequest()
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-internal data class NotesNote(val id: String, val text: String, val title: String, val updated: String, val created: String)
+internal data class NotesNote(val text: String, val title: String, val updated: String, val created: String, val id: String)
 @Serializable
 internal data class NotesReadRequest(val id: String)
 @Serializable

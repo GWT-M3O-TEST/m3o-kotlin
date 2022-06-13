@@ -13,34 +13,34 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "cache"
 
 object CacheService {
-    suspend fun decrement(name: String): CacheDecrementResponse {
+    suspend fun decrement(req: CacheDecrementRequest): CacheDecrementResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Decrement")) {
-          body = CacheDecrementRequest(name)
+          body = req
         }
     }
-    suspend fun delete(name: String): CacheDeleteResponse {
+    suspend fun delete(req: CacheDeleteRequest): CacheDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = CacheDeleteRequest(name)
+          body = req
         }
     }
-    suspend fun get(name: String): CacheGetResponse {
+    suspend fun get(req: CacheGetRequest): CacheGetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Get")) {
-          body = CacheGetRequest(name)
+          body = req
         }
     }
-    suspend fun increment(name: String): CacheIncrementResponse {
+    suspend fun increment(req: CacheIncrementRequest): CacheIncrementResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Increment")) {
-          body = CacheIncrementRequest(name)
+          body = req
         }
     }
-    suspend fun listKeys(name: String): CacheListKeysResponse {
+    suspend fun listKeys(req: CacheListKeysRequest): CacheListKeysResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListKeys")) {
-          body = CacheListKeysRequest(name)
+          body = req
         }
     }
-    suspend fun set(name: String): CacheSetResponse {
+    suspend fun set(req: CacheSetRequest): CacheSetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Set")) {
-          body = CacheSetRequest(name)
+          body = req
         }
     }
 }
@@ -57,7 +57,7 @@ internal data class CacheGetRequest(val key: String)
 @Serializable
 data class CacheGetResponse(val key: String, val ttl: Long, val value: String)
 @Serializable
-internal data class CacheIncrementRequest(val key: String, val value: Long)
+internal data class CacheIncrementRequest(val value: Long, val key: String)
 @Serializable
 data class CacheIncrementResponse(val key: String, val value: Long)
 @Serializable
@@ -65,6 +65,6 @@ internal data class CacheListKeysRequest()
 @Serializable
 data class CacheListKeysResponse(val keys: List<CacheString>)
 @Serializable
-internal data class CacheSetRequest(val ttl: Long, val value: String, val key: String)
+internal data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
 @Serializable
 data class CacheSetResponse(val status: String)

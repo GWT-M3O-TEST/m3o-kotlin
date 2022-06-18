@@ -1,6 +1,6 @@
 package com.m3o.m3okotlin
 
-import com.cyb3rko.m3okotlin.M3O.authorization
+import com.m3o.m3okotlin.M3O.authorization
 import java.lang.Exception
 import java.net.URI
 import org.java_websocket.client.WebSocketClient

@@ -54,7 +54,7 @@ data class SearchDeleteResponse()
 @Serializable
 data class SearchField(val name: String, val type: String)
 @Serializable
-data class SearchIndexRequest(val id: String, val index: String, val data: SearchMap<String, dynamic>)
+data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable

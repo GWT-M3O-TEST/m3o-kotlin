@@ -40,4 +40,4 @@ data class PingTcpResponse(val data: String, val status: String)
 @Serializable
 data class PingUrlRequest(val address: String, val method: String)
 @Serializable
-data class PingUrlResponse(val status: String, val code: Int)
+data class PingUrlResponse(val code: Int, val status: String)

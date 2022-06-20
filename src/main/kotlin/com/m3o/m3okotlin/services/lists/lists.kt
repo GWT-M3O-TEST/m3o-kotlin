@@ -47,7 +47,7 @@ object ListsService {
     }
 }
 @Serializable
-data class ListsCreateRequest(val items: List<ListsString>, val name: String)
+data class ListsCreateRequest(val name: String, val items: List<ListsString>)
 @Serializable
 data class ListsCreateResponse(val list: ListsList)
 @Serializable
@@ -57,7 +57,7 @@ data class ListsDeleteResponse(val list: ListsList)
 @Serializable
 data class ListsEventsRequest(val id: String)
 @Serializable
-data class ListsEventsResponse(val list: ListsList, val event: String)
+data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
 data class ListsList(val items: List<ListsString>, val name: String, val updated: String, val created: String, val id: String)
 @Serializable

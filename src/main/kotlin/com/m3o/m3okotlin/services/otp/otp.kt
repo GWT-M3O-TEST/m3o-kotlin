@@ -25,7 +25,7 @@ object OtpService {
     }
 }
 @Serializable
-data class OtpGenerateRequest(val id: String, val size: Long, val expiry: Long)
+data class OtpGenerateRequest(val expiry: Long, val id: String, val size: Long)
 @Serializable
 data class OtpGenerateResponse(val code: String)
 @Serializable

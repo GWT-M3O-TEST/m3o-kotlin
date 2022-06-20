@@ -24,4 +24,4 @@ data class TranslateTextRequest(val content: String, val format: String, val mod
 @Serializable
 data class TranslateTextResponse(val translation: TranslateTranslation)
 @Serializable
-data class TranslateTranslation(val model: String, val source: String, val text: String)
+data class TranslateTranslation(val text: String, val model: String, val source: String)

@@ -49,7 +49,7 @@ object CommentsService {
 @Serializable
 data class CommentsComment(val created: String, val id: String, val subject: String, val text: String, val updated: String)
 @Serializable
-data class CommentsCreateRequest(val text: String, val subject: String)
+data class CommentsCreateRequest(val subject: String, val text: String)
 @Serializable
 data class CommentsCreateResponse(val comment: CommentsComment)
 @Serializable

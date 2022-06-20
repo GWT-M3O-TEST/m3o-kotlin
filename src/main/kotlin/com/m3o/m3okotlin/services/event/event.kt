@@ -42,6 +42,6 @@ data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic
 @Serializable
 data class EventPublishResponse()
 @Serializable
-data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
+data class EventReadRequest(val topic: String, val limit: Int, val offset: Int)
 @Serializable
 data class EventReadResponse(val events: List<EventEv>)

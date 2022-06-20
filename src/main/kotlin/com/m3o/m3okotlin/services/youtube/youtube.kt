@@ -33,4 +33,4 @@ data class YoutubeSearchRequest(val query: String)
 @Serializable
 data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
 @Serializable
-data class YoutubeSearchResult(val channel_id: String, val channel_title: String, val description: String, val id: String, val published_at: String, val title: String, val broadcasting: String, val url: String, val kind: String)
+data class YoutubeSearchResult(val channel_id: String, val description: String, val id: String, val kind: String, val published_at: String, val broadcasting: String, val channel_title: String, val title: String, val url: String)

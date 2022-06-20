@@ -47,7 +47,7 @@ object CacheService {
 @Serializable
 data class CacheDecrementRequest(val key: String, val value: Long)
 @Serializable
-data class CacheDecrementResponse(val value: Long, val key: String)
+data class CacheDecrementResponse(val key: String, val value: Long)
 @Serializable
 data class CacheDeleteRequest(val key: String)
 @Serializable
@@ -65,6 +65,6 @@ data class CacheListKeysRequest()
 @Serializable
 data class CacheListKeysResponse(val keys: List<CacheString>)
 @Serializable
-data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
+data class CacheSetRequest(val value: String, val key: String, val ttl: Long)
 @Serializable
 data class CacheSetResponse(val status: String)

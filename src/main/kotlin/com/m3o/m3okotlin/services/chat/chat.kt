@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.chat
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -62,42 +62,42 @@ object ChatService {
     }
 }
 @Serializable
-internal data class ChatCreateRequest(val description: String, val name: String, val private: Boolean, val user_ids: List<ChatString>)
+data class ChatCreateRequest(val user_ids: List<ChatString>, val description: String, val name: String, val private: Boolean)
 @Serializable
 data class ChatCreateResponse(val room: ChatRoom)
 @Serializable
-internal data class ChatDeleteRequest(val room_id: String)
+data class ChatDeleteRequest(val room_id: String)
 @Serializable
 data class ChatDeleteResponse(val room: ChatRoom)
 @Serializable
-internal data class ChatHistoryRequest(val room_id: String)
+data class ChatHistoryRequest(val room_id: String)
 @Serializable
 data class ChatHistoryResponse(val messages: List<ChatMessage>)
 @Serializable
-internal data class ChatInviteRequest(val room_id: String, val user_id: String)
+data class ChatInviteRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatInviteResponse(val room: ChatRoom)
 @Serializable
-internal data class ChatJoinRequest(val room_id: String, val user_id: String)
+data class ChatJoinRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatJoinResponse(val message: ChatMessage)
 @Serializable
-internal data class ChatKickRequest(val room_id: String, val user_id: String)
+data class ChatKickRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatKickResponse(val room: ChatRoom)
 @Serializable
-internal data class ChatLeaveRequest(val room_id: String, val user_id: String)
+data class ChatLeaveRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatLeaveResponse(val room: ChatRoom)
 @Serializable
-internal data class ChatListRequest(val user_id: String)
+data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-internal data class ChatMessage(val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String)
+data class ChatMessage(val sent_at: String, val subject: String, val text: String, val user_id: String, val client: String, val id: String, val room_id: String)
 @Serializable
-internal data class ChatRoom(val name: String, val private: Boolean, val user_ids: List<ChatString>, val created_at: String, val description: String, val id: String)
+data class ChatRoom(val name: String, val private: Boolean, val user_ids: List<ChatString>, val created_at: String, val description: String, val id: String)
 @Serializable
-internal data class ChatSendRequest(val user_id: String, val client: String, val room_id: String, val subject: String, val text: String)
+data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
 @Serializable
 data class ChatSendResponse(val message: ChatMessage)

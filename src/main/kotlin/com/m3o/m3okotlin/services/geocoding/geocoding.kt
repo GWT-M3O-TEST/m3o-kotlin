@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.geocoding
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,14 +25,14 @@ object GeocodingService {
     }
 }
 @Serializable
-internal data class GeocodingAddress(val city: String, val country: String, val line_one: String, val line_two: String, val postcode: String)
+data class GeocodingAddress(val postcode: String, val city: String, val country: String, val line_one: String, val line_two: String)
 @Serializable
-internal data class GeocodingLocation(val latitude: Double, val longitude: Double)
+data class GeocodingLocation(val latitude: Double, val longitude: Double)
 @Serializable
-internal data class GeocodingLookupRequest(val address: String, val city: String, val country: String, val postcode: String)
+data class GeocodingLookupRequest(val postcode: String, val address: String, val city: String, val country: String)
 @Serializable
-data class GeocodingLookupResponse(val location: GeocodingLocation, val address: GeocodingAddress)
+data class GeocodingLookupResponse(val address: GeocodingAddress, val location: GeocodingLocation)
 @Serializable
-internal data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
+data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
 @Serializable
 data class GeocodingReverseResponse(val address: GeocodingAddress, val location: GeocodingLocation)

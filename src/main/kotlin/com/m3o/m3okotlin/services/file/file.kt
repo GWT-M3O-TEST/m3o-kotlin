@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.file
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,20 +35,20 @@ object FileService {
     }
 }
 @Serializable
-internal data class FileDeleteRequest(val path: String, val project: String)
+data class FileDeleteRequest(val path: String, val project: String)
 @Serializable
 data class FileDeleteResponse()
 @Serializable
-internal data class FileListRequest(val path: String, val project: String)
+data class FileListRequest(val path: String, val project: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-internal data class FileReadRequest(val path: String, val project: String)
+data class FileReadRequest(val path: String, val project: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable
-internal data class FileRecord(val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String, val content: String)
+data class FileRecord(val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String)
 @Serializable
-internal data class FileSaveRequest(val file: FileRecord, val public: Boolean)
+data class FileSaveRequest(val file: FileRecord, val public: Boolean)
 @Serializable
 data class FileSaveResponse(val url: String)

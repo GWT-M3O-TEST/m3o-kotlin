@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.db
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -60,38 +60,38 @@ object DbService {
     }
 }
 @Serializable
-internal data class DbCountRequest(val table: String)
+data class DbCountRequest(val table: String)
 @Serializable
 data class DbCountResponse(val count: Int)
 @Serializable
-internal data class DbCreateRequest(val table: String, val id: String, val record: DbMap<String, dynamic>)
+data class DbCreateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
-internal data class DbDeleteRequest(val id: String, val table: String)
+data class DbDeleteRequest(val id: String, val table: String)
 @Serializable
 data class DbDeleteResponse()
 @Serializable
-internal data class DbDropTableRequest(val table: String)
+data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbDropTableResponse()
 @Serializable
-internal data class DbListTablesRequest()
+data class DbListTablesRequest()
 @Serializable
 data class DbListTablesResponse(val tables: List<DbString>)
 @Serializable
-internal data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
+data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
 @Serializable
 data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-internal data class DbRenameTableRequest(val from: String, val to: String)
+data class DbRenameTableRequest(val from: String, val to: String)
 @Serializable
 data class DbRenameTableResponse()
 @Serializable
-internal data class DbTruncateRequest(val table: String)
+data class DbTruncateRequest(val table: String)
 @Serializable
 data class DbTruncateResponse()
 @Serializable
-internal data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
+data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
 @Serializable
 data class DbUpdateResponse()

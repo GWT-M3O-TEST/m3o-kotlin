@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.minecraft
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object MinecraftService {
     }
 }
 @Serializable
-internal data class MinecraftPingRequest(val address: String)
+data class MinecraftPingRequest(val address: String)
 @Serializable
-data class MinecraftPingResponse(val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int, val protocol: Int, val sample: List<MinecraftPlayerSample>)
+data class MinecraftPingResponse(val protocol: Int, val sample: List<MinecraftPlayerSample>, val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int)
 @Serializable
-internal data class MinecraftPlayerSample(val name: String, val uuid: String)
+data class MinecraftPlayerSample(val name: String, val uuid: String)

@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.postcode
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object PostcodeService {
     }
 }
 @Serializable
-internal data class PostcodeLookupRequest(val postcode: String)
+data class PostcodeLookupRequest(val postcode: String)
 @Serializable
-data class PostcodeLookupResponse(val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double)
+data class PostcodeLookupResponse(val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String)
 @Serializable
-internal data class PostcodeRandomRequest()
+data class PostcodeRandomRequest()
 @Serializable
-data class PostcodeRandomResponse(val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String)
+data class PostcodeRandomResponse(val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String)
 @Serializable
-internal data class PostcodeValidateRequest(val postcode: String)
+data class PostcodeValidateRequest(val postcode: String)
 @Serializable
 data class PostcodeValidateResponse(val valid: Boolean)

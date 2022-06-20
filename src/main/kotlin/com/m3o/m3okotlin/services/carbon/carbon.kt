@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.carbon
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object CarbonService {
     }
 }
 @Serializable
-internal data class CarbonOffsetRequest()
+data class CarbonOffsetRequest()
 @Serializable
 data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
 @Serializable
-internal data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)
+data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)

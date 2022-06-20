@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.joke
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object JokeService {
     }
 }
 @Serializable
-internal data class JokeJokeInfo(val category: String, val id: String, val source: String, val title: String, val body: String)
+data class JokeJokeInfo(val body: String, val category: String, val id: String, val source: String, val title: String)
 @Serializable
-internal data class JokeRandomRequest(val count: Int)
+data class JokeRandomRequest(val count: Int)
 @Serializable
 data class JokeRandomResponse(val jokes: List<JokeJokeInfo>)

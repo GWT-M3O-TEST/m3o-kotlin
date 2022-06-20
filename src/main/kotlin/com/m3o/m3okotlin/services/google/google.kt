@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.google
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object GoogleService {
     }
 }
 @Serializable
-internal data class GoogleSearchRequest(val query: String)
+data class GoogleSearchRequest(val query: String)
 @Serializable
 data class GoogleSearchResponse(val results: List<GoogleSearchResult>)
 @Serializable
-internal data class GoogleSearchResult(val display_url: String, val id: String, val kind: String, val snippet: String, val title: String, val url: String)
+data class GoogleSearchResult(val display_url: String, val id: String, val kind: String, val snippet: String, val title: String, val url: String)

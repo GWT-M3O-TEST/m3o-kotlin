@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.stream
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,22 +35,22 @@ object StreamService {
     }
 }
 @Serializable
-internal data class StreamChannel(val last_active: String, val name: String, val description: String)
+data class StreamChannel(val description: String, val last_active: String, val name: String)
 @Serializable
-internal data class StreamCreateChannelRequest(val description: String, val name: String)
+data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable
 data class StreamCreateChannelResponse()
 @Serializable
-internal data class StreamListChannelsRequest()
+data class StreamListChannelsRequest()
 @Serializable
 data class StreamListChannelsResponse(val channels: List<StreamChannel>)
 @Serializable
-internal data class StreamListMessagesRequest(val channel: String, val limit: Int)
+data class StreamListMessagesRequest(val channel: String, val limit: Int)
 @Serializable
-data class StreamListMessagesResponse(val channel: String, val messages: List<StreamMessage>)
+data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
 @Serializable
-internal data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
+data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
 @Serializable
-internal data class StreamSendMessageRequest(val channel: String, val text: String)
+data class StreamSendMessageRequest(val channel: String, val text: String)
 @Serializable
 data class StreamSendMessageResponse()

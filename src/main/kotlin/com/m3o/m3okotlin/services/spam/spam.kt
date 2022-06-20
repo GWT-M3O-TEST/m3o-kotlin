@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.spam
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object SpamService {
     }
 }
 @Serializable
-internal data class SpamClassifyRequest(val from: String, val html_body: String, val subject: String, val text_body: String, val to: String, val email_body: String)
+data class SpamClassifyRequest(val from: String, val html_body: String, val subject: String, val text_body: String, val to: String, val email_body: String)
 @Serializable
 data class SpamClassifyResponse(val details: List<SpamString>, val is_spam: Boolean, val score: Double)

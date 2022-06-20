@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.contact
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -40,34 +40,34 @@ object ContactService {
     }
 }
 @Serializable
-internal data class ContactAddress(val label: String, val location: String)
+data class ContactAddress(val label: String, val location: String)
 @Serializable
-internal data class ContactContactInfo(val birthday: String, val created_at: String, val emails: List<ContactEmail>, val id: String, val links: List<ContactLink>, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val name: String, val note: String, val updated_at: String)
+data class ContactContactInfo(val updated_at: String, val emails: List<ContactEmail>, val name: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val links: List<ContactLink>, val note: String, val addresses: List<ContactAddress>, val birthday: String, val created_at: String, val id: String)
 @Serializable
-internal data class ContactCreateRequest(val name: String, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>)
+data class ContactCreateRequest(val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String)
 @Serializable
 data class ContactCreateResponse(val contact: ContactContactInfo)
 @Serializable
-internal data class ContactDeleteRequest(val id: String)
+data class ContactDeleteRequest(val id: String)
 @Serializable
 data class ContactDeleteResponse()
 @Serializable
-internal data class ContactEmail(val address: String, val label: String)
+data class ContactEmail(val address: String, val label: String)
 @Serializable
-internal data class ContactLink(val label: String, val url: String)
+data class ContactLink(val label: String, val url: String)
 @Serializable
-internal data class ContactListRequest(val limit: Int, val offset: Int)
+data class ContactListRequest(val limit: Int, val offset: Int)
 @Serializable
 data class ContactListResponse(val contacts: List<ContactContactInfo>)
 @Serializable
-internal data class ContactPhone(val label: String, val number: String)
+data class ContactPhone(val label: String, val number: String)
 @Serializable
-internal data class ContactReadRequest(val id: String)
+data class ContactReadRequest(val id: String)
 @Serializable
 data class ContactReadResponse(val contact: ContactContactInfo)
 @Serializable
-internal data class ContactSocialMedia(val label: String, val username: String)
+data class ContactSocialMedia(val label: String, val username: String)
 @Serializable
-internal data class ContactUpdateRequest(val links: List<ContactLink>, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val emails: List<ContactEmail>, val name: String, val birthday: String, val id: String)
+data class ContactUpdateRequest(val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val addresses: List<ContactAddress>, val id: String, val note: String)
 @Serializable
 data class ContactUpdateResponse(val contact: ContactContactInfo)

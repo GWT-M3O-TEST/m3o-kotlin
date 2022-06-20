@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.sentiment
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object SentimentService {
     }
 }
 @Serializable
-internal data class SentimentAnalyzeRequest(val lang: String, val text: String)
+data class SentimentAnalyzeRequest(val text: String, val lang: String)
 @Serializable
 data class SentimentAnalyzeResponse(val score: Double)

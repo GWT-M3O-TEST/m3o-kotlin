@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.currency
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,20 +35,20 @@ object CurrencyService {
     }
 }
 @Serializable
-internal data class CurrencyCode(val currency: String, val name: String)
+data class CurrencyCode(val name: String, val currency: String)
 @Serializable
-internal data class CurrencyCodesRequest()
+data class CurrencyCodesRequest()
 @Serializable
 data class CurrencyCodesResponse(val codes: List<CurrencyCode>)
 @Serializable
-internal data class CurrencyConvertRequest(val amount: Double, val from: String, val to: String)
+data class CurrencyConvertRequest(val from: String, val to: String, val amount: Double)
 @Serializable
 data class CurrencyConvertResponse(val amount: Double, val from: String, val rate: Double, val to: String)
 @Serializable
-internal data class CurrencyHistoryRequest(val code: String, val date: String)
+data class CurrencyHistoryRequest(val code: String, val date: String)
 @Serializable
 data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
 @Serializable
-internal data class CurrencyRatesRequest(val code: String)
+data class CurrencyRatesRequest(val code: String)
 @Serializable
 data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)

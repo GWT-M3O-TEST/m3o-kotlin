@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.weather
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,12 +25,12 @@ object WeatherService {
     }
 }
 @Serializable
-internal data class WeatherForecast(val sunset: String, val chance_of_rain: Int, val condition: String, val max_wind_mph: Double, val min_temp_c: Double, val min_temp_f: Double, val avg_temp_c: Double, val avg_temp_f: Double, val date: String, val max_temp_f: Double, val sunrise: String, val will_it_rain: Boolean, val icon_url: String, val max_temp_c: Double, val max_wind_kph: Double)
+data class WeatherForecast(val date: String, val chance_of_rain: Int, val condition: String, val max_temp_c: Double, val max_temp_f: Double, val min_temp_f: Double, val sunset: String, val avg_temp_c: Double, val min_temp_c: Double, val sunrise: String, val will_it_rain: Boolean, val max_wind_kph: Double, val icon_url: String, val max_wind_mph: Double, val avg_temp_f: Double)
 @Serializable
-internal data class WeatherForecastRequest(val days: Int, val location: String)
+data class WeatherForecastRequest(val days: Int, val location: String)
 @Serializable
-data class WeatherForecastResponse(val timezone: String, val country: String, val forecast: List<WeatherForecast>, val latitude: Double, val local_time: String, val location: String, val longitude: Double, val region: String)
+data class WeatherForecastResponse(val location: String, val longitude: Double, val region: String, val timezone: String, val country: String, val forecast: List<WeatherForecast>, val latitude: Double, val local_time: String)
 @Serializable
-internal data class WeatherNowRequest(val location: String)
+data class WeatherNowRequest(val location: String)
 @Serializable
-data class WeatherNowResponse(val daytime: Boolean, val icon_url: String, val local_time: String, val region: String, val cloud: Int, val condition: String, val humidity: Int, val location: String, val temp_f: Double, val wind_degree: Int, val wind_kph: Double, val feels_like_f: Double, val latitude: Double, val temp_c: Double, val timezone: String, val wind_mph: Double, val country: String, val feels_like_c: Double, val longitude: Double, val wind_direction: String)
+data class WeatherNowResponse(val wind_degree: Int, val wind_mph: Double, val cloud: Int, val humidity: Int, val latitude: Double, val longitude: Double, val location: String, val timezone: String, val condition: String, val icon_url: String, val region: String, val temp_c: Double, val local_time: String, val temp_f: Double, val wind_direction: String, val wind_kph: Double, val country: String, val daytime: Boolean, val feels_like_c: Double, val feels_like_f: Double)

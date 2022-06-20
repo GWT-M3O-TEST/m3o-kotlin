@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.app
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -60,42 +60,42 @@ object AppService {
     }
 }
 @Serializable
-internal data class AppDeleteRequest(val name: String)
+data class AppDeleteRequest(val name: String)
 @Serializable
 data class AppDeleteResponse()
 @Serializable
-internal data class AppListRequest()
+data class AppListRequest()
 @Serializable
 data class AppListResponse(val services: List<AppService>)
 @Serializable
-internal data class AppLogsRequest(val logs_type: String, val name: String)
+data class AppLogsRequest(val logs_type: String, val name: String)
 @Serializable
 data class AppLogsResponse(val logs: String)
 @Serializable
-internal data class AppRegionsRequest()
+data class AppRegionsRequest()
 @Serializable
 data class AppRegionsResponse(val regions: List<AppString>)
 @Serializable
-internal data class AppReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+data class AppReservation(val expires: String, val name: String, val owner: String, val token: String, val created: String)
 @Serializable
-internal data class AppReserveRequest(val name: String)
+data class AppReserveRequest(val name: String)
 @Serializable
 data class AppReserveResponse(val reservation: AppReservation)
 @Serializable
-internal data class AppResolveRequest(val id: String)
+data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-internal data class AppRunRequest(val port: Int, val region: String, val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String)
+data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-internal data class AppService(val port: Int, val region: String, val repo: String, val updated: String, val url: String, val branch: String, val name: String, val env_vars: Map<String, String>, val id: String, val status: String, val created: String, val custom_domains: List<AppString>)
+data class AppService(val created: String, val custom_domains: List<AppString>, val id: String, val name: String, val region: String, val updated: String, val url: String, val branch: String, val port: Int, val repo: String, val status: String, val env_vars: Map<String, String>)
 @Serializable
-internal data class AppStatusRequest(val name: String)
+data class AppStatusRequest(val name: String)
 @Serializable
 data class AppStatusResponse(val service: AppService)
 @Serializable
-internal data class AppUpdateRequest(val env_vars: Map<String, String>, val name: String)
+data class AppUpdateRequest(val name: String, val env_vars: Map<String, String>)
 @Serializable
 data class AppUpdateResponse()

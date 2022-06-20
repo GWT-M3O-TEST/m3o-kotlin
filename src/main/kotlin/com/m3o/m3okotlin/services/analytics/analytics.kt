@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.analytics
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,20 +35,20 @@ object AnalyticsService {
     }
 }
 @Serializable
-internal data class AnalyticsDeleteRequest(val name: String)
+data class AnalyticsDeleteRequest(val name: String)
 @Serializable
 data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
 @Serializable
-internal data class AnalyticsEvent(val created: String, val name: String, val value: Long)
+data class AnalyticsEvent(val created: String, val name: String, val value: Long)
 @Serializable
-internal data class AnalyticsListRequest()
+data class AnalyticsListRequest()
 @Serializable
 data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
 @Serializable
-internal data class AnalyticsReadRequest(val name: String)
+data class AnalyticsReadRequest(val name: String)
 @Serializable
 data class AnalyticsReadResponse(val event: AnalyticsEvent)
 @Serializable
-internal data class AnalyticsTrackRequest(val name: String)
+data class AnalyticsTrackRequest(val name: String)
 @Serializable
 data class AnalyticsTrackResponse()

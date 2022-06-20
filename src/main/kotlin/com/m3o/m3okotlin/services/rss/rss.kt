@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.rss
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,22 +35,22 @@ object RssService {
     }
 }
 @Serializable
-internal data class RssAddRequest(val category: String, val name: String, val url: String)
+data class RssAddRequest(val category: String, val name: String, val url: String)
 @Serializable
 data class RssAddResponse()
 @Serializable
-internal data class RssEntry(val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String)
+data class RssEntry(val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String)
 @Serializable
-internal data class RssFeed(val id: String, val name: String, val url: String, val category: String)
+data class RssFeed(val name: String, val url: String, val category: String, val id: String)
 @Serializable
-internal data class RssFeedRequest(val name: String, val offset: Long, val limit: Long)
+data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
 @Serializable
 data class RssFeedResponse(val entries: List<RssEntry>)
 @Serializable
-internal data class RssListRequest()
+data class RssListRequest()
 @Serializable
 data class RssListResponse(val feeds: List<RssFeed>)
 @Serializable
-internal data class RssRemoveRequest(val name: String)
+data class RssRemoveRequest(val name: String)
 @Serializable
 data class RssRemoveResponse()

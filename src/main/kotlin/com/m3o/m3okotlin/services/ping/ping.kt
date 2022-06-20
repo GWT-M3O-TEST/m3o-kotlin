@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.ping
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object PingService {
     }
 }
 @Serializable
-internal data class PingIpRequest(val address: String)
+data class PingIpRequest(val address: String)
 @Serializable
 data class PingIpResponse(val latency: String, val status: String)
 @Serializable
-internal data class PingTcpRequest(val address: String, val data: String)
+data class PingTcpRequest(val address: String, val data: String)
 @Serializable
 data class PingTcpResponse(val data: String, val status: String)
 @Serializable
-internal data class PingUrlRequest(val address: String, val method: String)
+data class PingUrlRequest(val address: String, val method: String)
 @Serializable
 data class PingUrlResponse(val status: String, val code: Int)

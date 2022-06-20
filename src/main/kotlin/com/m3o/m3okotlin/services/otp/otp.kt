@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.otp
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,10 +25,10 @@ object OtpService {
     }
 }
 @Serializable
-internal data class OtpGenerateRequest(val expiry: Long, val id: String, val size: Long)
+data class OtpGenerateRequest(val id: String, val size: Long, val expiry: Long)
 @Serializable
 data class OtpGenerateResponse(val code: String)
 @Serializable
-internal data class OtpValidateRequest(val code: String, val id: String)
+data class OtpValidateRequest(val code: String, val id: String)
 @Serializable
 data class OtpValidateResponse(val success: Boolean)

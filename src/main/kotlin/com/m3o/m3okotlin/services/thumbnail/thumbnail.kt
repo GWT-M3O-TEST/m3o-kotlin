@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.thumbnail
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object ThumbnailService {
     }
 }
 @Serializable
-internal data class ThumbnailScreenshotRequest(val height: Int, val url: String, val width: Int)
+data class ThumbnailScreenshotRequest(val url: String, val width: Int, val height: Int)
 @Serializable
 data class ThumbnailScreenshotResponse(val imageURL: String)

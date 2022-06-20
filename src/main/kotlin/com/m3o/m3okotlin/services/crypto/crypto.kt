@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.crypto
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -40,26 +40,26 @@ object CryptoService {
     }
 }
 @Serializable
-internal data class CryptoArticle(val title: String, val url: String, val date: String, val description: String, val source: String)
+data class CryptoArticle(val title: String, val url: String, val date: String, val description: String, val source: String)
 @Serializable
-internal data class CryptoHistoryRequest(val symbol: String)
+data class CryptoHistoryRequest(val symbol: String)
 @Serializable
-data class CryptoHistoryResponse(val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double, val open: Double)
+data class CryptoHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String)
 @Serializable
-internal data class CryptoNewsRequest(val symbol: String)
+data class CryptoNewsRequest(val symbol: String)
 @Serializable
-data class CryptoNewsResponse(val articles: List<CryptoArticle>, val symbol: String)
+data class CryptoNewsResponse(val symbol: String, val articles: List<CryptoArticle>)
 @Serializable
-internal data class CryptoPriceRequest(val symbol: String)
+data class CryptoPriceRequest(val symbol: String)
 @Serializable
 data class CryptoPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class CryptoQuoteRequest(val symbol: String)
+data class CryptoQuoteRequest(val symbol: String)
 @Serializable
-data class CryptoQuoteResponse(val ask_price: Double, val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String)
+data class CryptoQuoteResponse(val symbol: String, val timestamp: String, val ask_price: Double, val ask_size: Double, val bid_price: Double, val bid_size: Double)
 @Serializable
-internal data class CryptoSymbol(val name: String, val symbol: String)
+data class CryptoSymbol(val name: String, val symbol: String)
 @Serializable
-internal data class CryptoSymbolsRequest()
+data class CryptoSymbolsRequest()
 @Serializable
 data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>)

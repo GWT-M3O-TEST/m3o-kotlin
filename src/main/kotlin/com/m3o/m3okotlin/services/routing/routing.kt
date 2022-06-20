@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.routing
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,24 +30,24 @@ object RoutingService {
     }
 }
 @Serializable
-internal data class RoutingDirection(val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String)
+data class RoutingDirection(val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String, val distance: Double)
 @Serializable
-internal data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
+data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingDirectionsResponse(val directions: List<RoutingDirection>, val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
+data class RoutingDirectionsResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>, val directions: List<RoutingDirection>)
 @Serializable
-internal data class RoutingEtaRequest(val destination: RoutingPoint, val origin: RoutingPoint, val speed: Double, val type: String)
+data class RoutingEtaRequest(val origin: RoutingPoint, val speed: Double, val type: String, val destination: RoutingPoint)
 @Serializable
 data class RoutingEtaResponse(val duration: Double)
 @Serializable
-internal data class RoutingIntersection(val bearings: List<RoutingDouble>, val location: RoutingPoint)
+data class RoutingIntersection(val bearings: List<RoutingDouble>, val location: RoutingPoint)
 @Serializable
-internal data class RoutingManeuver(val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint)
+data class RoutingManeuver(val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint)
 @Serializable
-internal data class RoutingPoint(val latitude: Double, val longitude: Double)
+data class RoutingPoint(val longitude: Double, val latitude: Double)
 @Serializable
-internal data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
+data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingRouteResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
+data class RoutingRouteResponse(val duration: Double, val waypoints: List<RoutingWaypoint>, val distance: Double)
 @Serializable
-internal data class RoutingWaypoint(val location: RoutingPoint, val name: String)
+data class RoutingWaypoint(val location: RoutingPoint, val name: String)

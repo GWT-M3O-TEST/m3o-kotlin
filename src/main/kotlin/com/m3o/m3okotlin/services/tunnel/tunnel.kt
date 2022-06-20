@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.tunnel
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object TunnelService {
     }
 }
 @Serializable
-internal data class TunnelSendRequest(val method: String, val params: Map<String, String>, val path: String, val url: String, val body: String, val headers: Map<String, String>, val host: String)
+data class TunnelSendRequest(val headers: Map<String, String>, val host: String, val method: String, val params: Map<String, String>, val path: String, val url: String, val body: String)
 @Serializable
 data class TunnelSendResponse(val body: String, val headers: Map<String, String>, val status: String, val status_code: Int)

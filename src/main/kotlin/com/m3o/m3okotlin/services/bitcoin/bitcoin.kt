@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.bitcoin
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object BitcoinService {
     }
 }
 @Serializable
-internal data class BitcoinPriceRequest(val symbol: String)
+data class BitcoinPriceRequest(val symbol: String)
 @Serializable
 data class BitcoinPriceResponse(val price: Double, val symbol: String)

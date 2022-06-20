@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.function
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -70,50 +70,50 @@ object FunctionService {
     }
 }
 @Serializable
-internal data class FunctionCallRequest(val name: String, val request: FunctionMap<String, dynamic>)
+data class FunctionCallRequest(val name: String, val request: FunctionMap<String, dynamic>)
 @Serializable
 data class FunctionCallResponse(val response: FunctionMap<String, dynamic>)
 @Serializable
-internal data class FunctionDeleteRequest(val name: String)
+data class FunctionDeleteRequest(val name: String)
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-internal data class FunctionDeployRequest(val source: String, val branch: String, val repo: String, val runtime: String, val region: String, val subfolder: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String)
+data class FunctionDeployRequest(val name: String, val subfolder: String, val branch: String, val env_vars: Map<String, String>, val repo: String, val runtime: String, val source: String, val entrypoint: String, val region: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
-internal data class FunctionDescribeRequest(val name: String)
+data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-internal data class FunctionFunc(val id: String, val entrypoint: String, val branch: String, val env_vars: Map<String, String>, val name: String, val repo: String, val subfolder: String, val url: String, val created: String, val region: String, val runtime: String, val source: String, val status: String, val updated: String)
+data class FunctionFunc(val created: String, val env_vars: Map<String, String>, val id: String, val source: String, val repo: String, val status: String, val branch: String, val region: String, val updated: String, val url: String, val entrypoint: String, val name: String, val runtime: String, val subfolder: String)
 @Serializable
-internal data class FunctionListRequest()
+data class FunctionListRequest()
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
-internal data class FunctionLogsRequest(val name: String, val logs_type: String)
+data class FunctionLogsRequest(val logs_type: String, val name: String)
 @Serializable
 data class FunctionLogsResponse(val logs: String)
 @Serializable
-internal data class FunctionProxyRequest(val id: String)
+data class FunctionProxyRequest(val id: String)
 @Serializable
 data class FunctionProxyResponse(val url: String)
 @Serializable
-internal data class FunctionRegionsRequest()
+data class FunctionRegionsRequest()
 @Serializable
 data class FunctionRegionsResponse(val regions: List<FunctionString>)
 @Serializable
-internal data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+data class FunctionReservation(val expires: String, val name: String, val owner: String, val token: String, val created: String)
 @Serializable
-internal data class FunctionReserveRequest(val name: String)
+data class FunctionReserveRequest(val name: String)
 @Serializable
 data class FunctionReserveResponse(val reservation: FunctionReservation)
 @Serializable
-internal data class FunctionRuntimesRequest()
+data class FunctionRuntimesRequest()
 @Serializable
 data class FunctionRuntimesResponse(val runtimes: List<FunctionString>)
 @Serializable
-internal data class FunctionUpdateRequest(val name: String, val source: String)
+data class FunctionUpdateRequest(val name: String, val source: String)
 @Serializable
 data class FunctionUpdateResponse()

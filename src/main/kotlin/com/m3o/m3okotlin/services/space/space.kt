@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.space
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -55,40 +55,40 @@ object SpaceService {
     }
 }
 @Serializable
-internal data class SpaceCreateRequest(val object: String, val visibility: String, val name: String)
+data class SpaceCreateRequest(val name: String, val object: String, val visibility: String)
 @Serializable
 data class SpaceCreateResponse(val url: String)
 @Serializable
-internal data class SpaceDeleteRequest(val name: String)
+data class SpaceDeleteRequest(val name: String)
 @Serializable
 data class SpaceDeleteResponse()
 @Serializable
-internal data class SpaceDownloadRequest(val name: String)
+data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-internal data class SpaceHeadObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String)
+data class SpaceHeadObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String)
 @Serializable
-internal data class SpaceHeadRequest(val name: String)
+data class SpaceHeadRequest(val name: String)
 @Serializable
 data class SpaceHeadResponse(val object: SpaceHeadObject)
 @Serializable
-internal data class SpaceListObject(val created: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceListObject(val name: String, val url: String, val visibility: String, val created: String, val modified: String)
 @Serializable
-internal data class SpaceListRequest(val prefix: String)
+data class SpaceListRequest(val prefix: String)
 @Serializable
 data class SpaceListResponse(val objects: List<SpaceListObject>)
 @Serializable
-internal data class SpaceReadRequest(val name: String)
+data class SpaceReadRequest(val name: String)
 @Serializable
 data class SpaceReadResponse(val object: SpaceSpaceObject)
 @Serializable
-internal data class SpaceSpaceObject(val name: String, val url: String, val visibility: String, val created: String, val data: String, val modified: String)
+data class SpaceSpaceObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String, val data: String)
 @Serializable
-internal data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
+data class SpaceUpdateRequest(val object: String, val visibility: String, val name: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable
-internal data class SpaceUploadRequest(val name: String, val visibility: String)
+data class SpaceUploadRequest(val name: String, val visibility: String)
 @Serializable
 data class SpaceUploadResponse(val url: String)

@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.url
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,16 +30,16 @@ object UrlService {
     }
 }
 @Serializable
-internal data class UrlListRequest(val shortURL: String)
+data class UrlListRequest(val shortURL: String)
 @Serializable
 data class UrlListResponse(val urlPairs: UrlURLPair)
 @Serializable
-internal data class UrlProxyRequest(val shortURL: String)
+data class UrlProxyRequest(val shortURL: String)
 @Serializable
 data class UrlProxyResponse(val destinationURL: String)
 @Serializable
-internal data class UrlShortenRequest(val destinationURL: String)
+data class UrlShortenRequest(val destinationURL: String)
 @Serializable
 data class UrlShortenResponse(val shortURL: String)
 @Serializable
-internal data class UrlURLPair(val created: String, val destinationURL: String, val hitCount: Long, val shortURL: String)
+data class UrlURLPair(val hitCount: Long, val shortURL: String, val created: String, val destinationURL: String)

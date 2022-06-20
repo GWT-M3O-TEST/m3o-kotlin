@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.avatar
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object AvatarService {
     }
 }
 @Serializable
-internal data class AvatarGenerateRequest(val format: String, val gender: String, val upload: Boolean, val username: String)
+data class AvatarGenerateRequest(val format: String, val gender: String, val upload: Boolean, val username: String)
 @Serializable
 data class AvatarGenerateResponse(val base64: String, val url: String)

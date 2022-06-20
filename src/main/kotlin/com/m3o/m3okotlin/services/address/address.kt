@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.address
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object AddressService {
     }
 }
 @Serializable
-internal data class AddressLookupPostcodeRequest(val postcode: String)
+data class AddressLookupPostcodeRequest(val postcode: String)
 @Serializable
 data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>)
 @Serializable
-internal data class AddressRecord(val building_name: String, val county: String, val street: String, val postcode: String, val premise: String, val summary: String, val town: String, val line_one: String, val line_two: String, val locality: String, val organisation: String)
+data class AddressRecord(val postcode: String, val building_name: String, val county: String, val line_one: String, val premise: String, val street: String, val summary: String, val town: String, val line_two: String, val locality: String, val organisation: String)

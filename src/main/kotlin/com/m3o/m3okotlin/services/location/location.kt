@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.location
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,18 +30,18 @@ object LocationService {
     }
 }
 @Serializable
-internal data class LocationEntity(val id: String, val location: LocationPoint, val type: String)
+data class LocationEntity(val type: String, val id: String, val location: LocationPoint)
 @Serializable
-internal data class LocationPoint(val latitude: Double, val longitude: Double, val timestamp: Long)
+data class LocationPoint(val latitude: Double, val longitude: Double, val timestamp: Long)
 @Serializable
-internal data class LocationReadRequest(val id: String)
+data class LocationReadRequest(val id: String)
 @Serializable
 data class LocationReadResponse(val entity: LocationEntity)
 @Serializable
-internal data class LocationSaveRequest(val entity: LocationEntity)
+data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
 data class LocationSaveResponse()
 @Serializable
-internal data class LocationSearchRequest(val center: LocationPoint, val numEntities: Long, val radius: Double, val type: String)
+data class LocationSearchRequest(val type: String, val center: LocationPoint, val numEntities: Long, val radius: Double)
 @Serializable
 data class LocationSearchResponse(val entities: List<LocationEntity>)

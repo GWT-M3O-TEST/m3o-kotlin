@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.emoji
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object EmojiService {
     }
 }
 @Serializable
-internal data class EmojiFindRequest(val alias: String)
+data class EmojiFindRequest(val alias: String)
 @Serializable
 data class EmojiFindResponse(val emoji: String)
 @Serializable
-internal data class EmojiFlagRequest(val code: String)
+data class EmojiFlagRequest(val code: String)
 @Serializable
 data class EmojiFlagResponse(val flag: String)
 @Serializable
-internal data class EmojiPrintRequest(val text: String)
+data class EmojiPrintRequest(val text: String)
 @Serializable
 data class EmojiPrintResponse(val text: String)

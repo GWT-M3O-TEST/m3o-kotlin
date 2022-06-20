@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.sms
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object SmsService {
     }
 }
 @Serializable
-internal data class SmsSendRequest(val to: String, val from: String, val message: String)
+data class SmsSendRequest(val from: String, val message: String, val to: String)
 @Serializable
 data class SmsSendResponse(val info: String, val status: String)

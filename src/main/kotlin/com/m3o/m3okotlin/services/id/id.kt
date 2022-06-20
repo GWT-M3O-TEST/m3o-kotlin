@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.id
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,10 +25,10 @@ object IdService {
     }
 }
 @Serializable
-internal data class IdGenerateRequest(val type: String)
+data class IdGenerateRequest(val type: String)
 @Serializable
 data class IdGenerateResponse(val id: String, val type: String)
 @Serializable
-internal data class IdTypesRequest()
+data class IdTypesRequest()
 @Serializable
 data class IdTypesResponse(val types: List<IdString>)

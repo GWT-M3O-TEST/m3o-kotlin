@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.email
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object EmailService {
     }
 }
 @Serializable
-internal data class EmailParseRequest(val address: String)
+data class EmailParseRequest(val address: String)
 @Serializable
 data class EmailParseResponse(val address: String, val name: String)
 @Serializable
-internal data class EmailSendRequest(val to: String, val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String)
+data class EmailSendRequest(val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String, val to: String)
 @Serializable
 data class EmailSendResponse()
 @Serializable
-internal data class EmailValidateRequest(val address: String)
+data class EmailValidateRequest(val address: String)
 @Serializable
 data class EmailValidateResponse(val is_valid: Boolean)

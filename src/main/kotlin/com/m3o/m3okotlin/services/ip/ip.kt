@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.ip
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object IpService {
     }
 }
 @Serializable
-internal data class IpLookupRequest(val ip: String)
+data class IpLookupRequest(val ip: String)
 @Serializable
-data class IpLookupResponse(val ip: String, val latitude: Double, val longitude: Double, val timezone: String, val asn: Int, val city: String, val continent: String, val country: String)
+data class IpLookupResponse(val latitude: Double, val longitude: Double, val timezone: String, val asn: Int, val city: String, val continent: String, val country: String, val ip: String)

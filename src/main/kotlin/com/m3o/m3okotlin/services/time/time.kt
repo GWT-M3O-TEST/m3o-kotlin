@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.time
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,10 +25,10 @@ object TimeService {
     }
 }
 @Serializable
-internal data class TimeNowRequest(val location: String)
+data class TimeNowRequest(val location: String)
 @Serializable
 data class TimeNowResponse(val localtime: String, val location: String, val timestamp: String, val timezone: String, val unix: Long)
 @Serializable
-internal data class TimeZoneRequest(val location: String)
+data class TimeZoneRequest(val location: String)
 @Serializable
-data class TimeZoneResponse(val dst: Boolean, val latitude: Double, val location: String, val offset: Int, val timezone: String, val country: String, val localtime: String, val longitude: Double, val region: String, val abbreviation: String)
+data class TimeZoneResponse(val latitude: Double, val localtime: String, val location: String, val offset: Int, val abbreviation: String, val country: String, val dst: Boolean, val longitude: Double, val region: String, val timezone: String)

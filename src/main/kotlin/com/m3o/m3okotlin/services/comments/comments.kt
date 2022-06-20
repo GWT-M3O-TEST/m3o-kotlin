@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.comments
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -47,28 +47,28 @@ object CommentsService {
     }
 }
 @Serializable
-internal data class CommentsComment(val text: String, val updated: String, val created: String, val id: String, val subject: String)
+data class CommentsComment(val created: String, val id: String, val subject: String, val text: String, val updated: String)
 @Serializable
-internal data class CommentsCreateRequest(val subject: String, val text: String)
+data class CommentsCreateRequest(val text: String, val subject: String)
 @Serializable
 data class CommentsCreateResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsDeleteRequest(val id: String)
+data class CommentsDeleteRequest(val id: String)
 @Serializable
 data class CommentsDeleteResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsEventsRequest(val id: String)
+data class CommentsEventsRequest(val id: String)
 @Serializable
 data class CommentsEventsResponse(val comment: CommentsComment, val event: String)
 @Serializable
-internal data class CommentsListRequest()
+data class CommentsListRequest()
 @Serializable
 data class CommentsListResponse(val comments: List<CommentsComment>)
 @Serializable
-internal data class CommentsReadRequest(val id: String)
+data class CommentsReadRequest(val id: String)
 @Serializable
 data class CommentsReadResponse(val comment: CommentsComment)
 @Serializable
-internal data class CommentsUpdateRequest(val comment: CommentsComment)
+data class CommentsUpdateRequest(val comment: CommentsComment)
 @Serializable
 data class CommentsUpdateResponse(val comment: CommentsComment)

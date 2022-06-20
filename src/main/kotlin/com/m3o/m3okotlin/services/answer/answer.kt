@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.answer
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object AnswerService {
     }
 }
 @Serializable
-internal data class AnswerQuestionRequest(val query: String)
+data class AnswerQuestionRequest(val query: String)
 @Serializable
 data class AnswerQuestionResponse(val answer: String, val image: String, val url: String)

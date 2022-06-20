@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.forex
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object ForexService {
     }
 }
 @Serializable
-internal data class ForexHistoryRequest(val symbol: String)
+data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String)
+data class ForexHistoryResponse(val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double)
 @Serializable
-internal data class ForexPriceRequest(val symbol: String)
+data class ForexPriceRequest(val symbol: String)
 @Serializable
 data class ForexPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class ForexQuoteRequest(val symbol: String)
+data class ForexQuoteRequest(val symbol: String)
 @Serializable
-data class ForexQuoteResponse(val bid_price: Double, val symbol: String, val timestamp: String, val ask_price: Double)
+data class ForexQuoteResponse(val ask_price: Double, val bid_price: Double, val symbol: String, val timestamp: String)

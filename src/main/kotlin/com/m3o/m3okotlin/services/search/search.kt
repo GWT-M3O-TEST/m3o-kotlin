@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.search
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -40,26 +40,26 @@ object SearchService {
     }
 }
 @Serializable
-internal data class SearchCreateIndexRequest(val index: String)
+data class SearchCreateIndexRequest(val index: String)
 @Serializable
 data class SearchCreateIndexResponse()
 @Serializable
-internal data class SearchDeleteIndexRequest(val index: String)
+data class SearchDeleteIndexRequest(val index: String)
 @Serializable
 data class SearchDeleteIndexResponse()
 @Serializable
-internal data class SearchDeleteRequest(val index: String, val id: String)
+data class SearchDeleteRequest(val id: String, val index: String)
 @Serializable
 data class SearchDeleteResponse()
 @Serializable
-internal data class SearchField(val type: String, val name: String)
+data class SearchField(val name: String, val type: String)
 @Serializable
-internal data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
+data class SearchIndexRequest(val id: String, val index: String, val data: SearchMap<String, dynamic>)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
-internal data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
+data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
 @Serializable
-internal data class SearchSearchRequest(val index: String, val query: String)
+data class SearchSearchRequest(val index: String, val query: String)
 @Serializable
 data class SearchSearchResponse(val records: List<SearchRecord>)

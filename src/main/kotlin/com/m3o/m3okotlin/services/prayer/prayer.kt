@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.prayer
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object PrayerService {
     }
 }
 @Serializable
-internal data class PrayerPrayerTime(val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String, val maghrib: String, val sunrise: String)
+data class PrayerPrayerTime(val fajr: String, val isha: String, val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String)
 @Serializable
-internal data class PrayerTimesRequest(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
+data class PrayerTimesRequest(val location: String, val longitude: Double, val date: String, val days: Int, val latitude: Double)
 @Serializable
-data class PrayerTimesResponse(val days: Int, val latitude: Double, val location: String, val longitude: Double, val times: List<PrayerPrayerTime>, val date: String)
+data class PrayerTimesResponse(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double, val times: List<PrayerPrayerTime>)

@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.event
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -32,16 +32,16 @@ object EventService {
     }
 }
 @Serializable
-internal data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
+data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
 @Serializable
 data class EventConsumeResponse(val id: String, val message: EventMap<String, dynamic>, val timestamp: String, val topic: String)
 @Serializable
-internal data class EventEv(val message: EventMap<String, dynamic>, val timestamp: String, val id: String)
+data class EventEv(val id: String, val message: EventMap<String, dynamic>, val timestamp: String)
 @Serializable
-internal data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic: String)
+data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic: String)
 @Serializable
 data class EventPublishResponse()
 @Serializable
-internal data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
+data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
 @Serializable
 data class EventReadResponse(val events: List<EventEv>)

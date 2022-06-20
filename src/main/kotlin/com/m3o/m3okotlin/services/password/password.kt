@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.password
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object PasswordService {
     }
 }
 @Serializable
-internal data class PasswordGenerateRequest(val numbers: Boolean, val special: Boolean, val uppercase: Boolean, val length: Int, val lowercase: Boolean)
+data class PasswordGenerateRequest(val length: Int, val lowercase: Boolean, val numbers: Boolean, val special: Boolean, val uppercase: Boolean)
 @Serializable
 data class PasswordGenerateResponse(val password: String)

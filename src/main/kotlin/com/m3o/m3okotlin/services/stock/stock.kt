@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.stock
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -30,14 +30,14 @@ object StockService {
     }
 }
 @Serializable
-internal data class StockHistoryRequest(val date: String, val stock: String)
+data class StockHistoryRequest(val date: String, val stock: String)
 @Serializable
 data class StockHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Int)
 @Serializable
-internal data class StockPriceRequest(val symbol: String)
+data class StockPriceRequest(val symbol: String)
 @Serializable
 data class StockPriceResponse(val price: Double, val symbol: String)
 @Serializable
-internal data class StockQuoteRequest(val symbol: String)
+data class StockQuoteRequest(val symbol: String)
 @Serializable
-data class StockQuoteResponse(val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String, val ask_price: Double, val ask_size: Int)
+data class StockQuoteResponse(val ask_price: Double, val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String)

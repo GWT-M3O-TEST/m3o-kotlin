@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.helloworld
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -27,10 +27,10 @@ object HelloworldService {
     }
 }
 @Serializable
-internal data class HelloworldCallRequest(val name: String)
+data class HelloworldCallRequest(val name: String)
 @Serializable
 data class HelloworldCallResponse(val message: String)
 @Serializable
-internal data class HelloworldStreamRequest(val messages: Long, val name: String)
+data class HelloworldStreamRequest(val messages: Long, val name: String)
 @Serializable
 data class HelloworldStreamResponse(val message: String)

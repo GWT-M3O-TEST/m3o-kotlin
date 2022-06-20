@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.dns
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,10 +20,10 @@ object DnsService {
     }
 }
 @Serializable
-internal data class DnsAnswer(val TTL: Int, val data: String, val name: String, val type: Int)
+data class DnsAnswer(val data: String, val name: String, val type: Int, val TTL: Int)
 @Serializable
-internal data class DnsQueryRequest(val name: String, val type: String)
+data class DnsQueryRequest(val name: String, val type: String)
 @Serializable
-data class DnsQueryResponse(val AD: Boolean, val CD: Boolean, val RD: Boolean, val answer: List<DnsAnswer>, val provider: String, val question: List<DnsQuestion>, val status: Int, val RA: Boolean, val TC: Boolean)
+data class DnsQueryResponse(val RD: Boolean, val answer: List<DnsAnswer>, val question: List<DnsQuestion>, val status: Int, val AD: Boolean, val RA: Boolean, val TC: Boolean, val provider: String, val CD: Boolean)
 @Serializable
-internal data class DnsQuestion(val name: String, val type: Int)
+data class DnsQuestion(val name: String, val type: Int)

@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.qr
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,6 +20,6 @@ object QrService {
     }
 }
 @Serializable
-internal data class QrGenerateRequest(val text: String, val size: Long)
+data class QrGenerateRequest(val size: Long, val text: String)
 @Serializable
 data class QrGenerateResponse(val qr: String)

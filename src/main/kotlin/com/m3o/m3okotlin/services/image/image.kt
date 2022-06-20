@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.image
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -35,24 +35,24 @@ object ImageService {
     }
 }
 @Serializable
-internal data class ImageConvertRequest(val outputURL: Boolean, val url: String, val base64: String, val file: String, val name: String)
+data class ImageConvertRequest(val name: String, val outputURL: Boolean, val url: String, val base64: String, val file: String)
 @Serializable
 data class ImageConvertResponse(val base64: String, val url: String)
 @Serializable
-internal data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
+data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
 @Serializable
-internal data class ImageDeleteRequest(val url: String)
+data class ImageDeleteRequest(val url: String)
 @Serializable
 data class ImageDeleteResponse()
 @Serializable
-internal data class ImagePoint(val x: Int, val y: Int)
+data class ImagePoint(val x: Int, val y: Int)
 @Serializable
-internal data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
+data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-internal data class ImageResizeRequest(val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String)
+data class ImageResizeRequest(val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean)
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable
-internal data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
+data class ImageUploadRequest(val file: String, val name: String, val url: String, val base64: String)
 @Serializable
 data class ImageUploadResponse(val url: String)

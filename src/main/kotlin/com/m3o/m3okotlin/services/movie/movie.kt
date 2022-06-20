@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.movie
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object MovieService {
     }
 }
 @Serializable
-internal data class MovieMovieInfo(val backdrop_path: String, val vote_count: Int, val video: Boolean, val genre_ids: List<MovieInt>, val id: Int, val original_language: String, val original_title: String, val poster_path: String, val adult: Boolean, val overview: String, val popularity: Double, val vote_average: Double, val release_date: String, val title: String)
+data class MovieMovieInfo(val original_title: String, val vote_count: Int, val genre_ids: List<MovieInt>, val id: Int, val popularity: Double, val poster_path: String, val video: Boolean, val vote_average: Double, val adult: Boolean, val backdrop_path: String, val original_language: String, val overview: String, val release_date: String, val title: String)
 @Serializable
-internal data class MovieSearchRequest(val language: String, val page: Int, val primary_release_year: Int, val query: String, val region: String, val year: Int)
+data class MovieSearchRequest(val query: String, val region: String, val year: Int, val language: String, val page: Int, val primary_release_year: Int)
 @Serializable
-data class MovieSearchResponse(val total_results: Int, val page: Int, val results: List<MovieMovieInfo>, val total_pages: Int)
+data class MovieSearchResponse(val page: Int, val results: List<MovieMovieInfo>, val total_pages: Int, val total_results: Int)

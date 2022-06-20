@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.translate
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object TranslateService {
     }
 }
 @Serializable
-internal data class TranslateTextRequest(val source: String, val target: String, val content: String, val format: String, val model: String)
+data class TranslateTextRequest(val content: String, val format: String, val model: String, val source: String, val target: String)
 @Serializable
 data class TranslateTextResponse(val translation: TranslateTranslation)
 @Serializable
-internal data class TranslateTranslation(val model: String, val source: String, val text: String)
+data class TranslateTranslation(val model: String, val source: String, val text: String)

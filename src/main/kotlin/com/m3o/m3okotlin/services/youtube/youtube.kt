@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.youtube
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,12 +25,12 @@ object YoutubeService {
     }
 }
 @Serializable
-internal data class YoutubeEmbedRequest(val url: String)
+data class YoutubeEmbedRequest(val url: String)
 @Serializable
 data class YoutubeEmbedResponse(val embed_url: String, val html_script: String, val long_url: String, val short_url: String)
 @Serializable
-internal data class YoutubeSearchRequest(val query: String)
+data class YoutubeSearchRequest(val query: String)
 @Serializable
 data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
 @Serializable
-internal data class YoutubeSearchResult(val description: String, val published_at: String, val url: String, val broadcasting: String, val channel_title: String, val id: String, val kind: String, val title: String, val channel_id: String)
+data class YoutubeSearchResult(val channel_id: String, val channel_title: String, val description: String, val id: String, val published_at: String, val title: String, val broadcasting: String, val url: String, val kind: String)

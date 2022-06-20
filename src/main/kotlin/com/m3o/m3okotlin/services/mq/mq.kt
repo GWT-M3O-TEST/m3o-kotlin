@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.mq
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -27,10 +27,10 @@ object MqService {
     }
 }
 @Serializable
-internal data class MqPublishRequest(val message: MqMap<String, dynamic>, val topic: String)
+data class MqPublishRequest(val message: MqMap<String, dynamic>, val topic: String)
 @Serializable
 data class MqPublishResponse()
 @Serializable
-internal data class MqSubscribeRequest(val topic: String)
+data class MqSubscribeRequest(val topic: String)
 @Serializable
 data class MqSubscribeResponse(val message: MqMap<String, dynamic>, val topic: String)

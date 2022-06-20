@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.wordle
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -25,14 +25,14 @@ object WordleService {
     }
 }
 @Serializable
-internal data class WordleChar(val correct: Boolean, val in_word: Boolean, val letter: String, val position: Int)
+data class WordleChar(val correct: Boolean, val in_word: Boolean, val letter: String, val position: Int)
 @Serializable
-internal data class WordleGuess(val chars: List<WordleChar>, val highlight: String, val word: String)
+data class WordleGuess(val word: String, val chars: List<WordleChar>, val highlight: String)
 @Serializable
-internal data class WordleGuessRequest(val player: String, val word: String)
+data class WordleGuessRequest(val player: String, val word: String)
 @Serializable
 data class WordleGuessResponse(val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String)
 @Serializable
-internal data class WordleNextRequest()
+data class WordleNextRequest()
 @Serializable
 data class WordleNextResponse(val duration: String, val seconds: Int)

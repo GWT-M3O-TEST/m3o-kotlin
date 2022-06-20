@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.lists
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -47,28 +47,28 @@ object ListsService {
     }
 }
 @Serializable
-internal data class ListsCreateRequest(val name: String, val items: List<ListsString>)
+data class ListsCreateRequest(val items: List<ListsString>, val name: String)
 @Serializable
 data class ListsCreateResponse(val list: ListsList)
 @Serializable
-internal data class ListsDeleteRequest(val id: String)
+data class ListsDeleteRequest(val id: String)
 @Serializable
 data class ListsDeleteResponse(val list: ListsList)
 @Serializable
-internal data class ListsEventsRequest(val id: String)
+data class ListsEventsRequest(val id: String)
 @Serializable
-data class ListsEventsResponse(val event: String, val list: ListsList)
+data class ListsEventsResponse(val list: ListsList, val event: String)
 @Serializable
-internal data class ListsList(val items: List<ListsString>, val name: String, val updated: String, val created: String, val id: String)
+data class ListsList(val items: List<ListsString>, val name: String, val updated: String, val created: String, val id: String)
 @Serializable
-internal data class ListsListRequest()
+data class ListsListRequest()
 @Serializable
 data class ListsListResponse(val lists: List<ListsList>)
 @Serializable
-internal data class ListsReadRequest(val id: String)
+data class ListsReadRequest(val id: String)
 @Serializable
 data class ListsReadResponse(val list: ListsList)
 @Serializable
-internal data class ListsUpdateRequest(val list: ListsList)
+data class ListsUpdateRequest(val list: ListsList)
 @Serializable
 data class ListsUpdateResponse(val list: ListsList)

@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.notes
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -47,28 +47,28 @@ object NotesService {
     }
 }
 @Serializable
-internal data class NotesCreateRequest(val title: String, val text: String)
+data class NotesCreateRequest(val text: String, val title: String)
 @Serializable
 data class NotesCreateResponse(val note: NotesNote)
 @Serializable
-internal data class NotesDeleteRequest(val id: String)
+data class NotesDeleteRequest(val id: String)
 @Serializable
 data class NotesDeleteResponse(val note: NotesNote)
 @Serializable
-internal data class NotesEventsRequest(val id: String)
+data class NotesEventsRequest(val id: String)
 @Serializable
 data class NotesEventsResponse(val event: String, val note: NotesNote)
 @Serializable
-internal data class NotesListRequest()
+data class NotesListRequest()
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-internal data class NotesNote(val text: String, val title: String, val updated: String, val created: String, val id: String)
+data class NotesNote(val text: String, val title: String, val updated: String, val created: String, val id: String)
 @Serializable
-internal data class NotesReadRequest(val id: String)
+data class NotesReadRequest(val id: String)
 @Serializable
 data class NotesReadResponse(val note: NotesNote)
 @Serializable
-internal data class NotesUpdateRequest(val note: NotesNote)
+data class NotesUpdateRequest(val note: NotesNote)
 @Serializable
 data class NotesUpdateResponse(val note: NotesNote)

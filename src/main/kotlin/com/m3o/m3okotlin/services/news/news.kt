@@ -1,5 +1,5 @@
 
-package com.m3o.m3okotlin.services
+package com.m3o.m3okotlin.services.news
 
 import com.m3o.m3okotlin.M3O.getUrl
 import com.m3o.m3okotlin.M3O.ktorHttpClient
@@ -20,8 +20,8 @@ object NewsService {
     }
 }
 @Serializable
-internal data class NewsArticle(val language: String, val locale: String, val published_at: String, val url: String, val categories: List<NewsString>, val description: String, val image_url: String, val source: String, val title: String, val id: String, val keywords: String, val snippet: String)
+data class NewsArticle(val title: String, val image_url: String, val keywords: String, val published_at: String, val source: String, val locale: String, val snippet: String, val url: String, val categories: List<NewsString>, val description: String, val id: String, val language: String)
 @Serializable
-internal data class NewsHeadlinesRequest(val date: String, val language: String, val locale: String)
+data class NewsHeadlinesRequest(val locale: String, val date: String, val language: String)
 @Serializable
 data class NewsHeadlinesResponse(val articles: List<NewsArticle>)

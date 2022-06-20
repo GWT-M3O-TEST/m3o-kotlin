@@ -38,6 +38,6 @@ data class PingTcpRequest(val address: String, val data: String)
 @Serializable
 data class PingTcpResponse(val data: String, val status: String)
 @Serializable
-data class PingUrlRequest(val method: String, val address: String)
+data class PingUrlRequest(val address: String, val method: String)
 @Serializable
 data class PingUrlResponse(val code: Int, val status: String)

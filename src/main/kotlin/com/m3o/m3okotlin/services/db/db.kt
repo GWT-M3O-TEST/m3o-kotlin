@@ -68,7 +68,7 @@ data class DbCreateRequest(val table: String, val id: String, val record: DbMap<
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
-data class DbDeleteRequest(val table: String, val id: String)
+data class DbDeleteRequest(val id: String, val table: String)
 @Serializable
 data class DbDeleteResponse()
 @Serializable
@@ -84,7 +84,7 @@ data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val or
 @Serializable
 data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-data class DbRenameTableRequest(val to: String, val from: String)
+data class DbRenameTableRequest(val from: String, val to: String)
 @Serializable
 data class DbRenameTableResponse()
 @Serializable

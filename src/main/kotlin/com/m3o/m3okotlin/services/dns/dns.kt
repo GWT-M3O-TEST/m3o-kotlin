@@ -24,6 +24,6 @@ data class DnsAnswer(val TTL: Int, val data: String, val name: String, val type:
 @Serializable
 data class DnsQueryRequest(val name: String, val type: String)
 @Serializable
-data class DnsQueryResponse(val RA: Boolean, val TC: Boolean, val status: Int, val question: List<DnsQuestion>, val AD: Boolean, val CD: Boolean, val RD: Boolean, val answer: List<DnsAnswer>, val provider: String)
+data class DnsQueryResponse(val TC: Boolean, val provider: String, val question: List<DnsQuestion>, val CD: Boolean, val RA: Boolean, val answer: List<DnsAnswer>, val status: Int, val AD: Boolean, val RD: Boolean)
 @Serializable
-data class DnsQuestion(val type: Int, val name: String)
+data class DnsQuestion(val name: String, val type: Int)

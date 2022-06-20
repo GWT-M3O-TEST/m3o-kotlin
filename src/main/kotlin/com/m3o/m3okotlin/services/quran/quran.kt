@@ -35,30 +35,30 @@ object QuranService {
     }
 }
 @Serializable
-data class QuranChapter(val revelation_place: String, val verses: Int, val arabic_name: String, val complex_name: String, val id: Int, val prefix_bismillah: Boolean, val revelation_order: Int, val name: String, val pages: List<QuranInt>, val translated_name: String)
+data class QuranChapter(val complex_name: String, val name: String, val pages: List<QuranInt>, val revelation_place: String, val translated_name: String, val arabic_name: String, val id: Int, val prefix_bismillah: Boolean, val revelation_order: Int, val verses: Int)
 @Serializable
 data class QuranChaptersRequest(val language: String)
 @Serializable
 data class QuranChaptersResponse(val chapters: List<QuranChapter>)
 @Serializable
-data class QuranInterpretation(val source: String, val text: String, val id: Int)
+data class QuranInterpretation(val id: Int, val source: String, val text: String)
 @Serializable
-data class QuranResult(val verse_id: Int, val verse_key: String, val text: String, val translations: List<QuranTranslation>)
+data class QuranResult(val verse_key: String, val text: String, val translations: List<QuranTranslation>, val verse_id: Int)
 @Serializable
-data class QuranSearchRequest(val page: Int, val query: String, val language: String, val limit: Int)
+data class QuranSearchRequest(val language: String, val limit: Int, val page: Int, val query: String)
 @Serializable
 data class QuranSearchResponse(val page: Int, val query: String, val results: List<QuranResult>, val total_pages: Int, val total_results: Int)
 @Serializable
 data class QuranSummaryRequest(val chapter: Int, val language: String)
 @Serializable
-data class QuranSummaryResponse(val text: String, val chapter: Int, val source: String, val summary: String)
+data class QuranSummaryResponse(val chapter: Int, val source: String, val summary: String, val text: String)
 @Serializable
-data class QuranTranslation(val id: Int, val source: String, val text: String)
+data class QuranTranslation(val text: String, val id: Int, val source: String)
 @Serializable
-data class QuranVerse(val id: Int, val interpretations: List<QuranInterpretation>, val translated_text: String, val transliteration: String, val key: String, val number: Int, val page: Int, val text: String, val translations: List<QuranTranslation>, val words: List<QuranWord>)
+data class QuranVerse(val translated_text: String, val translations: List<QuranTranslation>, val transliteration: String, val interpretations: List<QuranInterpretation>, val number: Int, val text: String, val words: List<QuranWord>, val id: Int, val key: String, val page: Int)
 @Serializable
 data class QuranVersesRequest(val words: Boolean, val chapter: Int, val interpret: Boolean, val language: String, val limit: Int, val page: Int, val translate: Boolean)
 @Serializable
-data class QuranVersesResponse(val verses: List<QuranVerse>, val chapter: Int, val page: Int, val total_pages: Int)
+data class QuranVersesResponse(val total_pages: Int, val verses: List<QuranVerse>, val chapter: Int, val page: Int)
 @Serializable
-data class QuranWord(val char_type: String, val code: String, val id: Int, val line: Int, val position: Int, val translation: String, val page: Int, val text: String, val transliteration: String)
+data class QuranWord(val line: Int, val position: Int, val translation: String, val transliteration: String, val id: Int, val code: String, val page: Int, val text: String, val char_type: String)

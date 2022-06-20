@@ -36,12 +36,12 @@ data class EventConsumeRequest(val group: String, val offset: String, val topic:
 @Serializable
 data class EventConsumeResponse(val id: String, val message: EventMap<String, dynamic>, val timestamp: String, val topic: String)
 @Serializable
-data class EventEv(val timestamp: String, val id: String, val message: EventMap<String, dynamic>)
+data class EventEv(val message: EventMap<String, dynamic>, val timestamp: String, val id: String)
 @Serializable
-data class EventPublishRequest(val message: EventMap<String, dynamic>, val topic: String)
+data class EventPublishRequest(val topic: String, val message: EventMap<String, dynamic>)
 @Serializable
 data class EventPublishResponse()
 @Serializable
-data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
+data class EventReadRequest(val topic: String, val limit: Int, val offset: Int)
 @Serializable
 data class EventReadResponse(val events: List<EventEv>)

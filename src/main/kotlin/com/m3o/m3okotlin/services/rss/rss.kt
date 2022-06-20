@@ -39,7 +39,7 @@ data class RssAddRequest(val category: String, val name: String, val url: String
 @Serializable
 data class RssAddResponse()
 @Serializable
-data class RssEntry(val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String)
+data class RssEntry(val summary: String, val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String)
 @Serializable
 data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable

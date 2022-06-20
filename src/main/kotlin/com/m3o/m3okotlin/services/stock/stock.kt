@@ -36,7 +36,7 @@ data class StockHistoryResponse(val close: Double, val date: String, val high: D
 @Serializable
 data class StockPriceRequest(val symbol: String)
 @Serializable
-data class StockPriceResponse(val symbol: String, val price: Double)
+data class StockPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class StockQuoteRequest(val symbol: String)
 @Serializable

@@ -95,9 +95,9 @@ object UserService {
     }
 }
 @Serializable
-data class UserAccount(val verified: Boolean, val created: Long, val email: String, val id: String, val profile: Map<String, String>, val updated: Long, val username: String, val verification_date: Long)
+data class UserAccount(val created: Long, val email: String, val id: String, val profile: Map<String, String>, val updated: Long, val username: String, val verification_date: Long, val verified: Boolean)
 @Serializable
-data class UserCreateRequest(val email: String, val id: String, val password: String, val profile: Map<String, String>, val username: String)
+data class UserCreateRequest(val username: String, val email: String, val id: String, val password: String, val profile: Map<String, String>)
 @Serializable
 data class UserCreateResponse(val account: UserAccount)
 @Serializable
@@ -105,11 +105,11 @@ data class UserDeleteRequest(val id: String)
 @Serializable
 data class UserDeleteResponse()
 @Serializable
-data class UserListRequest(val offset: Int, val limit: Int)
+data class UserListRequest(val limit: Int, val offset: Int)
 @Serializable
 data class UserListResponse(val users: List<UserAccount>)
 @Serializable
-data class UserLoginRequest(val email: String, val password: String, val username: String)
+data class UserLoginRequest(val password: String, val username: String, val email: String)
 @Serializable
 data class UserLoginResponse(val session: UserSession)
 @Serializable
@@ -129,7 +129,7 @@ data class UserReadSessionRequest(val session_id: String)
 @Serializable
 data class UserReadSessionResponse(val session: UserSession)
 @Serializable
-data class UserResetPasswordRequest(val code: String, val confirm_password: String, val email: String, val new_password: String)
+data class UserResetPasswordRequest(val email: String, val new_password: String, val code: String, val confirm_password: String)
 @Serializable
 data class UserResetPasswordResponse()
 @Serializable
@@ -141,11 +141,11 @@ data class UserSendPasswordResetEmailRequest(val from_name: String, val subject:
 @Serializable
 data class UserSendPasswordResetEmailResponse()
 @Serializable
-data class UserSendVerificationEmailRequest(val email: String, val failure_redirect_url: String, val from_name: String, val redirect_url: String, val subject: String, val text_content: String)
+data class UserSendVerificationEmailRequest(val text_content: String, val email: String, val failure_redirect_url: String, val from_name: String, val redirect_url: String, val subject: String)
 @Serializable
 data class UserSendVerificationEmailResponse()
 @Serializable
-data class UserSession(val created: Long, val expires: Long, val id: String, val userId: String)
+data class UserSession(val id: String, val userId: String, val created: Long, val expires: Long)
 @Serializable
 data class UserUpdatePasswordRequest(val confirm_password: String, val new_password: String, val old_password: String, val userId: String)
 @Serializable

@@ -34,7 +34,7 @@ data class EmailParseRequest(val address: String)
 @Serializable
 data class EmailParseResponse(val address: String, val name: String)
 @Serializable
-data class EmailSendRequest(val to: String, val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String)
+data class EmailSendRequest(val reply_to: String, val subject: String, val text_body: String, val to: String, val from: String, val html_body: String)
 @Serializable
 data class EmailSendResponse()
 @Serializable

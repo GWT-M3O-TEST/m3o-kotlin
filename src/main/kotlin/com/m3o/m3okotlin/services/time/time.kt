@@ -31,4 +31,4 @@ data class TimeNowResponse(val location: String, val timestamp: String, val time
 @Serializable
 data class TimeZoneRequest(val location: String)
 @Serializable
-data class TimeZoneResponse(val region: String, val dst: Boolean, val latitude: Double, val location: String, val longitude: Double, val offset: Int, val timezone: String, val abbreviation: String, val country: String, val localtime: String)
+data class TimeZoneResponse(val location: String, val longitude: Double, val offset: Int, val region: String, val timezone: String, val country: String, val localtime: String, val latitude: Double, val abbreviation: String, val dst: Boolean)

@@ -67,7 +67,7 @@ data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-data class SpaceHeadObject(val created: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceHeadObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String)
 @Serializable
 data class SpaceHeadRequest(val name: String)
 @Serializable

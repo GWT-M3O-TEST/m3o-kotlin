@@ -25,7 +25,7 @@ object WeatherService {
     }
 }
 @Serializable
-data class WeatherForecast(val avg_temp_c: Double, val chance_of_rain: Int, val max_temp_f: Double, val sunrise: String, val condition: String, val sunset: String, val date: String, val icon_url: String, val max_wind_mph: Double, val min_temp_c: Double, val will_it_rain: Boolean, val avg_temp_f: Double, val max_temp_c: Double, val max_wind_kph: Double, val min_temp_f: Double)
+data class WeatherForecast(val max_temp_c: Double, val max_wind_mph: Double, val min_temp_f: Double, val sunset: String, val max_wind_kph: Double, val min_temp_c: Double, val avg_temp_c: Double, val max_temp_f: Double, val sunrise: String, val will_it_rain: Boolean, val avg_temp_f: Double, val chance_of_rain: Int, val condition: String, val date: String, val icon_url: String)
 @Serializable
 data class WeatherForecastRequest(val days: Int, val location: String)
 @Serializable
@@ -33,4 +33,4 @@ data class WeatherForecastResponse(val country: String, val forecast: List<Weath
 @Serializable
 data class WeatherNowRequest(val location: String)
 @Serializable
-data class WeatherNowResponse(val country: String, val humidity: Int, val temp_f: Double, val wind_degree: Int, val wind_mph: Double, val cloud: Int, val feels_like_f: Double, val location: String, val region: String, val timezone: String, val feels_like_c: Double, val icon_url: String, val longitude: Double, val temp_c: Double, val wind_direction: String, val wind_kph: Double, val daytime: Boolean, val latitude: Double, val local_time: String, val condition: String)
+data class WeatherNowResponse(val local_time: String, val region: String, val icon_url: String, val feels_like_c: Double, val temp_f: Double, val timezone: String, val wind_direction: String, val country: String, val feels_like_f: Double, val humidity: Int, val latitude: Double, val longitude: Double, val temp_c: Double, val wind_mph: Double, val cloud: Int, val daytime: Boolean, val location: String, val wind_degree: Int, val wind_kph: Double, val condition: String)

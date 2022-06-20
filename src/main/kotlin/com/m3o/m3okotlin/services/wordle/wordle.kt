@@ -35,4 +35,4 @@ data class WordleGuessResponse(val answer: String, val correct: Boolean, val gue
 @Serializable
 data class WordleNextRequest()
 @Serializable
-data class WordleNextResponse(val seconds: Int, val duration: String)
+data class WordleNextResponse(val duration: String, val seconds: Int)

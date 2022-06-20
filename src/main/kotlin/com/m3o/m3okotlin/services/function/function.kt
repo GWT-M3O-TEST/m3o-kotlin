@@ -70,7 +70,7 @@ object FunctionService {
     }
 }
 @Serializable
-data class FunctionCallRequest(val request: FunctionMap<String, dynamic>, val name: String)
+data class FunctionCallRequest(val name: String, val request: FunctionMap<String, dynamic>)
 @Serializable
 data class FunctionCallResponse(val response: FunctionMap<String, dynamic>)
 @Serializable
@@ -78,7 +78,7 @@ data class FunctionDeleteRequest(val name: String)
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-data class FunctionDeployRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val runtime: String, val subfolder: String, val entrypoint: String, val region: String, val repo: String, val source: String)
+data class FunctionDeployRequest(val entrypoint: String, val env_vars: Map<String, String>, val repo: String, val source: String, val subfolder: String, val branch: String, val name: String, val region: String, val runtime: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -86,7 +86,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val entrypoint: String, val repo: String, val created: String, val id: String, val subfolder: String, val branch: String, val env_vars: Map<String, String>, val runtime: String, val source: String, val url: String, val name: String, val region: String, val status: String, val updated: String)
+data class FunctionFunc(val created: String, val region: String, val status: String, val updated: String, val url: String, val repo: String, val runtime: String, val branch: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String, val id: String, val source: String, val subfolder: String)
 @Serializable
 data class FunctionListRequest()
 @Serializable
@@ -104,7 +104,7 @@ data class FunctionRegionsRequest()
 @Serializable
 data class FunctionRegionsResponse(val regions: List<FunctionString>)
 @Serializable
-data class FunctionReservation(val name: String, val owner: String, val token: String, val created: String, val expires: String)
+data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
 @Serializable
 data class FunctionReserveRequest(val name: String)
 @Serializable

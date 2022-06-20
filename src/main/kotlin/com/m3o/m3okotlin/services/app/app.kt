@@ -86,11 +86,11 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String)
+data class AppRunRequest(val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val id: String, val port: Int, val region: String, val repo: String, val status: String, val updated: String, val branch: String, val created: String, val custom_domains: List<AppString>, val env_vars: Map<String, String>, val name: String, val url: String)
+data class AppService(val updated: String, val url: String, val branch: String, val created: String, val env_vars: Map<String, String>, val name: String, val port: Int, val custom_domains: List<AppString>, val id: String, val region: String, val repo: String, val status: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable

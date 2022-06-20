@@ -58,7 +58,7 @@ data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: Stri
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
-data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
+data class SearchRecord(val id: String, val data: SearchMap<String, dynamic>)
 @Serializable
 data class SearchSearchRequest(val index: String, val query: String)
 @Serializable

@@ -43,7 +43,7 @@ data class FileListRequest(val path: String, val project: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-data class FileReadRequest(val path: String, val project: String)
+data class FileReadRequest(val project: String, val path: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable

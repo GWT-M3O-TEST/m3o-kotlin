@@ -41,7 +41,7 @@ data class CurrencyCodesRequest()
 @Serializable
 data class CurrencyCodesResponse(val codes: List<CurrencyCode>)
 @Serializable
-data class CurrencyConvertRequest(val to: String, val amount: Double, val from: String)
+data class CurrencyConvertRequest(val amount: Double, val from: String, val to: String)
 @Serializable
 data class CurrencyConvertResponse(val amount: Double, val from: String, val rate: Double, val to: String)
 @Serializable

@@ -35,4 +35,4 @@ data class GeocodingLookupResponse(val address: GeocodingAddress, val location: 
 @Serializable
 data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
 @Serializable
-data class GeocodingReverseResponse(val address: GeocodingAddress, val location: GeocodingLocation)
+data class GeocodingReverseResponse(val location: GeocodingLocation, val address: GeocodingAddress)

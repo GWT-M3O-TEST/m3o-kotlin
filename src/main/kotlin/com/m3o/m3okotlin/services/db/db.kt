@@ -64,11 +64,11 @@ data class DbCountRequest(val table: String)
 @Serializable
 data class DbCountResponse(val count: Int)
 @Serializable
-data class DbCreateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
+data class DbCreateRequest(val table: String, val id: String, val record: DbMap<String, dynamic>)
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
-data class DbDeleteRequest(val id: String, val table: String)
+data class DbDeleteRequest(val table: String, val id: String)
 @Serializable
 data class DbDeleteResponse()
 @Serializable
@@ -80,11 +80,11 @@ data class DbListTablesRequest()
 @Serializable
 data class DbListTablesResponse(val tables: List<DbString>)
 @Serializable
-data class DbReadRequest(val offset: Int, val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int)
+data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
 @Serializable
 data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-data class DbRenameTableRequest(val from: String, val to: String)
+data class DbRenameTableRequest(val to: String, val from: String)
 @Serializable
 data class DbRenameTableResponse()
 @Serializable

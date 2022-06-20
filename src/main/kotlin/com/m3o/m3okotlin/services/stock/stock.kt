@@ -40,4 +40,4 @@ data class StockPriceResponse(val symbol: String, val price: Double)
 @Serializable
 data class StockQuoteRequest(val symbol: String)
 @Serializable
-data class StockQuoteResponse(val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String, val ask_price: Double, val ask_size: Int)
+data class StockQuoteResponse(val timestamp: String, val ask_price: Double, val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String)

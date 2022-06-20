@@ -45,10 +45,10 @@ data class CurrencyConvertRequest(val to: String, val amount: Double, val from: 
 @Serializable
 data class CurrencyConvertResponse(val amount: Double, val from: String, val rate: Double, val to: String)
 @Serializable
-data class CurrencyHistoryRequest(val date: String, val code: String)
+data class CurrencyHistoryRequest(val code: String, val date: String)
 @Serializable
-data class CurrencyHistoryResponse(val rates: Map<String, Double>, val code: String, val date: String)
+data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
 @Serializable
 data class CurrencyRatesRequest(val code: String)
 @Serializable
-data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)
+data class CurrencyRatesResponse(val rates: Map<String, Double>, val code: String)

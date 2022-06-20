@@ -33,7 +33,7 @@ data class PlaceNearbyRequest(val keyword: String, val location: String, val nam
 @Serializable
 data class PlaceNearbyResponse(val results: List<PlaceResult>)
 @Serializable
-data class PlaceResult(val address: String, val icon_url: String, val name: String, val open_now: Boolean, val rating: Double, val location: String, val opening_hours: List<PlaceString>, val type: String, val types: List<PlaceString>, val vicinity: String)
+data class PlaceResult(val icon_url: String, val name: String, val opening_hours: List<PlaceString>, val rating: Double, val types: List<PlaceString>, val vicinity: String, val address: String, val location: String, val open_now: Boolean, val type: String)
 @Serializable
 data class PlaceSearchRequest(val location: String, val open_now: Boolean, val query: String, val radius: Int, val type: String)
 @Serializable

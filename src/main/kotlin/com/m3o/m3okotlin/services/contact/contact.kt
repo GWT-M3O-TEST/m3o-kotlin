@@ -42,9 +42,9 @@ object ContactService {
 @Serializable
 data class ContactAddress(val label: String, val location: String)
 @Serializable
-data class ContactContactInfo(val name: String, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val emails: List<ContactEmail>, val links: List<ContactLink>, val note: String, val phones: List<ContactPhone>, val updated_at: String, val birthday: String, val created_at: String, val id: String)
+data class ContactContactInfo(val addresses: List<ContactAddress>, val emails: List<ContactEmail>, val id: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val updated_at: String, val birthday: String, val created_at: String, val links: List<ContactLink>, val name: String, val note: String)
 @Serializable
-data class ContactCreateRequest(val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String)
+data class ContactCreateRequest(val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String, val phones: List<ContactPhone>)
 @Serializable
 data class ContactCreateResponse(val contact: ContactContactInfo)
 @Serializable
@@ -68,6 +68,6 @@ data class ContactReadResponse(val contact: ContactContactInfo)
 @Serializable
 data class ContactSocialMedia(val label: String, val username: String)
 @Serializable
-data class ContactUpdateRequest(val birthday: String, val emails: List<ContactEmail>, val id: String, val links: List<ContactLink>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val name: String, val note: String, val phones: List<ContactPhone>)
+data class ContactUpdateRequest(val addresses: List<ContactAddress>, val id: String, val links: List<ContactLink>, val name: String, val social_medias: List<ContactSocialMedia>, val birthday: String, val emails: List<ContactEmail>, val note: String, val phones: List<ContactPhone>)
 @Serializable
 data class ContactUpdateResponse(val contact: ContactContactInfo)

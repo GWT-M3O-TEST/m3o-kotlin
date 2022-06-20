@@ -40,17 +40,17 @@ object NftService {
     }
 }
 @Serializable
-data class NftAsset(val last_sale: NftSale, val creator: NftUser, val image_url: String, val presale: Boolean, val contract: NftContract, val description: String, val listing_date: String, val owner: NftUser, val token_id: String, val traits: List<NftMap<String, dynamic>>, val collection: NftCollection, val id: Int, val sales: Int, val name: String, val permalink: String)
+data class NftAsset(val last_sale: NftSale, val listing_date: String, val presale: Boolean, val sales: Int, val token_id: String, val traits: List<NftMap<String, dynamic>>, val owner: NftUser, val permalink: String, val image_url: String, val creator: NftUser, val description: String, val id: Int, val name: String, val collection: NftCollection, val contract: NftContract)
 @Serializable
-data class NftAssetRequest(val contract_address: String, val token_id: String)
+data class NftAssetRequest(val token_id: String, val contract_address: String)
 @Serializable
 data class NftAssetResponse(val asset: NftAsset)
 @Serializable
-data class NftAssetsRequest(val limit: Int, val offset: Int, val order: String, val order_by: String, val collection: String, val cursor: String)
+data class NftAssetsRequest(val collection: String, val cursor: String, val limit: Int, val offset: Int, val order: String, val order_by: String)
 @Serializable
-data class NftAssetsResponse(val previous: String, val assets: List<NftAsset>, val next: String)
+data class NftAssetsResponse(val assets: List<NftAsset>, val next: String, val previous: String)
 @Serializable
-data class NftCollection(val stats: NftMap<String, dynamic>, val banner_image_url: String, val created_at: String, val editors: List<NftString>, val external_link: String, val name: String, val safelist_request_status: String, val description: String, val image_url: String, val payout_address: String, val primary_asset_contracts: List<NftContract>, val traits: NftMap<String, dynamic>, val payment_tokens: List<NftToken>, val seller_fees: String, val slug: String)
+data class NftCollection(val banner_image_url: String, val traits: NftMap<String, dynamic>, val primary_asset_contracts: List<NftContract>, val editors: List<NftString>, val external_link: String, val image_url: String, val name: String, val payout_address: String, val created_at: String, val payment_tokens: List<NftToken>, val safelist_request_status: String, val stats: NftMap<String, dynamic>, val description: String, val seller_fees: String, val slug: String)
 @Serializable
 data class NftCollectionRequest(val slug: String)
 @Serializable
@@ -60,16 +60,16 @@ data class NftCollectionsRequest(val limit: Int, val offset: Int)
 @Serializable
 data class NftCollectionsResponse(val collections: List<NftCollection>)
 @Serializable
-data class NftContract(val created_at: String, val description: String, val owner: Int, val symbol: String, val address: String, val name: String, val payout_address: String, val schema: String, val seller_fees: String, val type: String)
+data class NftContract(val address: String, val payout_address: String, val symbol: String, val type: String, val created_at: String, val description: String, val name: String, val owner: Int, val schema: String, val seller_fees: String)
 @Serializable
-data class NftCreateRequest(val data: String, val description: String, val image: String, val name: String)
+data class NftCreateRequest(val name: String, val data: String, val description: String, val image: String)
 @Serializable
 data class NftCreateResponse(val asset: NftAsset)
 @Serializable
-data class NftSale(val payment_token: NftToken, val quantity: String, val total_price: String, val asset_decimals: Int, val created_at: String, val event_type: String, val transaction: NftTransaction, val asset_token_id: String, val event_timestamp: String)
+data class NftSale(val asset_decimals: Int, val asset_token_id: String, val payment_token: NftToken, val total_price: String, val transaction: NftTransaction, val created_at: String, val event_timestamp: String, val event_type: String, val quantity: String)
 @Serializable
 data class NftToken(val id: Int, val image_url: String, val name: String, val symbol: String, val usd_price: String, val address: String, val decimals: Int, val eth_price: String)
 @Serializable
-data class NftTransaction(val transaction_hash: String, val transaction_index: String, val block_hash: String, val block_number: String, val from_account: NftUser, val id: Int, val timestamp: String, val to_account: NftUser)
+data class NftTransaction(val from_account: NftUser, val id: Int, val timestamp: String, val to_account: NftUser, val transaction_hash: String, val transaction_index: String, val block_hash: String, val block_number: String)
 @Serializable
 data class NftUser(val address: String, val profile_url: String, val username: String)

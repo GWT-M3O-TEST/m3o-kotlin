@@ -78,7 +78,7 @@ data class FunctionDeleteRequest(val name: String)
 @Serializable
 data class FunctionDeleteResponse()
 @Serializable
-data class FunctionDeployRequest(val name: String, val runtime: String, val subfolder: String, val source: String, val branch: String, val entrypoint: String, val env_vars: Map<String, String>, val region: String, val repo: String)
+data class FunctionDeployRequest(val branch: String, val name: String, val repo: String, val entrypoint: String, val env_vars: Map<String, String>, val region: String, val runtime: String, val source: String, val subfolder: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -86,7 +86,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val status: String, val url: String, val branch: String, val source: String, val created: String, val entrypoint: String, val name: String, val repo: String, val subfolder: String, val updated: String, val env_vars: Map<String, String>, val id: String, val region: String, val runtime: String)
+data class FunctionFunc(val created: String, val repo: String, val source: String, val subfolder: String, val entrypoint: String, val env_vars: Map<String, String>, val region: String, val branch: String, val updated: String, val url: String, val status: String, val id: String, val name: String, val runtime: String)
 @Serializable
 data class FunctionListRequest()
 @Serializable
@@ -104,7 +104,7 @@ data class FunctionRegionsRequest()
 @Serializable
 data class FunctionRegionsResponse(val regions: List<FunctionString>)
 @Serializable
-data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+data class FunctionReservation(val name: String, val owner: String, val token: String, val created: String, val expires: String)
 @Serializable
 data class FunctionReserveRequest(val name: String)
 @Serializable

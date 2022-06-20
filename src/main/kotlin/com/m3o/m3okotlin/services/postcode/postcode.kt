@@ -36,7 +36,7 @@ data class PostcodeLookupResponse(val latitude: Double, val longitude: Double, v
 @Serializable
 data class PostcodeRandomRequest()
 @Serializable
-data class PostcodeRandomResponse(val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String)
+data class PostcodeRandomResponse(val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String)
 @Serializable
 data class PostcodeValidateRequest(val postcode: String)
 @Serializable

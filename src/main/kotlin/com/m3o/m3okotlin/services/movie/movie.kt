@@ -20,8 +20,8 @@ object MovieService {
     }
 }
 @Serializable
-data class MovieMovieInfo(val original_language: String, val overview: String, val poster_path: String, val video: Boolean, val backdrop_path: String, val genre_ids: List<MovieInt>, val original_title: String, val popularity: Double, val title: String, val adult: Boolean, val vote_average: Double, val release_date: String, val vote_count: Int, val id: Int)
+data class MovieMovieInfo(val adult: Boolean, val popularity: Double, val release_date: String, val id: Int, val overview: String, val vote_count: Int, val backdrop_path: String, val original_title: String, val poster_path: String, val title: String, val video: Boolean, val genre_ids: List<MovieInt>, val original_language: String, val vote_average: Double)
 @Serializable
-data class MovieSearchRequest(val language: String, val page: Int, val primary_release_year: Int, val query: String, val region: String, val year: Int)
+data class MovieSearchRequest(val query: String, val region: String, val year: Int, val language: String, val page: Int, val primary_release_year: Int)
 @Serializable
 data class MovieSearchResponse(val page: Int, val results: List<MovieMovieInfo>, val total_pages: Int, val total_results: Int)

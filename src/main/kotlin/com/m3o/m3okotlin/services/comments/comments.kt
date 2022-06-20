@@ -47,9 +47,9 @@ object CommentsService {
     }
 }
 @Serializable
-data class CommentsComment(val created: String, val id: String, val subject: String, val text: String, val updated: String)
+data class CommentsComment(val id: String, val subject: String, val text: String, val updated: String, val created: String)
 @Serializable
-data class CommentsCreateRequest(val subject: String, val text: String)
+data class CommentsCreateRequest(val text: String, val subject: String)
 @Serializable
 data class CommentsCreateResponse(val comment: CommentsComment)
 @Serializable

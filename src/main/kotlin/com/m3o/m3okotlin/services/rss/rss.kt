@@ -13,44 +13,55 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "rss"
 
 object RssService {
-    suspend fun add(req: RssAddRequest): RssAddResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Add")) {
-          body = req
-        }
+    suspend fun add(req: RssAddRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Add")) {
+        body = req
+      }
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun feed(req: RssFeedRequest): RssFeedResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Feed")) {
           body = req
         }
     }
-    suspend fun list(req: RssListRequest): RssListResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = req
-        }
-    }
-    suspend fun remove(req: RssRemoveRequest): RssRemoveResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Remove")) {
-          body = req
-        }
+}
+    suspend fun list(): RssListResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "List")) 
     }
 }
-@Serializable
-data class RssAddRequest(val category: String, val name: String, val url: String)
-@Serializable
-data class RssAddResponse()
-@Serializable
-data class RssEntry(val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String, val date: String)
-@Serializable
-data class RssFeed(val id: String, val name: String, val url: String, val category: String)
-@Serializable
-data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
-@Serializable
-data class RssFeedResponse(val entries: List<RssEntry>)
-@Serializable
-data class RssListRequest()
-@Serializable
-data class RssListResponse(val feeds: List<RssFeed>)
-@Serializable
-data class RssRemoveRequest(val name: String)
-@Serializable
-data class RssRemoveResponse()
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+    suspend fun remove(req: RssRemoveRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Remove")) {
+        body = req
+      }
+    }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing

@@ -19,56 +19,40 @@ object NotesService {
           body = req
         }
     }
+}
     suspend fun delete(req: NotesDeleteRequest): NotesDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
     }
-    fun events(req: NotesEventsRequest, action: (Exception?, NotesEventsResponse?) -> Unit) {
-        val url = getUrl(SERVICE, "Events", true)
-        WebSocket(url, Json.encodeToString(req)) { e, response ->
-            action(e, if (response != null) Json.decodeFromString(response) else null)
-        }.connect()
+}
+}
+    suspend fun list(): NotesListResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "List")) 
     }
-    suspend fun list(req: NotesListRequest): NotesListResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = req
-        }
-    }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun read(req: NotesReadRequest): NotesReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
     }
+}
     suspend fun update(req: NotesUpdateRequest): NotesUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
           body = req
         }
     }
 }
-@Serializable
-data class NotesCreateRequest(val text: String, val title: String)
-@Serializable
-data class NotesCreateResponse(val note: NotesNote)
-@Serializable
-data class NotesDeleteRequest(val id: String)
-@Serializable
-data class NotesDeleteResponse(val note: NotesNote)
-@Serializable
-data class NotesEventsRequest(val id: String)
-@Serializable
-data class NotesEventsResponse(val event: String, val note: NotesNote)
-@Serializable
-data class NotesListRequest()
-@Serializable
-data class NotesListResponse(val notes: List<NotesNote>)
-@Serializable
-data class NotesNote(val title: String, val updated: String, val created: String, val id: String, val text: String)
-@Serializable
-data class NotesReadRequest(val id: String)
-@Serializable
-data class NotesReadResponse(val note: NotesNote)
-@Serializable
-data class NotesUpdateRequest(val note: NotesNote)
-@Serializable
-data class NotesUpdateResponse(val note: NotesNote)

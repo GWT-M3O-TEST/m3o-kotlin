@@ -18,37 +18,38 @@ object AnalyticsService {
           body = req
         }
     }
-    suspend fun list(req: AnalyticsListRequest): AnalyticsListResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = req
-        }
+}
+    suspend fun list(): AnalyticsListResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "List")) 
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun read(req: AnalyticsReadRequest): AnalyticsReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
     }
-    suspend fun track(req: AnalyticsTrackRequest): AnalyticsTrackResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Track")) {
-          body = req
-        }
+}
+    suspend fun track(req: AnalyticsTrackRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Track")) {
+        body = req
+      }
     }
 }
-@Serializable
-data class AnalyticsDeleteRequest(val name: String)
-@Serializable
-data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
-@Serializable
-data class AnalyticsEvent(val created: String, val name: String, val value: Long)
-@Serializable
-data class AnalyticsListRequest()
-@Serializable
-data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
-@Serializable
-data class AnalyticsReadRequest(val name: String)
-@Serializable
-data class AnalyticsReadResponse(val event: AnalyticsEvent)
-@Serializable
-data class AnalyticsTrackRequest(val name: String)
-@Serializable
-data class AnalyticsTrackResponse()
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing

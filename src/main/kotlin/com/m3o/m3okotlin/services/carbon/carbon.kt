@@ -13,15 +13,10 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "carbon"
 
 object CarbonService {
-    suspend fun offset(req: CarbonOffsetRequest): CarbonOffsetResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Offset")) {
-          body = req
-        }
+    suspend fun offset(): CarbonOffsetResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Offset")) 
     }
 }
-@Serializable
-data class CarbonOffsetRequest()
-@Serializable
-data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
-@Serializable
-data class CarbonProject(val percentage: Double, val tonnes: Double, val name: String)
+// generate nothing
+// generate nothing
+// generate nothing

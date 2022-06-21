@@ -18,19 +18,10 @@ object YoutubeService {
           body = req
         }
     }
+}
     suspend fun search(req: YoutubeSearchRequest): YoutubeSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
     }
 }
-@Serializable
-data class YoutubeEmbedRequest(val url: String)
-@Serializable
-data class YoutubeEmbedResponse(val long_url: String, val short_url: String, val embed_url: String, val html_script: String)
-@Serializable
-data class YoutubeSearchRequest(val query: String)
-@Serializable
-data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
-@Serializable
-data class YoutubeSearchResult(val broadcasting: String, val channel_title: String, val title: String, val url: String, val channel_id: String, val description: String, val id: String, val kind: String, val published_at: String)

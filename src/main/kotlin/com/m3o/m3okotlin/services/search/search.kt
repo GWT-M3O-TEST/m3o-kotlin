@@ -13,53 +13,69 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "search"
 
 object SearchService {
-    suspend fun createIndex(req: SearchCreateIndexRequest): SearchCreateIndexResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "CreateIndex")) {
-          body = req
-        }
+    suspend fun createIndex(req: SearchCreateIndexRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "CreateIndex")) {
+        body = req
+      }
     }
-    suspend fun deleteIndex(req: SearchDeleteIndexRequest): SearchDeleteIndexResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "DeleteIndex")) {
-          body = req
-        }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+    suspend fun deleteIndex(req: SearchDeleteIndexRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "DeleteIndex")) {
+        body = req
+      }
     }
-    suspend fun delete(req: SearchDeleteRequest): SearchDeleteResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = req
-        }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+    suspend fun delete(req: SearchDeleteRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+        body = req
+      }
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun index(req: SearchIndexRequest): SearchIndexResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Index")) {
           body = req
         }
     }
+}
     suspend fun search(req: SearchSearchRequest): SearchSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
     }
 }
-@Serializable
-data class SearchCreateIndexRequest(val index: String)
-@Serializable
-data class SearchCreateIndexResponse()
-@Serializable
-data class SearchDeleteIndexRequest(val index: String)
-@Serializable
-data class SearchDeleteIndexResponse()
-@Serializable
-data class SearchDeleteRequest(val id: String, val index: String)
-@Serializable
-data class SearchDeleteResponse()
-@Serializable
-data class SearchField(val type: String, val name: String)
-@Serializable
-data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
-@Serializable
-data class SearchIndexResponse(val record: SearchRecord)
-@Serializable
-data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
-@Serializable
-data class SearchSearchRequest(val index: String, val query: String)
-@Serializable
-data class SearchSearchResponse(val records: List<SearchRecord>)

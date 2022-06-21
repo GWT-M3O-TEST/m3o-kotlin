@@ -18,30 +18,24 @@ object LocationService {
           body = req
         }
     }
-    suspend fun save(req: LocationSaveRequest): LocationSaveResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Save")) {
-          body = req
-        }
+}
+    suspend fun save(req: LocationSaveRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Save")) {
+        body = req
+      }
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun search(req: LocationSearchRequest): LocationSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
     }
 }
-@Serializable
-data class LocationEntity(val location: LocationPoint, val type: String, val id: String)
-@Serializable
-data class LocationPoint(val latitude: Double, val longitude: Double, val timestamp: Long)
-@Serializable
-data class LocationReadRequest(val id: String)
-@Serializable
-data class LocationReadResponse(val entity: LocationEntity)
-@Serializable
-data class LocationSaveRequest(val entity: LocationEntity)
-@Serializable
-data class LocationSaveResponse()
-@Serializable
-data class LocationSearchRequest(val numEntities: Long, val radius: Double, val type: String, val center: LocationPoint)
-@Serializable
-data class LocationSearchResponse(val entities: List<LocationEntity>)

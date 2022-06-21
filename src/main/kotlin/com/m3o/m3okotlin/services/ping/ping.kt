@@ -18,26 +18,16 @@ object PingService {
           body = req
         }
     }
+}
     suspend fun tcp(req: PingTcpRequest): PingTcpResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Tcp")) {
           body = req
         }
     }
+}
     suspend fun url(req: PingUrlRequest): PingUrlResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Url")) {
           body = req
         }
     }
 }
-@Serializable
-data class PingIpRequest(val address: String)
-@Serializable
-data class PingIpResponse(val latency: String, val status: String)
-@Serializable
-data class PingTcpRequest(val address: String, val data: String)
-@Serializable
-data class PingTcpResponse(val data: String, val status: String)
-@Serializable
-data class PingUrlRequest(val address: String, val method: String)
-@Serializable
-data class PingUrlResponse(val code: Int, val status: String)

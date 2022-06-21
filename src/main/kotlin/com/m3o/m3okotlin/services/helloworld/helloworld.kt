@@ -19,18 +19,5 @@ object HelloworldService {
           body = req
         }
     }
-    fun stream(req: HelloworldStreamRequest, action: (Exception?, HelloworldStreamResponse?) -> Unit) {
-        val url = getUrl(SERVICE, "Stream", true)
-        WebSocket(url, Json.encodeToString(req)) { e, response ->
-            action(e, if (response != null) Json.decodeFromString(response) else null)
-        }.connect()
-    }
 }
-@Serializable
-data class HelloworldCallRequest(val name: String)
-@Serializable
-data class HelloworldCallResponse(val message: String)
-@Serializable
-data class HelloworldStreamRequest(val messages: Long, val name: String)
-@Serializable
-data class HelloworldStreamResponse(val message: String)
+}

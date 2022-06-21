@@ -13,44 +13,55 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "stream"
 
 object StreamService {
-    suspend fun createChannel(req: StreamCreateChannelRequest): StreamCreateChannelResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "CreateChannel")) {
-          body = req
-        }
+    suspend fun createChannel(req: StreamCreateChannelRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "CreateChannel")) {
+        body = req
+      }
     }
-    suspend fun listChannels(req: StreamListChannelsRequest): StreamListChannelsResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "ListChannels")) {
-          body = req
-        }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+    suspend fun listChannels(): StreamListChannelsResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "ListChannels")) 
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun listMessages(req: StreamListMessagesRequest): StreamListMessagesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListMessages")) {
           body = req
         }
     }
-    suspend fun sendMessage(req: StreamSendMessageRequest): StreamSendMessageResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "SendMessage")) {
-          body = req
-        }
+}
+    suspend fun sendMessage(req: StreamSendMessageRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "SendMessage")) {
+        body = req
+      }
     }
 }
-@Serializable
-data class StreamChannel(val name: String, val description: String, val last_active: String)
-@Serializable
-data class StreamCreateChannelRequest(val description: String, val name: String)
-@Serializable
-data class StreamCreateChannelResponse()
-@Serializable
-data class StreamListChannelsRequest()
-@Serializable
-data class StreamListChannelsResponse(val channels: List<StreamChannel>)
-@Serializable
-data class StreamListMessagesRequest(val channel: String, val limit: Int)
-@Serializable
-data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
-@Serializable
-data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
-@Serializable
-data class StreamSendMessageRequest(val channel: String, val text: String)
-@Serializable
-data class StreamSendMessageResponse()
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing

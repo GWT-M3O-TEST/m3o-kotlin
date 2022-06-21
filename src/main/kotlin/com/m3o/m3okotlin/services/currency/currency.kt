@@ -13,42 +13,34 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "currency"
 
 object CurrencyService {
-    suspend fun codes(req: CurrencyCodesRequest): CurrencyCodesResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Codes")) {
-          body = req
-        }
+    suspend fun codes(): CurrencyCodesResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Codes")) 
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun convert(req: CurrencyConvertRequest): CurrencyConvertResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Convert")) {
           body = req
         }
     }
+}
     suspend fun history(req: CurrencyHistoryRequest): CurrencyHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
           body = req
         }
     }
+}
     suspend fun rates(req: CurrencyRatesRequest): CurrencyRatesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Rates")) {
           body = req
         }
     }
 }
-@Serializable
-data class CurrencyCode(val name: String, val currency: String)
-@Serializable
-data class CurrencyCodesRequest()
-@Serializable
-data class CurrencyCodesResponse(val codes: List<CurrencyCode>)
-@Serializable
-data class CurrencyConvertRequest(val to: String, val amount: Double, val from: String)
-@Serializable
-data class CurrencyConvertResponse(val rate: Double, val to: String, val amount: Double, val from: String)
-@Serializable
-data class CurrencyHistoryRequest(val date: String, val code: String)
-@Serializable
-data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
-@Serializable
-data class CurrencyRatesRequest(val code: String)
-@Serializable
-data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)

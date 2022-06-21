@@ -18,26 +18,16 @@ object EmojiService {
           body = req
         }
     }
+}
     suspend fun flag(req: EmojiFlagRequest): EmojiFlagResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Flag")) {
           body = req
         }
     }
+}
     suspend fun print(req: EmojiPrintRequest): EmojiPrintResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Print")) {
           body = req
         }
     }
 }
-@Serializable
-data class EmojiFindRequest(val alias: String)
-@Serializable
-data class EmojiFindResponse(val emoji: String)
-@Serializable
-data class EmojiFlagRequest(val code: String)
-@Serializable
-data class EmojiFlagResponse(val flag: String)
-@Serializable
-data class EmojiPrintRequest(val text: String)
-@Serializable
-data class EmojiPrintResponse(val text: String)

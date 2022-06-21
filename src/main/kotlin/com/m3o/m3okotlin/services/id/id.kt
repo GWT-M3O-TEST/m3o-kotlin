@@ -18,17 +18,12 @@ object IdService {
           body = req
         }
     }
-    suspend fun types(req: IdTypesRequest): IdTypesResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Types")) {
-          body = req
-        }
+}
+    suspend fun types(): IdTypesResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Types")) 
     }
 }
-@Serializable
-data class IdGenerateRequest(val type: String)
-@Serializable
-data class IdGenerateResponse(val type: String, val id: String)
-@Serializable
-data class IdTypesRequest()
-@Serializable
-data class IdTypesResponse(val types: List<IdString>)
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing

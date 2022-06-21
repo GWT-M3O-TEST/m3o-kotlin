@@ -18,28 +18,16 @@ object UrlService {
           body = req
         }
     }
+}
     suspend fun proxy(req: UrlProxyRequest): UrlProxyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Proxy")) {
           body = req
         }
     }
+}
     suspend fun shorten(req: UrlShortenRequest): UrlShortenResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Shorten")) {
           body = req
         }
     }
 }
-@Serializable
-data class UrlListRequest(val shortURL: String)
-@Serializable
-data class UrlListResponse(val urlPairs: UrlURLPair)
-@Serializable
-data class UrlProxyRequest(val shortURL: String)
-@Serializable
-data class UrlProxyResponse(val destinationURL: String)
-@Serializable
-data class UrlShortenRequest(val destinationURL: String)
-@Serializable
-data class UrlShortenResponse(val shortURL: String)
-@Serializable
-data class UrlURLPair(val created: String, val destinationURL: String, val hitCount: Long, val shortURL: String)

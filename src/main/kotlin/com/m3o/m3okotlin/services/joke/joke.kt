@@ -19,9 +19,3 @@ object JokeService {
         }
     }
 }
-@Serializable
-data class JokeJokeInfo(val body: String, val category: String, val id: String, val source: String, val title: String)
-@Serializable
-data class JokeRandomRequest(val count: Int)
-@Serializable
-data class JokeRandomResponse(val jokes: List<JokeJokeInfo>)

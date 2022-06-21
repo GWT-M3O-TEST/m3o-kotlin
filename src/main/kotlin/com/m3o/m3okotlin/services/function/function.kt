@@ -18,102 +18,178 @@ object FunctionService {
           body = req
         }
     }
-    suspend fun delete(req: FunctionDeleteRequest): FunctionDeleteResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-          body = req
-        }
+}
+    suspend fun delete(req: FunctionDeleteRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+        body = req
+      }
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun deploy(req: FunctionDeployRequest): FunctionDeployResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Deploy")) {
           body = req
         }
     }
+}
     suspend fun describe(req: FunctionDescribeRequest): FunctionDescribeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Describe")) {
           body = req
         }
     }
-    suspend fun list(req: FunctionListRequest): FunctionListResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "List")) {
-          body = req
-        }
+}
+    suspend fun list(): FunctionListResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "List")) 
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun logs(req: FunctionLogsRequest): FunctionLogsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Logs")) {
           body = req
         }
     }
+}
     suspend fun proxy(req: FunctionProxyRequest): FunctionProxyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Proxy")) {
           body = req
         }
     }
-    suspend fun regions(req: FunctionRegionsRequest): FunctionRegionsResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Regions")) {
-          body = req
-        }
+}
+    suspend fun regions(): FunctionRegionsResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Regions")) 
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun reserve(req: FunctionReserveRequest): FunctionReserveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reserve")) {
           body = req
         }
     }
-    suspend fun runtimes(req: FunctionRuntimesRequest): FunctionRuntimesResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Runtimes")) {
-          body = req
-        }
-    }
-    suspend fun update(req: FunctionUpdateRequest): FunctionUpdateResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-          body = req
-        }
+}
+    suspend fun runtimes(): FunctionRuntimesResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Runtimes")) 
     }
 }
-@Serializable
-data class FunctionCallRequest(val name: String, val request: FunctionMap<String, dynamic>)
-@Serializable
-data class FunctionCallResponse(val response: FunctionMap<String, dynamic>)
-@Serializable
-data class FunctionDeleteRequest(val name: String)
-@Serializable
-data class FunctionDeleteResponse()
-@Serializable
-data class FunctionDeployRequest(val entrypoint: String, val region: String, val repo: String, val runtime: String, val source: String, val subfolder: String, val branch: String, val env_vars: Map<String, String>, val name: String)
-@Serializable
-data class FunctionDeployResponse(val function: FunctionFunc)
-@Serializable
-data class FunctionDescribeRequest(val name: String)
-@Serializable
-data class FunctionDescribeResponse(val function: FunctionFunc)
-@Serializable
-data class FunctionFunc(val id: String, val runtime: String, val updated: String, val env_vars: Map<String, String>, val region: String, val repo: String, val subfolder: String, val branch: String, val entrypoint: String, val source: String, val created: String, val status: String, val url: String, val name: String)
-@Serializable
-data class FunctionListRequest()
-@Serializable
-data class FunctionListResponse(val functions: List<FunctionFunc>)
-@Serializable
-data class FunctionLogsRequest(val logs_type: String, val name: String)
-@Serializable
-data class FunctionLogsResponse(val logs: String)
-@Serializable
-data class FunctionProxyRequest(val id: String)
-@Serializable
-data class FunctionProxyResponse(val url: String)
-@Serializable
-data class FunctionRegionsRequest()
-@Serializable
-data class FunctionRegionsResponse(val regions: List<FunctionString>)
-@Serializable
-data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
-@Serializable
-data class FunctionReserveRequest(val name: String)
-@Serializable
-data class FunctionReserveResponse(val reservation: FunctionReservation)
-@Serializable
-data class FunctionRuntimesRequest()
-@Serializable
-data class FunctionRuntimesResponse(val runtimes: List<FunctionString>)
-@Serializable
-data class FunctionUpdateRequest(val name: String, val source: String)
-@Serializable
-data class FunctionUpdateResponse()
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+    suspend fun update(req: FunctionUpdateRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
+        body = req
+      }
+    }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing

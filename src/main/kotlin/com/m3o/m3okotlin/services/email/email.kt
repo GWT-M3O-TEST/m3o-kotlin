@@ -18,26 +18,22 @@ object EmailService {
           body = req
         }
     }
-    suspend fun send(req: EmailSendRequest): EmailSendResponse {
-        return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
-          body = req
-        }
+}
+    suspend fun send(req: EmailSendRequest){
+      return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
+        body = req
+      }
     }
+}
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
+// generate nothing
     suspend fun validate(req: EmailValidateRequest): EmailValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
           body = req
         }
     }
 }
-@Serializable
-data class EmailParseRequest(val address: String)
-@Serializable
-data class EmailParseResponse(val address: String, val name: String)
-@Serializable
-data class EmailSendRequest(val reply_to: String, val subject: String, val text_body: String, val to: String, val from: String, val html_body: String)
-@Serializable
-data class EmailSendResponse()
-@Serializable
-data class EmailValidateRequest(val address: String)
-@Serializable
-data class EmailValidateResponse(val is_valid: Boolean)

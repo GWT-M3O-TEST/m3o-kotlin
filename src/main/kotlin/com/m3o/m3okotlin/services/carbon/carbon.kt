@@ -17,6 +17,9 @@ object CarbonService {
         return ktorHttpClient.post(getUrl(SERVICE, "Offset")) 
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+class CarbonOffsetRequest()
+@Serializable
+data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
+@Serializable
+data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)

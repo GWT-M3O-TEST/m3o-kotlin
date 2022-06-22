@@ -19,3 +19,7 @@ object AnswerService {
         }
     }
 }
+@Serializable
+data class AnswerQuestionRequest(val query: String)
+@Serializable
+data class AnswerQuestionResponse(val image: String, val url: String, val answer: String)

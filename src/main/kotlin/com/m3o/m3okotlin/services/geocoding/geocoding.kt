@@ -18,10 +18,21 @@ object GeocodingService {
           body = req
         }
     }
-}
     suspend fun reverse(req: GeocodingReverseRequest): GeocodingReverseResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reverse")) {
           body = req
         }
     }
 }
+@Serializable
+data class GeocodingAddress(val city: String, val country: String, val line_one: String, val line_two: String, val postcode: String)
+@Serializable
+data class GeocodingLocation(val latitude: Double, val longitude: Double)
+@Serializable
+data class GeocodingLookupRequest(val address: String, val city: String, val country: String, val postcode: String)
+@Serializable
+data class GeocodingLookupResponse(val address: GeocodingAddress, val location: GeocodingLocation)
+@Serializable
+data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
+@Serializable
+data class GeocodingReverseResponse(val address: GeocodingAddress, val location: GeocodingLocation)

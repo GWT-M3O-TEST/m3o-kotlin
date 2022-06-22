@@ -18,158 +18,78 @@ object DbService {
           body = req
         }
     }
-}
     suspend fun create(req: DbCreateRequest): DbCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
         }
     }
-}
-    suspend fun delete(req: DbDeleteRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-        body = req
-      }
+    suspend fun delete(req: DbDeleteRequest): DbDeleteResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+          body = req
+        }
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-    suspend fun dropTable(req: DbDropTableRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "DropTable")) {
-        body = req
-      }
+    suspend fun dropTable(req: DbDropTableRequest): DbDropTableResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "DropTable")) {
+          body = req
+        }
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun listTables(): DbListTablesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListTables")) 
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun read(req: DbReadRequest): DbReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
     }
-}
-    suspend fun renameTable(req: DbRenameTableRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "RenameTable")) {
-        body = req
-      }
+    suspend fun renameTable(req: DbRenameTableRequest): DbRenameTableResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "RenameTable")) {
+          body = req
+        }
+    }
+    suspend fun truncate(req: DbTruncateRequest): DbTruncateResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Truncate")) {
+          body = req
+        }
+    }
+    suspend fun update(req: DbUpdateRequest): DbUpdateResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
+          body = req
+        }
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-    suspend fun truncate(req: DbTruncateRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Truncate")) {
-        body = req
-      }
-    }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-    suspend fun update(req: DbUpdateRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-        body = req
-      }
-    }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+data class DbCountRequest(val table: String)
+@Serializable
+data class DbCountResponse(val count: Int)
+@Serializable
+data class DbCreateRequest(val record: DbMap<String, dynamic>, val table: String, val id: String)
+@Serializable
+data class DbCreateResponse(val id: String)
+@Serializable
+data class DbDeleteRequest(val id: String, val table: String)
+@Serializable
+class DbDeleteResponse()
+@Serializable
+data class DbDropTableRequest(val table: String)
+@Serializable
+class DbDropTableResponse()
+@Serializable
+class DbListTablesRequest()
+@Serializable
+data class DbListTablesResponse(val tables: List<DbString>)
+@Serializable
+data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
+@Serializable
+data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
+@Serializable
+data class DbRenameTableRequest(val from: String, val to: String)
+@Serializable
+class DbRenameTableResponse()
+@Serializable
+data class DbTruncateRequest(val table: String)
+@Serializable
+class DbTruncateResponse()
+@Serializable
+data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
+@Serializable
+class DbUpdateResponse()

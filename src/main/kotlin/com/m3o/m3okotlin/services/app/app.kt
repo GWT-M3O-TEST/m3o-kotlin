@@ -13,133 +13,85 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "app"
 
 object AppService {
-    suspend fun delete(req: AppDeleteRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-        body = req
-      }
+    suspend fun delete(req: AppDeleteRequest): AppDeleteResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+          body = req
+        }
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun list(): AppListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) 
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun logs(req: AppLogsRequest): AppLogsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Logs")) {
           body = req
         }
     }
-}
     suspend fun regions(): AppRegionsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Regions")) 
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun reserve(req: AppReserveRequest): AppReserveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reserve")) {
           body = req
         }
     }
-}
     suspend fun resolve(req: AppResolveRequest): AppResolveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resolve")) {
           body = req
         }
     }
-}
     suspend fun run(req: AppRunRequest): AppRunResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Run")) {
           body = req
         }
     }
-}
     suspend fun status(req: AppStatusRequest): AppStatusResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Status")) {
           body = req
         }
     }
-}
-    suspend fun update(req: AppUpdateRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
-        body = req
-      }
+    suspend fun update(req: AppUpdateRequest): AppUpdateResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
+          body = req
+        }
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+data class AppDeleteRequest(val name: String)
+@Serializable
+class AppDeleteResponse()
+@Serializable
+class AppListRequest()
+@Serializable
+data class AppListResponse(val services: List<AppService>)
+@Serializable
+data class AppLogsRequest(val logs_type: String, val name: String)
+@Serializable
+data class AppLogsResponse(val logs: String)
+@Serializable
+class AppRegionsRequest()
+@Serializable
+data class AppRegionsResponse(val regions: List<AppString>)
+@Serializable
+data class AppReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+@Serializable
+data class AppReserveRequest(val name: String)
+@Serializable
+data class AppReserveResponse(val reservation: AppReservation)
+@Serializable
+data class AppResolveRequest(val id: String)
+@Serializable
+data class AppResolveResponse(val url: String)
+@Serializable
+data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String)
+@Serializable
+data class AppRunResponse(val service: AppService)
+@Serializable
+data class AppService(val port: Int, val region: String, val repo: String, val updated: String, val branch: String, val env_vars: Map<String, String>, val id: String, val name: String, val created: String, val custom_domains: List<AppString>, val status: String, val url: String)
+@Serializable
+data class AppStatusRequest(val name: String)
+@Serializable
+data class AppStatusResponse(val service: AppService)
+@Serializable
+data class AppUpdateRequest(val env_vars: Map<String, String>, val name: String)
+@Serializable
+class AppUpdateResponse()

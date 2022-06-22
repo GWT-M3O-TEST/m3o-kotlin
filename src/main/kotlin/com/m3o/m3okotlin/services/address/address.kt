@@ -19,3 +19,9 @@ object AddressService {
         }
     }
 }
+@Serializable
+data class AddressLookupPostcodeRequest(val postcode: String)
+@Serializable
+data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>)
+@Serializable
+data class AddressRecord(val line_two: String, val locality: String, val organisation: String, val premise: String, val street: String, val summary: String, val building_name: String, val county: String, val town: String, val line_one: String, val postcode: String)

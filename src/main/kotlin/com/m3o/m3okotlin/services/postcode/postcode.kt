@@ -18,20 +18,24 @@ object PostcodeService {
           body = req
         }
     }
-}
     suspend fun random(): PostcodeRandomResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Random")) 
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun validate(req: PostcodeValidateRequest): PostcodeValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
           body = req
         }
     }
 }
+@Serializable
+data class PostcodeLookupRequest(val postcode: String)
+@Serializable
+data class PostcodeLookupResponse(val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double)
+@Serializable
+class PostcodeRandomRequest()
+@Serializable
+data class PostcodeRandomResponse(val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double)
+@Serializable
+data class PostcodeValidateRequest(val postcode: String)
+@Serializable
+data class PostcodeValidateResponse(val valid: Boolean)

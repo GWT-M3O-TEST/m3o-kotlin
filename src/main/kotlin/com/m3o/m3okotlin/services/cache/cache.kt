@@ -18,44 +18,51 @@ object CacheService {
           body = req
         }
     }
-}
     suspend fun delete(req: CacheDeleteRequest): CacheDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
     }
-}
     suspend fun get(req: CacheGetRequest): CacheGetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Get")) {
           body = req
         }
     }
-}
     suspend fun increment(req: CacheIncrementRequest): CacheIncrementResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Increment")) {
           body = req
         }
     }
-}
     suspend fun listKeys(): CacheListKeysResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListKeys")) 
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun set(req: CacheSetRequest): CacheSetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Set")) {
           body = req
         }
     }
 }
+@Serializable
+data class CacheDecrementRequest(val key: String, val value: Long)
+@Serializable
+data class CacheDecrementResponse(val key: String, val value: Long)
+@Serializable
+data class CacheDeleteRequest(val key: String)
+@Serializable
+data class CacheDeleteResponse(val status: String)
+@Serializable
+data class CacheGetRequest(val key: String)
+@Serializable
+data class CacheGetResponse(val key: String, val ttl: Long, val value: String)
+@Serializable
+data class CacheIncrementRequest(val value: Long, val key: String)
+@Serializable
+data class CacheIncrementResponse(val key: String, val value: Long)
+@Serializable
+class CacheListKeysRequest()
+@Serializable
+data class CacheListKeysResponse(val keys: List<CacheString>)
+@Serializable
+data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
+@Serializable
+data class CacheSetResponse(val status: String)

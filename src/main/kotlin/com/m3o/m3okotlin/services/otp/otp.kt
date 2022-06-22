@@ -18,10 +18,17 @@ object OtpService {
           body = req
         }
     }
-}
     suspend fun validate(req: OtpValidateRequest): OtpValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
           body = req
         }
     }
 }
+@Serializable
+data class OtpGenerateRequest(val expiry: Long, val id: String, val size: Long)
+@Serializable
+data class OtpGenerateResponse(val code: String)
+@Serializable
+data class OtpValidateRequest(val code: String, val id: String)
+@Serializable
+data class OtpValidateResponse(val success: Boolean)

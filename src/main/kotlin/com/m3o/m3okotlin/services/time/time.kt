@@ -18,10 +18,17 @@ object TimeService {
           body = req
         }
     }
-}
     suspend fun zone(req: TimeZoneRequest): TimeZoneResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Zone")) {
           body = req
         }
     }
 }
+@Serializable
+data class TimeNowRequest(val location: String)
+@Serializable
+data class TimeNowResponse(val timestamp: String, val timezone: String, val unix: Long, val localtime: String, val location: String)
+@Serializable
+data class TimeZoneRequest(val location: String)
+@Serializable
+data class TimeZoneResponse(val country: String, val latitude: Double, val timezone: String, val offset: Int, val region: String, val abbreviation: String, val dst: Boolean, val localtime: String, val location: String, val longitude: Double)

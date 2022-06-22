@@ -18,14 +18,19 @@ object MemegenService {
           body = req
         }
     }
-}
     suspend fun templates(): MemegenTemplatesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Templates")) 
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+data class MemegenBox(val text: String, val width: Int, val x: Int, val y: Int, val color: String, val height: Int, val outline: String)
+@Serializable
+data class MemegenGenerateRequest(val top_text: String, val bottom_text: String, val font: String, val id: String, val max_font_size: String)
+@Serializable
+data class MemegenGenerateResponse(val url: String)
+@Serializable
+data class MemegenTemplate(val name: String, val url: String, val width: Int, val box_count: Int, val height: Int, val id: String)
+@Serializable
+class MemegenTemplatesRequest()
+@Serializable
+data class MemegenTemplatesResponse(val templates: List<MemegenTemplate>)

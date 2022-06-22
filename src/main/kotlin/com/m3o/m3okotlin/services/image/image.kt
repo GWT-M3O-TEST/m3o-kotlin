@@ -18,33 +18,41 @@ object ImageService {
           body = req
         }
     }
-}
-    suspend fun delete(req: ImageDeleteRequest){
-      return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
-        body = req
-      }
+    suspend fun delete(req: ImageDeleteRequest): ImageDeleteResponse {
+        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+          body = req
+        }
     }
-}
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
     suspend fun resize(req: ImageResizeRequest): ImageResizeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resize")) {
           body = req
         }
     }
-}
     suspend fun upload(req: ImageUploadRequest): ImageUploadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Upload")) {
           body = req
         }
     }
 }
+@Serializable
+data class ImageConvertRequest(val name: String, val outputURL: Boolean, val url: String, val base64: String, val file: String)
+@Serializable
+data class ImageConvertResponse(val url: String, val base64: String)
+@Serializable
+data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
+@Serializable
+data class ImageDeleteRequest(val url: String)
+@Serializable
+class ImageDeleteResponse()
+@Serializable
+data class ImagePoint(val x: Int, val y: Int)
+@Serializable
+data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
+@Serializable
+data class ImageResizeRequest(val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String)
+@Serializable
+data class ImageResizeResponse(val base64: String, val url: String)
+@Serializable
+data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
+@Serializable
+data class ImageUploadResponse(val url: String)

@@ -18,10 +18,23 @@ object PlaceService {
           body = req
         }
     }
-}
     suspend fun search(req: PlaceSearchRequest): PlaceSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
     }
 }
+@Serializable
+class PlaceAutocompleteRequest()
+@Serializable
+class PlaceAutocompleteResponse()
+@Serializable
+data class PlaceNearbyRequest(val radius: Int, val type: String, val keyword: String, val location: String, val name: String, val open_now: Boolean)
+@Serializable
+data class PlaceNearbyResponse(val results: List<PlaceResult>)
+@Serializable
+data class PlaceResult(val opening_hours: List<PlaceString>, val type: String, val types: List<PlaceString>, val address: String, val name: String, val open_now: Boolean, val rating: Double, val vicinity: String, val icon_url: String, val location: String)
+@Serializable
+data class PlaceSearchRequest(val radius: Int, val type: String, val location: String, val open_now: Boolean, val query: String)
+@Serializable
+data class PlaceSearchResponse(val results: List<PlaceResult>)

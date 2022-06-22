@@ -18,14 +18,19 @@ object WordleService {
           body = req
         }
     }
-}
     suspend fun next(): WordleNextResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Next")) 
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+data class WordleChar(val correct: Boolean, val in_word: Boolean, val letter: String, val position: Int)
+@Serializable
+data class WordleGuess(val chars: List<WordleChar>, val highlight: String, val word: String)
+@Serializable
+data class WordleGuessRequest(val player: String, val word: String)
+@Serializable
+data class WordleGuessResponse(val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String)
+@Serializable
+class WordleNextRequest()
+@Serializable
+data class WordleNextResponse(val duration: String, val seconds: Int)

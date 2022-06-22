@@ -18,38 +18,46 @@ object CryptoService {
           body = req
         }
     }
-}
     suspend fun news(req: CryptoNewsRequest): CryptoNewsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "News")) {
           body = req
         }
     }
-}
     suspend fun price(req: CryptoPriceRequest): CryptoPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
           body = req
         }
     }
-}
     suspend fun quote(req: CryptoQuoteRequest): CryptoQuoteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Quote")) {
           body = req
         }
     }
-}
     suspend fun symbols(): CryptoSymbolsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Symbols")) 
     }
 }
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
-// generate nothing
+@Serializable
+data class CryptoArticle(val title: String, val url: String, val date: String, val description: String, val source: String)
+@Serializable
+data class CryptoHistoryRequest(val symbol: String)
+@Serializable
+data class CryptoHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double)
+@Serializable
+data class CryptoNewsRequest(val symbol: String)
+@Serializable
+data class CryptoNewsResponse(val articles: List<CryptoArticle>, val symbol: String)
+@Serializable
+data class CryptoPriceRequest(val symbol: String)
+@Serializable
+data class CryptoPriceResponse(val price: Double, val symbol: String)
+@Serializable
+data class CryptoQuoteRequest(val symbol: String)
+@Serializable
+data class CryptoQuoteResponse(val ask_price: Double, val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String)
+@Serializable
+data class CryptoSymbol(val name: String, val symbol: String)
+@Serializable
+class CryptoSymbolsRequest()
+@Serializable
+data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>)

@@ -19,3 +19,7 @@ object BitcoinService {
         }
     }
 }
+@Serializable
+data class BitcoinPriceRequest(val symbol: String)
+@Serializable
+data class BitcoinPriceResponse(val price: Double, val symbol: String)

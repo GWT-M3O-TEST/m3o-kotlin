@@ -13,21 +13,21 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "emoji"
 
 object EmojiService {
-    suspend fun find(req: EmojiFindRequest): EmojiFindResponse {
+      suspend fun find(req: EmojiFindRequest): EmojiFindResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Find")) {
           body = req
         }
-    }
-    suspend fun flag(req: EmojiFlagRequest): EmojiFlagResponse {
+      }
+      suspend fun flag(req: EmojiFlagRequest): EmojiFlagResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Flag")) {
           body = req
         }
-    }
-    suspend fun print(req: EmojiPrintRequest): EmojiPrintResponse {
+      }
+      suspend fun print(req: EmojiPrintRequest): EmojiPrintResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Print")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class EmojiFindRequest(val alias: String)

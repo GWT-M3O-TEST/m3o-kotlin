@@ -13,26 +13,26 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "forex"
 
 object ForexService {
-    suspend fun history(req: ForexHistoryRequest): ForexHistoryResponse {
+      suspend fun history(req: ForexHistoryRequest): ForexHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
           body = req
         }
-    }
-    suspend fun price(req: ForexPriceRequest): ForexPriceResponse {
+      }
+      suspend fun price(req: ForexPriceRequest): ForexPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
           body = req
         }
-    }
-    suspend fun quote(req: ForexQuoteRequest): ForexQuoteResponse {
+      }
+      suspend fun quote(req: ForexQuoteRequest): ForexQuoteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Quote")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double)
+data class ForexHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String)
 @Serializable
 data class ForexPriceRequest(val symbol: String)
 @Serializable

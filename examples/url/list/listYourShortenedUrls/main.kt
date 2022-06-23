@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.url
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UrlListRequest(name = "Jone")
+  val req = UrlListRequest()
   
   try {
       val response = UrlService.list(req)

@@ -13,19 +13,19 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "geocoding"
 
 object GeocodingService {
-    suspend fun lookup(req: GeocodingLookupRequest): GeocodingLookupResponse {
+      suspend fun lookup(req: GeocodingLookupRequest): GeocodingLookupResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Lookup")) {
           body = req
         }
-    }
-    suspend fun reverse(req: GeocodingReverseRequest): GeocodingReverseResponse {
+      }
+      suspend fun reverse(req: GeocodingReverseRequest): GeocodingReverseResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reverse")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class GeocodingAddress(val city: String, val country: String, val line_one: String, val line_two: String, val postcode: String)
+data class GeocodingAddress(val line_one: String, val line_two: String, val postcode: String, val city: String, val country: String)
 @Serializable
 data class GeocodingLocation(val latitude: Double, val longitude: Double)
 @Serializable
@@ -33,6 +33,6 @@ data class GeocodingLookupRequest(val address: String, val city: String, val cou
 @Serializable
 data class GeocodingLookupResponse(val address: GeocodingAddress, val location: GeocodingLocation)
 @Serializable
-data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
+data class GeocodingReverseRequest(val longitude: Double, val latitude: Double)
 @Serializable
 data class GeocodingReverseResponse(val address: GeocodingAddress, val location: GeocodingLocation)

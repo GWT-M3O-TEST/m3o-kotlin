@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.helloworld
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = HelloworldCallRequest(name = "Jone")
+  val req = HelloworldCallRequest(Name = "John",)
   
   try {
       val response = HelloworldService.call(req)

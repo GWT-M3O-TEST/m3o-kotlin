@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.twitter
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = TwitterTimelineRequest(name = "Jone")
+  val req = TwitterTimelineRequest(Username = "m3oservices",
+Limit = 1,)
   
   try {
       val response = TwitterService.timeline(req)

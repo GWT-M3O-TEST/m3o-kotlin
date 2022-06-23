@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.cache
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CacheListKeysRequest(name = "Jone")
+  val req = CacheListKeysRequest()
   
   try {
       val response = CacheService.listKeys(req)

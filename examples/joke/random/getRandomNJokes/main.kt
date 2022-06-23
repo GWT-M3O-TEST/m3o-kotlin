@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.joke
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = JokeRandomRequest(name = "Jone")
+  val req = JokeRandomRequest(Count = 3,)
   
   try {
       val response = JokeService.random(req)

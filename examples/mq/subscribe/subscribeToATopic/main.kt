@@ -6,7 +6,7 @@ import com.m3o.m3okotlin.services.mq
 fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = val req = MqSubscribeRequest(messages = 2, name = "John")
+  val req = val req = MqSubscribeRequest(Topic = "events",)
   
   try {
       val socket = MqService.subscribe(req) { socketError, response ->

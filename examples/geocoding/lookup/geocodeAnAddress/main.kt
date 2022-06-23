@@ -7,7 +7,10 @@ import com.m3o.m3okotlin.services.geocoding
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = GeocodingLookupRequest(name = "Jone")
+  val req = GeocodingLookupRequest(Address = "10 russell st",
+Postcode = "wc2b",
+City = "london",
+Country = "uk",)
   
   try {
       val response = GeocodingService.lookup(req)

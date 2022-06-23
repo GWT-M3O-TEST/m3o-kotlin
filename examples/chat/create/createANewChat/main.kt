@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.chat
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ChatCreateRequest(name = "Jone")
+  val req = ChatCreateRequest(Name = "general",
+Description = "The general chat room",)
   
   try {
       val response = ChatService.create(req)

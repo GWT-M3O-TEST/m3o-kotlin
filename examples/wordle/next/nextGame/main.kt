@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.wordle
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = WordleNextRequest(name = "Jone")
+  val req = WordleNextRequest()
   
   try {
       val response = WordleService.next(req)

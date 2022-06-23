@@ -6,7 +6,8 @@ import com.m3o.m3okotlin.services.helloworld
 fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = val req = HelloworldStreamRequest(messages = 2, name = "John")
+  val req = val req = HelloworldStreamRequest(Name = "John",
+Messages = 10,)
   
   try {
       val socket = HelloworldService.stream(req) { socketError, response ->

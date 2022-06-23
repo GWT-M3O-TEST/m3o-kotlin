@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.memegen
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = MemegenTemplatesRequest(name = "Jone")
+  val req = MemegenTemplatesRequest()
   
   try {
       val response = MemegenService.templates(req)

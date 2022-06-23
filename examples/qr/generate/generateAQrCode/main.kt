@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.qr
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = QrGenerateRequest(name = "Jone")
+  val req = QrGenerateRequest(Text = "https://m3o.com/qr",
+Size = 300,)
   
   try {
       val response = QrService.generate(req)

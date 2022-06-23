@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.currency
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CurrencyRatesRequest(name = "Jone")
+  val req = CurrencyRatesRequest(Code = "USD",)
   
   try {
       val response = CurrencyService.rates(req)

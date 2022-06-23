@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.bitcoin
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = BitcoinPriceRequest(name = "Jone")
+  val req = BitcoinPriceRequest(Symbol = "BTCUSD",)
   
   try {
       val response = BitcoinService.price(req)

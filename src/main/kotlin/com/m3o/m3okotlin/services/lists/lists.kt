@@ -14,35 +14,35 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "lists"
 
 object ListsService {
-    suspend fun create(req: ListsCreateRequest): ListsCreateResponse {
+      suspend fun create(req: ListsCreateRequest): ListsCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
         }
-    }
-    suspend fun delete(req: ListsDeleteRequest): ListsDeleteResponse {
+      }
+      suspend fun delete(req: ListsDeleteRequest): ListsDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    fun events(req: ListsEventsRequest, action: (Exception?, ListsEventsResponse?) -> Unit) {
-        val url = getUrl(SERVICE, "Events", true)
-        WebSocket(url, Json.encodeToString(req)) { e, response ->
-            action(e, if (response != null) Json.decodeFromString(response) else null)
-        }.connect()
-    }
-    suspend fun list(): ListsListResponse {
+      }
+      fun events(req: ListsEventsRequest, action: (Exception?, ListsEventsResponse?) -> Unit) {
+          val url = getUrl(SERVICE, "Events", true)
+          WebSocket(url, Json.encodeToString(req)) { e, response ->
+              action(e, if (response != null) Json.decodeFromString(response) else null)
+          }.connect()
+      }
+      suspend fun list(): ListsListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) 
-    }
-    suspend fun read(req: ListsReadRequest): ListsReadResponse {
+      }
+      suspend fun read(req: ListsReadRequest): ListsReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
-    }
-    suspend fun update(req: ListsUpdateRequest): ListsUpdateResponse {
+      }
+      suspend fun update(req: ListsUpdateRequest): ListsUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class ListsCreateRequest(val items: List<ListsString>, val name: String)
@@ -58,8 +58,6 @@ data class ListsEventsRequest(val id: String)
 data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
 data class ListsList(val id: String, val items: List<ListsString>, val name: String, val updated: String, val created: String)
-@Serializable
-class ListsListRequest()
 @Serializable
 data class ListsListResponse(val lists: List<ListsList>)
 @Serializable

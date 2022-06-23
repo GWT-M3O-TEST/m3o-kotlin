@@ -13,29 +13,29 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "twitter"
 
 object TwitterService {
-    suspend fun search(req: TwitterSearchRequest): TwitterSearchResponse {
+      suspend fun search(req: TwitterSearchRequest): TwitterSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
-    }
-    suspend fun timeline(req: TwitterTimelineRequest): TwitterTimelineResponse {
+      }
+      suspend fun timeline(req: TwitterTimelineRequest): TwitterTimelineResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Timeline")) {
           body = req
         }
-    }
-    suspend fun trends(): TwitterTrendsResponse {
+      }
+      suspend fun trends(): TwitterTrendsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Trends")) 
-    }
-    suspend fun user(req: TwitterUserRequest): TwitterUserResponse {
+      }
+      suspend fun user(req: TwitterUserRequest): TwitterUserResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "User")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class TwitterProfile(val created_at: String, val description: String, val location: String, val private: Boolean, val verified: Boolean, val followers: Long, val id: Long, val image_url: String, val name: String, val username: String)
+data class TwitterProfile(val verified: Boolean, val created_at: String, val id: Long, val image_url: String, val location: String, val name: String, val private: Boolean, val username: String, val description: String, val followers: Long)
 @Serializable
-data class TwitterSearchRequest(val query: String, val limit: Int)
+data class TwitterSearchRequest(val limit: Int, val query: String)
 @Serializable
 data class TwitterSearchResponse(val tweets: List<TwitterTweet>)
 @Serializable
@@ -43,13 +43,11 @@ data class TwitterTimelineRequest(val limit: Int, val username: String)
 @Serializable
 data class TwitterTimelineResponse(val tweets: List<TwitterTweet>)
 @Serializable
-data class TwitterTrend(val name: String, val tweet_volume: Long, val url: String)
-@Serializable
-class TwitterTrendsRequest()
+data class TwitterTrend(val url: String, val name: String, val tweet_volume: Long)
 @Serializable
 data class TwitterTrendsResponse(val trends: List<TwitterTrend>)
 @Serializable
-data class TwitterTweet(val text: String, val username: String, val created_at: String, val favourited_count: Long, val id: Long, val retweeted_count: Long)
+data class TwitterTweet(val favourited_count: Long, val id: Long, val retweeted_count: Long, val text: String, val username: String, val created_at: String)
 @Serializable
 data class TwitterUserRequest(val username: String)
 @Serializable

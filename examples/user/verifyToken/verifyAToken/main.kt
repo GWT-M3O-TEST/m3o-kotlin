@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserVerifyTokenRequest(name = "Jone")
+  val req = UserVerifyTokenRequest(Token = "EdsUiidouJJJLldjlloofUiorkojflsWWdld",)
   
   try {
       val response = UserService.verifyToken(req)

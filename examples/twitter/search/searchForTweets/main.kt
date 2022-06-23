@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.twitter
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = TwitterSearchRequest(name = "Jone")
+  val req = TwitterSearchRequest(Query = "cats",)
   
   try {
       val response = TwitterService.search(req)

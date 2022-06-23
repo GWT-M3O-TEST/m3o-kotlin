@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.search
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = SearchDeleteIndexRequest(name = "Jone")
+  val req = SearchDeleteIndexRequest(Index = "customers",)
   
   try {
       val response = SearchService.deleteIndex(req)

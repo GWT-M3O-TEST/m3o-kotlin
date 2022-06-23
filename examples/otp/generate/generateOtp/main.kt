@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.otp
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = OtpGenerateRequest(name = "Jone")
+  val req = OtpGenerateRequest(Id = "asim@example.com",)
   
   try {
       val response = OtpService.generate(req)

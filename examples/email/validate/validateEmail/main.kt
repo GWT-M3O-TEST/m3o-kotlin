@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.email
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = EmailValidateRequest(name = "Jone")
+  val req = EmailValidateRequest(Address = "joe@example.com",)
   
   try {
       val response = EmailService.validate(req)

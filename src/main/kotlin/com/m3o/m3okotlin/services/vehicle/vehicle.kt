@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "vehicle"
 
 object VehicleService {
-    suspend fun lookup(req: VehicleLookupRequest): VehicleLookupResponse {
+      suspend fun lookup(req: VehicleLookupRequest): VehicleLookupResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Lookup")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class VehicleLookupRequest(val registration: String)
 @Serializable
-data class VehicleLookupResponse(val tax_status: String, val wheelplan: String, val last_v5_issued: String, val month_of_first_registration: String, val registration: String, val tax_due_date: String, val year_of_manufacture: Int, val mot_status: String, val co2_emissions: Double, val colour: String, val engine_capacity: Int, val fuel_type: String, val logo_url: String, val make: String, val mot_expiry: String, val type_approval: String)
+data class VehicleLookupResponse(val wheelplan: String, val tax_due_date: String, val tax_status: String, val colour: String, val last_v5_issued: String, val mot_status: String, val type_approval: String, val logo_url: String, val make: String, val fuel_type: String, val month_of_first_registration: String, val mot_expiry: String, val registration: String, val year_of_manufacture: Int, val co2_emissions: Double, val engine_capacity: Int)

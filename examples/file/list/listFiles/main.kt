@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.file
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = FileListRequest(name = "Jone")
+  val req = FileListRequest(Project = "examples",)
   
   try {
       val response = FileService.list(req)

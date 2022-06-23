@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.space
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = SpaceReadRequest(name = "Jone")
+  val req = SpaceReadRequest(Name = "images/file.jpg",)
   
   try {
       val response = SpaceService.read(req)

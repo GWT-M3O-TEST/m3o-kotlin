@@ -7,7 +7,9 @@ import com.m3o.m3okotlin.services.db
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = DbUpdateRequest(name = "Jone")
+  val req = DbUpdateRequest(Table = "example",
+Record: &db.Json{
+},)
   
   try {
       val response = DbService.update(req)

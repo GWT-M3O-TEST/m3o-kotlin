@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.ping
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = PingTcpRequest(name = "Jone")
+  val req = PingTcpRequest(Address = "google.com:80",)
   
   try {
       val response = PingService.tcp(req)

@@ -13,31 +13,29 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "file"
 
 object FileService {
-    suspend fun delete(req: FileDeleteRequest): FileDeleteResponse {
+      suspend fun delete(req: FileDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun list(req: FileListRequest): FileListResponse {
+      }
+      suspend fun list(req: FileListRequest): FileListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
           body = req
         }
-    }
-    suspend fun read(req: FileReadRequest): FileReadResponse {
+      }
+      suspend fun read(req: FileReadRequest): FileReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
-    }
-    suspend fun save(req: FileSaveRequest): FileSaveResponse {
+      }
+      suspend fun save(req: FileSaveRequest): FileSaveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Save")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class FileDeleteRequest(val path: String, val project: String)
-@Serializable
-class FileDeleteResponse()
 @Serializable
 data class FileListRequest(val path: String, val project: String)
 @Serializable

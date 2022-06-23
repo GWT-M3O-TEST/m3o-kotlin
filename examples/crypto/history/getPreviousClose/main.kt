@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.crypto
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CryptoHistoryRequest(name = "Jone")
+  val req = CryptoHistoryRequest(Symbol = "BTCUSD",)
   
   try {
       val response = CryptoService.history(req)

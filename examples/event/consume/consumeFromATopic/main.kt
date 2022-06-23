@@ -6,7 +6,7 @@ import com.m3o.m3okotlin.services.event
 fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = val req = EventConsumeRequest(messages = 2, name = "John")
+  val req = val req = EventConsumeRequest(Topic = "user",)
   
   try {
       val socket = EventService.consume(req) { socketError, response ->

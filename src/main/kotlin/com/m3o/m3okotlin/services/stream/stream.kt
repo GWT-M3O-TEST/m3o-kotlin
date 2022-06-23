@@ -13,33 +13,29 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "stream"
 
 object StreamService {
-    suspend fun createChannel(req: StreamCreateChannelRequest): StreamCreateChannelResponse {
+      suspend fun createChannel(req: StreamCreateChannelRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "CreateChannel")) {
           body = req
         }
-    }
-    suspend fun listChannels(): StreamListChannelsResponse {
+      }
+      suspend fun listChannels(): StreamListChannelsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListChannels")) 
-    }
-    suspend fun listMessages(req: StreamListMessagesRequest): StreamListMessagesResponse {
+      }
+      suspend fun listMessages(req: StreamListMessagesRequest): StreamListMessagesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListMessages")) {
           body = req
         }
-    }
-    suspend fun sendMessage(req: StreamSendMessageRequest): StreamSendMessageResponse {
+      }
+      suspend fun sendMessage(req: StreamSendMessageRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "SendMessage")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class StreamChannel(val name: String, val description: String, val last_active: String)
+data class StreamChannel(val description: String, val last_active: String, val name: String)
 @Serializable
-data class StreamCreateChannelRequest(val name: String, val description: String)
-@Serializable
-class StreamCreateChannelResponse()
-@Serializable
-class StreamListChannelsRequest()
+data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable
 data class StreamListChannelsResponse(val channels: List<StreamChannel>)
 @Serializable
@@ -47,8 +43,6 @@ data class StreamListMessagesRequest(val channel: String, val limit: Int)
 @Serializable
 data class StreamListMessagesResponse(val channel: String, val messages: List<StreamMessage>)
 @Serializable
-data class StreamMessage(val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String, val channel: String)
+data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
 @Serializable
-data class StreamSendMessageRequest(val text: String, val channel: String)
-@Serializable
-class StreamSendMessageResponse()
+data class StreamSendMessageRequest(val channel: String, val text: String)

@@ -6,7 +6,7 @@ import com.m3o.m3okotlin.services.notes
 fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = val req = NotesEventsRequest(messages = 2, name = "John")
+  val req = val req = NotesEventsRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
       val socket = NotesService.events(req) { socketError, response ->

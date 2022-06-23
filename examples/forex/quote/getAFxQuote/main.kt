@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.forex
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ForexQuoteRequest(name = "Jone")
+  val req = ForexQuoteRequest(Symbol = "GBPUSD",)
   
   try {
       val response = ForexService.quote(req)

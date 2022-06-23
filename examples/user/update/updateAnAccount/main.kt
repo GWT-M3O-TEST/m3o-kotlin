@@ -7,7 +7,9 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserUpdateRequest(name = "Jone")
+  val req = UserUpdateRequest(Id = "user-1",
+Email = "joe+2@example.com",
+Username = "joe",)
   
   try {
       val response = UserService.update(req)

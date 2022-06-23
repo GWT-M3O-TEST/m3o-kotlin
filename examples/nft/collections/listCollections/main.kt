@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.nft
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = NftCollectionsRequest(name = "Jone")
+  val req = NftCollectionsRequest(Limit = 1,)
   
   try {
       val response = NftService.collections(req)

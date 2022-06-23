@@ -13,22 +13,22 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "time"
 
 object TimeService {
-    suspend fun now(req: TimeNowRequest): TimeNowResponse {
+      suspend fun now(req: TimeNowRequest): TimeNowResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Now")) {
           body = req
         }
-    }
-    suspend fun zone(req: TimeZoneRequest): TimeZoneResponse {
+      }
+      suspend fun zone(req: TimeZoneRequest): TimeZoneResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Zone")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class TimeNowRequest(val location: String)
 @Serializable
-data class TimeNowResponse(val timestamp: String, val timezone: String, val unix: Long, val localtime: String, val location: String)
+data class TimeNowResponse(val localtime: String, val location: String, val timestamp: String, val timezone: String, val unix: Long)
 @Serializable
 data class TimeZoneRequest(val location: String)
 @Serializable
-data class TimeZoneResponse(val country: String, val latitude: Double, val timezone: String, val offset: Int, val region: String, val abbreviation: String, val dst: Boolean, val localtime: String, val location: String, val longitude: Double)
+data class TimeZoneResponse(val localtime: String, val location: String, val region: String, val timezone: String, val country: String, val dst: Boolean, val latitude: Double, val abbreviation: String, val longitude: Double, val offset: Int)

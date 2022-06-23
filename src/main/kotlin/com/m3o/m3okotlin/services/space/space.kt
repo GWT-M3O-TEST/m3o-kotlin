@@ -13,61 +13,59 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "space"
 
 object SpaceService {
-    suspend fun create(req: SpaceCreateRequest): SpaceCreateResponse {
+      suspend fun create(req: SpaceCreateRequest): SpaceCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
         }
-    }
-    suspend fun delete(req: SpaceDeleteRequest): SpaceDeleteResponse {
+      }
+      suspend fun delete(req: SpaceDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun download(req: SpaceDownloadRequest): SpaceDownloadResponse {
+      }
+      suspend fun download(req: SpaceDownloadRequest): SpaceDownloadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Download")) {
           body = req
         }
-    }
-    suspend fun head(req: SpaceHeadRequest): SpaceHeadResponse {
+      }
+      suspend fun head(req: SpaceHeadRequest): SpaceHeadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Head")) {
           body = req
         }
-    }
-    suspend fun list(req: SpaceListRequest): SpaceListResponse {
+      }
+      suspend fun list(req: SpaceListRequest): SpaceListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
           body = req
         }
-    }
-    suspend fun read(req: SpaceReadRequest): SpaceReadResponse {
+      }
+      suspend fun read(req: SpaceReadRequest): SpaceReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
-    }
-    suspend fun update(req: SpaceUpdateRequest): SpaceUpdateResponse {
+      }
+      suspend fun update(req: SpaceUpdateRequest): SpaceUpdateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
           body = req
         }
-    }
-    suspend fun upload(req: SpaceUploadRequest): SpaceUploadResponse {
+      }
+      suspend fun upload(req: SpaceUploadRequest): SpaceUploadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Upload")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class SpaceCreateRequest(val object: String, val visibility: String, val name: String)
+data class SpaceCreateRequest(val name: String, val object: String, val visibility: String)
 @Serializable
 data class SpaceCreateResponse(val url: String)
 @Serializable
 data class SpaceDeleteRequest(val name: String)
 @Serializable
-class SpaceDeleteResponse()
-@Serializable
 data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-data class SpaceHeadObject(val created: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceHeadObject(val visibility: String, val created: String, val modified: String, val name: String, val url: String)
 @Serializable
 data class SpaceHeadRequest(val name: String)
 @Serializable
@@ -83,9 +81,9 @@ data class SpaceReadRequest(val name: String)
 @Serializable
 data class SpaceReadResponse(val object: SpaceSpaceObject)
 @Serializable
-data class SpaceSpaceObject(val created: String, val data: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceSpaceObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String, val data: String)
 @Serializable
-data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
+data class SpaceUpdateRequest(val visibility: String, val name: String, val object: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable

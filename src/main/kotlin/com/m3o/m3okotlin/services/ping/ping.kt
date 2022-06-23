@@ -13,21 +13,21 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "ping"
 
 object PingService {
-    suspend fun ip(req: PingIpRequest): PingIpResponse {
+      suspend fun ip(req: PingIpRequest): PingIpResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Ip")) {
           body = req
         }
-    }
-    suspend fun tcp(req: PingTcpRequest): PingTcpResponse {
+      }
+      suspend fun tcp(req: PingTcpRequest): PingTcpResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Tcp")) {
           body = req
         }
-    }
-    suspend fun url(req: PingUrlRequest): PingUrlResponse {
+      }
+      suspend fun url(req: PingUrlRequest): PingUrlResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Url")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class PingIpRequest(val address: String)

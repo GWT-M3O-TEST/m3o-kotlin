@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.quran
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = QuranSummaryRequest(name = "Jone")
+  val req = QuranSummaryRequest(Chapter = 1,)
   
   try {
       val response = QuranService.summary(req)

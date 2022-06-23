@@ -13,11 +13,11 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "bitcoin"
 
 object BitcoinService {
-    suspend fun price(req: BitcoinPriceRequest): BitcoinPriceResponse {
+      suspend fun price(req: BitcoinPriceRequest): BitcoinPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class BitcoinPriceRequest(val symbol: String)

@@ -13,11 +13,11 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "google"
 
 object GoogleService {
-    suspend fun search(req: GoogleSearchRequest): GoogleSearchResponse {
+      suspend fun search(req: GoogleSearchRequest): GoogleSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class GoogleSearchRequest(val query: String)

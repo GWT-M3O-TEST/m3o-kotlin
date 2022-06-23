@@ -13,13 +13,13 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "spam"
 
 object SpamService {
-    suspend fun classify(req: SpamClassifyRequest): SpamClassifyResponse {
+      suspend fun classify(req: SpamClassifyRequest): SpamClassifyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Classify")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class SpamClassifyRequest(val subject: String, val text_body: String, val to: String, val email_body: String, val from: String, val html_body: String)
+data class SpamClassifyRequest(val email_body: String, val from: String, val html_body: String, val subject: String, val text_body: String, val to: String)
 @Serializable
 data class SpamClassifyResponse(val details: List<SpamString>, val is_spam: Boolean, val score: Double)

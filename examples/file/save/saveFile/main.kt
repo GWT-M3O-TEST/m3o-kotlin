@@ -7,7 +7,11 @@ import com.m3o.m3okotlin.services.file
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = FileSaveRequest(name = "Jone")
+  val req = FileSaveRequest(File: &file.Record{
+Content = "file content example",
+Path = "/document/text-files/file.txt",
+Project = "examples",
+},)
   
   try {
       val response = FileService.save(req)

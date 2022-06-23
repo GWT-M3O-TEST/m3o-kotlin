@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.analytics
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = AnalyticsReadRequest(name = "Jone")
+  val req = AnalyticsReadRequest(Name = "click",)
   
   try {
       val response = AnalyticsService.read(req)

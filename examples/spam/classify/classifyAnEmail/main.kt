@@ -7,7 +7,10 @@ import com.m3o.m3okotlin.services.spam
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = SpamClassifyRequest(name = "Jone")
+  val req = SpamClassifyRequest(To = "hello@example.com",
+Subject = "Welcome",
+TextBody = "Hi there,\n\nWelcome to M3O.\n\nThanks\nM3O team",
+From = "noreply@m3o.com",)
   
   try {
       val response = SpamService.classify(req)

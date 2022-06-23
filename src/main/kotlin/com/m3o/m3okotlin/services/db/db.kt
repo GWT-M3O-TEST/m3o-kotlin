@@ -13,49 +13,49 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "db"
 
 object DbService {
-    suspend fun count(req: DbCountRequest): DbCountResponse {
+      suspend fun count(req: DbCountRequest): DbCountResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Count")) {
           body = req
         }
-    }
-    suspend fun create(req: DbCreateRequest): DbCreateResponse {
+      }
+      suspend fun create(req: DbCreateRequest): DbCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
         }
-    }
-    suspend fun delete(req: DbDeleteRequest): DbDeleteResponse {
+      }
+      suspend fun delete(req: DbDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun dropTable(req: DbDropTableRequest): DbDropTableResponse {
+      }
+      suspend fun dropTable(req: DbDropTableRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "DropTable")) {
           body = req
         }
-    }
-    suspend fun listTables(): DbListTablesResponse {
+      }
+      suspend fun listTables(): DbListTablesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "ListTables")) 
-    }
-    suspend fun read(req: DbReadRequest): DbReadResponse {
+      }
+      suspend fun read(req: DbReadRequest): DbReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
-    }
-    suspend fun renameTable(req: DbRenameTableRequest): DbRenameTableResponse {
+      }
+      suspend fun renameTable(req: DbRenameTableRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "RenameTable")) {
           body = req
         }
-    }
-    suspend fun truncate(req: DbTruncateRequest): DbTruncateResponse {
+      }
+      suspend fun truncate(req: DbTruncateRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Truncate")) {
           body = req
         }
-    }
-    suspend fun update(req: DbUpdateRequest): DbUpdateResponse {
+      }
+      suspend fun update(req: DbUpdateRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class DbCountRequest(val table: String)
@@ -68,28 +68,16 @@ data class DbCreateResponse(val id: String)
 @Serializable
 data class DbDeleteRequest(val id: String, val table: String)
 @Serializable
-class DbDeleteResponse()
-@Serializable
 data class DbDropTableRequest(val table: String)
-@Serializable
-class DbDropTableResponse()
-@Serializable
-class DbListTablesRequest()
 @Serializable
 data class DbListTablesResponse(val tables: List<DbString>)
 @Serializable
-data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
+data class DbReadRequest(val offset: Int, val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int)
 @Serializable
 data class DbReadResponse(val records: List<DbMap<String, dynamic>>)
 @Serializable
-data class DbRenameTableRequest(val from: String, val to: String)
-@Serializable
-class DbRenameTableResponse()
+data class DbRenameTableRequest(val to: String, val from: String)
 @Serializable
 data class DbTruncateRequest(val table: String)
 @Serializable
-class DbTruncateResponse()
-@Serializable
 data class DbUpdateRequest(val id: String, val record: DbMap<String, dynamic>, val table: String)
-@Serializable
-class DbUpdateResponse()

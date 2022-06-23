@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.app
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = AppRegionsRequest(name = "Jone")
+  val req = AppRegionsRequest()
   
   try {
       val response = AppService.regions(req)

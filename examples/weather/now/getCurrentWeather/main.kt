@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.weather
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = WeatherNowRequest(name = "Jone")
+  val req = WeatherNowRequest(Location = "london",)
   
   try {
       val response = WeatherService.now(req)

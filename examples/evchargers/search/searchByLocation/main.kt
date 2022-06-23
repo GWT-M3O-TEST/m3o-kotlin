@@ -7,7 +7,12 @@ import com.m3o.m3okotlin.services.evchargers
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = EvchargersSearchRequest(name = "Jone")
+  val req = EvchargersSearchRequest(Location: &evchargers.Coordinates{
+Latitude = 51.53336351319885,
+Longitude = -0.0252,
+},
+Distance = 2000,
+MaxResults = 2,)
   
   try {
       val response = EvchargersService.search(req)

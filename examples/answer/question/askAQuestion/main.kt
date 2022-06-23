@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.answer
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = AnswerQuestionRequest(name = "Jone")
+  val req = AnswerQuestionRequest(Query = "microsoft",)
   
   try {
       val response = AnswerService.question(req)

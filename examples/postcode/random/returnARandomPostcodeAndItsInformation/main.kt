@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.postcode
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = PostcodeRandomRequest(name = "Jone")
+  val req = PostcodeRandomRequest()
   
   try {
       val response = PostcodeService.random(req)

@@ -13,21 +13,21 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "email"
 
 object EmailService {
-    suspend fun parse(req: EmailParseRequest): EmailParseResponse {
+      suspend fun parse(req: EmailParseRequest): EmailParseResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Parse")) {
           body = req
         }
-    }
-    suspend fun send(req: EmailSendRequest): EmailSendResponse {
+      }
+      suspend fun send(req: EmailSendRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
           body = req
         }
-    }
-    suspend fun validate(req: EmailValidateRequest): EmailValidateResponse {
+      }
+      suspend fun validate(req: EmailValidateRequest): EmailValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class EmailParseRequest(val address: String)
@@ -35,8 +35,6 @@ data class EmailParseRequest(val address: String)
 data class EmailParseResponse(val address: String, val name: String)
 @Serializable
 data class EmailSendRequest(val reply_to: String, val subject: String, val text_body: String, val to: String, val from: String, val html_body: String)
-@Serializable
-class EmailSendResponse()
 @Serializable
 data class EmailValidateRequest(val address: String)
 @Serializable

@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.prayer
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = PrayerTimesRequest(name = "Jone")
+  val req = PrayerTimesRequest(Location = "london",)
   
   try {
       val response = PrayerService.times(req)

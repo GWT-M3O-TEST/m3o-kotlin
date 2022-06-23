@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserListRequest(name = "Jone")
+  val req = UserListRequest(Offset = 0,
+Limit = 100,)
   
   try {
       val response = UserService.list(req)

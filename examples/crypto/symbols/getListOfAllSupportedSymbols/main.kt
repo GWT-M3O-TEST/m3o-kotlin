@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.crypto
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CryptoSymbolsRequest(name = "Jone")
+  val req = CryptoSymbolsRequest()
   
   try {
       val response = CryptoService.symbols(req)

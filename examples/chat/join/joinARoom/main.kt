@@ -6,7 +6,8 @@ import com.m3o.m3okotlin.services.chat
 fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = val req = ChatJoinRequest(messages = 2, name = "John")
+  val req = val req = ChatJoinRequest(RoomId = "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+UserId = "user-2",)
   
   try {
       val socket = ChatService.join(req) { socketError, response ->

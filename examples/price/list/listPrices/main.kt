@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.price
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = PriceListRequest(name = "Jone")
+  val req = PriceListRequest(Currency = "GBP",)
   
   try {
       val response = PriceService.list(req)

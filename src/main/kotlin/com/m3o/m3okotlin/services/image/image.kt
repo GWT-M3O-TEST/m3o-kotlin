@@ -13,43 +13,41 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "image"
 
 object ImageService {
-    suspend fun convert(req: ImageConvertRequest): ImageConvertResponse {
+      suspend fun convert(req: ImageConvertRequest): ImageConvertResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Convert")) {
           body = req
         }
-    }
-    suspend fun delete(req: ImageDeleteRequest): ImageDeleteResponse {
+      }
+      suspend fun delete(req: ImageDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun resize(req: ImageResizeRequest): ImageResizeResponse {
+      }
+      suspend fun resize(req: ImageResizeRequest): ImageResizeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resize")) {
           body = req
         }
-    }
-    suspend fun upload(req: ImageUploadRequest): ImageUploadResponse {
+      }
+      suspend fun upload(req: ImageUploadRequest): ImageUploadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Upload")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class ImageConvertRequest(val name: String, val outputURL: Boolean, val url: String, val base64: String, val file: String)
+data class ImageConvertRequest(val outputURL: Boolean, val url: String, val base64: String, val file: String, val name: String)
 @Serializable
-data class ImageConvertResponse(val url: String, val base64: String)
+data class ImageConvertResponse(val base64: String, val url: String)
 @Serializable
-data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
+data class ImageCropOptions(val height: Int, val width: Int, val anchor: String)
 @Serializable
 data class ImageDeleteRequest(val url: String)
-@Serializable
-class ImageDeleteResponse()
 @Serializable
 data class ImagePoint(val x: Int, val y: Int)
 @Serializable
 data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-data class ImageResizeRequest(val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String)
+data class ImageResizeRequest(val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String)
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable

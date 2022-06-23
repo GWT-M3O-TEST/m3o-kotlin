@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.stock
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = StockPriceRequest(name = "Jone")
+  val req = StockPriceRequest(Symbol = "AAPL",)
   
   try {
       val response = StockService.price(req)

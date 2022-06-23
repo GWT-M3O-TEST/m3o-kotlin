@@ -13,36 +13,36 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "crypto"
 
 object CryptoService {
-    suspend fun history(req: CryptoHistoryRequest): CryptoHistoryResponse {
+      suspend fun history(req: CryptoHistoryRequest): CryptoHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
           body = req
         }
-    }
-    suspend fun news(req: CryptoNewsRequest): CryptoNewsResponse {
+      }
+      suspend fun news(req: CryptoNewsRequest): CryptoNewsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "News")) {
           body = req
         }
-    }
-    suspend fun price(req: CryptoPriceRequest): CryptoPriceResponse {
+      }
+      suspend fun price(req: CryptoPriceRequest): CryptoPriceResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Price")) {
           body = req
         }
-    }
-    suspend fun quote(req: CryptoQuoteRequest): CryptoQuoteResponse {
+      }
+      suspend fun quote(req: CryptoQuoteRequest): CryptoQuoteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Quote")) {
           body = req
         }
-    }
-    suspend fun symbols(): CryptoSymbolsResponse {
+      }
+      suspend fun symbols(): CryptoSymbolsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Symbols")) 
-    }
+      }
 }
 @Serializable
-data class CryptoArticle(val title: String, val url: String, val date: String, val description: String, val source: String)
+data class CryptoArticle(val url: String, val date: String, val description: String, val source: String, val title: String)
 @Serializable
 data class CryptoHistoryRequest(val symbol: String)
 @Serializable
-data class CryptoHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double)
+data class CryptoHistoryResponse(val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double)
 @Serializable
 data class CryptoNewsRequest(val symbol: String)
 @Serializable
@@ -54,10 +54,8 @@ data class CryptoPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class CryptoQuoteRequest(val symbol: String)
 @Serializable
-data class CryptoQuoteResponse(val ask_price: Double, val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String)
+data class CryptoQuoteResponse(val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String, val ask_price: Double)
 @Serializable
 data class CryptoSymbol(val name: String, val symbol: String)
-@Serializable
-class CryptoSymbolsRequest()
 @Serializable
 data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>)

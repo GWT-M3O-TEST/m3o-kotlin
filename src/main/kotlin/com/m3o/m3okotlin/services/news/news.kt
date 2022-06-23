@@ -13,15 +13,15 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "news"
 
 object NewsService {
-    suspend fun headlines(req: NewsHeadlinesRequest): NewsHeadlinesResponse {
+      suspend fun headlines(req: NewsHeadlinesRequest): NewsHeadlinesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Headlines")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class NewsArticle(val snippet: String, val language: String, val locale: String, val published_at: String, val image_url: String, val keywords: String, val source: String, val title: String, val url: String, val categories: List<NewsString>, val description: String, val id: String)
+data class NewsArticle(val url: String, val categories: List<NewsString>, val image_url: String, val language: String, val published_at: String, val snippet: String, val source: String, val title: String, val description: String, val id: String, val keywords: String, val locale: String)
 @Serializable
-data class NewsHeadlinesRequest(val date: String, val language: String, val locale: String)
+data class NewsHeadlinesRequest(val language: String, val locale: String, val date: String)
 @Serializable
 data class NewsHeadlinesResponse(val articles: List<NewsArticle>)

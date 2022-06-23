@@ -13,62 +13,56 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "app"
 
 object AppService {
-    suspend fun delete(req: AppDeleteRequest): AppDeleteResponse {
+      suspend fun delete(req: AppDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun list(): AppListResponse {
+      }
+      suspend fun list(): AppListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) 
-    }
-    suspend fun logs(req: AppLogsRequest): AppLogsResponse {
+      }
+      suspend fun logs(req: AppLogsRequest): AppLogsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Logs")) {
           body = req
         }
-    }
-    suspend fun regions(): AppRegionsResponse {
+      }
+      suspend fun regions(): AppRegionsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Regions")) 
-    }
-    suspend fun reserve(req: AppReserveRequest): AppReserveResponse {
+      }
+      suspend fun reserve(req: AppReserveRequest): AppReserveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Reserve")) {
           body = req
         }
-    }
-    suspend fun resolve(req: AppResolveRequest): AppResolveResponse {
+      }
+      suspend fun resolve(req: AppResolveRequest): AppResolveResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Resolve")) {
           body = req
         }
-    }
-    suspend fun run(req: AppRunRequest): AppRunResponse {
+      }
+      suspend fun run(req: AppRunRequest): AppRunResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Run")) {
           body = req
         }
-    }
-    suspend fun status(req: AppStatusRequest): AppStatusResponse {
+      }
+      suspend fun status(req: AppStatusRequest): AppStatusResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Status")) {
           body = req
         }
-    }
-    suspend fun update(req: AppUpdateRequest): AppUpdateResponse {
+      }
+      suspend fun update(req: AppUpdateRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Update")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class AppDeleteRequest(val name: String)
 @Serializable
-class AppDeleteResponse()
-@Serializable
-class AppListRequest()
-@Serializable
 data class AppListResponse(val services: List<AppService>)
 @Serializable
-data class AppLogsRequest(val logs_type: String, val name: String)
+data class AppLogsRequest(val name: String, val logs_type: String)
 @Serializable
 data class AppLogsResponse(val logs: String)
-@Serializable
-class AppRegionsRequest()
 @Serializable
 data class AppRegionsResponse(val regions: List<AppString>)
 @Serializable
@@ -82,16 +76,14 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String)
+data class AppRunRequest(val port: Int, val region: String, val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val port: Int, val region: String, val repo: String, val updated: String, val branch: String, val env_vars: Map<String, String>, val id: String, val name: String, val created: String, val custom_domains: List<AppString>, val status: String, val url: String)
+data class AppService(val port: Int, val updated: String, val url: String, val created: String, val env_vars: Map<String, String>, val id: String, val name: String, val region: String, val repo: String, val status: String, val branch: String, val custom_domains: List<AppString>)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable
 data class AppStatusResponse(val service: AppService)
 @Serializable
 data class AppUpdateRequest(val env_vars: Map<String, String>, val name: String)
-@Serializable
-class AppUpdateResponse()

@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.nft
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = NftAssetRequest(name = "Jone")
+  val req = NftAssetRequest(ContractAddress = "0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb",
+TokenId = "1",)
   
   try {
       val response = NftService.asset(req)

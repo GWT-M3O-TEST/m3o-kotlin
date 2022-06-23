@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.carbon
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CarbonOffsetRequest(name = "Jone")
+  val req = CarbonOffsetRequest()
   
   try {
       val response = CarbonService.offset(req)

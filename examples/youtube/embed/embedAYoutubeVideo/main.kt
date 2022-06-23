@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.youtube
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = YoutubeEmbedRequest(name = "Jone")
+  val req = YoutubeEmbedRequest(Url = "https://www.youtube.com/watch?v=GWRWZu7XsJ0",)
   
   try {
       val response = YoutubeService.embed(req)

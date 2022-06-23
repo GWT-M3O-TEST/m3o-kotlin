@@ -7,7 +7,7 @@ import com.m3o.m3okotlin.services.stream
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = StreamListMessagesRequest(name = "Jone")
+  val req = StreamListMessagesRequest(Channel = "general",)
   
   try {
       val response = StreamService.listMessages(req)

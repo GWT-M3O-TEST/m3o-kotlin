@@ -13,33 +13,31 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "analytics"
 
 object AnalyticsService {
-    suspend fun delete(req: AnalyticsDeleteRequest): AnalyticsDeleteResponse {
+      suspend fun delete(req: AnalyticsDeleteRequest): AnalyticsDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
         }
-    }
-    suspend fun list(): AnalyticsListResponse {
+      }
+      suspend fun list(): AnalyticsListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) 
-    }
-    suspend fun read(req: AnalyticsReadRequest): AnalyticsReadResponse {
+      }
+      suspend fun read(req: AnalyticsReadRequest): AnalyticsReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
         }
-    }
-    suspend fun track(req: AnalyticsTrackRequest): AnalyticsTrackResponse {
+      }
+      suspend fun track(req: AnalyticsTrackRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Track")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class AnalyticsDeleteRequest(val name: String)
 @Serializable
 data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
 @Serializable
-data class AnalyticsEvent(val created: String, val name: String, val value: Long)
-@Serializable
-class AnalyticsListRequest()
+data class AnalyticsEvent(val value: Long, val created: String, val name: String)
 @Serializable
 data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
 @Serializable
@@ -48,5 +46,3 @@ data class AnalyticsReadRequest(val name: String)
 data class AnalyticsReadResponse(val event: AnalyticsEvent)
 @Serializable
 data class AnalyticsTrackRequest(val name: String)
-@Serializable
-class AnalyticsTrackResponse()

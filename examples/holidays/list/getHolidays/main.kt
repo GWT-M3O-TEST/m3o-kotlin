@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.holidays
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = HolidaysListRequest(name = "Jone")
+  val req = HolidaysListRequest(CountryCode = "GB",
+Year = 2022,)
   
   try {
       val response = HolidaysService.list(req)

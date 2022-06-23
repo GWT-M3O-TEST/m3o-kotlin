@@ -13,11 +13,11 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "qr"
 
 object QrService {
-    suspend fun generate(req: QrGenerateRequest): QrGenerateResponse {
+      suspend fun generate(req: QrGenerateRequest): QrGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class QrGenerateRequest(val size: Long, val text: String)

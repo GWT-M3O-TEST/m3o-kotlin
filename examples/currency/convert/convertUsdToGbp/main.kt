@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.currency
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CurrencyConvertRequest(name = "Jone")
+  val req = CurrencyConvertRequest(From = "USD",
+To = "GBP",)
   
   try {
       val response = CurrencyService.convert(req)

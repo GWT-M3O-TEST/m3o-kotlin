@@ -14,17 +14,17 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "helloworld"
 
 object HelloworldService {
-    suspend fun call(req: HelloworldCallRequest): HelloworldCallResponse {
+      suspend fun call(req: HelloworldCallRequest): HelloworldCallResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Call")) {
           body = req
         }
-    }
-    fun stream(req: HelloworldStreamRequest, action: (Exception?, HelloworldStreamResponse?) -> Unit) {
-        val url = getUrl(SERVICE, "Stream", true)
-        WebSocket(url, Json.encodeToString(req)) { e, response ->
-            action(e, if (response != null) Json.decodeFromString(response) else null)
-        }.connect()
-    }
+      }
+      fun stream(req: HelloworldStreamRequest, action: (Exception?, HelloworldStreamResponse?) -> Unit) {
+          val url = getUrl(SERVICE, "Stream", true)
+          WebSocket(url, Json.encodeToString(req)) { e, response ->
+              action(e, if (response != null) Json.decodeFromString(response) else null)
+          }.connect()
+      }
 }
 @Serializable
 data class HelloworldCallRequest(val name: String)

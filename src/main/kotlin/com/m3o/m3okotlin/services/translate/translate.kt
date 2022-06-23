@@ -13,11 +13,11 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "translate"
 
 object TranslateService {
-    suspend fun text(req: TranslateTextRequest): TranslateTextResponse {
+      suspend fun text(req: TranslateTextRequest): TranslateTextResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Text")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class TranslateTextRequest(val content: String, val format: String, val model: String, val source: String, val target: String)

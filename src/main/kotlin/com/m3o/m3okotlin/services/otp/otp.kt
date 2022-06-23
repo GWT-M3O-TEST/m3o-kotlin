@@ -13,16 +13,16 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "otp"
 
 object OtpService {
-    suspend fun generate(req: OtpGenerateRequest): OtpGenerateResponse {
+      suspend fun generate(req: OtpGenerateRequest): OtpGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req
         }
-    }
-    suspend fun validate(req: OtpValidateRequest): OtpValidateResponse {
+      }
+      suspend fun validate(req: OtpValidateRequest): OtpValidateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Validate")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
 data class OtpGenerateRequest(val expiry: Long, val id: String, val size: Long)

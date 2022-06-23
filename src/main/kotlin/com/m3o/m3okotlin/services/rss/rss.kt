@@ -13,42 +13,36 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "rss"
 
 object RssService {
-    suspend fun add(req: RssAddRequest): RssAddResponse {
+      suspend fun add(req: RssAddRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Add")) {
           body = req
         }
-    }
-    suspend fun feed(req: RssFeedRequest): RssFeedResponse {
+      }
+      suspend fun feed(req: RssFeedRequest): RssFeedResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Feed")) {
           body = req
         }
-    }
-    suspend fun list(): RssListResponse {
+      }
+      suspend fun list(): RssListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) 
-    }
-    suspend fun remove(req: RssRemoveRequest): RssRemoveResponse {
+      }
+      suspend fun remove(req: RssRemoveRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Remove")) {
           body = req
         }
-    }
+      }
 }
 @Serializable
-data class RssAddRequest(val category: String, val name: String, val url: String)
+data class RssAddRequest(val name: String, val url: String, val category: String)
 @Serializable
-class RssAddResponse()
+data class RssEntry(val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String)
 @Serializable
-data class RssEntry(val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String)
+data class RssFeed(val url: String, val category: String, val id: String, val name: String)
 @Serializable
-data class RssFeed(val id: String, val name: String, val url: String, val category: String)
-@Serializable
-data class RssFeedRequest(val name: String, val offset: Long, val limit: Long)
+data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
 @Serializable
 data class RssFeedResponse(val entries: List<RssEntry>)
-@Serializable
-class RssListRequest()
 @Serializable
 data class RssListResponse(val feeds: List<RssFeed>)
 @Serializable
 data class RssRemoveRequest(val name: String)
-@Serializable
-class RssRemoveResponse()

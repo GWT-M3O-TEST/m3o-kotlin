@@ -7,7 +7,12 @@ import com.m3o.m3okotlin.services.movie
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = MovieSearchRequest(name = "Jone")
+  val req = MovieSearchRequest(Query = "inception",
+Page = 1,
+Region = "US",
+Year = 2010,
+PrimaryReleaseYear = 2010,
+Language = "en-US",)
   
   try {
       val response = MovieService.search(req)

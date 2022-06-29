@@ -37,7 +37,7 @@ object FileService {
 @Serializable
 data class FileDeleteRequest(val path: String, val project: String)
 @Serializable
-data class FileListRequest(val project: String, val path: String)
+data class FileListRequest(val path: String, val project: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
@@ -45,7 +45,7 @@ data class FileReadRequest(val path: String, val project: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable
-data class FileRecord(val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String)
+data class FileRecord(val updated: String, val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String)
 @Serializable
 data class FileSaveRequest(val file: FileRecord, val public: Boolean)
 @Serializable

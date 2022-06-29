@@ -38,11 +38,11 @@ object CryptoService {
       }
 }
 @Serializable
-data class CryptoArticle(val source: String, val title: String, val url: String, val date: String, val description: String)
+data class CryptoArticle(val title: String, val url: String, val date: String, val description: String, val source: String)
 @Serializable
 data class CryptoHistoryRequest(val symbol: String)
 @Serializable
-data class CryptoHistoryResponse(val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double)
+data class CryptoHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String)
 @Serializable
 data class CryptoNewsRequest(val symbol: String)
 @Serializable

@@ -31,6 +31,6 @@ data class HelloworldCallRequest(val name: String)
 @Serializable
 data class HelloworldCallResponse(val message: String)
 @Serializable
-data class HelloworldStreamRequest(val name: String, val messages: Long)
+data class HelloworldStreamRequest(val messages: Long, val name: String)
 @Serializable
 data class HelloworldStreamResponse(val message: String)

@@ -30,24 +30,24 @@ object RoutingService {
       }
 }
 @Serializable
-data class RoutingDirection(val reference: String, val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String)
+data class RoutingDirection(val name: String, val reference: String, val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver)
 @Serializable
-data class RoutingDirectionsRequest(val origin: RoutingPoint, val destination: RoutingPoint)
+data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
 data class RoutingDirectionsResponse(val duration: Double, val waypoints: List<RoutingWaypoint>, val directions: List<RoutingDirection>, val distance: Double)
 @Serializable
-data class RoutingEtaRequest(val destination: RoutingPoint, val origin: RoutingPoint, val speed: Double, val type: String)
+data class RoutingEtaRequest(val type: String, val destination: RoutingPoint, val origin: RoutingPoint, val speed: Double)
 @Serializable
 data class RoutingEtaResponse(val duration: Double)
 @Serializable
-data class RoutingIntersection(val bearings: List<Double>, val location: RoutingPoint)
+data class RoutingIntersection(val location: RoutingPoint, val bearings: List<Double>)
 @Serializable
-data class RoutingManeuver(val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint)
+data class RoutingManeuver(val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint, val action: String)
 @Serializable
 data class RoutingPoint(val latitude: Double, val longitude: Double)
 @Serializable
 data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingRouteResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
+data class RoutingRouteResponse(val duration: Double, val waypoints: List<RoutingWaypoint>, val distance: Double)
 @Serializable
 data class RoutingWaypoint(val location: RoutingPoint, val name: String)

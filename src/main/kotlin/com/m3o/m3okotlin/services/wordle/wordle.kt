@@ -23,12 +23,12 @@ object WordleService {
       }
 }
 @Serializable
-data class WordleChar(val in_word: Boolean, val letter: String, val position: Int, val correct: Boolean)
+data class WordleChar(val position: Int, val correct: Boolean, val in_word: Boolean, val letter: String)
 @Serializable
 data class WordleGuess(val chars: List<WordleChar>, val highlight: String, val word: String)
 @Serializable
 data class WordleGuessRequest(val player: String, val word: String)
 @Serializable
-data class WordleGuessResponse(val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String, val correct: Boolean)
+data class WordleGuessResponse(val tries_left: Int, val answer: String, val correct: Boolean, val guesses: List<WordleGuess>, val status: String)
 @Serializable
 data class WordleNextResponse(val duration: String, val seconds: Int)

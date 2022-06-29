@@ -62,7 +62,7 @@ object ChatService {
       }
 }
 @Serializable
-data class ChatCreateRequest(val private: Boolean, val user_ids: List<String>, val description: String, val name: String)
+data class ChatCreateRequest(val description: String, val name: String, val private: Boolean, val user_ids: List<String>)
 @Serializable
 data class ChatCreateResponse(val room: ChatRoom)
 @Serializable
@@ -74,7 +74,7 @@ data class ChatHistoryRequest(val room_id: String)
 @Serializable
 data class ChatHistoryResponse(val messages: List<ChatMessage>)
 @Serializable
-data class ChatInviteRequest(val room_id: String, val user_id: String)
+data class ChatInviteRequest(val user_id: String, val room_id: String)
 @Serializable
 data class ChatInviteResponse(val room: ChatRoom)
 @Serializable
@@ -94,9 +94,9 @@ data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-data class ChatMessage(val text: String, val user_id: String, val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String)
+data class ChatMessage(val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String, val client: String, val id: String)
 @Serializable
-data class ChatRoom(val id: String, val name: String, val private: Boolean, val user_ids: List<String>, val created_at: String, val description: String)
+data class ChatRoom(val user_ids: List<String>, val created_at: String, val description: String, val id: String, val name: String, val private: Boolean)
 @Serializable
 data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
 @Serializable

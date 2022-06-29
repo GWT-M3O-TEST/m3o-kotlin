@@ -39,7 +39,7 @@ data class RssEntry(val content: String, val date: String, val feed: String, val
 @Serializable
 data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable
-data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
+data class RssFeedRequest(val offset: Long, val limit: Long, val name: String)
 @Serializable
 data class RssFeedResponse(val entries: List<RssEntry>)
 @Serializable

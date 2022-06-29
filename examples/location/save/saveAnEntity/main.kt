@@ -11,9 +11,9 @@ suspend fun main() {
 Id = "1",
 Type = "bike",
 Location: &location.Point{
+Timestamp = 1622802761,
 Latitude = 51.511061,
 Longitude = -0.120022,
-Timestamp = 1622802761,
 },
 },)
   

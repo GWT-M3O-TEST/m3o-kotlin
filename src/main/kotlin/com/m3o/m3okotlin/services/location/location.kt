@@ -40,6 +40,6 @@ data class LocationReadResponse(val entity: LocationEntity)
 @Serializable
 data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
-data class LocationSearchRequest(val type: String, val center: LocationPoint, val numEntities: Long, val radius: Double)
+data class LocationSearchRequest(val center: LocationPoint, val numEntities: Long, val radius: Double, val type: String)
 @Serializable
 data class LocationSearchResponse(val entities: List<LocationEntity>)

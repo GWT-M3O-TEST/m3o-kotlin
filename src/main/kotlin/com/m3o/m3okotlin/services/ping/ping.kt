@@ -32,7 +32,7 @@ object PingService {
 @Serializable
 data class PingIpRequest(val address: String)
 @Serializable
-data class PingIpResponse(val latency: String, val status: String)
+data class PingIpResponse(val status: String, val latency: String)
 @Serializable
 data class PingTcpRequest(val address: String, val data: String)
 @Serializable

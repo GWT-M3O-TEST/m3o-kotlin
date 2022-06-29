@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.image
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ImageUploadRequest(Name = "cat.jpeg",
-Url = "somewebsite.com/cat.png",)
+  val req = ImageUploadRequest(Url = "somewebsite.com/cat.png",
+Name = "cat.jpeg",)
   
   try {
       val response = ImageService.upload(req)

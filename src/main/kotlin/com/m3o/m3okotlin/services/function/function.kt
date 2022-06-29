@@ -64,13 +64,13 @@ object FunctionService {
       }
 }
 @Serializable
-data class FunctionCallRequest(val request: FunctionMap<String, dynamic>, val name: String)
+data class FunctionCallRequest(val name: String, Map<String, Any>)
 @Serializable
-data class FunctionCallResponse(val response: FunctionMap<String, dynamic>)
+data class FunctionCallResponse(Map<String, Any>)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val name: String, val region: String, val runtime: String, val subfolder: String, val branch: String, val entrypoint: String, val env_vars: Map<String, String>, val repo: String, val source: String)
+data class FunctionDeployRequest(val region: String, val repo: String, val runtime: String, val branch: String, val entrypoint: String, val name: String, val env_vars: Map<String, String>, val source: String, val subfolder: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -78,11 +78,11 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val branch: String, val created: String, val name: String, val env_vars: Map<String, String>, val id: String, val region: String, val subfolder: String, val url: String, val repo: String, val runtime: String, val source: String, val entrypoint: String, val status: String, val updated: String)
+data class FunctionFunc(val region: String, val runtime: String, val updated: String, val created: String, val env_vars: Map<String, String>, val id: String, val url: String, val entrypoint: String, val repo: String, val branch: String, val name: String, val source: String, val status: String, val subfolder: String)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
-data class FunctionLogsRequest(val logs_type: String, val name: String)
+data class FunctionLogsRequest(val name: String, val logs_type: String)
 @Serializable
 data class FunctionLogsResponse(val logs: String)
 @Serializable
@@ -90,14 +90,14 @@ data class FunctionProxyRequest(val id: String)
 @Serializable
 data class FunctionProxyResponse(val url: String)
 @Serializable
-data class FunctionRegionsResponse(val regions: List<FunctionString>)
+data class FunctionRegionsResponse(val regions: List<String>)
 @Serializable
-data class FunctionReservation(val owner: String, val token: String, val created: String, val expires: String, val name: String)
+data class FunctionReservation(val expires: String, val name: String, val owner: String, val token: String, val created: String)
 @Serializable
 data class FunctionReserveRequest(val name: String)
 @Serializable
 data class FunctionReserveResponse(val reservation: FunctionReservation)
 @Serializable
-data class FunctionRuntimesResponse(val runtimes: List<FunctionString>)
+data class FunctionRuntimesResponse(val runtimes: List<String>)
 @Serializable
 data class FunctionUpdateRequest(val name: String, val source: String)

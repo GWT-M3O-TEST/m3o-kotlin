@@ -27,8 +27,8 @@ object MqService {
       }
 }
 @Serializable
-data class MqPublishRequest(val message: MqMap<String, dynamic>, val topic: String)
+data class MqPublishRequest(Map<String, Any>, val topic: String)
 @Serializable
 data class MqSubscribeRequest(val topic: String)
 @Serializable
-data class MqSubscribeResponse(val message: MqMap<String, dynamic>, val topic: String)
+data class MqSubscribeResponse(Map<String, Any>, val topic: String)

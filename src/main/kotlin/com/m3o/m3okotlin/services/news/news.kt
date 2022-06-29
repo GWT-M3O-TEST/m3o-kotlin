@@ -20,8 +20,8 @@ object NewsService {
       }
 }
 @Serializable
-data class NewsArticle(val url: String, val categories: List<NewsString>, val image_url: String, val language: String, val published_at: String, val snippet: String, val source: String, val title: String, val description: String, val id: String, val keywords: String, val locale: String)
+data class NewsArticle(val language: String, val title: String, val url: String, val categories: List<String>, val id: String, val image_url: String, val keywords: String, val source: String, val description: String, val locale: String, val published_at: String, val snippet: String)
 @Serializable
-data class NewsHeadlinesRequest(val language: String, val locale: String, val date: String)
+data class NewsHeadlinesRequest(val date: String, val language: String, val locale: String)
 @Serializable
 data class NewsHeadlinesResponse(val articles: List<NewsArticle>)

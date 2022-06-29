@@ -48,11 +48,11 @@ data class SearchDeleteRequest(val id: String, val index: String)
 @Serializable
 data class SearchField(val name: String, val type: String)
 @Serializable
-data class SearchIndexRequest(val data: SearchMap<String, dynamic>, val id: String, val index: String)
+data class SearchIndexRequest(Map<String, Any>, val id: String, val index: String)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
-data class SearchRecord(val data: SearchMap<String, dynamic>, val id: String)
+data class SearchRecord(Map<String, Any>, val id: String)
 @Serializable
 data class SearchSearchRequest(val index: String, val query: String)
 @Serializable

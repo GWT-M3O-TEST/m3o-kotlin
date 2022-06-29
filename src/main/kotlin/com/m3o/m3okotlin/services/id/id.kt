@@ -27,4 +27,4 @@ data class IdGenerateRequest(val type: String)
 @Serializable
 data class IdGenerateResponse(val id: String, val type: String)
 @Serializable
-data class IdTypesResponse(val types: List<IdString>)
+data class IdTypesResponse(val types: List<String>)

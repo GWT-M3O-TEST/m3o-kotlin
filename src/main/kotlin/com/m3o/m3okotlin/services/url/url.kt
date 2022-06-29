@@ -13,6 +13,11 @@ import kotlinx.serialization.Serializable
 private const val SERVICE = "url"
 
 object UrlService {
+      suspend fun delete(req: UrlDeleteRequest){
+        return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
+          body = req
+        }
+      }
       suspend fun list(req: UrlListRequest): UrlListResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "List")) {
           body = req
@@ -29,6 +34,8 @@ object UrlService {
         }
       }
 }
+@Serializable
+data class UrlDeleteRequest(val shortURL: String)
 @Serializable
 data class UrlListRequest(val shortURL: String)
 @Serializable

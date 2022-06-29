@@ -35,22 +35,22 @@ object ImageService {
       }
 }
 @Serializable
-data class ImageConvertRequest(val outputURL: Boolean, val url: String, val base64: String, val file: String, val name: String)
+data class ImageConvertRequest(val base64: String, val file: String, val name: String, val outputURL: Boolean, val url: String)
 @Serializable
 data class ImageConvertResponse(val base64: String, val url: String)
 @Serializable
-data class ImageCropOptions(val height: Int, val width: Int, val anchor: String)
+data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
 @Serializable
 data class ImageDeleteRequest(val url: String)
 @Serializable
 data class ImagePoint(val x: Int, val y: Int)
 @Serializable
-data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
+data class ImageRectangle(val min: ImagePoint, val max: ImagePoint)
 @Serializable
-data class ImageResizeRequest(val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String)
+data class ImageResizeRequest(val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long)
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable
-data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
+data class ImageUploadRequest(val file: String, val name: String, val url: String, val base64: String)
 @Serializable
 data class ImageUploadResponse(val url: String)

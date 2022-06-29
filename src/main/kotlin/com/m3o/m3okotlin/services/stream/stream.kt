@@ -41,8 +41,8 @@ data class StreamListChannelsResponse(val channels: List<StreamChannel>)
 @Serializable
 data class StreamListMessagesRequest(val channel: String, val limit: Int)
 @Serializable
-data class StreamListMessagesResponse(val channel: String, val messages: List<StreamMessage>)
+data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
 @Serializable
-data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
+data class StreamMessage(val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String, val channel: String)
 @Serializable
 data class StreamSendMessageRequest(val channel: String, val text: String)

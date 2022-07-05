@@ -20,6 +20,6 @@ object SmsService {
       }
 }
 @Serializable
-data class SmsSendRequest(val message: String, val to: String, val from: String)
+data class SmsSendRequest(val from: String, val message: String, val to: String)
 @Serializable
 data class SmsSendResponse(val info: String, val status: String)

@@ -4,85 +4,6 @@ An [m3o.com](https://m3o.com) API. For example usage see [m3o.com/db/api](https:
 
 Endpoints:
 
-## Delete
-
-Delete a record in the database by id.
-
-
-[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/db/db.dart';
-
-void main() async {
-  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "id": "1",
-  "table": "example"
-,};
-
-  DeleteRequest req = DeleteRequest.fromJson(payload);
-
-  
-  try {
-
-	DeleteResponse res = await ser.delete(req);
-
-    res.map((value) => print(value),
-	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
-## Create
-
-Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
-
-
-[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
-
-```dart
-import 'dart:io';
-
-import 'package:m3o/src/db/db.dart';
-
-void main() async {
-  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
- 
-  final payload = <String, dynamic>{
-  "record": {
-    "age": 42,
-    "id": "1",
-    "isActive": true,
-    "name": "Jane"
-  ,},
-  "table": "example"
-};
-
-  CreateRequest req = CreateRequest.fromJson(payload);
-
-  
-  try {
-
-	CreateResponse res = await ser.create(req);
-
-    res.map((value) => print(value),
-	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
-  
-  } catch (e) {
-    print(e);
-  } finally {
-    exit(0);
-  }
-}
-```
 ## Read
 
 Read data from a table. Lookup can be by ID or via querying any field in the record.
@@ -120,12 +41,12 @@ void main() async {
   }
 }
 ```
-## Truncate
+## Delete
 
-Truncate the records in a table
+Delete a record in the database by id.
 
 
-[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+[https://m3o.com/db/api#Delete](https://m3o.com/db/api#Delete)
 
 ```dart
 import 'dart:io';
@@ -136,18 +57,19 @@ void main() async {
   final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
+  "id": "1",
   "table": "example"
 ,};
 
-  TruncateRequest req = TruncateRequest.fromJson(payload);
+  DeleteRequest req = DeleteRequest.fromJson(payload);
 
   
   try {
 
-	TruncateResponse res = await ser.truncate(req);
+	DeleteResponse res = await ser.delete(req);
 
     res.map((value) => print(value),
-	  Merr: (TruncateResponseMerr err) => print(err.body!['body']));	
+	  Merr: (DeleteResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -291,6 +213,84 @@ void main() async {
 
     res.map((value) => print(value),
 	  Merr: (RenameTableResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Create
+
+Create a record in the database. Optionally include an "id" field otherwise it's set automatically.
+
+
+[https://m3o.com/db/api#Create](https://m3o.com/db/api#Create)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/db/db.dart';
+
+void main() async {
+  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "record": {
+    "age": 42,
+    "id": "1",
+    "isActive": true,
+    "name": "Jane"
+  ,},
+  "table": "example"
+};
+
+  CreateRequest req = CreateRequest.fromJson(payload);
+
+  
+  try {
+
+	CreateResponse res = await ser.create(req);
+
+    res.map((value) => print(value),
+	  Merr: (CreateResponseMerr err) => print(err.body!['body']));	
+  
+  } catch (e) {
+    print(e);
+  } finally {
+    exit(0);
+  }
+}
+```
+## Truncate
+
+Truncate the records in a table
+
+
+[https://m3o.com/db/api#Truncate](https://m3o.com/db/api#Truncate)
+
+```dart
+import 'dart:io';
+
+import 'package:m3o/src/db/db.dart';
+
+void main() async {
+  final ser = DbService(Platform.environment['M3O_API_TOKEN']!);
+ 
+  final payload = <String, dynamic>{
+  "table": "example"
+,};
+
+  TruncateRequest req = TruncateRequest.fromJson(payload);
+
+  
+  try {
+
+	TruncateResponse res = await ser.truncate(req);
+
+    res.map((value) => print(value),
+	  Merr: (TruncateResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

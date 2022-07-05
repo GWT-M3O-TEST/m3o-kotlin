@@ -41,12 +41,12 @@ data class FileListRequest(val path: String, val project: String)
 @Serializable
 data class FileListResponse(val files: List<FileRecord>)
 @Serializable
-data class FileReadRequest(val path: String, val project: String)
+data class FileReadRequest(val project: String, val path: String)
 @Serializable
 data class FileReadResponse(val file: FileRecord)
 @Serializable
-data class FileRecord(val updated: String, val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String)
+data class FileRecord(val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String)
 @Serializable
-data class FileSaveRequest(val file: FileRecord, val public: Boolean)
+data class FileSaveRequest(val public: Boolean, val file: FileRecord)
 @Serializable
 data class FileSaveResponse(val url: String)

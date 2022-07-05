@@ -60,7 +60,7 @@ data class AppDeleteRequest(val name: String)
 @Serializable
 data class AppListResponse(val services: List<AppService>)
 @Serializable
-data class AppLogsRequest(val name: String, val logs_type: String)
+data class AppLogsRequest(val logs_type: String, val name: String)
 @Serializable
 data class AppLogsResponse(val logs: String)
 @Serializable
@@ -76,11 +76,11 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val region: String, val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int)
+data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val updated: String, val custom_domains: List<String>, val name: String, val port: Int, val id: String, val region: String, val repo: String, val status: String, val url: String, val branch: String, val created: String, val env_vars: Map<String, String>)
+data class AppService(val name: String, val port: Int, val repo: String, val updated: String, val branch: String, val created: String, val custom_domains: List<String>, val id: String, val env_vars: Map<String, String>, val region: String, val status: String, val url: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable

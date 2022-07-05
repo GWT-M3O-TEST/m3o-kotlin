@@ -64,13 +64,13 @@ object FunctionService {
       }
 }
 @Serializable
-data class FunctionCallRequest(val name: String, Map<String, Any>)
+data class FunctionCallRequest(val name: String, val request: Map<String, Any>)
 @Serializable
-data class FunctionCallResponse(Map<String, Any>)
+data class FunctionCallResponse(val response: Map<String, Any>)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val branch: String, val entrypoint: String, val region: String, val runtime: String, val source: String, val subfolder: String, val env_vars: Map<String, String>, val name: String, val repo: String)
+data class FunctionDeployRequest(val subfolder: String, val source: String, val entrypoint: String, val env_vars: Map<String, String>, val name: String, val region: String, val repo: String, val runtime: String, val branch: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -78,7 +78,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val region: String, val status: String, val subfolder: String, val created: String, val entrypoint: String, val id: String, val updated: String, val branch: String, val repo: String, val runtime: String, val url: String, val env_vars: Map<String, String>, val name: String, val source: String)
+data class FunctionFunc(val created: String, val entrypoint: String, val repo: String, val updated: String, val branch: String, val id: String, val runtime: String, val url: String, val env_vars: Map<String, String>, val name: String, val region: String, val source: String, val status: String, val subfolder: String)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable

@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "rss"
 
@@ -35,7 +36,7 @@ object RssService {
 @Serializable
 data class RssAddRequest(val category: String, val name: String, val url: String)
 @Serializable
-data class RssEntry(val summary: String, val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String)
+data class RssEntry(val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String, val date: String)
 @Serializable
 data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable

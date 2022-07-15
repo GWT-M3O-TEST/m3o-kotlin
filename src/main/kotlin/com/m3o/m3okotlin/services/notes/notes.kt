@@ -10,6 +10,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "notes"
 
@@ -45,7 +46,7 @@ object NotesService {
       }
 }
 @Serializable
-data class NotesCreateRequest(val title: String, val text: String)
+data class NotesCreateRequest(val text: String, val title: String)
 @Serializable
 data class NotesCreateResponse(val note: NotesNote)
 @Serializable
@@ -55,11 +56,11 @@ data class NotesDeleteResponse(val note: NotesNote)
 @Serializable
 data class NotesEventsRequest(val id: String)
 @Serializable
-data class NotesEventsResponse(val note: NotesNote, val event: String)
+data class NotesEventsResponse(val event: String, val note: NotesNote)
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-data class NotesNote(val id: String, val text: String, val title: String, val updated: String, val created: String)
+data class NotesNote(val title: String, val updated: String, val created: String, val id: String, val text: String)
 @Serializable
 data class NotesReadRequest(val id: String)
 @Serializable

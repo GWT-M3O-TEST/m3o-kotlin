@@ -8,8 +8,8 @@ suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
   val req = RoutingRouteRequest(Origin: &routing.Point{
-Longitude = 13.38886,
 Latitude = 52.517037,
+Longitude = 13.38886,
 },
 Destination: &routing.Point{
 Latitude = 52.529407,

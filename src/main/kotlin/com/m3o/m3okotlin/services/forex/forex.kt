@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "forex"
 
@@ -32,11 +33,11 @@ object ForexService {
 @Serializable
 data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double)
+data class ForexHistoryResponse(val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double, val low: Double, val open: Double)
 @Serializable
 data class ForexPriceRequest(val symbol: String)
 @Serializable
-data class ForexPriceResponse(val price: Double, val symbol: String)
+data class ForexPriceResponse(val symbol: String, val price: Double)
 @Serializable
 data class ForexQuoteRequest(val symbol: String)
 @Serializable

@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "news"
 
@@ -20,8 +21,8 @@ object NewsService {
       }
 }
 @Serializable
-data class NewsArticle(val description: String, val image_url: String, val keywords: String, val language: String, val published_at: String, val source: String, val categories: List<String>, val id: String, val locale: String, val snippet: String, val title: String, val url: String)
+data class NewsArticle(val keywords: String, val categories: List<String>, val id: String, val language: String, val locale: String, val published_at: String, val snippet: String, val source: String, val title: String, val description: String, val image_url: String, val url: String)
 @Serializable
-data class NewsHeadlinesRequest(val date: String, val language: String, val locale: String)
+data class NewsHeadlinesRequest(val locale: String, val date: String, val language: String)
 @Serializable
 data class NewsHeadlinesResponse(val articles: List<NewsArticle>)

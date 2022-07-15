@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "routing"
 
@@ -30,13 +31,13 @@ object RoutingService {
       }
 }
 @Serializable
-data class RoutingDirection(val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String, val distance: Double)
+data class RoutingDirection(val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String)
 @Serializable
 data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingDirectionsResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>, val directions: List<RoutingDirection>)
+data class RoutingDirectionsResponse(val directions: List<RoutingDirection>, val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
 @Serializable
-data class RoutingEtaRequest(val destination: RoutingPoint, val origin: RoutingPoint, val speed: Double, val type: String)
+data class RoutingEtaRequest(val origin: RoutingPoint, val speed: Double, val type: String, val destination: RoutingPoint)
 @Serializable
 data class RoutingEtaResponse(val duration: Double)
 @Serializable
@@ -48,6 +49,6 @@ data class RoutingPoint(val longitude: Double, val latitude: Double)
 @Serializable
 data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingRouteResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
+data class RoutingRouteResponse(val waypoints: List<RoutingWaypoint>, val distance: Double, val duration: Double)
 @Serializable
 data class RoutingWaypoint(val location: RoutingPoint, val name: String)

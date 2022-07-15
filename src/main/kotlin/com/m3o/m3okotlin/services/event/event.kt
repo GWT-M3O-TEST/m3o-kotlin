@@ -10,6 +10,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "event"
 
@@ -32,13 +33,13 @@ object EventService {
       }
 }
 @Serializable
-data class EventConsumeRequest(val offset: String, val topic: String, val group: String)
+data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
 @Serializable
-data class EventConsumeResponse(val id: String, JsonObject, val timestamp: String, val topic: String)
+data class EventConsumeResponse(val id: String, val message: JsonObject, val timestamp: String, val topic: String)
 @Serializable
-data class EventEv(val id: String, JsonObject, val timestamp: String)
+data class EventEv(val message: JsonObject, val timestamp: String, val id: String)
 @Serializable
-data class EventPublishRequest(JsonObject, val topic: String)
+data class EventPublishRequest(val topic: String, val message: JsonObject)
 @Serializable
 data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
 @Serializable

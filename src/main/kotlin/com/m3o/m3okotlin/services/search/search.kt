@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "search"
 
@@ -48,11 +49,11 @@ data class SearchDeleteRequest(val id: String, val index: String)
 @Serializable
 data class SearchField(val name: String, val type: String)
 @Serializable
-data class SearchIndexRequest(val index: String, JsonObject, val id: String)
+data class SearchIndexRequest(val data: JsonObject, val id: String, val index: String)
 @Serializable
 data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
-data class SearchRecord(JsonObject, val id: String)
+data class SearchRecord(val data: JsonObject, val id: String)
 @Serializable
 data class SearchSearchRequest(val query: String, val index: String)
 @Serializable

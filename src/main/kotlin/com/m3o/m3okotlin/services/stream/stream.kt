@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "stream"
 
@@ -33,7 +34,7 @@ object StreamService {
       }
 }
 @Serializable
-data class StreamChannel(val description: String, val last_active: String, val name: String)
+data class StreamChannel(val name: String, val description: String, val last_active: String)
 @Serializable
 data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable

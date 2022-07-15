@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "movie"
 
@@ -20,8 +21,8 @@ object MovieService {
       }
 }
 @Serializable
-data class MovieMovieInfo(val genre_ids: List<Int>, val id: Int, val original_language: String, val release_date: String, val title: String, val video: Boolean, val vote_count: Int, val popularity: Double, val adult: Boolean, val original_title: String, val backdrop_path: String, val overview: String, val poster_path: String, val vote_average: Double)
+data class MovieMovieInfo(val adult: Boolean, val genre_ids: List<Int>, val title: String, val video: Boolean, val vote_count: Int, val id: Int, val original_language: String, val original_title: String, val overview: String, val poster_path: String, val backdrop_path: String, val popularity: Double, val release_date: String, val vote_average: Double)
 @Serializable
-data class MovieSearchRequest(val page: Int, val primary_release_year: Int, val query: String, val region: String, val year: Int, val language: String)
+data class MovieSearchRequest(val year: Int, val language: String, val page: Int, val primary_release_year: Int, val query: String, val region: String)
 @Serializable
 data class MovieSearchResponse(val page: Int, val results: List<MovieMovieInfo>, val total_pages: Int, val total_results: Int)

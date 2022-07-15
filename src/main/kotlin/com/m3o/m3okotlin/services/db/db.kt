@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "db"
 
@@ -62,7 +63,7 @@ data class DbCountRequest(val table: String)
 @Serializable
 data class DbCountResponse(val count: Int)
 @Serializable
-data class DbCreateRequest(val id: String, JsonObject, val table: String)
+data class DbCreateRequest(val id: String, val record: JsonObject, val table: String)
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
@@ -72,7 +73,7 @@ data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbListTablesResponse(val tables: List<String>)
 @Serializable
-data class DbReadRequest(val table: String, val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String)
+data class DbReadRequest(val offset: Int, val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int)
 @Serializable
 data class DbReadResponse(val records: List<JsonObject>)
 @Serializable
@@ -80,4 +81,4 @@ data class DbRenameTableRequest(val from: String, val to: String)
 @Serializable
 data class DbTruncateRequest(val table: String)
 @Serializable
-data class DbUpdateRequest(val id: String, JsonObject, val table: String)
+data class DbUpdateRequest(val record: JsonObject, val table: String, val id: String)

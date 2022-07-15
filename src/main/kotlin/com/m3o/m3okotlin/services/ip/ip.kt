@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "ip"
 
@@ -22,4 +23,4 @@ object IpService {
 @Serializable
 data class IpLookupRequest(val ip: String)
 @Serializable
-data class IpLookupResponse(val country: String, val ip: String, val latitude: Double, val longitude: Double, val timezone: String, val asn: Int, val city: String, val continent: String)
+data class IpLookupResponse(val ip: String, val latitude: Double, val longitude: Double, val timezone: String, val asn: Int, val city: String, val continent: String, val country: String)

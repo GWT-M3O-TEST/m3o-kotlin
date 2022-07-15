@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "carbon"
 
@@ -18,6 +19,6 @@ object CarbonService {
       }
 }
 @Serializable
-data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
+data class CarbonOffsetResponse(val units: Int, val metric: String, val projects: List<CarbonProject>, val tonnes: Double)
 @Serializable
 data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)

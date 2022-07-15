@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "location"
 
@@ -40,6 +41,6 @@ data class LocationReadResponse(val entity: LocationEntity)
 @Serializable
 data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
-data class LocationSearchRequest(val center: LocationPoint, val numEntities: Long, val radius: Double, val type: String)
+data class LocationSearchRequest(val numEntities: Long, val radius: Double, val type: String, val center: LocationPoint)
 @Serializable
 data class LocationSearchResponse(val entities: List<LocationEntity>)

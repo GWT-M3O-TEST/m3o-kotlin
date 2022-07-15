@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "password"
 
@@ -20,6 +21,6 @@ object PasswordService {
       }
 }
 @Serializable
-data class PasswordGenerateRequest(val numbers: Boolean, val special: Boolean, val uppercase: Boolean, val length: Int, val lowercase: Boolean)
+data class PasswordGenerateRequest(val length: Int, val lowercase: Boolean, val numbers: Boolean, val special: Boolean, val uppercase: Boolean)
 @Serializable
 data class PasswordGenerateResponse(val password: String)

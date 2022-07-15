@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "image"
 
@@ -35,7 +36,7 @@ object ImageService {
       }
 }
 @Serializable
-data class ImageConvertRequest(val base64: String, val file: String, val name: String, val outputURL: Boolean, val url: String)
+data class ImageConvertRequest(val url: String, val base64: String, val file: String, val name: String, val outputURL: Boolean)
 @Serializable
 data class ImageConvertResponse(val base64: String, val url: String)
 @Serializable
@@ -47,7 +48,7 @@ data class ImagePoint(val y: Int, val x: Int)
 @Serializable
 data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-data class ImageResizeRequest(val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long)
+data class ImageResizeRequest(val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String)
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable

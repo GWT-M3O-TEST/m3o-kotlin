@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "function"
 
@@ -64,13 +65,13 @@ object FunctionService {
       }
 }
 @Serializable
-data class FunctionCallRequest(val name: String, JsonObject)
+data class FunctionCallRequest(val name: String, val request: JsonObject)
 @Serializable
-data class FunctionCallResponse(JsonObject)
+data class FunctionCallResponse(val response: JsonObject)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val entrypoint: String, val env_vars: Map<String, String>, val name: String, val source: String, val subfolder: String, val branch: String, val region: String, val repo: String, val runtime: String)
+data class FunctionDeployRequest(val name: String, val repo: String, val subfolder: String, val branch: String, val env_vars: Map<String, String>, val region: String, val runtime: String, val source: String, val entrypoint: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -78,7 +79,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val branch: String, val source: String, val status: String, val url: String, val entrypoint: String, val name: String, val runtime: String, val subfolder: String, val created: String, val id: String, val env_vars: Map<String, String>, val region: String, val repo: String, val updated: String)
+data class FunctionFunc(val created: String, val region: String, val runtime: String, val status: String, val entrypoint: String, val name: String, val updated: String, val url: String, val repo: String, val subfolder: String, val id: String, val source: String, val branch: String, val env_vars: Map<String, String>)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable

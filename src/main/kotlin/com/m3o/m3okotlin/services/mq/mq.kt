@@ -10,6 +10,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "mq"
 
@@ -27,8 +28,8 @@ object MqService {
       }
 }
 @Serializable
-data class MqPublishRequest(val topic: String, JsonObject)
+data class MqPublishRequest(val message: JsonObject, val topic: String)
 @Serializable
 data class MqSubscribeRequest(val topic: String)
 @Serializable
-data class MqSubscribeResponse(JsonObject, val topic: String)
+data class MqSubscribeResponse(val message: JsonObject, val topic: String)

@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "translate"
 
@@ -20,7 +21,7 @@ object TranslateService {
       }
 }
 @Serializable
-data class TranslateTextRequest(val target: String, val content: String, val format: String, val model: String, val source: String)
+data class TranslateTextRequest(val content: String, val format: String, val model: String, val source: String, val target: String)
 @Serializable
 data class TranslateTextResponse(val translation: TranslateTranslation)
 @Serializable

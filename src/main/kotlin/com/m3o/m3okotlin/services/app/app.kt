@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "app"
 
@@ -76,11 +77,11 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val region: String, val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int)
+data class AppRunRequest(val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String, val branch: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val branch: String, val created: String, val custom_domains: List<String>, val id: String, val status: String, val updated: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String, val url: String)
+data class AppService(val created: String, val port: Int, val updated: String, val region: String, val repo: String, val status: String, val branch: String, val custom_domains: List<String>, val env_vars: Map<String, String>, val id: String, val name: String, val url: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable

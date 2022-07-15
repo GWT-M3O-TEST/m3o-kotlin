@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "tunnel"
 
@@ -20,6 +21,6 @@ object TunnelService {
       }
 }
 @Serializable
-data class TunnelSendRequest(val url: String, val body: String, val headers: Map<String, String>, val host: String, val method: String, val params: Map<String, String>, val path: String)
+data class TunnelSendRequest(val params: Map<String, String>, val path: String, val url: String, val body: String, val headers: Map<String, String>, val host: String, val method: String)
 @Serializable
 data class TunnelSendResponse(val body: String, val headers: Map<String, String>, val status: String, val status_code: Int)

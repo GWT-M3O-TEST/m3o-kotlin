@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "answer"
 
@@ -22,4 +23,4 @@ object AnswerService {
 @Serializable
 data class AnswerQuestionRequest(val query: String)
 @Serializable
-data class AnswerQuestionResponse(val image: String, val url: String, val answer: String)
+data class AnswerQuestionResponse(val url: String, val answer: String, val image: String)

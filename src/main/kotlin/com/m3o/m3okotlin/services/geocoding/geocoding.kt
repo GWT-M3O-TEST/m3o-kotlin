@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "geocoding"
 
@@ -25,7 +26,7 @@ object GeocodingService {
       }
 }
 @Serializable
-data class GeocodingAddress(val city: String, val country: String, val line_one: String, val line_two: String, val postcode: String)
+data class GeocodingAddress(val postcode: String, val city: String, val country: String, val line_one: String, val line_two: String)
 @Serializable
 data class GeocodingLocation(val latitude: Double, val longitude: Double)
 @Serializable

@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "email"
 
@@ -34,7 +35,7 @@ data class EmailParseRequest(val address: String)
 @Serializable
 data class EmailParseResponse(val address: String, val name: String)
 @Serializable
-data class EmailSendRequest(val to: String, val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String)
+data class EmailSendRequest(val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String, val to: String)
 @Serializable
 data class EmailValidateRequest(val address: String)
 @Serializable

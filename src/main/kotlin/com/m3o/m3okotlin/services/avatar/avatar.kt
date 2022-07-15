@@ -9,6 +9,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "avatar"
 
@@ -20,6 +21,6 @@ object AvatarService {
       }
 }
 @Serializable
-data class AvatarGenerateRequest(val format: String, val gender: String, val upload: Boolean, val username: String)
+data class AvatarGenerateRequest(val gender: String, val upload: Boolean, val username: String, val format: String)
 @Serializable
 data class AvatarGenerateResponse(val base64: String, val url: String)

@@ -8,9 +8,9 @@ suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
   val req = CommentsUpdateRequest(Comment: &comments.Comment{
-Text = "Updated comment text",
 Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",
 Subject = "Update Comment",
+Text = "Updated comment text",
 },)
   
   try {

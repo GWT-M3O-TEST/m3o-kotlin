@@ -80,7 +80,7 @@ data class AppRunRequest(val branch: String, val env_vars: Map<String, String>, 
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val url: String, val branch: String, val env_vars: Map<String, String>, val id: String, val name: String, val status: String, val updated: String, val created: String, val custom_domains: List<String>, val port: Int, val region: String, val repo: String)
+data class AppService(val branch: String, val custom_domains: List<String>, val env_vars: Map<String, String>, val name: String, val port: Int, val status: String, val url: String, val created: String, val id: String, val region: String, val repo: String, val updated: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable

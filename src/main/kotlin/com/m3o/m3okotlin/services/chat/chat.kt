@@ -98,6 +98,6 @@ data class ChatMessage(val room_id: String, val sent_at: String, val subject: St
 @Serializable
 data class ChatRoom(val created_at: String, val description: String, val id: String, val name: String, val private: Boolean, val user_ids: List<String>)
 @Serializable
-data class ChatSendRequest(val subject: String, val text: String, val user_id: String, val client: String, val room_id: String)
+data class ChatSendRequest(val user_id: String, val client: String, val room_id: String, val subject: String, val text: String)
 @Serializable
 data class ChatSendResponse(val message: ChatMessage)

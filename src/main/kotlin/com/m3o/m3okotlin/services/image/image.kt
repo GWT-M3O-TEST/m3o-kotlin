@@ -51,6 +51,6 @@ data class ImageResizeRequest(val file: String, val height: Long, val name: Stri
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable
-data class ImageUploadRequest(val name: String, val url: String, val base64: String, val file: String)
+data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
 @Serializable
 data class ImageUploadResponse(val url: String)

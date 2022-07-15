@@ -55,7 +55,7 @@ object SpaceService {
       }
 }
 @Serializable
-data class SpaceCreateRequest(val visibility: String, val name: String, val object: String)
+data class SpaceCreateRequest(val name: String, val object: String, val visibility: String)
 @Serializable
 data class SpaceCreateResponse(val url: String)
 @Serializable
@@ -65,7 +65,7 @@ data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-data class SpaceHeadObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String)
+data class SpaceHeadObject(val created: String, val modified: String, val name: String, val url: String, val visibility: String)
 @Serializable
 data class SpaceHeadRequest(val name: String)
 @Serializable

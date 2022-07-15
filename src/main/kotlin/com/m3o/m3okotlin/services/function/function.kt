@@ -70,7 +70,7 @@ data class FunctionCallResponse(JsonObject)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val branch: String, val entrypoint: String, val name: String, val repo: String, val source: String, val subfolder: String, val env_vars: Map<String, String>, val region: String, val runtime: String)
+data class FunctionDeployRequest(val runtime: String, val branch: String, val env_vars: Map<String, String>, val region: String, val repo: String, val entrypoint: String, val name: String, val source: String, val subfolder: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -78,7 +78,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val created: String, val entrypoint: String, val name: String, val region: String, val status: String, val id: String, val runtime: String, val url: String, val repo: String, val source: String, val updated: String, val branch: String, val env_vars: Map<String, String>, val subfolder: String)
+data class FunctionFunc(val subfolder: String, val branch: String, val env_vars: Map<String, String>, val id: String, val source: String, val status: String, val updated: String, val url: String, val entrypoint: String, val name: String, val region: String, val runtime: String, val created: String, val repo: String)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
@@ -100,4 +100,4 @@ data class FunctionReserveResponse(val reservation: FunctionReservation)
 @Serializable
 data class FunctionRuntimesResponse(val runtimes: List<String>)
 @Serializable
-data class FunctionUpdateRequest(val name: String, val source: String)
+data class FunctionUpdateRequest(val source: String, val name: String)

@@ -20,10 +20,10 @@ object DnsService {
       }
 }
 @Serializable
-data class DnsAnswer(val type: Int, val TTL: Int, val data: String, val name: String)
+data class DnsAnswer(val TTL: Int, val data: String, val name: String, val type: Int)
 @Serializable
 data class DnsQueryRequest(val name: String, val type: String)
 @Serializable
-data class DnsQueryResponse(val AD: Boolean, val CD: Boolean, val RA: Boolean, val RD: Boolean, val question: List<DnsQuestion>, val TC: Boolean, val answer: List<DnsAnswer>, val provider: String, val status: Int)
+data class DnsQueryResponse(val AD: Boolean, val RD: Boolean, val status: Int, val CD: Boolean, val RA: Boolean, val TC: Boolean, val answer: List<DnsAnswer>, val provider: String, val question: List<DnsQuestion>)
 @Serializable
 data class DnsQuestion(val name: String, val type: Int)

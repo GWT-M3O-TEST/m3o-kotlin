@@ -13,8 +13,8 @@ Latitude = 51.52627543859447,
 Longitude = -0.03635349400295168,
 },
 TopRight: &evchargers.Coordinates{
-Longitude = -0.002293530559768285,
 Latitude = 51.56717121807993,
+Longitude = -0.002293530559768285,
 },
 },
 MaxResults = 2,)

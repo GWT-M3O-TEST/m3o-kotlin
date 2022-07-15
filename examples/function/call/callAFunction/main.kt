@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.function
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = FunctionCallRequest(Request: &function.Json{
-},
-Name = "helloworld",)
+  val req = FunctionCallRequest(Name = "helloworld",
+Request: &function.Json{
+},)
   
   try {
       val response = FunctionService.call(req)

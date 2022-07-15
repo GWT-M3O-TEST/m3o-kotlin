@@ -27,10 +27,10 @@ object YoutubeService {
 @Serializable
 data class YoutubeEmbedRequest(val url: String)
 @Serializable
-data class YoutubeEmbedResponse(val long_url: String, val short_url: String, val embed_url: String, val html_script: String)
+data class YoutubeEmbedResponse(val embed_url: String, val html_script: String, val long_url: String, val short_url: String)
 @Serializable
 data class YoutubeSearchRequest(val query: String)
 @Serializable
 data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
 @Serializable
-data class YoutubeSearchResult(val broadcasting: String, val channel_title: String, val url: String, val channel_id: String, val description: String, val id: String, val kind: String, val published_at: String, val title: String)
+data class YoutubeSearchResult(val kind: String, val title: String, val url: String, val broadcasting: String, val channel_id: String, val channel_title: String, val description: String, val id: String, val published_at: String)

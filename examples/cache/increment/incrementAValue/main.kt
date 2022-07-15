@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.cache
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CacheIncrementRequest(Key = "counter",
-Value = 2,)
+  val req = CacheIncrementRequest(Value = 2,
+Key = "counter",)
   
   try {
       val response = CacheService.increment(req)

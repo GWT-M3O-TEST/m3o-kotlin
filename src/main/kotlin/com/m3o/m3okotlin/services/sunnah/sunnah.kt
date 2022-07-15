@@ -39,22 +39,22 @@ data class SunnahBook(val arabic_name: String, val hadiths: Int, val id: Int, va
 @Serializable
 data class SunnahBooksRequest(val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahBooksResponse(val total: Int, val books: List<SunnahBook>, val collection: String, val limit: Int, val page: Int)
+data class SunnahBooksResponse(val collection: String, val limit: Int, val page: Int, val total: Int, val books: List<SunnahBook>)
 @Serializable
-data class SunnahChapter(val key: String, val title: String, val arabic_title: String, val book: Int, val id: Int)
+data class SunnahChapter(val id: Int, val key: String, val title: String, val arabic_title: String, val book: Int)
 @Serializable
-data class SunnahChaptersRequest(val page: Int, val book: Int, val collection: String, val limit: Int)
+data class SunnahChaptersRequest(val collection: String, val limit: Int, val page: Int, val book: Int)
 @Serializable
 data class SunnahChaptersResponse(val total: Int, val book: Int, val chapters: List<SunnahChapter>, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahCollection(val summary: String, val title: String, val arabic_title: String, val hadiths: Int, val name: String)
+data class SunnahCollection(val arabic_title: String, val hadiths: Int, val name: String, val summary: String, val title: String)
 @Serializable
 data class SunnahCollectionsRequest(val limit: Int, val page: Int)
 @Serializable
 data class SunnahCollectionsResponse(val collections: List<SunnahCollection>)
 @Serializable
-data class SunnahHadith(val text: String, val arabic_chapter_title: String, val arabic_text: String, val chapter: Int, val chapter_key: String, val chapter_title: String, val id: Int)
+data class SunnahHadith(val chapter_title: String, val id: Int, val text: String, val arabic_chapter_title: String, val arabic_text: String, val chapter: Int, val chapter_key: String)
 @Serializable
 data class SunnahHadithsRequest(val book: Int, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahHadithsResponse(val total: Int, val book: Int, val collection: String, val hadiths: List<SunnahHadith>, val limit: Int, val page: Int)
+data class SunnahHadithsResponse(val limit: Int, val page: Int, val total: Int, val book: Int, val collection: String, val hadiths: List<SunnahHadith>)

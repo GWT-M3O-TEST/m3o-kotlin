@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserLoginRequest(Password = "Password1",
-Email = "joe@example.com",)
+  val req = UserLoginRequest(Email = "joe@example.com",
+Password = "Password1",)
   
   try {
       val response = UserService.login(req)

@@ -7,10 +7,10 @@ import com.m3o.m3okotlin.services.avatar
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = AvatarGenerateRequest(Gender = "female",
-Username = "",
+  val req = AvatarGenerateRequest(Username = "",
 Format = "png",
-Upload = true,)
+Upload = true,
+Gender = "female",)
   
   try {
       val response = AvatarService.generate(req)

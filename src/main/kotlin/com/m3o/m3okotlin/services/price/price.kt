@@ -50,12 +50,12 @@ data class PriceIndex(val currency: String, val name: String, val symbol: String
 @Serializable
 data class PriceIndexResponse(val index: List<PriceIndex>)
 @Serializable
-data class PriceListRequest(val limit: Int, val offset: Int, val currency: String)
+data class PriceListRequest(val currency: String, val limit: Int, val offset: Int)
 @Serializable
 data class PriceListResponse(val values: List<PriceValue>)
 @Serializable
-data class PriceReport(val author: String, val comment: String, val name: String, val symbol: String)
+data class PriceReport(val comment: String, val name: String, val symbol: String, val author: String)
 @Serializable
-data class PriceReportRequest(val symbol: String, val comment: String, val name: String)
+data class PriceReportRequest(val comment: String, val name: String, val symbol: String)
 @Serializable
-data class PriceValue(val source: String, val symbol: String, val timestamp: String, val author: String, val currency: String, val name: String, val price: Double)
+data class PriceValue(val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String, val timestamp: String)

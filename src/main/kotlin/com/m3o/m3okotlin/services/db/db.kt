@@ -72,11 +72,11 @@ data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbListTablesResponse(val tables: List<String>)
 @Serializable
-data class DbReadRequest(val orderBy: String, val query: String, val table: String, val id: String, val limit: Int, val offset: Int, val order: String)
+data class DbReadRequest(val table: String, val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String)
 @Serializable
 data class DbReadResponse(val records: List<JsonObject>)
 @Serializable
-data class DbRenameTableRequest(val to: String, val from: String)
+data class DbRenameTableRequest(val from: String, val to: String)
 @Serializable
 data class DbTruncateRequest(val table: String)
 @Serializable

@@ -81,9 +81,9 @@ data class SpaceReadRequest(val name: String)
 @Serializable
 data class SpaceReadResponse(val object: SpaceSpaceObject)
 @Serializable
-data class SpaceSpaceObject(val created: String, val data: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceSpaceObject(val url: String, val visibility: String, val created: String, val data: String, val modified: String, val name: String)
 @Serializable
-data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
+data class SpaceUpdateRequest(val object: String, val visibility: String, val name: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable

@@ -43,14 +43,14 @@ data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
 @Serializable
 data class ImageDeleteRequest(val url: String)
 @Serializable
-data class ImagePoint(val x: Int, val y: Int)
+data class ImagePoint(val y: Int, val x: Int)
 @Serializable
 data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-data class ImageResizeRequest(val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions)
+data class ImageResizeRequest(val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long)
 @Serializable
 data class ImageResizeResponse(val base64: String, val url: String)
 @Serializable
-data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
+data class ImageUploadRequest(val url: String, val base64: String, val file: String, val name: String)
 @Serializable
 data class ImageUploadResponse(val url: String)

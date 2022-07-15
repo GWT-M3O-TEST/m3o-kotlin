@@ -57,7 +57,7 @@ data class ListsEventsRequest(val id: String)
 @Serializable
 data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
-data class ListsList(val id: String, val items: List<String>, val name: String, val updated: String, val created: String)
+data class ListsList(val items: List<String>, val name: String, val updated: String, val created: String, val id: String)
 @Serializable
 data class ListsListResponse(val lists: List<ListsList>)
 @Serializable

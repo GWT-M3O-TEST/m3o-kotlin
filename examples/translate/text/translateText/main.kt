@@ -7,11 +7,11 @@ import com.m3o.m3okotlin.services.translate
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = TranslateTextRequest(Format = "text",
+  val req = TranslateTextRequest(Model = "nmt",
+Format = "text",
 Source = "en",
 Target = "fr",
-Content = "hello",
-Model = "nmt",)
+Content = "hello",)
   
   try {
       val response = TranslateService.text(req)

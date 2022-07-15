@@ -7,13 +7,13 @@ import com.m3o.m3okotlin.services.function
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = FunctionDeployRequest(Entrypoint = "Helloworld",
-Subfolder = "examples/go-function",
+  val req = FunctionDeployRequest(Subfolder = "examples/go-function",
 Runtime = "go116",
 Region = "europe-west1",
 Name = "helloworld",
 Repo = "https://github.com/m3o/m3o",
-Branch = "main",)
+Branch = "main",
+Entrypoint = "Helloworld",)
   
   try {
       val response = FunctionService.deploy(req)

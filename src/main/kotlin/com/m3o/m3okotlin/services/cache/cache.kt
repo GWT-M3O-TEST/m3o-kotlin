@@ -61,6 +61,6 @@ data class CacheIncrementResponse(val key: String, val value: Long)
 @Serializable
 data class CacheListKeysResponse(val keys: List<String>)
 @Serializable
-data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
+data class CacheSetRequest(val ttl: Long, val value: String, val key: String)
 @Serializable
 data class CacheSetResponse(val status: String)

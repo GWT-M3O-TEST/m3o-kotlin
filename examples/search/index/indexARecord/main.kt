@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.search
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = SearchIndexRequest(Data: &search.Json{
-},
-Index = "customers",)
+  val req = SearchIndexRequest(Index = "customers",
+Data: &search.Json{
+},)
   
   try {
       val response = SearchService.index(req)

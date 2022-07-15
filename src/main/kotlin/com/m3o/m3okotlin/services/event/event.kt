@@ -34,11 +34,11 @@ object EventService {
 @Serializable
 data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
 @Serializable
-data class EventConsumeResponse(val id: String, val message: Map<String, Any>, val timestamp: String, val topic: String)
+data class EventConsumeResponse(val id: String, JsonObject, val timestamp: String, val topic: String)
 @Serializable
-data class EventEv(val id: String, val message: Map<String, Any>, val timestamp: String)
+data class EventEv(val id: String, JsonObject, val timestamp: String)
 @Serializable
-data class EventPublishRequest(val topic: String, val message: Map<String, Any>)
+data class EventPublishRequest(JsonObject, val topic: String)
 @Serializable
 data class EventReadRequest(val limit: Int, val offset: Int, val topic: String)
 @Serializable

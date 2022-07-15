@@ -20,8 +20,8 @@ object PrayerService {
       }
 }
 @Serializable
-data class PrayerPrayerTime(val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String, val maghrib: String)
+data class PrayerPrayerTime(val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String, val maghrib: String, val sunrise: String)
 @Serializable
-data class PrayerTimesRequest(val location: String, val longitude: Double, val date: String, val days: Int, val latitude: Double)
+data class PrayerTimesRequest(val latitude: Double, val location: String, val longitude: Double, val date: String, val days: Int)
 @Serializable
-data class PrayerTimesResponse(val times: List<PrayerPrayerTime>, val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
+data class PrayerTimesResponse(val longitude: Double, val times: List<PrayerPrayerTime>, val date: String, val days: Int, val latitude: Double, val location: String)

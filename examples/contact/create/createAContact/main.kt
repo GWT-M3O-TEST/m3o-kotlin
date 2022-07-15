@@ -7,9 +7,13 @@ import com.m3o.m3okotlin.services.contact
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ContactCreateRequest(Emails: []contact.Email{
+  val req = ContactCreateRequest(Phones: []contact.Phone{
+contact.Phone: {
+Label = "work", Number = "010-87654321", },
+},
+Emails: []contact.Email{
 contact.Email: {
-Address = "work@example.com", Label = "work", },
+Label = "work", Address = "work@example.com", },
 },
 Links: []contact.Link{
 contact.Link: {
@@ -25,11 +29,7 @@ contact.SocialMedia: {
 Label = "facebook", Username = "joe-facebook", },
 },
 Note = "this person is very important",
-Name = "joe",
-Phones: []contact.Phone{
-contact.Phone: {
-Label = "work", Number = "010-87654321", },
-},)
+Name = "joe",)
   
   try {
       val response = ContactService.create(req)

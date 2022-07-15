@@ -42,20 +42,20 @@ data class PriceAddRequest(val symbol: String, val author: String, val currency:
 @Serializable
 data class PriceAddResponse(val value: PriceValue)
 @Serializable
-data class PriceGetRequest(val symbol: String, val currency: String, val name: String)
+data class PriceGetRequest(val currency: String, val name: String, val symbol: String)
 @Serializable
 data class PriceGetResponse(val values: List<PriceValue>)
 @Serializable
-data class PriceIndex(val name: String, val symbol: String, val currency: String)
+data class PriceIndex(val symbol: String, val currency: String, val name: String)
 @Serializable
 data class PriceIndexResponse(val index: List<PriceIndex>)
 @Serializable
-data class PriceListRequest(val offset: Int, val currency: String, val limit: Int)
+data class PriceListRequest(val currency: String, val limit: Int, val offset: Int)
 @Serializable
 data class PriceListResponse(val values: List<PriceValue>)
 @Serializable
-data class PriceReport(val comment: String, val name: String, val symbol: String, val author: String)
+data class PriceReport(val author: String, val comment: String, val name: String, val symbol: String)
 @Serializable
 data class PriceReportRequest(val comment: String, val name: String, val symbol: String)
 @Serializable
-data class PriceValue(val currency: String, val name: String, val price: Double, val source: String, val symbol: String, val timestamp: String, val author: String)
+data class PriceValue(val timestamp: String, val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String)

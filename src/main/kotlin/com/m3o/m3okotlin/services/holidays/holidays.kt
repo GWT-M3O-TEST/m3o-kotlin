@@ -25,7 +25,7 @@ object HolidaysService {
 @Serializable
 data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>)
 @Serializable
-data class HolidaysCountry(val code: String, val name: String)
+data class HolidaysCountry(val name: String, val code: String)
 @Serializable
 data class HolidaysHoliday(val country_code: String, val date: String, val local_name: String, val name: String, val regions: List<String>, val types: List<String>)
 @Serializable

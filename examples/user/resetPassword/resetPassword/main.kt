@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserResetPasswordRequest(Code = "012345",
-Email = "joe@example.com",)
+  val req = UserResetPasswordRequest(Email = "joe@example.com",
+Code = "012345",)
   
   try {
       val response = UserService.resetPassword(req)

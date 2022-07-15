@@ -62,7 +62,7 @@ data class DbCountRequest(val table: String)
 @Serializable
 data class DbCountResponse(val count: Int)
 @Serializable
-data class DbCreateRequest(val id: String, JsonObject, val table: String)
+data class DbCreateRequest(val table: String, val id: String, JsonObject)
 @Serializable
 data class DbCreateResponse(val id: String)
 @Serializable
@@ -72,7 +72,7 @@ data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbListTablesResponse(val tables: List<String>)
 @Serializable
-data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
+data class DbReadRequest(val table: String, val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String)
 @Serializable
 data class DbReadResponse(val records: List<JsonObject>)
 @Serializable

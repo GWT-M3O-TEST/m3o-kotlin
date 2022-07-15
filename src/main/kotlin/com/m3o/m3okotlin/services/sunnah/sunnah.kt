@@ -39,15 +39,15 @@ data class SunnahBook(val arabic_name: String, val hadiths: Int, val id: Int, va
 @Serializable
 data class SunnahBooksRequest(val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahBooksResponse(val books: List<SunnahBook>, val collection: String, val limit: Int, val page: Int, val total: Int)
+data class SunnahBooksResponse(val total: Int, val books: List<SunnahBook>, val collection: String, val limit: Int, val page: Int)
 @Serializable
 data class SunnahChapter(val key: String, val title: String, val arabic_title: String, val book: Int, val id: Int)
 @Serializable
 data class SunnahChaptersRequest(val page: Int, val book: Int, val collection: String, val limit: Int)
 @Serializable
-data class SunnahChaptersResponse(val book: Int, val chapters: List<SunnahChapter>, val collection: String, val limit: Int, val page: Int, val total: Int)
+data class SunnahChaptersResponse(val total: Int, val book: Int, val chapters: List<SunnahChapter>, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahCollection(val name: String, val summary: String, val title: String, val arabic_title: String, val hadiths: Int)
+data class SunnahCollection(val summary: String, val title: String, val arabic_title: String, val hadiths: Int, val name: String)
 @Serializable
 data class SunnahCollectionsRequest(val limit: Int, val page: Int)
 @Serializable
@@ -57,4 +57,4 @@ data class SunnahHadith(val text: String, val arabic_chapter_title: String, val 
 @Serializable
 data class SunnahHadithsRequest(val book: Int, val collection: String, val limit: Int, val page: Int)
 @Serializable
-data class SunnahHadithsResponse(val limit: Int, val page: Int, val total: Int, val book: Int, val collection: String, val hadiths: List<SunnahHadith>)
+data class SunnahHadithsResponse(val total: Int, val book: Int, val collection: String, val hadiths: List<SunnahHadith>, val limit: Int, val page: Int)

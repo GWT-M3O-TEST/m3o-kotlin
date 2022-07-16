@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.otp
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = OtpValidateRequest(Id = "asim@example.com",
-Code = "656211",)
+  val req = OtpValidateRequest(Code = "656211",
+Id = "asim@example.com",)
   
   try {
       val response = OtpService.validate(req)

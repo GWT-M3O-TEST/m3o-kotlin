@@ -37,9 +37,9 @@ data class BitcoinBalanceResponse(val balance: Long)
 @Serializable
 data class BitcoinInput(val prev_out: BitcoinPrev, val script: String)
 @Serializable
-data class BitcoinOutput(val script: String, val spent: Boolean, val tx_index: Long, val value: Long, val address: String, val hash: String)
+data class BitcoinOutput(val tx_index: Long, val value: Long, val address: String, val hash: String, val script: String, val spent: Boolean)
 @Serializable
-data class BitcoinPrev(val spent: Boolean, val tx_index: Long, val value: Long, val address: String, val n: Long, val script: String)
+data class BitcoinPrev(val n: Long, val script: String, val spent: Boolean, val tx_index: Long, val value: Long, val address: String)
 @Serializable
 data class BitcoinPriceRequest(val symbol: String)
 @Serializable
@@ -47,4 +47,4 @@ data class BitcoinPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class BitcoinTransactionRequest(val hash: String)
 @Serializable
-data class BitcoinTransactionResponse(val relay: String, val tx_index: Long, val vin_sz: Long, val weight: Long, val version: Long, val block_height: Long, val block_index: Long, val lock_time: Long, val outputs: List<BitcoinOutput>, val size: Long, val double_spend: Boolean, val fee: Long, val hash: String, val inputs: List<BitcoinInput>, val vout_sz: Long)
+data class BitcoinTransactionResponse(val inputs: List<BitcoinInput>, val lock_time: Long, val relay: String, val block_index: Long, val fee: Long, val double_spend: Boolean, val tx_index: Long, val block_height: Long, val outputs: List<BitcoinOutput>, val size: Long, val version: Long, val vin_sz: Long, val vout_sz: Long, val weight: Long, val hash: String)

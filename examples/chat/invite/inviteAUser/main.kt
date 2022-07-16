@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.chat
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ChatInviteRequest(UserId = "user-1",
-RoomId = "d8057208-f81a-4e14-ad7f-c29daa2bb910",)
+  val req = ChatInviteRequest(RoomId = "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+UserId = "user-1",)
   
   try {
       val response = ChatService.invite(req)

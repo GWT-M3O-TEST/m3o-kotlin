@@ -30,6 +30,6 @@ data class WordleGuess(val chars: List<WordleChar>, val highlight: String, val w
 @Serializable
 data class WordleGuessRequest(val player: String, val word: String)
 @Serializable
-data class WordleGuessResponse(val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String, val correct: Boolean)
+data class WordleGuessResponse(val answer: String, val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int)
 @Serializable
 data class WordleNextResponse(val duration: String, val seconds: Int)

@@ -9,8 +9,8 @@ suspend fun main() {
 
   val req = EvchargersSearchRequest(Box: &evchargers.BoundingBox{
 BottomLeft: &evchargers.Coordinates{
-Latitude = 51.52627543859447,
 Longitude = -0.03635349400295168,
+Latitude = 51.52627543859447,
 },
 TopRight: &evchargers.Coordinates{
 Latitude = 51.56717121807993,

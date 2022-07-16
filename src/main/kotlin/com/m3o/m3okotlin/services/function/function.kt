@@ -71,7 +71,7 @@ data class FunctionCallResponse(val response: JsonObject)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val branch: String, val name: String, val runtime: String, val source: String, val subfolder: String, val entrypoint: String, val env_vars: Map<String, String>, val region: String, val repo: String)
+data class FunctionDeployRequest(val name: String, val runtime: String, val source: String, val subfolder: String, val branch: String, val entrypoint: String, val env_vars: Map<String, String>, val region: String, val repo: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -79,7 +79,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val entrypoint: String, val status: String, val url: String, val id: String, val name: String, val source: String, val subfolder: String, val created: String, val env_vars: Map<String, String>, val repo: String, val updated: String, val branch: String, val region: String, val runtime: String)
+data class FunctionFunc(val id: String, val source: String, val created: String, val env_vars: Map<String, String>, val entrypoint: String, val runtime: String, val repo: String, val status: String, val updated: String, val name: String, val region: String, val url: String, val branch: String, val subfolder: String)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
@@ -93,7 +93,7 @@ data class FunctionProxyResponse(val url: String)
 @Serializable
 data class FunctionRegionsResponse(val regions: List<String>)
 @Serializable
-data class FunctionReservation(val name: String, val owner: String, val token: String, val created: String, val expires: String)
+data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
 @Serializable
 data class FunctionReserveRequest(val name: String)
 @Serializable

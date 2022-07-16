@@ -23,4 +23,4 @@ object VehicleService {
 @Serializable
 data class VehicleLookupRequest(val registration: String)
 @Serializable
-data class VehicleLookupResponse(val fuel_type: String, val month_of_first_registration: String, val mot_status: String, val registration: String, val type_approval: String, val colour: String, val tax_due_date: String, val tax_status: String, val year_of_manufacture: Int, val make: String, val engine_capacity: Int, val logo_url: String, val mot_expiry: String, val wheelplan: String, val co2_emissions: Double, val last_v5_issued: String)
+data class VehicleLookupResponse(val year_of_manufacture: Int, val colour: String, val logo_url: String, val month_of_first_registration: String, val mot_expiry: String, val tax_due_date: String, val engine_capacity: Int, val tax_status: String, val wheelplan: String, val co2_emissions: Double, val mot_status: String, val fuel_type: String, val last_v5_issued: String, val make: String, val registration: String, val type_approval: String)

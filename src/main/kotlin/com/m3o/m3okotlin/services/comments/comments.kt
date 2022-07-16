@@ -58,7 +58,7 @@ data class CommentsDeleteResponse(val comment: CommentsComment)
 @Serializable
 data class CommentsEventsRequest(val id: String)
 @Serializable
-data class CommentsEventsResponse(val event: String, val comment: CommentsComment)
+data class CommentsEventsResponse(val comment: CommentsComment, val event: String)
 @Serializable
 data class CommentsListResponse(val comments: List<CommentsComment>)
 @Serializable

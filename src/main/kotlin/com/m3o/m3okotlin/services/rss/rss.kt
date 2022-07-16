@@ -36,11 +36,11 @@ object RssService {
 @Serializable
 data class RssAddRequest(val category: String, val name: String, val url: String)
 @Serializable
-data class RssEntry(val date: String, val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String)
+data class RssEntry(val feed: String, val id: String, val link: String, val summary: String, val title: String, val content: String, val date: String)
 @Serializable
-data class RssFeed(val id: String, val name: String, val url: String, val category: String)
+data class RssFeed(val category: String, val id: String, val name: String, val url: String)
 @Serializable
-data class RssFeedRequest(val name: String, val offset: Long, val limit: Long)
+data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
 @Serializable
 data class RssFeedResponse(val entries: List<RssEntry>)
 @Serializable

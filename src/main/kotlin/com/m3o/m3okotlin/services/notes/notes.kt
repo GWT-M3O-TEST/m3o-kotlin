@@ -60,7 +60,7 @@ data class NotesEventsResponse(val event: String, val note: NotesNote)
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable
-data class NotesNote(val updated: String, val created: String, val id: String, val text: String, val title: String)
+data class NotesNote(val created: String, val id: String, val text: String, val title: String, val updated: String)
 @Serializable
 data class NotesReadRequest(val id: String)
 @Serializable

@@ -73,7 +73,7 @@ data class DbDropTableRequest(val table: String)
 @Serializable
 data class DbListTablesResponse(val tables: List<String>)
 @Serializable
-data class DbReadRequest(val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String, val query: String, val table: String)
+data class DbReadRequest(val offset: Int, val order: String, val orderBy: String, val query: String, val table: String, val id: String, val limit: Int)
 @Serializable
 data class DbReadResponse(val records: List<JsonObject>)
 @Serializable

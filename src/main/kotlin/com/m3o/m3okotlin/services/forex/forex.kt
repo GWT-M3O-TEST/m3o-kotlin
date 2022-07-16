@@ -41,4 +41,4 @@ data class ForexPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class ForexQuoteRequest(val symbol: String)
 @Serializable
-data class ForexQuoteResponse(val symbol: String, val timestamp: String, val ask_price: Double, val bid_price: Double)
+data class ForexQuoteResponse(val ask_price: Double, val bid_price: Double, val symbol: String, val timestamp: String)

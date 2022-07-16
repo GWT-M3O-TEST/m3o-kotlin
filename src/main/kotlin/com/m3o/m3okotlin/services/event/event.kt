@@ -33,7 +33,7 @@ object EventService {
       }
 }
 @Serializable
-data class EventConsumeRequest(val offset: String, val topic: String, val group: String)
+data class EventConsumeRequest(val topic: String, val group: String, val offset: String)
 @Serializable
 data class EventConsumeResponse(val topic: String, val id: String, val message: JsonObject, val timestamp: String)
 @Serializable

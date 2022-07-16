@@ -31,7 +31,7 @@ object RoutingService {
       }
 }
 @Serializable
-data class RoutingDirection(val reference: String, val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String)
+data class RoutingDirection(val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String, val distance: Double, val duration: Double)
 @Serializable
 data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
@@ -43,12 +43,12 @@ data class RoutingEtaResponse(val duration: Double)
 @Serializable
 data class RoutingIntersection(val bearings: List<Double>, val location: RoutingPoint)
 @Serializable
-data class RoutingManeuver(val direction: String, val location: RoutingPoint, val action: String, val bearing_after: Double, val bearing_before: Double)
+data class RoutingManeuver(val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint)
 @Serializable
 data class RoutingPoint(val longitude: Double, val latitude: Double)
 @Serializable
 data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingRouteResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
+data class RoutingRouteResponse(val duration: Double, val waypoints: List<RoutingWaypoint>, val distance: Double)
 @Serializable
 data class RoutingWaypoint(val location: RoutingPoint, val name: String)

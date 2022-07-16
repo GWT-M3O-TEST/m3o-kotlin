@@ -8,9 +8,9 @@ suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
   val req = FileSaveRequest(File: &file.Record{
+Content = "file content example",
 Path = "/document/text-files/file.txt",
 Project = "examples",
-Content = "file content example",
 },)
   
   try {

@@ -33,7 +33,7 @@ object StockService {
 @Serializable
 data class StockHistoryRequest(val date: String, val stock: String)
 @Serializable
-data class StockHistoryResponse(val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Int, val close: Double, val date: String)
+data class StockHistoryResponse(val open: Double, val symbol: String, val volume: Int, val close: Double, val date: String, val high: Double, val low: Double)
 @Serializable
 data class StockPriceRequest(val symbol: String)
 @Serializable

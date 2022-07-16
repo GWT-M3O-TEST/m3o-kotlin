@@ -23,6 +23,6 @@ object MinecraftService {
 @Serializable
 data class MinecraftPingRequest(val address: String)
 @Serializable
-data class MinecraftPingResponse(val sample: List<MinecraftPlayerSample>, val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int, val protocol: Int)
+data class MinecraftPingResponse(val protocol: Int, val sample: List<MinecraftPlayerSample>, val version: String, val favicon: String, val latency: Int, val max_players: Int, val motd: String, val players: Int)
 @Serializable
 data class MinecraftPlayerSample(val name: String, val uuid: String)

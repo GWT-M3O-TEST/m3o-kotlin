@@ -34,7 +34,7 @@ object StreamService {
       }
 }
 @Serializable
-data class StreamChannel(val description: String, val last_active: String, val name: String)
+data class StreamChannel(val last_active: String, val name: String, val description: String)
 @Serializable
 data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable

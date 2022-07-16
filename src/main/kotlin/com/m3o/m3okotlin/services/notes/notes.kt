@@ -56,7 +56,7 @@ data class NotesDeleteResponse(val note: NotesNote)
 @Serializable
 data class NotesEventsRequest(val id: String)
 @Serializable
-data class NotesEventsResponse(val event: String, val note: NotesNote)
+data class NotesEventsResponse(val note: NotesNote, val event: String)
 @Serializable
 data class NotesListResponse(val notes: List<NotesNote>)
 @Serializable

@@ -39,11 +39,11 @@ object PriceService {
       }
 }
 @Serializable
-data class PriceAddRequest(val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String)
+data class PriceAddRequest(val currency: String, val name: String, val price: Double, val source: String, val symbol: String, val author: String)
 @Serializable
 data class PriceAddResponse(val value: PriceValue)
 @Serializable
-data class PriceGetRequest(val currency: String, val name: String, val symbol: String)
+data class PriceGetRequest(val symbol: String, val currency: String, val name: String)
 @Serializable
 data class PriceGetResponse(val values: List<PriceValue>)
 @Serializable

@@ -66,13 +66,13 @@ data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-data class SpaceHeadObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String)
+data class SpaceHeadObject(val name: String, val url: String, val visibility: String, val created: String, val modified: String)
 @Serializable
 data class SpaceHeadRequest(val name: String)
 @Serializable
 data class SpaceHeadResponse(val object: SpaceHeadObject)
 @Serializable
-data class SpaceListObject(val visibility: String, val created: String, val modified: String, val name: String, val url: String)
+data class SpaceListObject(val url: String, val visibility: String, val created: String, val modified: String, val name: String)
 @Serializable
 data class SpaceListRequest(val prefix: String)
 @Serializable
@@ -82,12 +82,12 @@ data class SpaceReadRequest(val name: String)
 @Serializable
 data class SpaceReadResponse(val object: SpaceSpaceObject)
 @Serializable
-data class SpaceSpaceObject(val modified: String, val name: String, val url: String, val visibility: String, val created: String, val data: String)
+data class SpaceSpaceObject(val url: String, val visibility: String, val created: String, val data: String, val modified: String, val name: String)
 @Serializable
-data class SpaceUpdateRequest(val object: String, val visibility: String, val name: String)
+data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable
-data class SpaceUploadRequest(val name: String, val visibility: String)
+data class SpaceUploadRequest(val visibility: String, val name: String)
 @Serializable
 data class SpaceUploadResponse(val url: String)

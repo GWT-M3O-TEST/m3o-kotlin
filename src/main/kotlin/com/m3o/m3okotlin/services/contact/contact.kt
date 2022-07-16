@@ -43,9 +43,9 @@ object ContactService {
 @Serializable
 data class ContactAddress(val label: String, val location: String)
 @Serializable
-data class ContactContactInfo(val created_at: String, val id: String, val name: String, val note: String, val addresses: List<ContactAddress>, val emails: List<ContactEmail>, val links: List<ContactLink>, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val updated_at: String, val birthday: String)
+data class ContactContactInfo(val emails: List<ContactEmail>, val id: String, val name: String, val phones: List<ContactPhone>, val updated_at: String, val created_at: String, val birthday: String, val links: List<ContactLink>, val note: String, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>)
 @Serializable
-data class ContactCreateRequest(val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String)
+data class ContactCreateRequest(val emails: List<ContactEmail>, val links: List<ContactLink>, val name: String, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String)
 @Serializable
 data class ContactCreateResponse(val contact: ContactContactInfo)
 @Serializable
@@ -55,7 +55,7 @@ data class ContactEmail(val address: String, val label: String)
 @Serializable
 data class ContactLink(val label: String, val url: String)
 @Serializable
-data class ContactListRequest(val limit: Int, val offset: Int)
+data class ContactListRequest(val offset: Int, val limit: Int)
 @Serializable
 data class ContactListResponse(val contacts: List<ContactContactInfo>)
 @Serializable
@@ -67,6 +67,6 @@ data class ContactReadResponse(val contact: ContactContactInfo)
 @Serializable
 data class ContactSocialMedia(val label: String, val username: String)
 @Serializable
-data class ContactUpdateRequest(val id: String, val name: String, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>, val links: List<ContactLink>, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>)
+data class ContactUpdateRequest(val addresses: List<ContactAddress>, val emails: List<ContactEmail>, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val birthday: String, val id: String, val links: List<ContactLink>, val name: String)
 @Serializable
 data class ContactUpdateResponse(val contact: ContactContactInfo)

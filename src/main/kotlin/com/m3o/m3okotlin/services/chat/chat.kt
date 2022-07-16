@@ -79,11 +79,11 @@ data class ChatInviteRequest(val room_id: String, val user_id: String)
 @Serializable
 data class ChatInviteResponse(val room: ChatRoom)
 @Serializable
-data class ChatJoinRequest(val room_id: String, val user_id: String)
+data class ChatJoinRequest(val user_id: String, val room_id: String)
 @Serializable
 data class ChatJoinResponse(val message: ChatMessage)
 @Serializable
-data class ChatKickRequest(val room_id: String, val user_id: String)
+data class ChatKickRequest(val user_id: String, val room_id: String)
 @Serializable
 data class ChatKickResponse(val room: ChatRoom)
 @Serializable
@@ -95,9 +95,9 @@ data class ChatListRequest(val user_id: String)
 @Serializable
 data class ChatListResponse(val rooms: List<ChatRoom>)
 @Serializable
-data class ChatMessage(val client: String, val id: String, val room_id: String, val sent_at: String, val subject: String, val text: String, val user_id: String)
+data class ChatMessage(val subject: String, val text: String, val user_id: String, val client: String, val id: String, val room_id: String, val sent_at: String)
 @Serializable
-data class ChatRoom(val user_ids: List<String>, val created_at: String, val description: String, val id: String, val name: String, val private: Boolean)
+data class ChatRoom(val private: Boolean, val user_ids: List<String>, val created_at: String, val description: String, val id: String, val name: String)
 @Serializable
 data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
 @Serializable

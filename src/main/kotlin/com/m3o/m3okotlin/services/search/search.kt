@@ -45,7 +45,7 @@ data class SearchCreateIndexRequest(val index: String)
 @Serializable
 data class SearchDeleteIndexRequest(val index: String)
 @Serializable
-data class SearchDeleteRequest(val id: String, val index: String)
+data class SearchDeleteRequest(val index: String, val id: String)
 @Serializable
 data class SearchField(val name: String, val type: String)
 @Serializable
@@ -55,6 +55,6 @@ data class SearchIndexResponse(val record: SearchRecord)
 @Serializable
 data class SearchRecord(val data: JsonObject, val id: String)
 @Serializable
-data class SearchSearchRequest(val query: String, val index: String)
+data class SearchSearchRequest(val index: String, val query: String)
 @Serializable
 data class SearchSearchResponse(val records: List<SearchRecord>)

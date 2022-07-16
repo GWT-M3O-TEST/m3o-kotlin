@@ -19,6 +19,6 @@ object CarbonService {
       }
 }
 @Serializable
-data class CarbonOffsetResponse(val units: Int, val metric: String, val projects: List<CarbonProject>, val tonnes: Double)
+data class CarbonOffsetResponse(val metric: String, val projects: List<CarbonProject>, val tonnes: Double, val units: Int)
 @Serializable
-data class CarbonProject(val name: String, val percentage: Double, val tonnes: Double)
+data class CarbonProject(val tonnes: Double, val name: String, val percentage: Double)

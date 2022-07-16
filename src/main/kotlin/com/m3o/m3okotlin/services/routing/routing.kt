@@ -31,24 +31,24 @@ object RoutingService {
       }
 }
 @Serializable
-data class RoutingDirection(val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String)
+data class RoutingDirection(val reference: String, val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String)
 @Serializable
 data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
 data class RoutingDirectionsResponse(val directions: List<RoutingDirection>, val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
 @Serializable
-data class RoutingEtaRequest(val origin: RoutingPoint, val speed: Double, val type: String, val destination: RoutingPoint)
+data class RoutingEtaRequest(val destination: RoutingPoint, val origin: RoutingPoint, val speed: Double, val type: String)
 @Serializable
 data class RoutingEtaResponse(val duration: Double)
 @Serializable
 data class RoutingIntersection(val bearings: List<Double>, val location: RoutingPoint)
 @Serializable
-data class RoutingManeuver(val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint)
+data class RoutingManeuver(val direction: String, val location: RoutingPoint, val action: String, val bearing_after: Double, val bearing_before: Double)
 @Serializable
 data class RoutingPoint(val longitude: Double, val latitude: Double)
 @Serializable
 data class RoutingRouteRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
-data class RoutingRouteResponse(val waypoints: List<RoutingWaypoint>, val distance: Double, val duration: Double)
+data class RoutingRouteResponse(val distance: Double, val duration: Double, val waypoints: List<RoutingWaypoint>)
 @Serializable
 data class RoutingWaypoint(val location: RoutingPoint, val name: String)

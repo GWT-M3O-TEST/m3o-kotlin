@@ -7,7 +7,8 @@ import com.m3o.m3okotlin.services.lists
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ListsCreateRequest(Items = listOf(String){
+  val req = ListsCreateRequest(Name = "New List",
+Items = listOf(String){
 "This is my list",
 },)
   

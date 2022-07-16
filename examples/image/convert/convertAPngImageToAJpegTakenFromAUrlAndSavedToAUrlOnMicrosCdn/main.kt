@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.image
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ImageConvertRequest(Url = "somewebsite.com/cat.png",
-Name = "cat.jpeg",
-OutputUrl = true,)
+  val req = ImageConvertRequest(OutputUrl = true,
+Url = "somewebsite.com/cat.png",
+Name = "cat.jpeg",)
   
   try {
       val response = ImageService.convert(req)

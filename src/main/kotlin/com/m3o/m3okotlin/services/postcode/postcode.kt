@@ -31,7 +31,7 @@ object PostcodeService {
 @Serializable
 data class PostcodeLookupRequest(val postcode: String)
 @Serializable
-data class PostcodeLookupResponse(val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String, val district: String)
+data class PostcodeLookupResponse(val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double)
 @Serializable
 data class PostcodeRandomResponse(val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String)
 @Serializable

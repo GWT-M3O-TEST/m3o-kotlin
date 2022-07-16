@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.news
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = NewsHeadlinesRequest(Language = "en",
-Locale = "us",
-Date = "2021-11-24",)
+  val req = NewsHeadlinesRequest(Date = "2021-11-24",
+Language = "en",
+Locale = "us",)
   
   try {
       val response = NewsService.headlines(req)

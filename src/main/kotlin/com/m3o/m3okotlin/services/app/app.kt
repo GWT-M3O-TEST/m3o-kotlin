@@ -67,7 +67,7 @@ data class AppLogsResponse(val logs: String)
 @Serializable
 data class AppRegionsResponse(val regions: List<String>)
 @Serializable
-data class AppReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+data class AppReservation(val expires: String, val name: String, val owner: String, val token: String, val created: String)
 @Serializable
 data class AppReserveRequest(val name: String)
 @Serializable
@@ -77,14 +77,14 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String, val branch: String)
+data class AppRunRequest(val region: String, val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val created: String, val port: Int, val updated: String, val region: String, val repo: String, val status: String, val branch: String, val custom_domains: List<String>, val env_vars: Map<String, String>, val id: String, val name: String, val url: String)
+data class AppService(val branch: String, val env_vars: Map<String, String>, val url: String, val created: String, val custom_domains: List<String>, val id: String, val name: String, val port: Int, val region: String, val repo: String, val status: String, val updated: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable
 data class AppStatusResponse(val service: AppService)
 @Serializable
-data class AppUpdateRequest(val env_vars: Map<String, String>, val name: String)
+data class AppUpdateRequest(val name: String, val env_vars: Map<String, String>)

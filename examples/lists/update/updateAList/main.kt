@@ -9,6 +9,7 @@ suspend fun main() {
 
   val req = ListsUpdateRequest(List: &lists.List{
 Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",
+Name = "Update List",
 Items = listOf(String){
 "Updated list text",
 },

@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.stock
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = StockHistoryRequest(Date = "2020-10-01",
-Stock = "AAPL",)
+  val req = StockHistoryRequest(Stock = "AAPL",
+Date = "2020-10-01",)
   
   try {
       val response = StockService.history(req)

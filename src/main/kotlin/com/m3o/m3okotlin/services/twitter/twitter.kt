@@ -34,7 +34,7 @@ object TwitterService {
       }
 }
 @Serializable
-data class TwitterProfile(val created_at: String, val followers: Long, val image_url: String, val private: Boolean, val username: String, val verified: Boolean, val description: String, val id: Long, val location: String, val name: String)
+data class TwitterProfile(val description: String, val location: String, val private: Boolean, val created_at: String, val followers: Long, val id: Long, val image_url: String, val name: String, val username: String, val verified: Boolean)
 @Serializable
 data class TwitterSearchRequest(val limit: Int, val query: String)
 @Serializable
@@ -44,7 +44,7 @@ data class TwitterTimelineRequest(val limit: Int, val username: String)
 @Serializable
 data class TwitterTimelineResponse(val tweets: List<TwitterTweet>)
 @Serializable
-data class TwitterTrend(val name: String, val tweet_volume: Long, val url: String)
+data class TwitterTrend(val tweet_volume: Long, val url: String, val name: String)
 @Serializable
 data class TwitterTrendsResponse(val trends: List<TwitterTrend>)
 @Serializable

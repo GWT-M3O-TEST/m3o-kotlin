@@ -30,6 +30,6 @@ data class MemegenGenerateRequest(val top_text: String, val bottom_text: String,
 @Serializable
 data class MemegenGenerateResponse(val url: String)
 @Serializable
-data class MemegenTemplate(val name: String, val url: String, val width: Int, val box_count: Int, val height: Int, val id: String)
+data class MemegenTemplate(val box_count: Int, val height: Int, val id: String, val name: String, val url: String, val width: Int)
 @Serializable
 data class MemegenTemplatesResponse(val templates: List<MemegenTemplate>)

@@ -11,7 +11,7 @@ suspend fun main() {
 Value = "bar",)
   
   try {
-      val response = CacheService.set(req)
+      val response = CacheServ.set(req)
       println(response)
   } catch (e: Exception) {
       println(e)

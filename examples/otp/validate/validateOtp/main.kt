@@ -11,7 +11,7 @@ suspend fun main() {
 Code = "656211",)
   
   try {
-      val response = OtpService.validate(req)
+      val response = OtpServ.validate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

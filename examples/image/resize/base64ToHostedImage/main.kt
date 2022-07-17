@@ -14,7 +14,7 @@ Width = 100,
 Height = 100,)
   
   try {
-      val response = ImageService.resize(req)
+      val response = ImageServ.resize(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "answer"
 
-object AnswerService {
+object AnswerServ {
       suspend fun question(req: AnswerQuestionRequest): AnswerQuestionResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Question")) {
           body = req
@@ -23,4 +23,4 @@ object AnswerService {
 @Serializable
 data class AnswerQuestionRequest(val query: String)
 @Serializable
-data class AnswerQuestionResponse(val answer: String, val image: String, val url: String)
+data class AnswerQuestionResponse(val url: String, val answer: String, val image: String)

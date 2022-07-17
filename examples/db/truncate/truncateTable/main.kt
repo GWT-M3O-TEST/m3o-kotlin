@@ -10,7 +10,7 @@ suspend fun main() {
   val req = DbTruncateRequest(Table = "example",)
   
   try {
-      val response = DbService.truncate(req)
+      val response = DbServ.truncate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

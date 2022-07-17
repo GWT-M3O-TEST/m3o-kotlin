@@ -11,7 +11,7 @@ suspend fun main() {
 Year = 2022,)
   
   try {
-      val response = HolidaysService.list(req)
+      val response = HolidaysServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

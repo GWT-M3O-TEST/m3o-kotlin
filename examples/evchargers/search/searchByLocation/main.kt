@@ -15,7 +15,7 @@ Distance = 2000,
 MaxResults = 2,)
   
   try {
-      val response = EvchargersService.search(req)
+      val response = EvchargersServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

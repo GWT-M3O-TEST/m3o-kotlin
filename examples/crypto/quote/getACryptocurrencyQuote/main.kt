@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CryptoQuoteRequest(Symbol = "BTCUSD",)
   
   try {
-      val response = CryptoService.quote(req)
+      val response = CryptoServ.quote(req)
       println(response)
   } catch (e: Exception) {
       println(e)

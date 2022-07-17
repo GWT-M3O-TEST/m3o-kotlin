@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EmojiFindRequest(Alias = ":beer:",)
   
   try {
-      val response = EmojiService.find(req)
+      val response = EmojiServ.find(req)
       println(response)
   } catch (e: Exception) {
       println(e)

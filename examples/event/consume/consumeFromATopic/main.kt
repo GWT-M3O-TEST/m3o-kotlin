@@ -9,7 +9,7 @@ fun main() {
   val req = val req = EventConsumeRequest(Topic = "user",)
   
   try {
-      val socket = EventService.consume(req) { socketError, response ->
+      val socket = EventServ.consume(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

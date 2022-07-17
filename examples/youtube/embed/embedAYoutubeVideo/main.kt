@@ -10,7 +10,7 @@ suspend fun main() {
   val req = YoutubeEmbedRequest(Url = "https://www.youtube.com/watch?v=GWRWZu7XsJ0",)
   
   try {
-      val response = YoutubeService.embed(req)
+      val response = YoutubeServ.embed(req)
       println(response)
   } catch (e: Exception) {
       println(e)

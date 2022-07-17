@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "qr"
 
-object QrService {
+object QrServ {
       suspend fun generate(req: QrGenerateRequest): QrGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req

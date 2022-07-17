@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "stock"
 
-object StockService {
+object StockServ {
       suspend fun history(req: StockHistoryRequest): StockHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
           body = req
@@ -41,4 +41,4 @@ data class StockPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class StockQuoteRequest(val symbol: String)
 @Serializable
-data class StockQuoteResponse(val ask_price: Double, val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String)
+data class StockQuoteResponse(val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String, val ask_price: Double)

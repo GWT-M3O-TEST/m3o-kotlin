@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UrlProxyRequest(ShortUrl = "https://m3o.one/u/ck6SGVkYp",)
   
   try {
-      val response = UrlService.proxy(req)
+      val response = UrlServ.proxy(req)
       println(response)
   } catch (e: Exception) {
       println(e)

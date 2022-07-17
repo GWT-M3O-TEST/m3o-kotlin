@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AppUpdateRequest(Name = "helloworld",)
   
   try {
-      val response = AppService.update(req)
+      val response = AppServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

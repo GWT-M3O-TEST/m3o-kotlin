@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "emoji"
 
-object EmojiService {
+object EmojiServ {
       suspend fun find(req: EmojiFindRequest): EmojiFindResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Find")) {
           body = req

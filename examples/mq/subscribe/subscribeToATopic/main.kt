@@ -9,7 +9,7 @@ fun main() {
   val req = val req = MqSubscribeRequest(Topic = "events",)
   
   try {
-      val socket = MqService.subscribe(req) { socketError, response ->
+      val socket = MqServ.subscribe(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

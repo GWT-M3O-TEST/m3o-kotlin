@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ContactReadRequest(Id = "42e48a3c-6221-11ec-96d2-acde48001122",)
   
   try {
-      val response = ContactService.read(req)
+      val response = ContactServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

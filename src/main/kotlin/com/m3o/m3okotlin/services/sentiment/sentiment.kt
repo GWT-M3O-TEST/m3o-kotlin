@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "sentiment"
 
-object SentimentService {
+object SentimentServ {
       suspend fun analyze(req: SentimentAnalyzeRequest): SentimentAnalyzeResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Analyze")) {
           body = req

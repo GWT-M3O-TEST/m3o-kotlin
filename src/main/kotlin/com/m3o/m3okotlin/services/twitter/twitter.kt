@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "twitter"
 
-object TwitterService {
+object TwitterServ {
       suspend fun search(req: TwitterSearchRequest): TwitterSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
@@ -34,7 +34,7 @@ object TwitterService {
       }
 }
 @Serializable
-data class TwitterProfile(val followers: Long, val id: Long, val image_url: String, val username: String, val private: Boolean, val verified: Boolean, val created_at: String, val description: String, val location: String, val name: String)
+data class TwitterProfile(val created_at: String, val followers: Long, val id: Long, val image_url: String, val location: String, val name: String, val private: Boolean, val username: String, val description: String, val verified: Boolean)
 @Serializable
 data class TwitterSearchRequest(val limit: Int, val query: String)
 @Serializable
@@ -48,7 +48,7 @@ data class TwitterTrend(val name: String, val tweet_volume: Long, val url: Strin
 @Serializable
 data class TwitterTrendsResponse(val trends: List<TwitterTrend>)
 @Serializable
-data class TwitterTweet(val username: String, val created_at: String, val favourited_count: Long, val id: Long, val retweeted_count: Long, val text: String)
+data class TwitterTweet(val text: String, val username: String, val created_at: String, val favourited_count: Long, val id: Long, val retweeted_count: Long)
 @Serializable
 data class TwitterUserRequest(val username: String)
 @Serializable

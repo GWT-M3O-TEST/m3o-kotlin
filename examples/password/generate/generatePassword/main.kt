@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PasswordGenerateRequest(Length = 16,)
   
   try {
-      val response = PasswordService.generate(req)
+      val response = PasswordServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

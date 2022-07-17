@@ -12,7 +12,7 @@ Price = 39037.97,
 Currency = "USD",)
   
   try {
-      val response = PriceService.add(req)
+      val response = PriceServ.add(req)
       println(response)
   } catch (e: Exception) {
       println(e)

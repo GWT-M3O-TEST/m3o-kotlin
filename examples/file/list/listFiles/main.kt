@@ -10,7 +10,7 @@ suspend fun main() {
   val req = FileListRequest(Project = "examples",)
   
   try {
-      val response = FileService.list(req)
+      val response = FileServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

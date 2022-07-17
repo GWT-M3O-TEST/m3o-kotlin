@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PostcodeValidateRequest(Postcode = "SW1A 2AA",)
   
   try {
-      val response = PostcodeService.validate(req)
+      val response = PostcodeServ.validate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

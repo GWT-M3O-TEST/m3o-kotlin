@@ -10,7 +10,7 @@ suspend fun main() {
   val req = YoutubeSearchRequest(Query = "donuts",)
   
   try {
-      val response = YoutubeService.search(req)
+      val response = YoutubeServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

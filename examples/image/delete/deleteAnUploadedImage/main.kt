@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ImageDeleteRequest(Url = "https://cdn.m3ocontent.com/micro/images/micro/41e23b39-48dd-42b6-9738-79a313414bb8/cat.png",)
   
   try {
-      val response = ImageService.delete(req)
+      val response = ImageServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -11,7 +11,7 @@ suspend fun main() {
 Description = "The general chat room",)
   
   try {
-      val response = ChatService.create(req)
+      val response = ChatServ.create(req)
       println(response)
   } catch (e: Exception) {
       println(e)

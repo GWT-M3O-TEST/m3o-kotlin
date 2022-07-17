@@ -12,7 +12,7 @@ Email = "joe+2@example.com",
 Username = "joe",)
   
   try {
-      val response = UserService.update(req)
+      val response = UserServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

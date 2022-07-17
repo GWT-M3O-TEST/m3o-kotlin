@@ -10,7 +10,7 @@ suspend fun main() {
   val req = TwitterUserRequest(Username = "crufter",)
   
   try {
-      val response = TwitterService.user(req)
+      val response = TwitterServ.user(req)
       println(response)
   } catch (e: Exception) {
       println(e)

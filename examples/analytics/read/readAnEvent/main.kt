@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AnalyticsReadRequest(Name = "click",)
   
   try {
-      val response = AnalyticsService.read(req)
+      val response = AnalyticsServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -14,7 +14,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "helloworld"
 
-object HelloworldService {
+object HelloworldServ {
       suspend fun call(req: HelloworldCallRequest): HelloworldCallResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Call")) {
           body = req

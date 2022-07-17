@@ -10,7 +10,7 @@ suspend fun main() {
   val req = NotesListRequest()
   
   try {
-      val response = NotesService.list(req)
+      val response = NotesServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

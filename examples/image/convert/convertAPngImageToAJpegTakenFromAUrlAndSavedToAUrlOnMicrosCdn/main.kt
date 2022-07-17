@@ -12,7 +12,7 @@ Name = "cat.jpeg",
 OutputUrl = true,)
   
   try {
-      val response = ImageService.convert(req)
+      val response = ImageServ.convert(req)
       println(response)
   } catch (e: Exception) {
       println(e)

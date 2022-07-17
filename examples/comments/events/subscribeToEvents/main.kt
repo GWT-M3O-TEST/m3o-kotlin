@@ -9,7 +9,7 @@ fun main() {
   val req = val req = CommentsEventsRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
-      val socket = CommentsService.events(req) { socketError, response ->
+      val socket = CommentsServ.events(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

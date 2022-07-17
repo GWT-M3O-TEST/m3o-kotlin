@@ -10,7 +10,7 @@ suspend fun main() {
   val req = QuranSearchRequest(Query = "messenger",)
   
   try {
-      val response = QuranService.search(req)
+      val response = QuranServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "password"
 
-object PasswordService {
+object PasswordServ {
       suspend fun generate(req: PasswordGenerateRequest): PasswordGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req

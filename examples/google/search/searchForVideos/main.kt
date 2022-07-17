@@ -10,7 +10,7 @@ suspend fun main() {
   val req = GoogleSearchRequest(Query = "how to make donuts",)
   
   try {
-      val response = GoogleService.search(req)
+      val response = GoogleServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

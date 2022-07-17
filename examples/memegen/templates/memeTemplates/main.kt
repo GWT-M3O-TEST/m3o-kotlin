@@ -10,7 +10,7 @@ suspend fun main() {
   val req = MemegenTemplatesRequest()
   
   try {
-      val response = MemegenService.templates(req)
+      val response = MemegenServ.templates(req)
       println(response)
   } catch (e: Exception) {
       println(e)

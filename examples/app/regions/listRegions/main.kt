@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AppRegionsRequest()
   
   try {
-      val response = AppService.regions(req)
+      val response = AppServ.regions(req)
       println(response)
   } catch (e: Exception) {
       println(e)

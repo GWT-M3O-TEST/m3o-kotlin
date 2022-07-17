@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "wordle"
 
-object WordleService {
+object WordleServ {
       suspend fun guess(req: WordleGuessRequest): WordleGuessResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Guess")) {
           body = req
@@ -30,6 +30,6 @@ data class WordleGuess(val chars: List<WordleChar>, val highlight: String, val w
 @Serializable
 data class WordleGuessRequest(val player: String, val word: String)
 @Serializable
-data class WordleGuessResponse(val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int, val answer: String)
+data class WordleGuessResponse(val answer: String, val correct: Boolean, val guesses: List<WordleGuess>, val status: String, val tries_left: Int)
 @Serializable
-data class WordleNextResponse(val duration: String, val seconds: Int)
+data class WordleNextResponse(val seconds: Int, val duration: String)

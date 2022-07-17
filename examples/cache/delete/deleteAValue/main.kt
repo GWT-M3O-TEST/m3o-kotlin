@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CacheDeleteRequest(Key = "foo",)
   
   try {
-      val response = CacheService.delete(req)
+      val response = CacheServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

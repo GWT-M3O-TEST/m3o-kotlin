@@ -12,7 +12,7 @@ Record: &db.Json{
 },)
   
   try {
-      val response = DbService.create(req)
+      val response = DbServ.create(req)
       println(response)
   } catch (e: Exception) {
       println(e)

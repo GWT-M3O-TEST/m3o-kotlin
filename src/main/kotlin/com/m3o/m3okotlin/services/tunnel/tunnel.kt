@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "tunnel"
 
-object TunnelService {
+object TunnelServ {
       suspend fun send(req: TunnelSendRequest): TunnelSendResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
           body = req
@@ -21,6 +21,6 @@ object TunnelService {
       }
 }
 @Serializable
-data class TunnelSendRequest(val method: String, val params: Map<String, String>, val path: String, val url: String, val body: String, val headers: Map<String, String>, val host: String)
+data class TunnelSendRequest(val body: String, val headers: Map<String, String>, val host: String, val method: String, val params: Map<String, String>, val path: String, val url: String)
 @Serializable
 data class TunnelSendResponse(val body: String, val headers: Map<String, String>, val status: String, val status_code: Int)

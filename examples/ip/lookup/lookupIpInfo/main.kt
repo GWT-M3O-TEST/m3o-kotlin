@@ -10,7 +10,7 @@ suspend fun main() {
   val req = IpLookupRequest(Ip = "93.148.214.31",)
   
   try {
-      val response = IpService.lookup(req)
+      val response = IpServ.lookup(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = StockPriceRequest(Symbol = "AAPL",)
   
   try {
-      val response = StockService.price(req)
+      val response = StockServ.price(req)
       println(response)
   } catch (e: Exception) {
       println(e)

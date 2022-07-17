@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CommentsReadRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
-      val response = CommentsService.read(req)
+      val response = CommentsServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

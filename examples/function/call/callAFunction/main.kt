@@ -12,7 +12,7 @@ Request: &function.Json{
 },)
   
   try {
-      val response = FunctionService.call(req)
+      val response = FunctionServ.call(req)
       println(response)
   } catch (e: Exception) {
       println(e)

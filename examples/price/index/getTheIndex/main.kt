@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PriceIndexRequest()
   
   try {
-      val response = PriceService.index(req)
+      val response = PriceServ.index(req)
       println(response)
   } catch (e: Exception) {
       println(e)

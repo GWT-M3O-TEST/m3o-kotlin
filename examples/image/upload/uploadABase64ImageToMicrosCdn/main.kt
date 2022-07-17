@@ -11,7 +11,7 @@ suspend fun main() {
 Name = "cat.jpeg",)
   
   try {
-      val response = ImageService.upload(req)
+      val response = ImageServ.upload(req)
       println(response)
   } catch (e: Exception) {
       println(e)

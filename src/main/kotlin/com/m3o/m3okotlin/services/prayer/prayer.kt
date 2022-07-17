@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "prayer"
 
-object PrayerService {
+object PrayerServ {
       suspend fun times(req: PrayerTimesRequest): PrayerTimesResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Times")) {
           body = req
@@ -21,8 +21,8 @@ object PrayerService {
       }
 }
 @Serializable
-data class PrayerPrayerTime(val isha: String, val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String)
+data class PrayerPrayerTime(val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String)
 @Serializable
-data class PrayerTimesRequest(val location: String, val longitude: Double, val date: String, val days: Int, val latitude: Double)
+data class PrayerTimesRequest(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
 @Serializable
-data class PrayerTimesResponse(val location: String, val longitude: Double, val times: List<PrayerPrayerTime>, val date: String, val days: Int, val latitude: Double)
+data class PrayerTimesResponse(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double, val times: List<PrayerPrayerTime>)

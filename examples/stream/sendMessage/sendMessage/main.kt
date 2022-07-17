@@ -11,7 +11,7 @@ suspend fun main() {
 Text = "Hey checkout this tweet https://twitter.com/m3oservices/status/1455291054295498752",)
   
   try {
-      val response = StreamService.sendMessage(req)
+      val response = StreamServ.sendMessage(req)
       println(response)
   } catch (e: Exception) {
       println(e)

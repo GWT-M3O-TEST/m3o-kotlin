@@ -12,7 +12,7 @@ Record: &db.Json{
 },)
   
   try {
-      val response = DbService.update(req)
+      val response = DbServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

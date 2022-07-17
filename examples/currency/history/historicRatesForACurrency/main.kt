@@ -11,7 +11,7 @@ suspend fun main() {
 Date = "2021-05-30",)
   
   try {
-      val response = CurrencyService.history(req)
+      val response = CurrencyServ.history(req)
       println(response)
   } catch (e: Exception) {
       println(e)

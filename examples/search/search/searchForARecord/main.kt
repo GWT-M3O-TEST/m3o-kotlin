@@ -11,7 +11,7 @@ suspend fun main() {
 Query = "name == 'John'",)
   
   try {
-      val response = SearchService.search(req)
+      val response = SearchServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

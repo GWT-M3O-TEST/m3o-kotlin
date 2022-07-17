@@ -10,7 +10,7 @@ suspend fun main() {
   val req = DbListTablesRequest()
   
   try {
-      val response = DbService.listTables(req)
+      val response = DbServ.listTables(req)
       println(response)
   } catch (e: Exception) {
       println(e)

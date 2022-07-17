@@ -11,7 +11,7 @@ suspend fun main() {
 Description = "The channel for all things",)
   
   try {
-      val response = StreamService.createChannel(req)
+      val response = StreamServ.createChannel(req)
       println(response)
   } catch (e: Exception) {
       println(e)

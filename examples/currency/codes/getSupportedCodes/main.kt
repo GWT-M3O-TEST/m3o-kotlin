@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CurrencyCodesRequest()
   
   try {
-      val response = CurrencyService.codes(req)
+      val response = CurrencyServ.codes(req)
       println(response)
   } catch (e: Exception) {
       println(e)

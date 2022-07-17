@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SearchDeleteIndexRequest(Index = "customers",)
   
   try {
-      val response = SearchService.deleteIndex(req)
+      val response = SearchServ.deleteIndex(req)
       println(response)
   } catch (e: Exception) {
       println(e)

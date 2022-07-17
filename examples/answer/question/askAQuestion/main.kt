@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AnswerQuestionRequest(Query = "microsoft",)
   
   try {
-      val response = AnswerService.question(req)
+      val response = AnswerServ.question(req)
       println(response)
   } catch (e: Exception) {
       println(e)

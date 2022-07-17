@@ -11,7 +11,7 @@ suspend fun main() {
 Book = 1,)
   
   try {
-      val response = SunnahService.hadiths(req)
+      val response = SunnahServ.hadiths(req)
       println(response)
   } catch (e: Exception) {
       println(e)

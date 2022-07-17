@@ -11,7 +11,7 @@ suspend fun main() {
 Longitude = -0.1216235,)
   
   try {
-      val response = GeocodingService.reverse(req)
+      val response = GeocodingServ.reverse(req)
       println(response)
   } catch (e: Exception) {
       println(e)

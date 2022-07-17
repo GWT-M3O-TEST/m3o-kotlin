@@ -10,7 +10,7 @@ suspend fun main() {
   val req = DbCountRequest(Table = "example",)
   
   try {
-      val response = DbService.count(req)
+      val response = DbServ.count(req)
       println(response)
   } catch (e: Exception) {
       println(e)

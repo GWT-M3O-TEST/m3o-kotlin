@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SpaceListRequest(Prefix = "images/",)
   
   try {
-      val response = SpaceService.list(req)
+      val response = SpaceServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

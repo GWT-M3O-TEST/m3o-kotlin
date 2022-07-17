@@ -17,7 +17,7 @@ Longitude = 13.397634,
 },)
   
   try {
-      val response = RoutingService.directions(req)
+      val response = RoutingServ.directions(req)
       println(response)
   } catch (e: Exception) {
       println(e)

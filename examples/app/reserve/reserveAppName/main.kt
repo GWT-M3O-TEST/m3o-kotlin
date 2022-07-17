@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AppReserveRequest(Name = "helloworld",)
   
   try {
-      val response = AppService.reserve(req)
+      val response = AppServ.reserve(req)
       println(response)
   } catch (e: Exception) {
       println(e)

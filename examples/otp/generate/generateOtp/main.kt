@@ -10,7 +10,7 @@ suspend fun main() {
   val req = OtpGenerateRequest(Id = "asim@example.com",)
   
   try {
-      val response = OtpService.generate(req)
+      val response = OtpServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SpaceDownloadRequest(Name = "images/file.jpg",)
   
   try {
-      val response = SpaceService.download(req)
+      val response = SpaceServ.download(req)
       println(response)
   } catch (e: Exception) {
       println(e)

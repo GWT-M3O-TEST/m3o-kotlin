@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserReadRequest(Id = "user-1",)
   
   try {
-      val response = UserService.read(req)
+      val response = UserServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

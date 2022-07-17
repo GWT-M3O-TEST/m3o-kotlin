@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PingUrlRequest(Address = "google.com",)
   
   try {
-      val response = PingService.url(req)
+      val response = PingServ.url(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ From = "noreply@m3o.com",
 To = "hello@example.com",)
   
   try {
-      val response = SpamService.classify(req)
+      val response = SpamServ.classify(req)
       println(response)
   } catch (e: Exception) {
       println(e)

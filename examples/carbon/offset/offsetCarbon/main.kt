@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CarbonOffsetRequest()
   
   try {
-      val response = CarbonService.offset(req)
+      val response = CarbonServ.offset(req)
       println(response)
   } catch (e: Exception) {
       println(e)

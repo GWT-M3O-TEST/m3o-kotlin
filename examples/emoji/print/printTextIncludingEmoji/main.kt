@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EmojiPrintRequest(Text = "let's grab a :beer:",)
   
   try {
-      val response = EmojiService.print(req)
+      val response = EmojiServ.print(req)
       println(response)
   } catch (e: Exception) {
       println(e)

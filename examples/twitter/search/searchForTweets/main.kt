@@ -10,7 +10,7 @@ suspend fun main() {
   val req = TwitterSearchRequest(Query = "cats",)
   
   try {
-      val response = TwitterService.search(req)
+      val response = TwitterServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AppResolveRequest(Id = "helloworld",)
   
   try {
-      val response = AppService.resolve(req)
+      val response = AppServ.resolve(req)
       println(response)
   } catch (e: Exception) {
       println(e)

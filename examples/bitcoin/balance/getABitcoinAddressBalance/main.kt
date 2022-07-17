@@ -10,7 +10,7 @@ suspend fun main() {
   val req = BitcoinBalanceRequest(Address = "1MDUoxL1bGvMxhuoDYx6i11ePytECAk9QK",)
   
   try {
-      val response = BitcoinService.balance(req)
+      val response = BitcoinServ.balance(req)
       println(response)
   } catch (e: Exception) {
       println(e)

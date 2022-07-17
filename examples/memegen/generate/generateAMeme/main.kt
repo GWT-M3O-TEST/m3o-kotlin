@@ -12,7 +12,7 @@ TopText = "WTF",
 BottomText = "Huh?",)
   
   try {
-      val response = MemegenService.generate(req)
+      val response = MemegenServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

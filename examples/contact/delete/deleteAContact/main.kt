@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ContactDeleteRequest(Id = "42e48a3c-6221-11ec-96d2-acde48001122",)
   
   try {
-      val response = ContactService.delete(req)
+      val response = ContactServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

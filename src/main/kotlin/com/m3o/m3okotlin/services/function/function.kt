@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "function"
 
-object FunctionService {
+object FunctionServ {
       suspend fun call(req: FunctionCallRequest): FunctionCallResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Call")) {
           body = req
@@ -71,7 +71,7 @@ data class FunctionCallResponse(val response: JsonObject)
 @Serializable
 data class FunctionDeleteRequest(val name: String)
 @Serializable
-data class FunctionDeployRequest(val branch: String, val entrypoint: String, val name: String, val region: String, val env_vars: Map<String, String>, val repo: String, val runtime: String, val source: String, val subfolder: String)
+data class FunctionDeployRequest(val subfolder: String, val entrypoint: String, val region: String, val repo: String, val runtime: String, val source: String, val branch: String, val env_vars: Map<String, String>, val name: String)
 @Serializable
 data class FunctionDeployResponse(val function: FunctionFunc)
 @Serializable
@@ -79,7 +79,7 @@ data class FunctionDescribeRequest(val name: String)
 @Serializable
 data class FunctionDescribeResponse(val function: FunctionFunc)
 @Serializable
-data class FunctionFunc(val region: String, val env_vars: Map<String, String>, val name: String, val source: String, val status: String, val entrypoint: String, val repo: String, val runtime: String, val subfolder: String, val updated: String, val branch: String, val id: String, val created: String, val url: String)
+data class FunctionFunc(val id: String, val subfolder: String, val url: String, val env_vars: Map<String, String>, val repo: String, val runtime: String, val source: String, val updated: String, val region: String, val entrypoint: String, val name: String, val status: String, val created: String, val branch: String)
 @Serializable
 data class FunctionListResponse(val functions: List<FunctionFunc>)
 @Serializable
@@ -101,4 +101,4 @@ data class FunctionReserveResponse(val reservation: FunctionReservation)
 @Serializable
 data class FunctionRuntimesResponse(val runtimes: List<String>)
 @Serializable
-data class FunctionUpdateRequest(val name: String, val source: String)
+data class FunctionUpdateRequest(val source: String, val name: String)

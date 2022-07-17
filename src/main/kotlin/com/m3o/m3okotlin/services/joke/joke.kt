@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "joke"
 
-object JokeService {
+object JokeServ {
       suspend fun random(req: JokeRandomRequest): JokeRandomResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Random")) {
           body = req
@@ -21,7 +21,7 @@ object JokeService {
       }
 }
 @Serializable
-data class JokeJokeInfo(val body: String, val category: String, val id: String, val source: String, val title: String)
+data class JokeJokeInfo(val title: String, val body: String, val category: String, val id: String, val source: String)
 @Serializable
 data class JokeRandomRequest(val count: Int)
 @Serializable

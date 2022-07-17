@@ -14,7 +14,7 @@ Text = "Updated comment text",
 },)
   
   try {
-      val response = CommentsService.update(req)
+      val response = CommentsServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CacheGetRequest(Key = "foo",)
   
   try {
-      val response = CacheService.get(req)
+      val response = CacheServ.get(req)
       println(response)
   } catch (e: Exception) {
       println(e)

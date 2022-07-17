@@ -7,11 +7,11 @@ import com.m3o.m3okotlin.services.app
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = AppLogsRequest(Name = "helloworld",
-LogsType = "build",)
+  val req = AppLogsRequest(LogsType = "build",
+Name = "helloworld",)
   
   try {
-      val response = AppService.logs(req)
+      val response = AppServ.logs(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "analytics"
 
-object AnalyticsService {
+object AnalyticsServ {
       suspend fun delete(req: AnalyticsDeleteRequest): AnalyticsDeleteResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
@@ -38,7 +38,7 @@ data class AnalyticsDeleteRequest(val name: String)
 @Serializable
 data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
 @Serializable
-data class AnalyticsEvent(val value: Long, val created: String, val name: String)
+data class AnalyticsEvent(val created: String, val name: String, val value: Long)
 @Serializable
 data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
 @Serializable

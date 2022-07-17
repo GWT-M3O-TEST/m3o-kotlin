@@ -10,7 +10,7 @@ suspend fun main() {
   val req = VehicleLookupRequest(Registration = "LC60OTA",)
   
   try {
-      val response = VehicleService.lookup(req)
+      val response = VehicleServ.lookup(req)
       println(response)
   } catch (e: Exception) {
       println(e)

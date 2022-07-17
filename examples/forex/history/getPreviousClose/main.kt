@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ForexHistoryRequest(Symbol = "GBPUSD",)
   
   try {
-      val response = ForexService.history(req)
+      val response = ForexServ.history(req)
       println(response)
   } catch (e: Exception) {
       println(e)

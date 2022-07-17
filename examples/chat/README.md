@@ -79,12 +79,12 @@ void main() async {
   }
 }
 ```
-## History
+## Join
 
-List the messages in a chat
+Join a chat room
 
 
-[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
+[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
 
 ```dart
 import 'dart:io';
@@ -95,19 +95,22 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
+  "user_id": "user-2"
 ,};
 
-  HistoryRequest req = HistoryRequest.fromJson(payload);
+  JoinRequest req = JoinRequest.fromJson(payload);
 
   
+  	
   try {
 
-	HistoryResponse res = await ser.history(req);
+    final res = await ser.join(req);
 
-    res.map((value) => print(value),
-	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
-  
+	  await for (var sr in res) {
+	  sr.map((value) => print(value),
+		Merr: (JoinResponseMerr err) => print(err.body));
+	  }
   } catch (e) {
     print(e);
   } finally {
@@ -115,12 +118,12 @@ void main() async {
   }
 }
 ```
-## Leave
+## Kick
 
-Leave a chat room
+Kick a user from a chat room
 
 
-[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
+[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
 
 ```dart
 import 'dart:io';
@@ -135,15 +138,15 @@ void main() async {
   "user_id": "user-1"
 ,};
 
-  LeaveRequest req = LeaveRequest.fromJson(payload);
+  KickRequest req = KickRequest.fromJson(payload);
 
   
   try {
 
-	LeaveResponse res = await ser.leave(req);
+	KickResponse res = await ser.kick(req);
 
     res.map((value) => print(value),
-	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
+	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);
@@ -226,12 +229,12 @@ void main() async {
   }
 }
 ```
-## Join
+## History
 
-Join a chat room
+List the messages in a chat
 
 
-[https://m3o.com/chat/api#Join](https://m3o.com/chat/api#Join)
+[https://m3o.com/chat/api#History](https://m3o.com/chat/api#History)
 
 ```dart
 import 'dart:io';
@@ -242,22 +245,19 @@ void main() async {
   final ser = ChatService(Platform.environment['M3O_API_TOKEN']!);
  
   final payload = <String, dynamic>{
-  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910",
-  "user_id": "user-2"
+  "room_id": "d8057208-f81a-4e14-ad7f-c29daa2bb910"
 ,};
 
-  JoinRequest req = JoinRequest.fromJson(payload);
+  HistoryRequest req = HistoryRequest.fromJson(payload);
 
   
-  	
   try {
 
-    final res = await ser.join(req);
+	HistoryResponse res = await ser.history(req);
 
-	  await for (var sr in res) {
-	  sr.map((value) => print(value),
-		Merr: (JoinResponseMerr err) => print(err.body));
-	  }
+    res.map((value) => print(value),
+	  Merr: (HistoryResponseMerr err) => print(err.body!['body']));	
+  
   } catch (e) {
     print(e);
   } finally {
@@ -265,12 +265,12 @@ void main() async {
   }
 }
 ```
-## Kick
+## Leave
 
-Kick a user from a chat room
+Leave a chat room
 
 
-[https://m3o.com/chat/api#Kick](https://m3o.com/chat/api#Kick)
+[https://m3o.com/chat/api#Leave](https://m3o.com/chat/api#Leave)
 
 ```dart
 import 'dart:io';
@@ -285,15 +285,15 @@ void main() async {
   "user_id": "user-1"
 ,};
 
-  KickRequest req = KickRequest.fromJson(payload);
+  LeaveRequest req = LeaveRequest.fromJson(payload);
 
   
   try {
 
-	KickResponse res = await ser.kick(req);
+	LeaveResponse res = await ser.leave(req);
 
     res.map((value) => print(value),
-	  Merr: (KickResponseMerr err) => print(err.body!['body']));	
+	  Merr: (LeaveResponseMerr err) => print(err.body!['body']));	
   
   } catch (e) {
     print(e);

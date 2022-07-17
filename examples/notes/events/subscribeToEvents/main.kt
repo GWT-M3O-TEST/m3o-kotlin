@@ -9,7 +9,7 @@ fun main() {
   val req = val req = NotesEventsRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
-      val socket = NotesService.events(req) { socketError, response ->
+      val socket = NotesServ.events(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

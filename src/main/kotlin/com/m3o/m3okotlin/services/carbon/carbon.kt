@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "carbon"
 
-object CarbonService {
+object CarbonServ {
       suspend fun offset(): CarbonOffsetResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Offset")) 
       }

@@ -11,7 +11,7 @@ suspend fun main() {
 Query = "age == 43",)
   
   try {
-      val response = DbService.read(req)
+      val response = DbServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

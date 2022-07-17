@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "url"
 
-object UrlService {
+object UrlServ {
       suspend fun delete(req: UrlDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
@@ -50,4 +50,4 @@ data class UrlShortenRequest(val destinationURL: String)
 @Serializable
 data class UrlShortenResponse(val shortURL: String)
 @Serializable
-data class UrlURLPair(val destinationURL: String, val hitCount: Long, val shortURL: String, val created: String)
+data class UrlURLPair(val created: String, val destinationURL: String, val hitCount: Long, val shortURL: String)

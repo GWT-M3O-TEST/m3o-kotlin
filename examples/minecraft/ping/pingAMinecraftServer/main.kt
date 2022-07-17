@@ -10,7 +10,7 @@ suspend fun main() {
   val req = MinecraftPingRequest(Address = "funcraft.net",)
   
   try {
-      val response = MinecraftService.ping(req)
+      val response = MinecraftServ.ping(req)
       println(response)
   } catch (e: Exception) {
       println(e)

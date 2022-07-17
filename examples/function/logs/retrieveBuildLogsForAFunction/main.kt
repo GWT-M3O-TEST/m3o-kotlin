@@ -11,7 +11,7 @@ suspend fun main() {
 LogsType = "build",)
   
   try {
-      val response = FunctionService.logs(req)
+      val response = FunctionServ.logs(req)
       println(response)
   } catch (e: Exception) {
       println(e)

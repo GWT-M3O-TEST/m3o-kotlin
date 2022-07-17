@@ -11,7 +11,7 @@ suspend fun main() {
 Path = "/document/text-files/file.txt",)
   
   try {
-      val response = FileService.delete(req)
+      val response = FileServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

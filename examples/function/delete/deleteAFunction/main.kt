@@ -10,7 +10,7 @@ suspend fun main() {
   val req = FunctionDeleteRequest(Name = "helloworld",)
   
   try {
-      val response = FunctionService.delete(req)
+      val response = FunctionServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

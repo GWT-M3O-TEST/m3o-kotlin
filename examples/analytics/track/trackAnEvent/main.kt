@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AnalyticsTrackRequest(Name = "click",)
   
   try {
-      val response = AnalyticsService.track(req)
+      val response = AnalyticsServ.track(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "routing"
 
-object RoutingService {
+object RoutingServ {
       suspend fun directions(req: RoutingDirectionsRequest): RoutingDirectionsResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Directions")) {
           body = req
@@ -31,7 +31,7 @@ object RoutingService {
       }
 }
 @Serializable
-data class RoutingDirection(val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String, val distance: Double, val duration: Double)
+data class RoutingDirection(val distance: Double, val duration: Double, val instruction: String, val intersections: List<RoutingIntersection>, val maneuver: RoutingManeuver, val name: String, val reference: String)
 @Serializable
 data class RoutingDirectionsRequest(val destination: RoutingPoint, val origin: RoutingPoint)
 @Serializable
@@ -43,7 +43,7 @@ data class RoutingEtaResponse(val duration: Double)
 @Serializable
 data class RoutingIntersection(val bearings: List<Double>, val location: RoutingPoint)
 @Serializable
-data class RoutingManeuver(val bearing_after: Double, val bearing_before: Double, val direction: String, val location: RoutingPoint, val action: String)
+data class RoutingManeuver(val location: RoutingPoint, val action: String, val bearing_after: Double, val bearing_before: Double, val direction: String)
 @Serializable
 data class RoutingPoint(val latitude: Double, val longitude: Double)
 @Serializable

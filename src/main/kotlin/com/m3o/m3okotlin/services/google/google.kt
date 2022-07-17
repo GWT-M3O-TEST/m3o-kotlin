@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "google"
 
-object GoogleService {
+object GoogleServ {
       suspend fun search(req: GoogleSearchRequest): GoogleSearchResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Search")) {
           body = req
@@ -25,4 +25,4 @@ data class GoogleSearchRequest(val query: String)
 @Serializable
 data class GoogleSearchResponse(val results: List<GoogleSearchResult>)
 @Serializable
-data class GoogleSearchResult(val snippet: String, val title: String, val url: String, val display_url: String, val id: String, val kind: String)
+data class GoogleSearchResult(val display_url: String, val id: String, val kind: String, val snippet: String, val title: String, val url: String)

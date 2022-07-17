@@ -10,7 +10,7 @@ suspend fun main() {
   val req = LocationReadRequest(Id = "1",)
   
   try {
-      val response = LocationService.read(req)
+      val response = LocationServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

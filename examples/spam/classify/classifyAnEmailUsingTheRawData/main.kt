@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SpamClassifyRequest(EmailBody = "Subject: Welcome\r\nTo: hello@emaple.com\r\nFrom: noreply@m3o.com\r\n\r\nHi there,\n\nWelcome to M3O.\n\nThanks\nM3O team",)
   
   try {
-      val response = SpamService.classify(req)
+      val response = SpamServ.classify(req)
       println(response)
   } catch (e: Exception) {
       println(e)

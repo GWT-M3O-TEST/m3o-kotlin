@@ -16,7 +16,7 @@ Radius = 100,
 Type = "bike",)
   
   try {
-      val response = LocationService.search(req)
+      val response = LocationServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

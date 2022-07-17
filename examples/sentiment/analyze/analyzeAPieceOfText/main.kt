@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SentimentAnalyzeRequest(Text = "this is amazing",)
   
   try {
-      val response = SentimentService.analyze(req)
+      val response = SentimentServ.analyze(req)
       println(response)
   } catch (e: Exception) {
       println(e)

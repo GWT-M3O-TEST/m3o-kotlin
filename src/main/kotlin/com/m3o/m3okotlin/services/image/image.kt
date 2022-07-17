@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "image"
 
-object ImageService {
+object ImageServ {
       suspend fun convert(req: ImageConvertRequest): ImageConvertResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Convert")) {
           body = req
@@ -36,21 +36,21 @@ object ImageService {
       }
 }
 @Serializable
-data class ImageConvertRequest(val url: String, val base64: String, val file: String, val name: String, val outputURL: Boolean)
+data class ImageConvertRequest(val base64: String, val file: String, val name: String, val outputURL: Boolean, val url: String)
 @Serializable
 data class ImageConvertResponse(val base64: String, val url: String)
 @Serializable
-data class ImageCropOptions(val width: Int, val anchor: String, val height: Int)
+data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
 @Serializable
 data class ImageDeleteRequest(val url: String)
 @Serializable
-data class ImagePoint(val y: Int, val x: Int)
+data class ImagePoint(val x: Int, val y: Int)
 @Serializable
 data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
 @Serializable
-data class ImageResizeRequest(val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String, val width: Long, val base64: String, val cropOptions: ImageCropOptions)
+data class ImageResizeRequest(val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String)
 @Serializable
-data class ImageResizeResponse(val base64: String, val url: String)
+data class ImageResizeResponse(val url: String, val base64: String)
 @Serializable
 data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
 @Serializable

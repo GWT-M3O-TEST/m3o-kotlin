@@ -10,7 +10,7 @@ suspend fun main() {
   val req = WeatherNowRequest(Location = "london",)
   
   try {
-      val response = WeatherService.now(req)
+      val response = WeatherServ.now(req)
       println(response)
   } catch (e: Exception) {
       println(e)

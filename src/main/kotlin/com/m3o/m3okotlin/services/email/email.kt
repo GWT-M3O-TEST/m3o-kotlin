@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "email"
 
-object EmailService {
+object EmailServ {
       suspend fun parse(req: EmailParseRequest): EmailParseResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Parse")) {
           body = req
@@ -35,7 +35,7 @@ data class EmailParseRequest(val address: String)
 @Serializable
 data class EmailParseResponse(val address: String, val name: String)
 @Serializable
-data class EmailSendRequest(val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String, val to: String)
+data class EmailSendRequest(val to: String, val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String)
 @Serializable
 data class EmailValidateRequest(val address: String)
 @Serializable

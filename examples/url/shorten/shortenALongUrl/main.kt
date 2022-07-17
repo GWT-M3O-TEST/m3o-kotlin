@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UrlShortenRequest(DestinationUrl = "https://mysite.com/this-is-a-rather-long-web-address",)
   
   try {
-      val response = UrlService.shorten(req)
+      val response = UrlServ.shorten(req)
       println(response)
   } catch (e: Exception) {
       println(e)

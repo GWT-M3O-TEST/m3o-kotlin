@@ -12,7 +12,7 @@ Symbol = "BTC",
 Comment = "Price is not up to date",)
   
   try {
-      val response = PriceService.report(req)
+      val response = PriceServ.report(req)
       println(response)
   } catch (e: Exception) {
       println(e)

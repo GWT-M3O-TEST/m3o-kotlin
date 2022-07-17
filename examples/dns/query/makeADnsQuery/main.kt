@@ -10,7 +10,7 @@ suspend fun main() {
   val req = DnsQueryRequest(Name = "google.com",)
   
   try {
-      val response = DnsService.query(req)
+      val response = DnsServ.query(req)
       println(response)
   } catch (e: Exception) {
       println(e)

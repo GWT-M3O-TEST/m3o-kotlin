@@ -7,13 +7,13 @@ import com.m3o.m3okotlin.services.user
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = UserCreateRequest(Username = "joe",
+  val req = UserCreateRequest(Id = "user-1",
+Username = "joe",
 Email = "joe@example.com",
-Password = "Password1",
-Id = "user-1",)
+Password = "Password1",)
   
   try {
-      val response = UserService.create(req)
+      val response = UserServ.create(req)
       println(response)
   } catch (e: Exception) {
       println(e)

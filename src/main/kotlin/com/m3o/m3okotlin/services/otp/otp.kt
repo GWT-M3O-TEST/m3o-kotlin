@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "otp"
 
-object OtpService {
+object OtpServ {
       suspend fun generate(req: OtpGenerateRequest): OtpGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req

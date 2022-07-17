@@ -10,7 +10,7 @@ suspend fun main() {
   val req = TunnelSendRequest(Url = "https://google.com",)
   
   try {
-      val response = TunnelService.send(req)
+      val response = TunnelServ.send(req)
       println(response)
   } catch (e: Exception) {
       println(e)

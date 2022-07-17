@@ -10,7 +10,7 @@ suspend fun main() {
   val req = WordleGuessRequest(Word = "noise",)
   
   try {
-      val response = WordleService.guess(req)
+      val response = WordleServ.guess(req)
       println(response)
   } catch (e: Exception) {
       println(e)

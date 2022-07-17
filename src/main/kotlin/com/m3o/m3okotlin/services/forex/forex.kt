@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "forex"
 
-object ForexService {
+object ForexServ {
       suspend fun history(req: ForexHistoryRequest): ForexHistoryResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "History")) {
           body = req
@@ -33,7 +33,7 @@ object ForexService {
 @Serializable
 data class ForexHistoryRequest(val symbol: String)
 @Serializable
-data class ForexHistoryResponse(val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double)
+data class ForexHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double)
 @Serializable
 data class ForexPriceRequest(val symbol: String)
 @Serializable
@@ -41,4 +41,4 @@ data class ForexPriceResponse(val price: Double, val symbol: String)
 @Serializable
 data class ForexQuoteRequest(val symbol: String)
 @Serializable
-data class ForexQuoteResponse(val symbol: String, val timestamp: String, val ask_price: Double, val bid_price: Double)
+data class ForexQuoteResponse(val timestamp: String, val ask_price: Double, val bid_price: Double, val symbol: String)

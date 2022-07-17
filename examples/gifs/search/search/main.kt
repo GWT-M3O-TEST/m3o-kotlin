@@ -11,7 +11,7 @@ suspend fun main() {
 Limit = 2,)
   
   try {
-      val response = GifsService.search(req)
+      val response = GifsServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CommentsDeleteRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
-      val response = CommentsService.delete(req)
+      val response = CommentsServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

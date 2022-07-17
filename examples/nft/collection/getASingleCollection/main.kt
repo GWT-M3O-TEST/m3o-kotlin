@@ -10,7 +10,7 @@ suspend fun main() {
   val req = NftCollectionRequest(Slug = "doodles-official",)
   
   try {
-      val response = NftService.collection(req)
+      val response = NftServ.collection(req)
       println(response)
   } catch (e: Exception) {
       println(e)

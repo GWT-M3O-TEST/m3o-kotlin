@@ -11,7 +11,7 @@ suspend fun main() {
 Location = "51.5074577,-0.1297515",)
   
   try {
-      val response = PlaceService.search(req)
+      val response = PlaceServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

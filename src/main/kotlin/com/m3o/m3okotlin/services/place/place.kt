@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "place"
 
-object PlaceService {
+object PlaceServ {
       suspend fun nearby(req: PlaceNearbyRequest): PlaceNearbyResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Nearby")) {
           body = req
@@ -26,12 +26,12 @@ object PlaceService {
       }
 }
 @Serializable
-data class PlaceNearbyRequest(val radius: Int, val type: String, val keyword: String, val location: String, val name: String, val open_now: Boolean)
+data class PlaceNearbyRequest(val type: String, val keyword: String, val location: String, val name: String, val open_now: Boolean, val radius: Int)
 @Serializable
 data class PlaceNearbyResponse(val results: List<PlaceResult>)
 @Serializable
-data class PlaceResult(val icon_url: String, val open_now: Boolean, val opening_hours: List<String>, val rating: Double, val type: String, val address: String, val name: String, val types: List<String>, val vicinity: String, val location: String)
+data class PlaceResult(val name: String, val open_now: Boolean, val rating: Double, val types: List<String>, val address: String, val icon_url: String, val type: String, val vicinity: String, val location: String, val opening_hours: List<String>)
 @Serializable
-data class PlaceSearchRequest(val type: String, val location: String, val open_now: Boolean, val query: String, val radius: Int)
+data class PlaceSearchRequest(val radius: Int, val type: String, val location: String, val open_now: Boolean, val query: String)
 @Serializable
 data class PlaceSearchResponse(val results: List<PlaceResult>)

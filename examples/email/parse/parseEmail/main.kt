@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EmailParseRequest(Address = "Joe Blogs <joe@example.com>",)
   
   try {
-      val response = EmailService.parse(req)
+      val response = EmailServ.parse(req)
       println(response)
   } catch (e: Exception) {
       println(e)

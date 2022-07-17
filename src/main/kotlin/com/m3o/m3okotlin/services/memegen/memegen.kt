@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "memegen"
 
-object MemegenService {
+object MemegenServ {
       suspend fun generate(req: MemegenGenerateRequest): MemegenGenerateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Generate")) {
           body = req
@@ -24,9 +24,9 @@ object MemegenService {
       }
 }
 @Serializable
-data class MemegenBox(val color: String, val height: Int, val outline: String, val text: String, val width: Int, val x: Int, val y: Int)
+data class MemegenBox(val text: String, val width: Int, val x: Int, val y: Int, val color: String, val height: Int, val outline: String)
 @Serializable
-data class MemegenGenerateRequest(val bottom_text: String, val font: String, val id: String, val max_font_size: String, val top_text: String)
+data class MemegenGenerateRequest(val top_text: String, val bottom_text: String, val font: String, val id: String, val max_font_size: String)
 @Serializable
 data class MemegenGenerateResponse(val url: String)
 @Serializable

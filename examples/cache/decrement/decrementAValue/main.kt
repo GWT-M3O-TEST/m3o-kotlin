@@ -11,7 +11,7 @@ suspend fun main() {
 Value = 2,)
   
   try {
-      val response = CacheService.decrement(req)
+      val response = CacheServ.decrement(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -11,7 +11,7 @@ suspend fun main() {
 TokenId = "1",)
   
   try {
-      val response = NftService.asset(req)
+      val response = NftServ.asset(req)
       println(response)
   } catch (e: Exception) {
       println(e)

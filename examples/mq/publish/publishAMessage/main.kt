@@ -12,7 +12,7 @@ Message: &mq.Json{
 },)
   
   try {
-      val response = MqService.publish(req)
+      val response = MqServ.publish(req)
       println(response)
   } catch (e: Exception) {
       println(e)

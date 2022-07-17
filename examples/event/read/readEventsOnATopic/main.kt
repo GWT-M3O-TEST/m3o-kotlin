@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EventReadRequest(Topic = "user",)
   
   try {
-      val response = EventService.read(req)
+      val response = EventServ.read(req)
       println(response)
   } catch (e: Exception) {
       println(e)

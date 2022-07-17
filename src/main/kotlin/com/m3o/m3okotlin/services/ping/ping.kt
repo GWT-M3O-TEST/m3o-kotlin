@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "ping"
 
-object PingService {
+object PingServ {
       suspend fun ip(req: PingIpRequest): PingIpResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Ip")) {
           body = req
@@ -33,9 +33,9 @@ object PingService {
 @Serializable
 data class PingIpRequest(val address: String)
 @Serializable
-data class PingIpResponse(val status: String, val latency: String)
+data class PingIpResponse(val latency: String, val status: String)
 @Serializable
-data class PingTcpRequest(val data: String, val address: String)
+data class PingTcpRequest(val address: String, val data: String)
 @Serializable
 data class PingTcpResponse(val data: String, val status: String)
 @Serializable

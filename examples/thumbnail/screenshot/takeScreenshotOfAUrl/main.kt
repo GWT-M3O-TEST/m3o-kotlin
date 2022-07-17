@@ -12,7 +12,7 @@ Url = "https://google.com",
 Width = 600,)
   
   try {
-      val response = ThumbnailService.screenshot(req)
+      val response = ThumbnailServ.screenshot(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "stream"
 
-object StreamService {
+object StreamServ {
       suspend fun createChannel(req: StreamCreateChannelRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "CreateChannel")) {
           body = req
@@ -34,7 +34,7 @@ object StreamService {
       }
 }
 @Serializable
-data class StreamChannel(val last_active: String, val name: String, val description: String)
+data class StreamChannel(val description: String, val last_active: String, val name: String)
 @Serializable
 data class StreamCreateChannelRequest(val description: String, val name: String)
 @Serializable
@@ -42,8 +42,8 @@ data class StreamListChannelsResponse(val channels: List<StreamChannel>)
 @Serializable
 data class StreamListMessagesRequest(val channel: String, val limit: Int)
 @Serializable
-data class StreamListMessagesResponse(val channel: String, val messages: List<StreamMessage>)
+data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
 @Serializable
 data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
 @Serializable
-data class StreamSendMessageRequest(val text: String, val channel: String)
+data class StreamSendMessageRequest(val channel: String, val text: String)

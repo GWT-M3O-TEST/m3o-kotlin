@@ -18,7 +18,7 @@ Timestamp = 1622802761,
 },)
   
   try {
-      val response = LocationService.save(req)
+      val response = LocationServ.save(req)
       println(response)
   } catch (e: Exception) {
       println(e)

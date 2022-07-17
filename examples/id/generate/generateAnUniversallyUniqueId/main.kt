@@ -10,7 +10,7 @@ suspend fun main() {
   val req = IdGenerateRequest(Type = "uuid",)
   
   try {
-      val response = IdService.generate(req)
+      val response = IdServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

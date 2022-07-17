@@ -11,7 +11,7 @@ suspend fun main() {
 UserId = "user-1",)
   
   try {
-      val response = ChatService.invite(req)
+      val response = ChatServ.invite(req)
       println(response)
   } catch (e: Exception) {
       println(e)

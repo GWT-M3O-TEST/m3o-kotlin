@@ -10,7 +10,7 @@ suspend fun main() {
   val req = StreamListChannelsRequest()
   
   try {
-      val response = StreamService.listChannels(req)
+      val response = StreamServ.listChannels(req)
       println(response)
   } catch (e: Exception) {
       println(e)

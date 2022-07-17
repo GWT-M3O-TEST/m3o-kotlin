@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EvchargersReferenceDataRequest()
   
   try {
-      val response = EvchargersService.referenceData(req)
+      val response = EvchargersServ.referenceData(req)
       println(response)
   } catch (e: Exception) {
       println(e)

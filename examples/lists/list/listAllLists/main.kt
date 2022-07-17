@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ListsListRequest()
   
   try {
-      val response = ListsService.list(req)
+      val response = ListsServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

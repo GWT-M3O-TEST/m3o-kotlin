@@ -14,7 +14,7 @@ Text = "Updated note text",
 },)
   
   try {
-      val response = NotesService.update(req)
+      val response = NotesServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

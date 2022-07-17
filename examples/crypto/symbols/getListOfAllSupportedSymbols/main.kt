@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CryptoSymbolsRequest()
   
   try {
-      val response = CryptoService.symbols(req)
+      val response = CryptoServ.symbols(req)
       println(response)
   } catch (e: Exception) {
       println(e)

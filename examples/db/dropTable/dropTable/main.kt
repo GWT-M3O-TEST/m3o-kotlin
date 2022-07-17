@@ -10,7 +10,7 @@ suspend fun main() {
   val req = DbDropTableRequest(Table = "example",)
   
   try {
-      val response = DbService.dropTable(req)
+      val response = DbServ.dropTable(req)
       println(response)
   } catch (e: Exception) {
       println(e)

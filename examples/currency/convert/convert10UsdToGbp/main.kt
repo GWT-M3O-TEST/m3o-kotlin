@@ -12,7 +12,7 @@ To = "GBP",
 Amount = 10,)
   
   try {
-      val response = CurrencyService.convert(req)
+      val response = CurrencyServ.convert(req)
       println(response)
   } catch (e: Exception) {
       println(e)

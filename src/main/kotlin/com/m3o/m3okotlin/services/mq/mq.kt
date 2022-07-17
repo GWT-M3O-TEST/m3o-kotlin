@@ -14,7 +14,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "mq"
 
-object MqService {
+object MqServ {
       suspend fun publish(req: MqPublishRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Publish")) {
           body = req
@@ -28,7 +28,7 @@ object MqService {
       }
 }
 @Serializable
-data class MqPublishRequest(val topic: String, val message: JsonObject)
+data class MqPublishRequest(val message: JsonObject, val topic: String)
 @Serializable
 data class MqSubscribeRequest(val topic: String)
 @Serializable

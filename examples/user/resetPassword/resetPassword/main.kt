@@ -11,7 +11,7 @@ suspend fun main() {
 Code = "012345",)
   
   try {
-      val response = UserService.resetPassword(req)
+      val response = UserServ.resetPassword(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -13,7 +13,7 @@ Items = listOf(String){
 },)
   
   try {
-      val response = ListsService.create(req)
+      val response = ListsServ.create(req)
       println(response)
   } catch (e: Exception) {
       println(e)

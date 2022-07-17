@@ -14,7 +14,7 @@ Subject = "Random",
 Text = "Hey whats up?",)
   
   try {
-      val response = ChatService.send(req)
+      val response = ChatServ.send(req)
       println(response)
   } catch (e: Exception) {
       println(e)

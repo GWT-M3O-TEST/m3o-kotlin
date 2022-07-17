@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CommentsListRequest()
   
   try {
-      val response = CommentsService.list(req)
+      val response = CommentsServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

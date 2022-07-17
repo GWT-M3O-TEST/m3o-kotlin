@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserDeleteRequest(Id = "8b98acbe-0b6a-4d66-a414-5ffbf666786f",)
   
   try {
-      val response = UserService.delete(req)
+      val response = UserServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

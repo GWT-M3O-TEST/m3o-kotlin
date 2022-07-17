@@ -14,7 +14,7 @@ Source = "en",
 Target = "fr",)
   
   try {
-      val response = TranslateService.text(req)
+      val response = TranslateServ.text(req)
       println(response)
   } catch (e: Exception) {
       println(e)

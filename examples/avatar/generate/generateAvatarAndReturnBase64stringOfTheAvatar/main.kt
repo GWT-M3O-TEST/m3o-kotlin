@@ -13,7 +13,7 @@ Format = "jpeg",
 Upload = false,)
   
   try {
-      val response = AvatarService.generate(req)
+      val response = AvatarServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

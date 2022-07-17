@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ChatHistoryRequest(RoomId = "d8057208-f81a-4e14-ad7f-c29daa2bb910",)
   
   try {
-      val response = ChatService.history(req)
+      val response = ChatServ.history(req)
       println(response)
   } catch (e: Exception) {
       println(e)

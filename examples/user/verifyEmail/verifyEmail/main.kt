@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserVerifyEmailRequest(Token = "012345",)
   
   try {
-      val response = UserService.verifyEmail(req)
+      val response = UserServ.verifyEmail(req)
       println(response)
   } catch (e: Exception) {
       println(e)

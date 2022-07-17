@@ -10,7 +10,7 @@ suspend fun main() {
   val req = HolidaysCountriesRequest()
   
   try {
-      val response = HolidaysService.countries(req)
+      val response = HolidaysServ.countries(req)
       println(response)
   } catch (e: Exception) {
       println(e)

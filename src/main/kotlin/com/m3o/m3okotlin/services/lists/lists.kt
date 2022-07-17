@@ -14,7 +14,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "lists"
 
-object ListsService {
+object ListsServ {
       suspend fun create(req: ListsCreateRequest): ListsCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
@@ -46,7 +46,7 @@ object ListsService {
       }
 }
 @Serializable
-data class ListsCreateRequest(val items: List<String>, val name: String)
+data class ListsCreateRequest(val name: String, val items: List<String>)
 @Serializable
 data class ListsCreateResponse(val list: ListsList)
 @Serializable
@@ -56,9 +56,9 @@ data class ListsDeleteResponse(val list: ListsList)
 @Serializable
 data class ListsEventsRequest(val id: String)
 @Serializable
-data class ListsEventsResponse(val list: ListsList, val event: String)
+data class ListsEventsResponse(val event: String, val list: ListsList)
 @Serializable
-data class ListsList(val updated: String, val created: String, val id: String, val items: List<String>, val name: String)
+data class ListsList(val created: String, val id: String, val items: List<String>, val name: String, val updated: String)
 @Serializable
 data class ListsListResponse(val lists: List<ListsList>)
 @Serializable

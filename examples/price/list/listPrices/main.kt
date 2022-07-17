@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PriceListRequest(Currency = "GBP",)
   
   try {
-      val response = PriceService.list(req)
+      val response = PriceServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

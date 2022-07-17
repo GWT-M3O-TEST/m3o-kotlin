@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SunnahCollectionsRequest()
   
   try {
-      val response = SunnahService.collections(req)
+      val response = SunnahServ.collections(req)
       println(response)
   } catch (e: Exception) {
       println(e)

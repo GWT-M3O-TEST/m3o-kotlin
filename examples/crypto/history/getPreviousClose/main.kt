@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CryptoHistoryRequest(Symbol = "BTCUSD",)
   
   try {
-      val response = CryptoService.history(req)
+      val response = CryptoServ.history(req)
       println(response)
   } catch (e: Exception) {
       println(e)

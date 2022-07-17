@@ -14,7 +14,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "event"
 
-object EventService {
+object EventServ {
       fun consume(req: EventConsumeRequest, action: (Exception?, EventConsumeResponse?) -> Unit) {
           val url = getUrl(SERVICE, "Consume", true)
           WebSocket(url, Json.encodeToString(req)) { e, response ->
@@ -35,7 +35,7 @@ object EventService {
 @Serializable
 data class EventConsumeRequest(val group: String, val offset: String, val topic: String)
 @Serializable
-data class EventConsumeResponse(val id: String, val message: JsonObject, val timestamp: String, val topic: String)
+data class EventConsumeResponse(val topic: String, val id: String, val message: JsonObject, val timestamp: String)
 @Serializable
 data class EventEv(val id: String, val message: JsonObject, val timestamp: String)
 @Serializable

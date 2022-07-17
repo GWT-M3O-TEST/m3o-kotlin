@@ -10,7 +10,7 @@ suspend fun main() {
   val req = RssFeedRequest(Name = "bbc",)
   
   try {
-      val response = RssService.feed(req)
+      val response = RssServ.feed(req)
       println(response)
   } catch (e: Exception) {
       println(e)

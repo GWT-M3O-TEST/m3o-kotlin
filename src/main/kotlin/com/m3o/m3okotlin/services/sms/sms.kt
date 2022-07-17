@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "sms"
 
-object SmsService {
+object SmsServ {
       suspend fun send(req: SmsSendRequest): SmsSendResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Send")) {
           body = req

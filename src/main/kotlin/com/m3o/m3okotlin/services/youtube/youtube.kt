@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "youtube"
 
-object YoutubeService {
+object YoutubeServ {
       suspend fun embed(req: YoutubeEmbedRequest): YoutubeEmbedResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Embed")) {
           body = req
@@ -34,4 +34,4 @@ data class YoutubeSearchRequest(val query: String)
 @Serializable
 data class YoutubeSearchResponse(val results: List<YoutubeSearchResult>)
 @Serializable
-data class YoutubeSearchResult(val broadcasting: String, val channel_title: String, val description: String, val id: String, val kind: String, val channel_id: String, val published_at: String, val title: String, val url: String)
+data class YoutubeSearchResult(val channel_id: String, val channel_title: String, val description: String, val id: String, val kind: String, val published_at: String, val url: String, val broadcasting: String, val title: String)

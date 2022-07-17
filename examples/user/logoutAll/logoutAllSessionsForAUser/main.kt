@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserLogoutAllRequest(UserId = "user-1",)
   
   try {
-      val response = UserService.logoutAll(req)
+      val response = UserServ.logoutAll(req)
       println(response)
   } catch (e: Exception) {
       println(e)

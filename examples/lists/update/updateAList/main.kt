@@ -16,7 +16,7 @@ Items = listOf(String){
 },)
   
   try {
-      val response = ListsService.update(req)
+      val response = ListsServ.update(req)
       println(response)
   } catch (e: Exception) {
       println(e)

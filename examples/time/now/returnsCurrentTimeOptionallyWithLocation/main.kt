@@ -10,7 +10,7 @@ suspend fun main() {
   val req = TimeNowRequest()
   
   try {
-      val response = TimeService.now(req)
+      val response = TimeServ.now(req)
       println(response)
   } catch (e: Exception) {
       println(e)

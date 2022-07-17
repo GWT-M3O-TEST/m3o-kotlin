@@ -12,7 +12,7 @@ Message: &event.Json{
 },)
   
   try {
-      val response = EventService.publish(req)
+      val response = EventServ.publish(req)
       println(response)
   } catch (e: Exception) {
       println(e)

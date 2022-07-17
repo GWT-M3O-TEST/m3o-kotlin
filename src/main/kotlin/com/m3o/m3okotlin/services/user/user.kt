@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "user"
 
-object UserService {
+object UserServ {
       suspend fun create(req: UserCreateRequest): UserCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
@@ -104,7 +104,7 @@ data class UserCreateResponse(val account: UserAccount)
 @Serializable
 data class UserDeleteRequest(val id: String)
 @Serializable
-data class UserListRequest(val offset: Int, val limit: Int)
+data class UserListRequest(val limit: Int, val offset: Int)
 @Serializable
 data class UserListResponse(val users: List<UserAccount>)
 @Serializable
@@ -116,7 +116,7 @@ data class UserLogoutAllRequest(val user_id: String)
 @Serializable
 data class UserLogoutRequest(val session_id: String)
 @Serializable
-data class UserReadRequest(val id: String, val username: String, val email: String)
+data class UserReadRequest(val email: String, val id: String, val username: String)
 @Serializable
 data class UserReadResponse(val account: UserAccount)
 @Serializable
@@ -124,19 +124,19 @@ data class UserReadSessionRequest(val session_id: String)
 @Serializable
 data class UserReadSessionResponse(val session: UserSession)
 @Serializable
-data class UserResetPasswordRequest(val new_password: String, val code: String, val confirm_password: String, val email: String)
+data class UserResetPasswordRequest(val confirm_password: String, val email: String, val new_password: String, val code: String)
 @Serializable
 data class UserSendMagicLinkRequest(val address: String, val email: String, val endpoint: String, val from_name: String, val subject: String, val text_content: String)
 @Serializable
-data class UserSendPasswordResetEmailRequest(val email: String, val expiration: Long, val from_name: String, val subject: String, val text_content: String)
+data class UserSendPasswordResetEmailRequest(val expiration: Long, val from_name: String, val subject: String, val text_content: String, val email: String)
 @Serializable
-data class UserSendVerificationEmailRequest(val email: String, val failure_redirect_url: String, val from_name: String, val redirect_url: String, val subject: String, val text_content: String)
+data class UserSendVerificationEmailRequest(val failure_redirect_url: String, val from_name: String, val redirect_url: String, val subject: String, val text_content: String, val email: String)
 @Serializable
-data class UserSession(val created: Long, val expires: Long, val id: String, val userId: String)
+data class UserSession(val id: String, val userId: String, val created: Long, val expires: Long)
 @Serializable
 data class UserUpdatePasswordRequest(val confirm_password: String, val new_password: String, val old_password: String, val userId: String)
 @Serializable
-data class UserUpdateRequest(val profile: Map<String, String>, val username: String, val email: String, val id: String)
+data class UserUpdateRequest(val id: String, val profile: Map<String, String>, val username: String, val email: String)
 @Serializable
 data class UserVerifyEmailRequest(val token: String)
 @Serializable

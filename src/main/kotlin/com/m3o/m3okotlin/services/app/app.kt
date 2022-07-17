@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "app"
 
-object AppService {
+object AppServ {
       suspend fun delete(req: AppDeleteRequest){
         return ktorHttpClient.post(getUrl(SERVICE, "Delete")) {
           body = req
@@ -67,7 +67,7 @@ data class AppLogsResponse(val logs: String)
 @Serializable
 data class AppRegionsResponse(val regions: List<String>)
 @Serializable
-data class AppReservation(val token: String, val created: String, val expires: String, val name: String, val owner: String)
+data class AppReservation(val expires: String, val name: String, val owner: String, val token: String, val created: String)
 @Serializable
 data class AppReserveRequest(val name: String)
 @Serializable
@@ -77,11 +77,11 @@ data class AppResolveRequest(val id: String)
 @Serializable
 data class AppResolveResponse(val url: String)
 @Serializable
-data class AppRunRequest(val env_vars: Map<String, String>, val name: String, val port: Int, val region: String, val repo: String, val branch: String)
+data class AppRunRequest(val repo: String, val branch: String, val env_vars: Map<String, String>, val name: String, val port: Int, val region: String)
 @Serializable
 data class AppRunResponse(val service: AppService)
 @Serializable
-data class AppService(val port: Int, val region: String, val status: String, val updated: String, val branch: String, val created: String, val id: String, val name: String, val custom_domains: List<String>, val env_vars: Map<String, String>, val repo: String, val url: String)
+data class AppService(val branch: String, val status: String, val repo: String, val created: String, val custom_domains: List<String>, val env_vars: Map<String, String>, val id: String, val name: String, val port: Int, val region: String, val updated: String, val url: String)
 @Serializable
 data class AppStatusRequest(val name: String)
 @Serializable

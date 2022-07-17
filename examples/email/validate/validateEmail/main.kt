@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EmailValidateRequest(Address = "joe@example.com",)
   
   try {
-      val response = EmailService.validate(req)
+      val response = EmailServ.validate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

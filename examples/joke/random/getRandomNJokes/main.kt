@@ -10,7 +10,7 @@ suspend fun main() {
   val req = JokeRandomRequest(Count = 3,)
   
   try {
-      val response = JokeService.random(req)
+      val response = JokeServ.random(req)
       println(response)
   } catch (e: Exception) {
       println(e)

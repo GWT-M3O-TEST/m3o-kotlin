@@ -14,7 +14,7 @@ Project = "examples",
 },)
   
   try {
-      val response = FileService.save(req)
+      val response = FileServ.save(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -10,7 +10,7 @@ suspend fun main() {
   val req = NftCollectionsRequest(Limit = 1,)
   
   try {
-      val response = NftService.collections(req)
+      val response = NftServ.collections(req)
       println(response)
   } catch (e: Exception) {
       println(e)

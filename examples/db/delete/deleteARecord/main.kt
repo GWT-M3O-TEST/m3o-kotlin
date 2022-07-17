@@ -11,7 +11,7 @@ suspend fun main() {
 Id = "1",)
   
   try {
-      val response = DbService.delete(req)
+      val response = DbServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

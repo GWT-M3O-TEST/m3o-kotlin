@@ -11,7 +11,7 @@ suspend fun main() {
 Date = "2020-10-01",)
   
   try {
-      val response = StockService.history(req)
+      val response = StockServ.history(req)
       println(response)
   } catch (e: Exception) {
       println(e)

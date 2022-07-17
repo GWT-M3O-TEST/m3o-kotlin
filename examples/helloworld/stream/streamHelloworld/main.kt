@@ -10,7 +10,7 @@ fun main() {
 Messages = 10,)
   
   try {
-      val socket = HelloworldService.stream(req) { socketError, response ->
+      val socket = HelloworldServ.stream(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

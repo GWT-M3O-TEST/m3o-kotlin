@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "location"
 
-object LocationService {
+object LocationServ {
       suspend fun read(req: LocationReadRequest): LocationReadResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Read")) {
           body = req
@@ -41,6 +41,6 @@ data class LocationReadResponse(val entity: LocationEntity)
 @Serializable
 data class LocationSaveRequest(val entity: LocationEntity)
 @Serializable
-data class LocationSearchRequest(val center: LocationPoint, val numEntities: Long, val radius: Double, val type: String)
+data class LocationSearchRequest(val type: String, val center: LocationPoint, val numEntities: Long, val radius: Double)
 @Serializable
 data class LocationSearchResponse(val entities: List<LocationEntity>)

@@ -9,7 +9,7 @@ fun main() {
   val req = val req = ListsEventsRequest(Id = "63c0cdf8-2121-11ec-a881-0242e36f037a",)
   
   try {
-      val socket = ListsService.events(req) { socketError, response ->
+      val socket = ListsServ.events(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

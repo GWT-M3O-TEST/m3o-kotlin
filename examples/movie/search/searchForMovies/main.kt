@@ -15,7 +15,7 @@ Year = 2010,
 PrimaryReleaseYear = 2010,)
   
   try {
-      val response = MovieService.search(req)
+      val response = MovieServ.search(req)
       println(response)
   } catch (e: Exception) {
       println(e)

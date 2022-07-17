@@ -11,7 +11,7 @@ suspend fun main() {
 Size = 300,)
   
   try {
-      val response = QrService.generate(req)
+      val response = QrServ.generate(req)
       println(response)
   } catch (e: Exception) {
       println(e)

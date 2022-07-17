@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PrayerTimesRequest(Location = "london",)
   
   try {
-      val response = PrayerService.times(req)
+      val response = PrayerServ.times(req)
       println(response)
   } catch (e: Exception) {
       println(e)

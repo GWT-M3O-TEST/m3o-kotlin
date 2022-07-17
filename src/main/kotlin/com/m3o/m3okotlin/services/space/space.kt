@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "space"
 
-object SpaceService {
+object SpaceServ {
       suspend fun create(req: SpaceCreateRequest): SpaceCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
@@ -56,7 +56,7 @@ object SpaceService {
       }
 }
 @Serializable
-data class SpaceCreateRequest(val name: String, val object: String, val visibility: String)
+data class SpaceCreateRequest(val name: String, val obj: String, val visibility: String)
 @Serializable
 data class SpaceCreateResponse(val url: String)
 @Serializable
@@ -66,11 +66,11 @@ data class SpaceDownloadRequest(val name: String)
 @Serializable
 data class SpaceDownloadResponse(val url: String)
 @Serializable
-data class SpaceHeadObject(val name: String, val url: String, val visibility: String, val created: String, val modified: String)
+data class SpaceHeadObject(val url: String, val visibility: String, val created: String, val modified: String, val name: String)
 @Serializable
 data class SpaceHeadRequest(val name: String)
 @Serializable
-data class SpaceHeadResponse(val object: SpaceHeadObject)
+data class SpaceHeadResponse(val obj: SpaceHeadObject)
 @Serializable
 data class SpaceListObject(val url: String, val visibility: String, val created: String, val modified: String, val name: String)
 @Serializable
@@ -80,14 +80,14 @@ data class SpaceListResponse(val objects: List<SpaceListObject>)
 @Serializable
 data class SpaceReadRequest(val name: String)
 @Serializable
-data class SpaceReadResponse(val object: SpaceSpaceObject)
+data class SpaceReadResponse(val obj: SpaceSpaceObject)
 @Serializable
-data class SpaceSpaceObject(val url: String, val visibility: String, val created: String, val data: String, val modified: String, val name: String)
+data class SpaceSpaceObject(val created: String, val data: String, val modified: String, val name: String, val url: String, val visibility: String)
 @Serializable
-data class SpaceUpdateRequest(val name: String, val object: String, val visibility: String)
+data class SpaceUpdateRequest(val name: String, val obj: String, val visibility: String)
 @Serializable
 data class SpaceUpdateResponse(val url: String)
 @Serializable
-data class SpaceUploadRequest(val visibility: String, val name: String)
+data class SpaceUploadRequest(val name: String, val visibility: String)
 @Serializable
 data class SpaceUploadResponse(val url: String)

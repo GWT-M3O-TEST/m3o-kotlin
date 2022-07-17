@@ -10,7 +10,7 @@ suspend fun main() {
   val req = EmojiFlagRequest(Code = "GB",)
   
   try {
-      val response = EmojiService.flag(req)
+      val response = EmojiServ.flag(req)
       println(response)
   } catch (e: Exception) {
       println(e)

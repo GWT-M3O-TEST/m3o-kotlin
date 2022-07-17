@@ -14,7 +14,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "comments"
 
-object CommentsService {
+object CommentsServ {
       suspend fun create(req: CommentsCreateRequest): CommentsCreateResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Create")) {
           body = req
@@ -48,7 +48,7 @@ object CommentsService {
 @Serializable
 data class CommentsComment(val created: String, val id: String, val subject: String, val text: String, val updated: String)
 @Serializable
-data class CommentsCreateRequest(val subject: String, val text: String)
+data class CommentsCreateRequest(val text: String, val subject: String)
 @Serializable
 data class CommentsCreateResponse(val comment: CommentsComment)
 @Serializable

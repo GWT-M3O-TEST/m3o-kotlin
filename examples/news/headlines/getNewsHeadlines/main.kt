@@ -12,7 +12,7 @@ Locale = "us",
 Date = "2021-11-24",)
   
   try {
-      val response = NewsService.headlines(req)
+      val response = NewsServ.headlines(req)
       println(response)
   } catch (e: Exception) {
       println(e)

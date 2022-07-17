@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserUpdatePasswordRequest(UserId = "user-1",)
   
   try {
-      val response = UserService.updatePassword(req)
+      val response = UserServ.updatePassword(req)
       println(response)
   } catch (e: Exception) {
       println(e)

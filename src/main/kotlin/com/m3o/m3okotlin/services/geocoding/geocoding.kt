@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "geocoding"
 
-object GeocodingService {
+object GeocodingServ {
       suspend fun lookup(req: GeocodingLookupRequest): GeocodingLookupResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Lookup")) {
           body = req

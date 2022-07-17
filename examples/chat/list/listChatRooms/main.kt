@@ -10,7 +10,7 @@ suspend fun main() {
   val req = ChatListRequest()
   
   try {
-      val response = ChatService.list(req)
+      val response = ChatServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

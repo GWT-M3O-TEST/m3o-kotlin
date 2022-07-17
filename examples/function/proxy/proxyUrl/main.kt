@@ -10,7 +10,7 @@ suspend fun main() {
   val req = FunctionProxyRequest(Id = "helloworld",)
   
   try {
-      val response = FunctionService.proxy(req)
+      val response = FunctionServ.proxy(req)
       println(response)
   } catch (e: Exception) {
       println(e)

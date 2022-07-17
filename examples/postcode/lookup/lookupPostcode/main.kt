@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PostcodeLookupRequest(Postcode = "SW1A 2AA",)
   
   try {
-      val response = PostcodeService.lookup(req)
+      val response = PostcodeServ.lookup(req)
       println(response)
   } catch (e: Exception) {
       println(e)

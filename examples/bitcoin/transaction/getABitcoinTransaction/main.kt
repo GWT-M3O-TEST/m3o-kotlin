@@ -10,7 +10,7 @@ suspend fun main() {
   val req = BitcoinTransactionRequest(Hash = "f854aebae95150b379cc1187d848d58225f3c4157fe992bcd166f58bd5063449",)
   
   try {
-      val response = BitcoinService.transaction(req)
+      val response = BitcoinServ.transaction(req)
       println(response)
   } catch (e: Exception) {
       println(e)

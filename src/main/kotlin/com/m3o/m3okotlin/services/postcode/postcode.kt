@@ -13,7 +13,7 @@ import kotlinx.serialization.json.JsonObject
 
 private const val SERVICE = "postcode"
 
-object PostcodeService {
+object PostcodeServ {
       suspend fun lookup(req: PostcodeLookupRequest): PostcodeLookupResponse {
         return ktorHttpClient.post(getUrl(SERVICE, "Lookup")) {
           body = req
@@ -31,7 +31,7 @@ object PostcodeService {
 @Serializable
 data class PostcodeLookupRequest(val postcode: String)
 @Serializable
-data class PostcodeLookupResponse(val longitude: Double, val postcode: String, val region: String, val ward: String, val country: String, val district: String, val latitude: Double)
+data class PostcodeLookupResponse(val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String, val ward: String)
 @Serializable
 data class PostcodeRandomResponse(val ward: String, val country: String, val district: String, val latitude: Double, val longitude: Double, val postcode: String, val region: String)
 @Serializable

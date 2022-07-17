@@ -11,7 +11,7 @@ suspend fun main() {
 To = "examples3",)
   
   try {
-      val response = DbService.renameTable(req)
+      val response = DbServ.renameTable(req)
       println(response)
   } catch (e: Exception) {
       println(e)

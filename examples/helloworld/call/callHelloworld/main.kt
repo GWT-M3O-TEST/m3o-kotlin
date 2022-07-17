@@ -10,7 +10,7 @@ suspend fun main() {
   val req = HelloworldCallRequest(Name = "John",)
   
   try {
-      val response = HelloworldService.call(req)
+      val response = HelloworldServ.call(req)
       println(response)
   } catch (e: Exception) {
       println(e)

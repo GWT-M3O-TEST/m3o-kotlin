@@ -10,7 +10,7 @@ suspend fun main() {
   val req = IdTypesRequest()
   
   try {
-      val response = IdService.types(req)
+      val response = IdServ.types(req)
       println(response)
   } catch (e: Exception) {
       println(e)

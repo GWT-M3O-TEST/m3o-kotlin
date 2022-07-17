@@ -11,7 +11,7 @@ suspend fun main() {
 Limit = 1,)
   
   try {
-      val response = TwitterService.timeline(req)
+      val response = TwitterServ.timeline(req)
       println(response)
   } catch (e: Exception) {
       println(e)

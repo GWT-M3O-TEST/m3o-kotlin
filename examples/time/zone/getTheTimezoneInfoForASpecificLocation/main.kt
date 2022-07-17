@@ -10,7 +10,7 @@ suspend fun main() {
   val req = TimeZoneRequest(Location = "London",)
   
   try {
-      val response = TimeService.zone(req)
+      val response = TimeServ.zone(req)
       println(response)
   } catch (e: Exception) {
       println(e)

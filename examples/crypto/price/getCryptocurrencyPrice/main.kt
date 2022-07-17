@@ -10,7 +10,7 @@ suspend fun main() {
   val req = CryptoPriceRequest(Symbol = "BTCUSD",)
   
   try {
-      val response = CryptoService.price(req)
+      val response = CryptoServ.price(req)
       println(response)
   } catch (e: Exception) {
       println(e)

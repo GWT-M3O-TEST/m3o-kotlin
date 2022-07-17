@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UserVerifyTokenRequest(Token = "EdsUiidouJJJLldjlloofUiorkojflsWWdld",)
   
   try {
-      val response = UserService.verifyToken(req)
+      val response = UserServ.verifyToken(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -12,7 +12,7 @@ Keyword = "tesco",
 Type = "store",)
   
   try {
-      val response = PlaceService.nearby(req)
+      val response = PlaceServ.nearby(req)
       println(response)
   } catch (e: Exception) {
       println(e)

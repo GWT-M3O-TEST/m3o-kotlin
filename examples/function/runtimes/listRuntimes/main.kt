@@ -10,7 +10,7 @@ suspend fun main() {
   val req = FunctionRuntimesRequest()
   
   try {
-      val response = FunctionService.runtimes(req)
+      val response = FunctionServ.runtimes(req)
       println(response)
   } catch (e: Exception) {
       println(e)

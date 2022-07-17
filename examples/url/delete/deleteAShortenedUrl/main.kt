@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UrlDeleteRequest(ShortUrl = "https://m3o.one/u/f8f3f83f3f83g",)
   
   try {
-      val response = UrlService.delete(req)
+      val response = UrlServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

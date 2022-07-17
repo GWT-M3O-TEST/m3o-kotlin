@@ -10,7 +10,7 @@ fun main() {
 UserId = "user-2",)
   
   try {
-      val socket = ChatService.join(req) { socketError, response ->
+      val socket = ChatServ.join(req) { socketError, response ->
           if (socketError == null) {
               println(response)
           } else {

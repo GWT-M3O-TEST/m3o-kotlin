@@ -10,7 +10,7 @@ suspend fun main() {
   val req = PostcodeRandomRequest()
   
   try {
-      val response = PostcodeService.random(req)
+      val response = PostcodeServ.random(req)
       println(response)
   } catch (e: Exception) {
       println(e)

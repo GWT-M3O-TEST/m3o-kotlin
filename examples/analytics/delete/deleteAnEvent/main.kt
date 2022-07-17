@@ -10,7 +10,7 @@ suspend fun main() {
   val req = AnalyticsDeleteRequest(Name = "click",)
   
   try {
-      val response = AnalyticsService.delete(req)
+      val response = AnalyticsServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

@@ -11,7 +11,7 @@ suspend fun main() {
 Text = "This is my note",)
   
   try {
-      val response = NotesService.create(req)
+      val response = NotesServ.create(req)
       println(response)
   } catch (e: Exception) {
       println(e)

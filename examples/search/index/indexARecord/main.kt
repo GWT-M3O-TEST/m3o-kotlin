@@ -12,7 +12,7 @@ Data: &search.Json{
 },)
   
   try {
-      val response = SearchService.index(req)
+      val response = SearchServ.index(req)
       println(response)
   } catch (e: Exception) {
       println(e)

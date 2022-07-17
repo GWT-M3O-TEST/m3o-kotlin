@@ -11,7 +11,7 @@ suspend fun main() {
 Password = "Password1",)
   
   try {
-      val response = UserService.login(req)
+      val response = UserServ.login(req)
       println(response)
   } catch (e: Exception) {
       println(e)

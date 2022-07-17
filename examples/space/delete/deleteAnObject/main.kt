@@ -10,7 +10,7 @@ suspend fun main() {
   val req = SpaceDeleteRequest(Name = "images/file.jpg",)
   
   try {
-      val response = SpaceService.delete(req)
+      val response = SpaceServ.delete(req)
       println(response)
   } catch (e: Exception) {
       println(e)

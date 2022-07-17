@@ -10,7 +10,7 @@ suspend fun main() {
   val req = UrlListRequest()
   
   try {
-      val response = UrlService.list(req)
+      val response = UrlServ.list(req)
       println(response)
   } catch (e: Exception) {
       println(e)

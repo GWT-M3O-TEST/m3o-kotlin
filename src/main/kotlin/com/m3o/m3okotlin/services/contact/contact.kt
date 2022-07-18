@@ -41,32 +41,32 @@ object ContactServ {
       }
 }
 @Serializable
-data class ContactAddress(val label: String, val location: String)
+data class ContactAddress(val label: String? = null, val location: String? = null)
 @Serializable
-data class ContactContactInfo(val addresses: List<ContactAddress>, val updated_at: String, val phones: List<ContactPhone>, val birthday: String, val created_at: String, val emails: List<ContactEmail>, val id: String, val links: List<ContactLink>, val name: String, val note: String, val social_medias: List<ContactSocialMedia>)
+data class ContactContactInfo(val addresses: List<ContactAddress>? = null, val created_at: String? = null, val emails: List<ContactEmail>? = null, val id: String? = null, val links: List<ContactLink>? = null, val note: String? = null, val phones: List<ContactPhone>? = null, val social_medias: List<ContactSocialMedia>? = null, val birthday: String? = null, val name: String? = null, val updated_at: String? = null)
 @Serializable
-data class ContactCreateRequest(val links: List<ContactLink>, val name: String, val note: String, val phones: List<ContactPhone>, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val birthday: String, val emails: List<ContactEmail>)
+data class ContactCreateRequest(val addresses: List<ContactAddress>? = null, val birthday: String? = null, val emails: List<ContactEmail>? = null, val links: List<ContactLink>? = null, val name: String? = null, val note: String? = null, val phones: List<ContactPhone>? = null, val social_medias: List<ContactSocialMedia>? = null)
 @Serializable
-data class ContactCreateResponse(val contact: ContactContactInfo)
+data class ContactCreateResponse(val contact: ContactContactInfo? = null)
 @Serializable
-data class ContactDeleteRequest(val id: String)
+data class ContactDeleteRequest(val id: String? = null)
 @Serializable
-data class ContactEmail(val address: String, val label: String)
+data class ContactEmail(val address: String? = null, val label: String? = null)
 @Serializable
-data class ContactLink(val label: String, val url: String)
+data class ContactLink(val label: String? = null, val url: String? = null)
 @Serializable
-data class ContactListRequest(val limit: Int, val offset: Int)
+data class ContactListRequest(val limit: Int? = null, val offset: Int? = null)
 @Serializable
-data class ContactListResponse(val contacts: List<ContactContactInfo>)
+data class ContactListResponse(val contacts: List<ContactContactInfo>? = null)
 @Serializable
-data class ContactPhone(val label: String, val number: String)
+data class ContactPhone(val label: String? = null, val number: String? = null)
 @Serializable
-data class ContactReadRequest(val id: String)
+data class ContactReadRequest(val id: String? = null)
 @Serializable
-data class ContactReadResponse(val contact: ContactContactInfo)
+data class ContactReadResponse(val contact: ContactContactInfo? = null)
 @Serializable
-data class ContactSocialMedia(val label: String, val username: String)
+data class ContactSocialMedia(val label: String? = null, val username: String? = null)
 @Serializable
-data class ContactUpdateRequest(val links: List<ContactLink>, val phones: List<ContactPhone>, val birthday: String, val emails: List<ContactEmail>, val name: String, val note: String, val social_medias: List<ContactSocialMedia>, val addresses: List<ContactAddress>, val id: String)
+data class ContactUpdateRequest(val name: String? = null, val note: String? = null, val phones: List<ContactPhone>? = null, val social_medias: List<ContactSocialMedia>? = null, val addresses: List<ContactAddress>? = null, val emails: List<ContactEmail>? = null, val links: List<ContactLink>? = null, val birthday: String? = null, val id: String? = null)
 @Serializable
-data class ContactUpdateResponse(val contact: ContactContactInfo)
+data class ContactUpdateResponse(val contact: ContactContactInfo? = null)

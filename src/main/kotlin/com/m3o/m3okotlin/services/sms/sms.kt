@@ -21,6 +21,6 @@ object SmsServ {
       }
 }
 @Serializable
-data class SmsSendRequest(val from: String, val message: String, val to: String)
+data class SmsSendRequest(val from: String? = null, val message: String? = null, val to: String? = null)
 @Serializable
-data class SmsSendResponse(val status: String, val info: String)
+data class SmsSendResponse(val info: String? = null, val status: String? = null)

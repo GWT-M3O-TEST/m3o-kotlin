@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.notes
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = NotesCreateRequest(Title = "New Note",
-Text = "This is my note",)
+  val req = NotesCreateRequest(Text = "This is my note",
+Title = "New Note",)
   
   try {
       val response = NotesServ.create(req)

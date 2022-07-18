@@ -31,14 +31,14 @@ object StockServ {
       }
 }
 @Serializable
-data class StockHistoryRequest(val date: String, val stock: String)
+data class StockHistoryRequest(val date: String? = null, val stock: String? = null)
 @Serializable
-data class StockHistoryResponse(val open: Double, val symbol: String, val volume: Int, val close: Double, val date: String, val high: Double, val low: Double)
+data class StockHistoryResponse(val open: Double? = null, val symbol: String? = null, val volume: Int? = null, val close: Double? = null, val date: String? = null, val high: Double? = null, val low: Double? = null)
 @Serializable
-data class StockPriceRequest(val symbol: String)
+data class StockPriceRequest(val symbol: String? = null)
 @Serializable
-data class StockPriceResponse(val price: Double, val symbol: String)
+data class StockPriceResponse(val price: Double? = null, val symbol: String? = null)
 @Serializable
-data class StockQuoteRequest(val symbol: String)
+data class StockQuoteRequest(val symbol: String? = null)
 @Serializable
-data class StockQuoteResponse(val ask_size: Int, val bid_price: Double, val bid_size: Int, val symbol: String, val timestamp: String, val ask_price: Double)
+data class StockQuoteResponse(val bid_size: Int? = null, val symbol: String? = null, val timestamp: String? = null, val ask_price: Double? = null, val ask_size: Int? = null, val bid_price: Double? = null)

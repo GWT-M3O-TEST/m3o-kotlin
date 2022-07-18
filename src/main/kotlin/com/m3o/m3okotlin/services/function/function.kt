@@ -65,40 +65,40 @@ object FunctionServ {
       }
 }
 @Serializable
-data class FunctionCallRequest(val name: String, val request: JsonObject)
+data class FunctionCallRequest(val name: String? = null, val request: JsonObject? = null)
 @Serializable
-data class FunctionCallResponse(val response: JsonObject)
+data class FunctionCallResponse(val response: JsonObject? = null)
 @Serializable
-data class FunctionDeleteRequest(val name: String)
+data class FunctionDeleteRequest(val name: String? = null)
 @Serializable
-data class FunctionDeployRequest(val subfolder: String, val entrypoint: String, val region: String, val repo: String, val runtime: String, val source: String, val branch: String, val env_vars: Map<String, String>, val name: String)
+data class FunctionDeployRequest(val entrypoint: String? = null, val name: String? = null, val repo: String? = null, val branch: String? = null, val region: String? = null, val runtime: String? = null, val source: String? = null, val subfolder: String? = null, val env_vars: Map<String, String>? = null)
 @Serializable
-data class FunctionDeployResponse(val function: FunctionFunc)
+data class FunctionDeployResponse(val function: FunctionFunc? = null)
 @Serializable
-data class FunctionDescribeRequest(val name: String)
+data class FunctionDescribeRequest(val name: String? = null)
 @Serializable
-data class FunctionDescribeResponse(val function: FunctionFunc)
+data class FunctionDescribeResponse(val function: FunctionFunc? = null)
 @Serializable
-data class FunctionFunc(val id: String, val subfolder: String, val url: String, val env_vars: Map<String, String>, val repo: String, val runtime: String, val source: String, val updated: String, val region: String, val entrypoint: String, val name: String, val status: String, val created: String, val branch: String)
+data class FunctionFunc(val url: String? = null, val branch: String? = null, val source: String? = null, val repo: String? = null, val runtime: String? = null, val updated: String? = null, val created: String? = null, val name: String? = null, val region: String? = null, val status: String? = null, val subfolder: String? = null, val env_vars: Map<String, String>? = null, val id: String? = null, val entrypoint: String? = null)
 @Serializable
-data class FunctionListResponse(val functions: List<FunctionFunc>)
+data class FunctionListResponse(val functions: List<FunctionFunc>? = null)
 @Serializable
-data class FunctionLogsRequest(val logs_type: String, val name: String)
+data class FunctionLogsRequest(val logs_type: String? = null, val name: String? = null)
 @Serializable
-data class FunctionLogsResponse(val logs: String)
+data class FunctionLogsResponse(val logs: String? = null)
 @Serializable
-data class FunctionProxyRequest(val id: String)
+data class FunctionProxyRequest(val id: String? = null)
 @Serializable
-data class FunctionProxyResponse(val url: String)
+data class FunctionProxyResponse(val url: String? = null)
 @Serializable
-data class FunctionRegionsResponse(val regions: List<String>)
+data class FunctionRegionsResponse(val regions: List<String>? = null)
 @Serializable
-data class FunctionReservation(val created: String, val expires: String, val name: String, val owner: String, val token: String)
+data class FunctionReservation(val name: String? = null, val owner: String? = null, val token: String? = null, val created: String? = null, val expires: String? = null)
 @Serializable
-data class FunctionReserveRequest(val name: String)
+data class FunctionReserveRequest(val name: String? = null)
 @Serializable
-data class FunctionReserveResponse(val reservation: FunctionReservation)
+data class FunctionReserveResponse(val reservation: FunctionReservation? = null)
 @Serializable
-data class FunctionRuntimesResponse(val runtimes: List<String>)
+data class FunctionRuntimesResponse(val runtimes: List<String>? = null)
 @Serializable
-data class FunctionUpdateRequest(val source: String, val name: String)
+data class FunctionUpdateRequest(val name: String? = null, val source: String? = null)

@@ -21,14 +21,14 @@ object GifsServ {
       }
 }
 @Serializable
-data class GifsGif(val id: String, val images: GifsImageFormats, val rating: String, val title: String, val url: String, val embed_url: String, val short_url: String, val slug: String, val source: String)
+data class GifsGif(val id: String? = null, val short_url: String? = null, val source: String? = null, val title: String? = null, val embed_url: String? = null, val images: GifsImageFormats? = null, val rating: String? = null, val slug: String? = null, val url: String? = null)
 @Serializable
-data class GifsImageFormat(val mp4_size: Int, val mp4_url: String, val size: Int, val url: String, val webp_size: Int, val webp_url: String, val width: Int, val height: Int)
+data class GifsImageFormat(val mp4_url: String? = null, val size: Int? = null, val url: String? = null, val webp_size: Int? = null, val webp_url: String? = null, val width: Int? = null, val height: Int? = null, val mp4_size: Int? = null)
 @Serializable
-data class GifsImageFormats(val fixed_width_small: GifsImageFormat, val fixed_width_small_still: GifsImageFormat, val fixed_width_still: GifsImageFormat, val downsized: GifsImageFormat, val downsized_still: GifsImageFormat, val fixed_height_downsampled: GifsImageFormat, val fixed_height_small_still: GifsImageFormat, val fixed_width_downsampled: GifsImageFormat, val looping: GifsImageFormat, val original_still: GifsImageFormat, val preview: GifsImageFormat, val fixed_height_small: GifsImageFormat, val fixed_height_still: GifsImageFormat, val downsized_medium: GifsImageFormat, val fixed_width: GifsImageFormat, val original: GifsImageFormat, val preview_gif: GifsImageFormat, val downsized_large: GifsImageFormat, val downsized_small: GifsImageFormat, val fixed_height: GifsImageFormat)
+data class GifsImageFormats(val downsized_still: GifsImageFormat? = null, val fixed_height_small: GifsImageFormat? = null, val fixed_height_small_still: GifsImageFormat? = null, val preview: GifsImageFormat? = null, val downsized_large: GifsImageFormat? = null, val downsized_small: GifsImageFormat? = null, val fixed_height: GifsImageFormat? = null, val fixed_height_downsampled: GifsImageFormat? = null, val fixed_width_still: GifsImageFormat? = null, val original: GifsImageFormat? = null, val fixed_height_still: GifsImageFormat? = null, val fixed_width: GifsImageFormat? = null, val fixed_width_downsampled: GifsImageFormat? = null, val fixed_width_small: GifsImageFormat? = null, val fixed_width_small_still: GifsImageFormat? = null, val preview_gif: GifsImageFormat? = null, val downsized: GifsImageFormat? = null, val downsized_medium: GifsImageFormat? = null, val looping: GifsImageFormat? = null, val original_still: GifsImageFormat? = null)
 @Serializable
-data class GifsPagination(val count: Int, val offset: Int, val total_count: Int)
+data class GifsPagination(val offset: Int? = null, val total_count: Int? = null, val count: Int? = null)
 @Serializable
-data class GifsSearchRequest(val rating: String, val lang: String, val limit: Int, val offset: Int, val query: String)
+data class GifsSearchRequest(val lang: String? = null, val limit: Int? = null, val offset: Int? = null, val query: String? = null, val rating: String? = null)
 @Serializable
-data class GifsSearchResponse(val data: List<GifsGif>, val pagination: GifsPagination)
+data class GifsSearchResponse(val data: List<GifsGif>? = null, val pagination: GifsPagination? = null)

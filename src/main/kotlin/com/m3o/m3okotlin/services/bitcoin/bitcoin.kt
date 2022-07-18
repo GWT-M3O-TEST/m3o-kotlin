@@ -31,20 +31,20 @@ object BitcoinServ {
       }
 }
 @Serializable
-data class BitcoinBalanceRequest(val address: String)
+data class BitcoinBalanceRequest(val address: String? = null)
 @Serializable
-data class BitcoinBalanceResponse(val balance: Long)
+data class BitcoinBalanceResponse(val balance: Long? = null)
 @Serializable
-data class BitcoinInput(val prev_out: BitcoinPrev, val script: String)
+data class BitcoinInput(val prev_out: BitcoinPrev? = null, val script: String? = null)
 @Serializable
-data class BitcoinOutput(val spent: Boolean, val tx_index: Long, val value: Long, val address: String, val hash: String, val script: String)
+data class BitcoinOutput(val tx_index: Long? = null, val value: Long? = null, val address: String? = null, val hash: String? = null, val script: String? = null, val spent: Boolean? = null)
 @Serializable
-data class BitcoinPrev(val value: Long, val address: String, val n: Long, val script: String, val spent: Boolean, val tx_index: Long)
+data class BitcoinPrev(val spent: Boolean? = null, val tx_index: Long? = null, val value: Long? = null, val address: String? = null, val n: Long? = null, val script: String? = null)
 @Serializable
-data class BitcoinPriceRequest(val symbol: String)
+data class BitcoinPriceRequest(val symbol: String? = null)
 @Serializable
-data class BitcoinPriceResponse(val price: Double, val symbol: String)
+data class BitcoinPriceResponse(val price: Double? = null, val symbol: String? = null)
 @Serializable
-data class BitcoinTransactionRequest(val hash: String)
+data class BitcoinTransactionRequest(val hash: String? = null)
 @Serializable
-data class BitcoinTransactionResponse(val fee: Long, val hash: String, val relay: String, val tx_index: Long, val double_spend: Boolean, val weight: Long, val block_height: Long, val size: Long, val vout_sz: Long, val inputs: List<BitcoinInput>, val lock_time: Long, val outputs: List<BitcoinOutput>, val version: Long, val vin_sz: Long, val block_index: Long)
+data class BitcoinTransactionResponse(val version: Long? = null, val fee: Long? = null, val size: Long? = null, val hash: String? = null, val lock_time: Long? = null, val outputs: List<BitcoinOutput>? = null, val vin_sz: Long? = null, val block_index: Long? = null, val double_spend: Boolean? = null, val inputs: List<BitcoinInput>? = null, val relay: String? = null, val tx_index: Long? = null, val vout_sz: Long? = null, val weight: Long? = null, val block_height: Long? = null)

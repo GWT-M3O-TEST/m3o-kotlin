@@ -21,8 +21,8 @@ object PrayerServ {
       }
 }
 @Serializable
-data class PrayerPrayerTime(val maghrib: String, val sunrise: String, val zuhr: String, val asr: String, val date: String, val fajr: String, val isha: String)
+data class PrayerPrayerTime(val asr: String? = null, val date: String? = null, val fajr: String? = null, val isha: String? = null, val maghrib: String? = null, val sunrise: String? = null, val zuhr: String? = null)
 @Serializable
-data class PrayerTimesRequest(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double)
+data class PrayerTimesRequest(val days: Int? = null, val latitude: Double? = null, val location: String? = null, val longitude: Double? = null, val date: String? = null)
 @Serializable
-data class PrayerTimesResponse(val date: String, val days: Int, val latitude: Double, val location: String, val longitude: Double, val times: List<PrayerPrayerTime>)
+data class PrayerTimesResponse(val times: List<PrayerPrayerTime>? = null, val date: String? = null, val days: Int? = null, val latitude: Double? = null, val location: String? = null, val longitude: Double? = null)

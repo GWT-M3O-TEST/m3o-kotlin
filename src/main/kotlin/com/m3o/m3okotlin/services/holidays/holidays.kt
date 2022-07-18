@@ -24,12 +24,12 @@ object HolidaysServ {
       }
 }
 @Serializable
-data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>)
+data class HolidaysCountriesResponse(val countries: List<HolidaysCountry>? = null)
 @Serializable
-data class HolidaysCountry(val code: String, val name: String)
+data class HolidaysCountry(val code: String? = null, val name: String? = null)
 @Serializable
-data class HolidaysHoliday(val local_name: String, val name: String, val regions: List<String>, val types: List<String>, val country_code: String, val date: String)
+data class HolidaysHoliday(val country_code: String? = null, val date: String? = null, val local_name: String? = null, val name: String? = null, val regions: List<String>? = null, val types: List<String>? = null)
 @Serializable
-data class HolidaysListRequest(val country_code: String, val year: Long)
+data class HolidaysListRequest(val country_code: String? = null, val year: Long? = null)
 @Serializable
-data class HolidaysListResponse(val holidays: List<HolidaysHoliday>)
+data class HolidaysListResponse(val holidays: List<HolidaysHoliday>? = null)

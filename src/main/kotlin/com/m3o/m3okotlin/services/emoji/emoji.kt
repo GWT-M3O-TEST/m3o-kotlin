@@ -31,14 +31,14 @@ object EmojiServ {
       }
 }
 @Serializable
-data class EmojiFindRequest(val alias: String)
+data class EmojiFindRequest(val alias: String? = null)
 @Serializable
-data class EmojiFindResponse(val emoji: String)
+data class EmojiFindResponse(val emoji: String? = null)
 @Serializable
-data class EmojiFlagRequest(val code: String)
+data class EmojiFlagRequest(val code: String? = null)
 @Serializable
-data class EmojiFlagResponse(val flag: String)
+data class EmojiFlagResponse(val flag: String? = null)
 @Serializable
-data class EmojiPrintRequest(val text: String)
+data class EmojiPrintRequest(val text: String? = null)
 @Serializable
-data class EmojiPrintResponse(val text: String)
+data class EmojiPrintResponse(val text: String? = null)

@@ -21,8 +21,8 @@ object GoogleServ {
       }
 }
 @Serializable
-data class GoogleSearchRequest(val query: String)
+data class GoogleSearchRequest(val query: String? = null)
 @Serializable
-data class GoogleSearchResponse(val results: List<GoogleSearchResult>)
+data class GoogleSearchResponse(val results: List<GoogleSearchResult>? = null)
 @Serializable
-data class GoogleSearchResult(val display_url: String, val id: String, val kind: String, val snippet: String, val title: String, val url: String)
+data class GoogleSearchResult(val kind: String? = null, val snippet: String? = null, val title: String? = null, val url: String? = null, val display_url: String? = null, val id: String? = null)

@@ -28,8 +28,8 @@ object MqServ {
       }
 }
 @Serializable
-data class MqPublishRequest(val message: JsonObject, val topic: String)
+data class MqPublishRequest(val message: JsonObject? = null, val topic: String? = null)
 @Serializable
-data class MqSubscribeRequest(val topic: String)
+data class MqSubscribeRequest(val topic: String? = null)
 @Serializable
-data class MqSubscribeResponse(val topic: String, val message: JsonObject)
+data class MqSubscribeResponse(val message: JsonObject? = null, val topic: String? = null)

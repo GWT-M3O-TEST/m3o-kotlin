@@ -21,6 +21,6 @@ object AnswerServ {
       }
 }
 @Serializable
-data class AnswerQuestionRequest(val query: String)
+data class AnswerQuestionRequest(val query: String? = null)
 @Serializable
-data class AnswerQuestionResponse(val url: String, val answer: String, val image: String)
+data class AnswerQuestionResponse(val answer: String? = null, val image: String? = null, val url: String? = null)

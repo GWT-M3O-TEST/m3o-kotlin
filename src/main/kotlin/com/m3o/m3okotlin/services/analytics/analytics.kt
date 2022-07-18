@@ -34,16 +34,16 @@ object AnalyticsServ {
       }
 }
 @Serializable
-data class AnalyticsDeleteRequest(val name: String)
+data class AnalyticsDeleteRequest(val name: String? = null)
 @Serializable
-data class AnalyticsDeleteResponse(val event: AnalyticsEvent)
+data class AnalyticsDeleteResponse(val event: AnalyticsEvent? = null)
 @Serializable
-data class AnalyticsEvent(val created: String, val name: String, val value: Long)
+data class AnalyticsEvent(val name: String? = null, val value: Long? = null, val created: String? = null)
 @Serializable
-data class AnalyticsListResponse(val events: List<AnalyticsEvent>)
+data class AnalyticsListResponse(val events: List<AnalyticsEvent>? = null)
 @Serializable
-data class AnalyticsReadRequest(val name: String)
+data class AnalyticsReadRequest(val name: String? = null)
 @Serializable
-data class AnalyticsReadResponse(val event: AnalyticsEvent)
+data class AnalyticsReadResponse(val event: AnalyticsEvent? = null)
 @Serializable
-data class AnalyticsTrackRequest(val name: String)
+data class AnalyticsTrackRequest(val name: String? = null)

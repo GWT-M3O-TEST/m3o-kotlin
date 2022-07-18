@@ -44,24 +44,24 @@ object CacheServ {
       }
 }
 @Serializable
-data class CacheDecrementRequest(val key: String, val value: Long)
+data class CacheDecrementRequest(val key: String? = null, val value: Long? = null)
 @Serializable
-data class CacheDecrementResponse(val key: String, val value: Long)
+data class CacheDecrementResponse(val value: Long? = null, val key: String? = null)
 @Serializable
-data class CacheDeleteRequest(val key: String)
+data class CacheDeleteRequest(val key: String? = null)
 @Serializable
-data class CacheDeleteResponse(val status: String)
+data class CacheDeleteResponse(val status: String? = null)
 @Serializable
-data class CacheGetRequest(val key: String)
+data class CacheGetRequest(val key: String? = null)
 @Serializable
-data class CacheGetResponse(val key: String, val ttl: Long, val value: String)
+data class CacheGetResponse(val key: String? = null, val ttl: Long? = null, val value: String? = null)
 @Serializable
-data class CacheIncrementRequest(val key: String, val value: Long)
+data class CacheIncrementRequest(val key: String? = null, val value: Long? = null)
 @Serializable
-data class CacheIncrementResponse(val value: Long, val key: String)
+data class CacheIncrementResponse(val key: String? = null, val value: Long? = null)
 @Serializable
-data class CacheListKeysResponse(val keys: List<String>)
+data class CacheListKeysResponse(val keys: List<String>? = null)
 @Serializable
-data class CacheSetRequest(val key: String, val ttl: Long, val value: String)
+data class CacheSetRequest(val key: String? = null, val ttl: Long? = null, val value: String? = null)
 @Serializable
-data class CacheSetResponse(val status: String)
+data class CacheSetResponse(val status: String? = null)

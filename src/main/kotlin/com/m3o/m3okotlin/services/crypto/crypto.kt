@@ -39,24 +39,24 @@ object CryptoServ {
       }
 }
 @Serializable
-data class CryptoArticle(val description: String, val source: String, val title: String, val url: String, val date: String)
+data class CryptoArticle(val date: String? = null, val description: String? = null, val source: String? = null, val title: String? = null, val url: String? = null)
 @Serializable
-data class CryptoHistoryRequest(val symbol: String)
+data class CryptoHistoryRequest(val symbol: String? = null)
 @Serializable
-data class CryptoHistoryResponse(val low: Double, val open: Double, val symbol: String, val volume: Double, val close: Double, val date: String, val high: Double)
+data class CryptoHistoryResponse(val high: Double? = null, val low: Double? = null, val open: Double? = null, val symbol: String? = null, val volume: Double? = null, val close: Double? = null, val date: String? = null)
 @Serializable
-data class CryptoNewsRequest(val symbol: String)
+data class CryptoNewsRequest(val symbol: String? = null)
 @Serializable
-data class CryptoNewsResponse(val symbol: String, val articles: List<CryptoArticle>)
+data class CryptoNewsResponse(val articles: List<CryptoArticle>? = null, val symbol: String? = null)
 @Serializable
-data class CryptoPriceRequest(val symbol: String)
+data class CryptoPriceRequest(val symbol: String? = null)
 @Serializable
-data class CryptoPriceResponse(val price: Double, val symbol: String)
+data class CryptoPriceResponse(val price: Double? = null, val symbol: String? = null)
 @Serializable
-data class CryptoQuoteRequest(val symbol: String)
+data class CryptoQuoteRequest(val symbol: String? = null)
 @Serializable
-data class CryptoQuoteResponse(val ask_size: Double, val bid_price: Double, val bid_size: Double, val symbol: String, val timestamp: String, val ask_price: Double)
+data class CryptoQuoteResponse(val ask_price: Double? = null, val ask_size: Double? = null, val bid_price: Double? = null, val bid_size: Double? = null, val symbol: String? = null, val timestamp: String? = null)
 @Serializable
-data class CryptoSymbol(val name: String, val symbol: String)
+data class CryptoSymbol(val name: String? = null, val symbol: String? = null)
 @Serializable
-data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>)
+data class CryptoSymbolsResponse(val symbols: List<CryptoSymbol>? = null)

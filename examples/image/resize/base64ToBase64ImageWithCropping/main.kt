@@ -10,8 +10,8 @@ suspend fun main() {
   val req = ImageResizeRequest(Width = 100,
 Height = 100,
 CropOptions: &image.CropOptions{
-Width = 50,
 Height = 50,
+Width = 50,
 },
 Base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==",)
   

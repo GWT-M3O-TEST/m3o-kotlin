@@ -26,12 +26,12 @@ object WeatherServ {
       }
 }
 @Serializable
-data class WeatherForecast(val avg_temp_c: Double, val max_wind_kph: Double, val min_temp_c: Double, val sunset: String, val avg_temp_f: Double, val chance_of_rain: Int, val will_it_rain: Boolean, val condition: String, val date: String, val max_temp_c: Double, val max_wind_mph: Double, val icon_url: String, val max_temp_f: Double, val min_temp_f: Double, val sunrise: String)
+data class WeatherForecast(val min_temp_f: Double? = null, val condition: String? = null, val max_temp_f: Double? = null, val min_temp_c: Double? = null, val sunset: String? = null, val max_temp_c: Double? = null, val max_wind_kph: Double? = null, val max_wind_mph: Double? = null, val icon_url: String? = null, val avg_temp_f: Double? = null, val chance_of_rain: Int? = null, val date: String? = null, val avg_temp_c: Double? = null, val sunrise: String? = null, val will_it_rain: Boolean? = null)
 @Serializable
-data class WeatherForecastRequest(val days: Int, val location: String)
+data class WeatherForecastRequest(val days: Int? = null, val location: String? = null)
 @Serializable
-data class WeatherForecastResponse(val forecast: List<WeatherForecast>, val latitude: Double, val local_time: String, val location: String, val longitude: Double, val region: String, val timezone: String, val country: String)
+data class WeatherForecastResponse(val longitude: Double? = null, val region: String? = null, val timezone: String? = null, val country: String? = null, val forecast: List<WeatherForecast>? = null, val latitude: Double? = null, val local_time: String? = null, val location: String? = null)
 @Serializable
-data class WeatherNowRequest(val location: String)
+data class WeatherNowRequest(val location: String? = null)
 @Serializable
-data class WeatherNowResponse(val temp_c: Double, val wind_degree: Int, val condition: String, val daytime: Boolean, val latitude: Double, val local_time: String, val cloud: Int, val icon_url: String, val location: String, val temp_f: Double, val timezone: String, val wind_direction: String, val wind_kph: Double, val wind_mph: Double, val country: String, val feels_like_c: Double, val feels_like_f: Double, val humidity: Int, val longitude: Double, val region: String)
+data class WeatherNowResponse(val daytime: Boolean? = null, val latitude: Double? = null, val longitude: Double? = null, val timezone: String? = null, val wind_direction: String? = null, val wind_mph: Double? = null, val feels_like_f: Double? = null, val local_time: String? = null, val region: String? = null, val temp_c: Double? = null, val temp_f: Double? = null, val wind_kph: Double? = null, val feels_like_c: Double? = null, val icon_url: String? = null, val wind_degree: Int? = null, val cloud: Int? = null, val condition: String? = null, val country: String? = null, val humidity: Int? = null, val location: String? = null)

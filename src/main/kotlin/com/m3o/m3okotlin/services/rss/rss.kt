@@ -34,16 +34,16 @@ object RssServ {
       }
 }
 @Serializable
-data class RssAddRequest(val category: String, val name: String, val url: String)
+data class RssAddRequest(val category: String? = null, val name: String? = null, val url: String? = null)
 @Serializable
-data class RssEntry(val title: String, val content: String, val date: String, val feed: String, val id: String, val link: String, val summary: String)
+data class RssEntry(val date: String? = null, val feed: String? = null, val id: String? = null, val link: String? = null, val summary: String? = null, val title: String? = null, val content: String? = null)
 @Serializable
-data class RssFeed(val category: String, val id: String, val name: String, val url: String)
+data class RssFeed(val category: String? = null, val id: String? = null, val name: String? = null, val url: String? = null)
 @Serializable
-data class RssFeedRequest(val limit: Long, val name: String, val offset: Long)
+data class RssFeedRequest(val limit: Long? = null, val name: String? = null, val offset: Long? = null)
 @Serializable
-data class RssFeedResponse(val entries: List<RssEntry>)
+data class RssFeedResponse(val entries: List<RssEntry>? = null)
 @Serializable
-data class RssListResponse(val feeds: List<RssFeed>)
+data class RssListResponse(val feeds: List<RssFeed>? = null)
 @Serializable
-data class RssRemoveRequest(val name: String)
+data class RssRemoveRequest(val name: String? = null)

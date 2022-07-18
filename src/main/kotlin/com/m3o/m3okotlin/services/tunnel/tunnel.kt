@@ -21,6 +21,6 @@ object TunnelServ {
       }
 }
 @Serializable
-data class TunnelSendRequest(val body: String, val headers: Map<String, String>, val host: String, val method: String, val params: Map<String, String>, val path: String, val url: String)
+data class TunnelSendRequest(val body: String? = null, val headers: Map<String, String>? = null, val host: String? = null, val method: String? = null, val params: Map<String, String>? = null, val path: String? = null, val url: String? = null)
 @Serializable
-data class TunnelSendResponse(val body: String, val headers: Map<String, String>, val status: String, val status_code: Int)
+data class TunnelSendResponse(val status_code: Int? = null, val body: String? = null, val headers: Map<String, String>? = null, val status: String? = null)

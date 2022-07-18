@@ -21,8 +21,8 @@ object JokeServ {
       }
 }
 @Serializable
-data class JokeJokeInfo(val title: String, val body: String, val category: String, val id: String, val source: String)
+data class JokeJokeInfo(val category: String? = null, val id: String? = null, val source: String? = null, val title: String? = null, val body: String? = null)
 @Serializable
-data class JokeRandomRequest(val count: Int)
+data class JokeRandomRequest(val count: Int? = null)
 @Serializable
-data class JokeRandomResponse(val jokes: List<JokeJokeInfo>)
+data class JokeRandomResponse(val jokes: List<JokeJokeInfo>? = null)

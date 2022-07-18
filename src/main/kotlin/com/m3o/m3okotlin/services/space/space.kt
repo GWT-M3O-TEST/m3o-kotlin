@@ -56,38 +56,38 @@ object SpaceServ {
       }
 }
 @Serializable
-data class SpaceCreateRequest(val name: String, val obj: String, val visibility: String)
+data class SpaceCreateRequest(val name: String? = null, val obj: String? = null, val visibility: String? = null)
 @Serializable
-data class SpaceCreateResponse(val url: String)
+data class SpaceCreateResponse(val url: String? = null)
 @Serializable
-data class SpaceDeleteRequest(val name: String)
+data class SpaceDeleteRequest(val name: String? = null)
 @Serializable
-data class SpaceDownloadRequest(val name: String)
+data class SpaceDownloadRequest(val name: String? = null)
 @Serializable
-data class SpaceDownloadResponse(val url: String)
+data class SpaceDownloadResponse(val url: String? = null)
 @Serializable
-data class SpaceHeadObject(val url: String, val visibility: String, val created: String, val modified: String, val name: String)
+data class SpaceHeadObject(val created: String? = null, val modified: String? = null, val name: String? = null, val url: String? = null, val visibility: String? = null)
 @Serializable
-data class SpaceHeadRequest(val name: String)
+data class SpaceHeadRequest(val name: String? = null)
 @Serializable
-data class SpaceHeadResponse(val obj: SpaceHeadObject)
+data class SpaceHeadResponse(val obj: SpaceHeadObject? = null)
 @Serializable
-data class SpaceListObject(val url: String, val visibility: String, val created: String, val modified: String, val name: String)
+data class SpaceListObject(val name: String? = null, val url: String? = null, val visibility: String? = null, val created: String? = null, val modified: String? = null)
 @Serializable
-data class SpaceListRequest(val prefix: String)
+data class SpaceListRequest(val prefix: String? = null)
 @Serializable
-data class SpaceListResponse(val objects: List<SpaceListObject>)
+data class SpaceListResponse(val objects: List<SpaceListObject>? = null)
 @Serializable
-data class SpaceReadRequest(val name: String)
+data class SpaceReadRequest(val name: String? = null)
 @Serializable
-data class SpaceReadResponse(val obj: SpaceSpaceObject)
+data class SpaceReadResponse(val obj: SpaceSpaceObject? = null)
 @Serializable
-data class SpaceSpaceObject(val created: String, val data: String, val modified: String, val name: String, val url: String, val visibility: String)
+data class SpaceSpaceObject(val created: String? = null, val data: String? = null, val modified: String? = null, val name: String? = null, val url: String? = null, val visibility: String? = null)
 @Serializable
-data class SpaceUpdateRequest(val name: String, val obj: String, val visibility: String)
+data class SpaceUpdateRequest(val name: String? = null, val obj: String? = null, val visibility: String? = null)
 @Serializable
-data class SpaceUpdateResponse(val url: String)
+data class SpaceUpdateResponse(val url: String? = null)
 @Serializable
-data class SpaceUploadRequest(val name: String, val visibility: String)
+data class SpaceUploadRequest(val name: String? = null, val visibility: String? = null)
 @Serializable
-data class SpaceUploadResponse(val url: String)
+data class SpaceUploadResponse(val url: String? = null)

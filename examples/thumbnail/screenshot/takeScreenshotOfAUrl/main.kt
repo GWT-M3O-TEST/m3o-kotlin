@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.thumbnail
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = ThumbnailScreenshotRequest(Height = 600,
-Url = "https://google.com",
-Width = 600,)
+  val req = ThumbnailScreenshotRequest(Width = 600,
+Height = 600,
+Url = "https://google.com",)
   
   try {
       val response = ThumbnailServ.screenshot(req)

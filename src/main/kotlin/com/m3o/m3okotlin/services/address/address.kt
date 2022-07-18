@@ -21,8 +21,8 @@ object AddressServ {
       }
 }
 @Serializable
-data class AddressLookupPostcodeRequest(val postcode: String)
+data class AddressLookupPostcodeRequest(val postcode: String? = null)
 @Serializable
-data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>)
+data class AddressLookupPostcodeResponse(val addresses: List<AddressRecord>? = null)
 @Serializable
-data class AddressRecord(val postcode: String, val premise: String, val town: String, val county: String, val line_one: String, val locality: String, val street: String, val summary: String, val building_name: String, val line_two: String, val organisation: String)
+data class AddressRecord(val building_name: String? = null, val line_one: String? = null, val line_two: String? = null, val locality: String? = null, val postcode: String? = null, val street: String? = null, val summary: String? = null, val county: String? = null, val organisation: String? = null, val premise: String? = null, val town: String? = null)

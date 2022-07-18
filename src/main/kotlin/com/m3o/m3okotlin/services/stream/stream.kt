@@ -34,16 +34,16 @@ object StreamServ {
       }
 }
 @Serializable
-data class StreamChannel(val description: String, val last_active: String, val name: String)
+data class StreamChannel(val description: String? = null, val last_active: String? = null, val name: String? = null)
 @Serializable
-data class StreamCreateChannelRequest(val description: String, val name: String)
+data class StreamCreateChannelRequest(val description: String? = null, val name: String? = null)
 @Serializable
-data class StreamListChannelsResponse(val channels: List<StreamChannel>)
+data class StreamListChannelsResponse(val channels: List<StreamChannel>? = null)
 @Serializable
-data class StreamListMessagesRequest(val channel: String, val limit: Int)
+data class StreamListMessagesRequest(val channel: String? = null, val limit: Int? = null)
 @Serializable
-data class StreamListMessagesResponse(val messages: List<StreamMessage>, val channel: String)
+data class StreamListMessagesResponse(val channel: String? = null, val messages: List<StreamMessage>? = null)
 @Serializable
-data class StreamMessage(val channel: String, val id: String, val metadata: Map<String, String>, val text: String, val timestamp: String)
+data class StreamMessage(val id: String? = null, val metadata: Map<String, String>? = null, val text: String? = null, val timestamp: String? = null, val channel: String? = null)
 @Serializable
-data class StreamSendMessageRequest(val channel: String, val text: String)
+data class StreamSendMessageRequest(val channel: String? = null, val text: String? = null)

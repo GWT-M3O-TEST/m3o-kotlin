@@ -31,14 +31,14 @@ object PingServ {
       }
 }
 @Serializable
-data class PingIpRequest(val address: String)
+data class PingIpRequest(val address: String? = null)
 @Serializable
-data class PingIpResponse(val latency: String, val status: String)
+data class PingIpResponse(val latency: String? = null, val status: String? = null)
 @Serializable
-data class PingTcpRequest(val address: String, val data: String)
+data class PingTcpRequest(val address: String? = null, val data: String? = null)
 @Serializable
-data class PingTcpResponse(val data: String, val status: String)
+data class PingTcpResponse(val data: String? = null, val status: String? = null)
 @Serializable
-data class PingUrlRequest(val address: String, val method: String)
+data class PingUrlRequest(val address: String? = null, val method: String? = null)
 @Serializable
-data class PingUrlResponse(val code: Int, val status: String)
+data class PingUrlResponse(val code: Int? = null, val status: String? = null)

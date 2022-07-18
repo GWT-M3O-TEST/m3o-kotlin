@@ -34,18 +34,18 @@ object CurrencyServ {
       }
 }
 @Serializable
-data class CurrencyCode(val currency: String, val name: String)
+data class CurrencyCode(val currency: String? = null, val name: String? = null)
 @Serializable
-data class CurrencyCodesResponse(val codes: List<CurrencyCode>)
+data class CurrencyCodesResponse(val codes: List<CurrencyCode>? = null)
 @Serializable
-data class CurrencyConvertRequest(val amount: Double, val from: String, val to: String)
+data class CurrencyConvertRequest(val amount: Double? = null, val from: String? = null, val to: String? = null)
 @Serializable
-data class CurrencyConvertResponse(val amount: Double, val from: String, val rate: Double, val to: String)
+data class CurrencyConvertResponse(val amount: Double? = null, val from: String? = null, val rate: Double? = null, val to: String? = null)
 @Serializable
-data class CurrencyHistoryRequest(val code: String, val date: String)
+data class CurrencyHistoryRequest(val date: String? = null, val code: String? = null)
 @Serializable
-data class CurrencyHistoryResponse(val code: String, val date: String, val rates: Map<String, Double>)
+data class CurrencyHistoryResponse(val code: String? = null, val date: String? = null, val rates: Map<String, Double>? = null)
 @Serializable
-data class CurrencyRatesRequest(val code: String)
+data class CurrencyRatesRequest(val code: String? = null)
 @Serializable
-data class CurrencyRatesResponse(val code: String, val rates: Map<String, Double>)
+data class CurrencyRatesResponse(val code: String? = null, val rates: Map<String, Double>? = null)

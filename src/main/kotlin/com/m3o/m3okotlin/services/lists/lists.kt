@@ -46,26 +46,26 @@ object ListsServ {
       }
 }
 @Serializable
-data class ListsCreateRequest(val name: String, val items: List<String>)
+data class ListsCreateRequest(val items: List<String>? = null, val name: String? = null)
 @Serializable
-data class ListsCreateResponse(val list: ListsList)
+data class ListsCreateResponse(val list: ListsList? = null)
 @Serializable
-data class ListsDeleteRequest(val id: String)
+data class ListsDeleteRequest(val id: String? = null)
 @Serializable
-data class ListsDeleteResponse(val list: ListsList)
+data class ListsDeleteResponse(val list: ListsList? = null)
 @Serializable
-data class ListsEventsRequest(val id: String)
+data class ListsEventsRequest(val id: String? = null)
 @Serializable
-data class ListsEventsResponse(val event: String, val list: ListsList)
+data class ListsEventsResponse(val event: String? = null, val list: ListsList? = null)
 @Serializable
-data class ListsList(val created: String, val id: String, val items: List<String>, val name: String, val updated: String)
+data class ListsList(val created: String? = null, val id: String? = null, val items: List<String>? = null, val name: String? = null, val updated: String? = null)
 @Serializable
-data class ListsListResponse(val lists: List<ListsList>)
+data class ListsListResponse(val lists: List<ListsList>? = null)
 @Serializable
-data class ListsReadRequest(val id: String)
+data class ListsReadRequest(val id: String? = null)
 @Serializable
-data class ListsReadResponse(val list: ListsList)
+data class ListsReadResponse(val list: ListsList? = null)
 @Serializable
-data class ListsUpdateRequest(val list: ListsList)
+data class ListsUpdateRequest(val list: ListsList? = null)
 @Serializable
-data class ListsUpdateResponse(val list: ListsList)
+data class ListsUpdateResponse(val list: ListsList? = null)

@@ -39,24 +39,24 @@ object PriceServ {
       }
 }
 @Serializable
-data class PriceAddRequest(val author: String, val currency: String, val name: String, val price: Double, val source: String, val symbol: String)
+data class PriceAddRequest(val symbol: String? = null, val author: String? = null, val currency: String? = null, val name: String? = null, val price: Double? = null, val source: String? = null)
 @Serializable
-data class PriceAddResponse(val value: PriceValue)
+data class PriceAddResponse(val value: PriceValue? = null)
 @Serializable
-data class PriceGetRequest(val currency: String, val name: String, val symbol: String)
+data class PriceGetRequest(val currency: String? = null, val name: String? = null, val symbol: String? = null)
 @Serializable
-data class PriceGetResponse(val values: List<PriceValue>)
+data class PriceGetResponse(val values: List<PriceValue>? = null)
 @Serializable
-data class PriceIndex(val symbol: String, val currency: String, val name: String)
+data class PriceIndex(val currency: String? = null, val name: String? = null, val symbol: String? = null)
 @Serializable
-data class PriceIndexResponse(val index: List<PriceIndex>)
+data class PriceIndexResponse(val index: List<PriceIndex>? = null)
 @Serializable
-data class PriceListRequest(val currency: String, val limit: Int, val offset: Int)
+data class PriceListRequest(val currency: String? = null, val limit: Int? = null, val offset: Int? = null)
 @Serializable
-data class PriceListResponse(val values: List<PriceValue>)
+data class PriceListResponse(val values: List<PriceValue>? = null)
 @Serializable
-data class PriceReport(val author: String, val comment: String, val name: String, val symbol: String)
+data class PriceReport(val comment: String? = null, val name: String? = null, val symbol: String? = null, val author: String? = null)
 @Serializable
-data class PriceReportRequest(val symbol: String, val comment: String, val name: String)
+data class PriceReportRequest(val symbol: String? = null, val comment: String? = null, val name: String? = null)
 @Serializable
-data class PriceValue(val name: String, val price: Double, val source: String, val symbol: String, val timestamp: String, val author: String, val currency: String)
+data class PriceValue(val name: String? = null, val price: Double? = null, val source: String? = null, val symbol: String? = null, val timestamp: String? = null, val author: String? = null, val currency: String? = null)

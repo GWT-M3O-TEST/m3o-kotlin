@@ -7,8 +7,8 @@ import com.m3o.m3okotlin.services.currency
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = CurrencyHistoryRequest(Code = "USD",
-Date = "2021-05-30",)
+  val req = CurrencyHistoryRequest(Date = "2021-05-30",
+Code = "USD",)
   
   try {
       val response = CurrencyServ.history(req)

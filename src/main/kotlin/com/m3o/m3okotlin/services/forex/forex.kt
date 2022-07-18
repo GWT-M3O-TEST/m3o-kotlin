@@ -31,14 +31,14 @@ object ForexServ {
       }
 }
 @Serializable
-data class ForexHistoryRequest(val symbol: String)
+data class ForexHistoryRequest(val symbol: String? = null)
 @Serializable
-data class ForexHistoryResponse(val close: Double, val date: String, val high: Double, val low: Double, val open: Double, val symbol: String, val volume: Double)
+data class ForexHistoryResponse(val volume: Double? = null, val close: Double? = null, val date: String? = null, val high: Double? = null, val low: Double? = null, val open: Double? = null, val symbol: String? = null)
 @Serializable
-data class ForexPriceRequest(val symbol: String)
+data class ForexPriceRequest(val symbol: String? = null)
 @Serializable
-data class ForexPriceResponse(val price: Double, val symbol: String)
+data class ForexPriceResponse(val price: Double? = null, val symbol: String? = null)
 @Serializable
-data class ForexQuoteRequest(val symbol: String)
+data class ForexQuoteRequest(val symbol: String? = null)
 @Serializable
-data class ForexQuoteResponse(val timestamp: String, val ask_price: Double, val bid_price: Double, val symbol: String)
+data class ForexQuoteResponse(val ask_price: Double? = null, val bid_price: Double? = null, val symbol: String? = null, val timestamp: String? = null)

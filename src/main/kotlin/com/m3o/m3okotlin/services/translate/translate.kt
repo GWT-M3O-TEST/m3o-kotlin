@@ -21,8 +21,8 @@ object TranslateServ {
       }
 }
 @Serializable
-data class TranslateTextRequest(val content: String, val format: String, val model: String, val source: String, val target: String)
+data class TranslateTextRequest(val format: String? = null, val model: String? = null, val source: String? = null, val target: String? = null, val content: String? = null)
 @Serializable
-data class TranslateTextResponse(val translation: TranslateTranslation)
+data class TranslateTextResponse(val translation: TranslateTranslation? = null)
 @Serializable
-data class TranslateTranslation(val text: String, val model: String, val source: String)
+data class TranslateTranslation(val model: String? = null, val source: String? = null, val text: String? = null)

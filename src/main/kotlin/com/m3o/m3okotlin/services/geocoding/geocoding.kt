@@ -26,14 +26,14 @@ object GeocodingServ {
       }
 }
 @Serializable
-data class GeocodingAddress(val city: String, val country: String, val line_one: String, val line_two: String, val postcode: String)
+data class GeocodingAddress(val line_two: String? = null, val postcode: String? = null, val city: String? = null, val country: String? = null, val line_one: String? = null)
 @Serializable
-data class GeocodingLocation(val latitude: Double, val longitude: Double)
+data class GeocodingLocation(val latitude: Double? = null, val longitude: Double? = null)
 @Serializable
-data class GeocodingLookupRequest(val address: String, val city: String, val country: String, val postcode: String)
+data class GeocodingLookupRequest(val postcode: String? = null, val address: String? = null, val city: String? = null, val country: String? = null)
 @Serializable
-data class GeocodingLookupResponse(val location: GeocodingLocation, val address: GeocodingAddress)
+data class GeocodingLookupResponse(val address: GeocodingAddress? = null, val location: GeocodingLocation? = null)
 @Serializable
-data class GeocodingReverseRequest(val latitude: Double, val longitude: Double)
+data class GeocodingReverseRequest(val latitude: Double? = null, val longitude: Double? = null)
 @Serializable
-data class GeocodingReverseResponse(val address: GeocodingAddress, val location: GeocodingLocation)
+data class GeocodingReverseResponse(val address: GeocodingAddress? = null, val location: GeocodingLocation? = null)

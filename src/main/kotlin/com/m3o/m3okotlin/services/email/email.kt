@@ -31,12 +31,12 @@ object EmailServ {
       }
 }
 @Serializable
-data class EmailParseRequest(val address: String)
+data class EmailParseRequest(val address: String? = null)
 @Serializable
-data class EmailParseResponse(val address: String, val name: String)
+data class EmailParseResponse(val address: String? = null, val name: String? = null)
 @Serializable
-data class EmailSendRequest(val to: String, val from: String, val html_body: String, val reply_to: String, val subject: String, val text_body: String)
+data class EmailSendRequest(val html_body: String? = null, val reply_to: String? = null, val subject: String? = null, val text_body: String? = null, val to: String? = null, val from: String? = null)
 @Serializable
-data class EmailValidateRequest(val address: String)
+data class EmailValidateRequest(val address: String? = null)
 @Serializable
-data class EmailValidateResponse(val is_valid: Boolean)
+data class EmailValidateResponse(val is_valid: Boolean? = null)

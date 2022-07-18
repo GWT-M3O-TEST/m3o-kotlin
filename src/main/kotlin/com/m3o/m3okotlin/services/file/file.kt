@@ -36,18 +36,18 @@ object FileServ {
       }
 }
 @Serializable
-data class FileDeleteRequest(val path: String, val project: String)
+data class FileDeleteRequest(val path: String? = null, val project: String? = null)
 @Serializable
-data class FileListRequest(val project: String, val path: String)
+data class FileListRequest(val path: String? = null, val project: String? = null)
 @Serializable
-data class FileListResponse(val files: List<FileRecord>)
+data class FileListResponse(val files: List<FileRecord>? = null)
 @Serializable
-data class FileReadRequest(val path: String, val project: String)
+data class FileReadRequest(val path: String? = null, val project: String? = null)
 @Serializable
-data class FileReadResponse(val file: FileRecord)
+data class FileReadResponse(val file: FileRecord? = null)
 @Serializable
-data class FileRecord(val content: String, val created: String, val metadata: Map<String, String>, val path: String, val project: String, val updated: String)
+data class FileRecord(val updated: String? = null, val content: String? = null, val created: String? = null, val metadata: Map<String, String>? = null, val path: String? = null, val project: String? = null)
 @Serializable
-data class FileSaveRequest(val public: Boolean, val file: FileRecord)
+data class FileSaveRequest(val public: Boolean? = null, val file: FileRecord? = null)
 @Serializable
-data class FileSaveResponse(val url: String)
+data class FileSaveResponse(val url: String? = null)

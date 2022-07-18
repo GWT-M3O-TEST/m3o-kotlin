@@ -63,42 +63,42 @@ object ChatServ {
       }
 }
 @Serializable
-data class ChatCreateRequest(val private: Boolean, val user_ids: List<String>, val description: String, val name: String)
+data class ChatCreateRequest(val description: String? = null, val name: String? = null, val private: Boolean? = null, val user_ids: List<String>? = null)
 @Serializable
-data class ChatCreateResponse(val room: ChatRoom)
+data class ChatCreateResponse(val room: ChatRoom? = null)
 @Serializable
-data class ChatDeleteRequest(val room_id: String)
+data class ChatDeleteRequest(val room_id: String? = null)
 @Serializable
-data class ChatDeleteResponse(val room: ChatRoom)
+data class ChatDeleteResponse(val room: ChatRoom? = null)
 @Serializable
-data class ChatHistoryRequest(val room_id: String)
+data class ChatHistoryRequest(val room_id: String? = null)
 @Serializable
-data class ChatHistoryResponse(val messages: List<ChatMessage>)
+data class ChatHistoryResponse(val messages: List<ChatMessage>? = null)
 @Serializable
-data class ChatInviteRequest(val room_id: String, val user_id: String)
+data class ChatInviteRequest(val room_id: String? = null, val user_id: String? = null)
 @Serializable
-data class ChatInviteResponse(val room: ChatRoom)
+data class ChatInviteResponse(val room: ChatRoom? = null)
 @Serializable
-data class ChatJoinRequest(val user_id: String, val room_id: String)
+data class ChatJoinRequest(val room_id: String? = null, val user_id: String? = null)
 @Serializable
-data class ChatJoinResponse(val message: ChatMessage)
+data class ChatJoinResponse(val message: ChatMessage? = null)
 @Serializable
-data class ChatKickRequest(val room_id: String, val user_id: String)
+data class ChatKickRequest(val room_id: String? = null, val user_id: String? = null)
 @Serializable
-data class ChatKickResponse(val room: ChatRoom)
+data class ChatKickResponse(val room: ChatRoom? = null)
 @Serializable
-data class ChatLeaveRequest(val room_id: String, val user_id: String)
+data class ChatLeaveRequest(val room_id: String? = null, val user_id: String? = null)
 @Serializable
-data class ChatLeaveResponse(val room: ChatRoom)
+data class ChatLeaveResponse(val room: ChatRoom? = null)
 @Serializable
-data class ChatListRequest(val user_id: String)
+data class ChatListRequest(val user_id: String? = null)
 @Serializable
-data class ChatListResponse(val rooms: List<ChatRoom>)
+data class ChatListResponse(val rooms: List<ChatRoom>? = null)
 @Serializable
-data class ChatMessage(val subject: String, val text: String, val user_id: String, val client: String, val id: String, val room_id: String, val sent_at: String)
+data class ChatMessage(val text: String? = null, val user_id: String? = null, val client: String? = null, val id: String? = null, val room_id: String? = null, val sent_at: String? = null, val subject: String? = null)
 @Serializable
-data class ChatRoom(val description: String, val id: String, val name: String, val private: Boolean, val user_ids: List<String>, val created_at: String)
+data class ChatRoom(val description: String? = null, val id: String? = null, val name: String? = null, val private: Boolean? = null, val user_ids: List<String>? = null, val created_at: String? = null)
 @Serializable
-data class ChatSendRequest(val client: String, val room_id: String, val subject: String, val text: String, val user_id: String)
+data class ChatSendRequest(val client: String? = null, val room_id: String? = null, val subject: String? = null, val text: String? = null, val user_id: String? = null)
 @Serializable
-data class ChatSendResponse(val message: ChatMessage)
+data class ChatSendResponse(val message: ChatMessage? = null)

@@ -36,22 +36,22 @@ object ImageServ {
       }
 }
 @Serializable
-data class ImageConvertRequest(val base64: String, val file: String, val name: String, val outputURL: Boolean, val url: String)
+data class ImageConvertRequest(val base64: String? = null, val file: String? = null, val name: String? = null, val outputURL: Boolean? = null, val url: String? = null)
 @Serializable
-data class ImageConvertResponse(val base64: String, val url: String)
+data class ImageConvertResponse(val url: String? = null, val base64: String? = null)
 @Serializable
-data class ImageCropOptions(val anchor: String, val height: Int, val width: Int)
+data class ImageCropOptions(val anchor: String? = null, val height: Int? = null, val width: Int? = null)
 @Serializable
-data class ImageDeleteRequest(val url: String)
+data class ImageDeleteRequest(val url: String? = null)
 @Serializable
-data class ImagePoint(val x: Int, val y: Int)
+data class ImagePoint(val x: Int? = null, val y: Int? = null)
 @Serializable
-data class ImageRectangle(val max: ImagePoint, val min: ImagePoint)
+data class ImageRectangle(val min: ImagePoint? = null, val max: ImagePoint? = null)
 @Serializable
-data class ImageResizeRequest(val width: Long, val base64: String, val cropOptions: ImageCropOptions, val file: String, val height: Long, val name: String, val outputURL: Boolean, val url: String)
+data class ImageResizeRequest(val url: String? = null, val width: Long? = null, val base64: String? = null, val cropOptions: ImageCropOptions? = null, val file: String? = null, val height: Long? = null, val name: String? = null, val outputURL: Boolean? = null)
 @Serializable
-data class ImageResizeResponse(val url: String, val base64: String)
+data class ImageResizeResponse(val base64: String? = null, val url: String? = null)
 @Serializable
-data class ImageUploadRequest(val base64: String, val file: String, val name: String, val url: String)
+data class ImageUploadRequest(val base64: String? = null, val file: String? = null, val name: String? = null, val url: String? = null)
 @Serializable
-data class ImageUploadResponse(val url: String)
+data class ImageUploadResponse(val url: String? = null)

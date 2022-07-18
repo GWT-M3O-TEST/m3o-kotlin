@@ -21,6 +21,6 @@ object QrServ {
       }
 }
 @Serializable
-data class QrGenerateRequest(val size: Long, val text: String)
+data class QrGenerateRequest(val size: Long? = null, val text: String? = null)
 @Serializable
-data class QrGenerateResponse(val qr: String)
+data class QrGenerateResponse(val qr: String? = null)

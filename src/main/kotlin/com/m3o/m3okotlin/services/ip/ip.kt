@@ -21,6 +21,6 @@ object IpServ {
       }
 }
 @Serializable
-data class IpLookupRequest(val ip: String)
+data class IpLookupRequest(val ip: String? = null)
 @Serializable
-data class IpLookupResponse(val latitude: Double, val longitude: Double, val timezone: String, val asn: Int, val city: String, val continent: String, val country: String, val ip: String)
+data class IpLookupResponse(val country: String? = null, val ip: String? = null, val latitude: Double? = null, val longitude: Double? = null, val timezone: String? = null, val asn: Int? = null, val city: String? = null, val continent: String? = null)

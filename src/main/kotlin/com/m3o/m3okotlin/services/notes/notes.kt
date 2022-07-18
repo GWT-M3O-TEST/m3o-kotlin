@@ -46,26 +46,26 @@ object NotesServ {
       }
 }
 @Serializable
-data class NotesCreateRequest(val text: String, val title: String)
+data class NotesCreateRequest(val text: String? = null, val title: String? = null)
 @Serializable
-data class NotesCreateResponse(val note: NotesNote)
+data class NotesCreateResponse(val note: NotesNote? = null)
 @Serializable
-data class NotesDeleteRequest(val id: String)
+data class NotesDeleteRequest(val id: String? = null)
 @Serializable
-data class NotesDeleteResponse(val note: NotesNote)
+data class NotesDeleteResponse(val note: NotesNote? = null)
 @Serializable
-data class NotesEventsRequest(val id: String)
+data class NotesEventsRequest(val id: String? = null)
 @Serializable
-data class NotesEventsResponse(val event: String, val note: NotesNote)
+data class NotesEventsResponse(val event: String? = null, val note: NotesNote? = null)
 @Serializable
-data class NotesListResponse(val notes: List<NotesNote>)
+data class NotesListResponse(val notes: List<NotesNote>? = null)
 @Serializable
-data class NotesNote(val id: String, val text: String, val title: String, val updated: String, val created: String)
+data class NotesNote(val updated: String? = null, val created: String? = null, val id: String? = null, val text: String? = null, val title: String? = null)
 @Serializable
-data class NotesReadRequest(val id: String)
+data class NotesReadRequest(val id: String? = null)
 @Serializable
-data class NotesReadResponse(val note: NotesNote)
+data class NotesReadResponse(val note: NotesNote? = null)
 @Serializable
-data class NotesUpdateRequest(val note: NotesNote)
+data class NotesUpdateRequest(val note: NotesNote? = null)
 @Serializable
-data class NotesUpdateResponse(val note: NotesNote)
+data class NotesUpdateResponse(val note: NotesNote? = null)

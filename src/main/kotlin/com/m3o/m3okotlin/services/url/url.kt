@@ -36,18 +36,18 @@ object UrlServ {
       }
 }
 @Serializable
-data class UrlDeleteRequest(val shortURL: String)
+data class UrlDeleteRequest(val shortURL: String? = null)
 @Serializable
-data class UrlListRequest(val shortURL: String)
+data class UrlListRequest(val shortURL: String? = null)
 @Serializable
-data class UrlListResponse(val urlPairs: UrlURLPair)
+data class UrlListResponse(val urlPairs: UrlURLPair? = null)
 @Serializable
-data class UrlProxyRequest(val shortURL: String)
+data class UrlProxyRequest(val shortURL: String? = null)
 @Serializable
-data class UrlProxyResponse(val destinationURL: String)
+data class UrlProxyResponse(val destinationURL: String? = null)
 @Serializable
-data class UrlShortenRequest(val destinationURL: String)
+data class UrlShortenRequest(val destinationURL: String? = null)
 @Serializable
-data class UrlShortenResponse(val shortURL: String)
+data class UrlShortenResponse(val shortURL: String? = null)
 @Serializable
-data class UrlURLPair(val created: String, val destinationURL: String, val hitCount: Long, val shortURL: String)
+data class UrlURLPair(val created: String? = null, val destinationURL: String? = null, val hitCount: Long? = null, val shortURL: String? = null)

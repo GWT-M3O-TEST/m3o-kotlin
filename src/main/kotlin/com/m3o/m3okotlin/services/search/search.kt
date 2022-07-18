@@ -41,20 +41,20 @@ object SearchServ {
       }
 }
 @Serializable
-data class SearchCreateIndexRequest(val index: String)
+data class SearchCreateIndexRequest(val index: String? = null)
 @Serializable
-data class SearchDeleteIndexRequest(val index: String)
+data class SearchDeleteIndexRequest(val index: String? = null)
 @Serializable
-data class SearchDeleteRequest(val id: String, val index: String)
+data class SearchDeleteRequest(val index: String? = null, val id: String? = null)
 @Serializable
-data class SearchField(val name: String, val type: String)
+data class SearchField(val name: String? = null, val type: String? = null)
 @Serializable
-data class SearchIndexRequest(val data: JsonObject, val id: String, val index: String)
+data class SearchIndexRequest(val data: JsonObject? = null, val id: String? = null, val index: String? = null)
 @Serializable
-data class SearchIndexResponse(val record: SearchRecord)
+data class SearchIndexResponse(val record: SearchRecord? = null)
 @Serializable
-data class SearchRecord(val data: JsonObject, val id: String)
+data class SearchRecord(val data: JsonObject? = null, val id: String? = null)
 @Serializable
-data class SearchSearchRequest(val index: String, val query: String)
+data class SearchSearchRequest(val index: String? = null, val query: String? = null)
 @Serializable
-data class SearchSearchResponse(val records: List<SearchRecord>)
+data class SearchSearchResponse(val records: List<SearchRecord>? = null)

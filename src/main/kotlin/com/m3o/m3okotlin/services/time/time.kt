@@ -26,10 +26,10 @@ object TimeServ {
       }
 }
 @Serializable
-data class TimeNowRequest(val location: String)
+data class TimeNowRequest(val location: String? = null)
 @Serializable
-data class TimeNowResponse(val timestamp: String, val timezone: String, val unix: Long, val localtime: String, val location: String)
+data class TimeNowResponse(val localtime: String? = null, val location: String? = null, val timestamp: String? = null, val timezone: String? = null, val unix: Long? = null)
 @Serializable
-data class TimeZoneRequest(val location: String)
+data class TimeZoneRequest(val location: String? = null)
 @Serializable
-data class TimeZoneResponse(val country: String, val localtime: String, val region: String, val timezone: String, val abbreviation: String, val dst: Boolean, val latitude: Double, val location: String, val longitude: Double, val offset: Int)
+data class TimeZoneResponse(val dst: Boolean? = null, val latitude: Double? = null, val localtime: String? = null, val timezone: String? = null, val abbreviation: String? = null, val country: String? = null, val offset: Int? = null, val region: String? = null, val location: String? = null, val longitude: Double? = null)

@@ -21,6 +21,6 @@ object SentimentServ {
       }
 }
 @Serializable
-data class SentimentAnalyzeRequest(val text: String, val lang: String)
+data class SentimentAnalyzeRequest(val lang: String? = null, val text: String? = null)
 @Serializable
-data class SentimentAnalyzeResponse(val score: Double)
+data class SentimentAnalyzeResponse(val score: Double? = null)

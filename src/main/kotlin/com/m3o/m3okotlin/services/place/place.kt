@@ -26,12 +26,12 @@ object PlaceServ {
       }
 }
 @Serializable
-data class PlaceNearbyRequest(val type: String, val keyword: String, val location: String, val name: String, val open_now: Boolean, val radius: Int)
+data class PlaceNearbyRequest(val type: String? = null, val keyword: String? = null, val location: String? = null, val name: String? = null, val open_now: Boolean? = null, val radius: Int? = null)
 @Serializable
-data class PlaceNearbyResponse(val results: List<PlaceResult>)
+data class PlaceNearbyResponse(val results: List<PlaceResult>? = null)
 @Serializable
-data class PlaceResult(val name: String, val open_now: Boolean, val rating: Double, val types: List<String>, val address: String, val icon_url: String, val type: String, val vicinity: String, val location: String, val opening_hours: List<String>)
+data class PlaceResult(val icon_url: String? = null, val name: String? = null, val opening_hours: List<String>? = null, val rating: Double? = null, val type: String? = null, val address: String? = null, val location: String? = null, val open_now: Boolean? = null, val types: List<String>? = null, val vicinity: String? = null)
 @Serializable
-data class PlaceSearchRequest(val radius: Int, val type: String, val location: String, val open_now: Boolean, val query: String)
+data class PlaceSearchRequest(val location: String? = null, val open_now: Boolean? = null, val query: String? = null, val radius: Int? = null, val type: String? = null)
 @Serializable
-data class PlaceSearchResponse(val results: List<PlaceResult>)
+data class PlaceSearchResponse(val results: List<PlaceResult>? = null)

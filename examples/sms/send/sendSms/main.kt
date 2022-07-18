@@ -7,9 +7,9 @@ import com.m3o.m3okotlin.services.sms
 suspend fun main() {
   M3O.initialize(System.getenv("M3O_API_TOKEN"))
 
-  val req = SmsSendRequest(To = "+447681129",
-From = "Alice",
-Message = "Hi there!",)
+  val req = SmsSendRequest(Message = "Hi there!",
+To = "+447681129",
+From = "Alice",)
   
   try {
       val response = SmsServ.send(req)

@@ -28,10 +28,10 @@ object HelloworldServ {
       }
 }
 @Serializable
-data class HelloworldCallRequest(val name: String)
+data class HelloworldCallRequest(val name: String? = null)
 @Serializable
-data class HelloworldCallResponse(val message: String)
+data class HelloworldCallResponse(val message: String? = null)
 @Serializable
-data class HelloworldStreamRequest(val messages: Long, val name: String)
+data class HelloworldStreamRequest(val messages: Long? = null, val name: String? = null)
 @Serializable
-data class HelloworldStreamResponse(val message: String)
+data class HelloworldStreamResponse(val message: String? = null)

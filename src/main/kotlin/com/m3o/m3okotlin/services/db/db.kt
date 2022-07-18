@@ -59,26 +59,26 @@ object DbServ {
       }
 }
 @Serializable
-data class DbCountRequest(val table: String)
+data class DbCountRequest(val table: String? = null)
 @Serializable
-data class DbCountResponse(val count: Int)
+data class DbCountResponse(val count: Int? = null)
 @Serializable
-data class DbCreateRequest(val table: String, val id: String, val record: JsonObject)
+data class DbCreateRequest(val id: String? = null, val record: JsonObject? = null, val table: String? = null)
 @Serializable
-data class DbCreateResponse(val id: String)
+data class DbCreateResponse(val id: String? = null)
 @Serializable
-data class DbDeleteRequest(val id: String, val table: String)
+data class DbDeleteRequest(val table: String? = null, val id: String? = null)
 @Serializable
-data class DbDropTableRequest(val table: String)
+data class DbDropTableRequest(val table: String? = null)
 @Serializable
-data class DbListTablesResponse(val tables: List<String>)
+data class DbListTablesResponse(val tables: List<String>? = null)
 @Serializable
-data class DbReadRequest(val query: String, val table: String, val id: String, val limit: Int, val offset: Int, val order: String, val orderBy: String)
+data class DbReadRequest(val offset: Int? = null, val order: String? = null, val orderBy: String? = null, val query: String? = null, val table: String? = null, val id: String? = null, val limit: Int? = null)
 @Serializable
-data class DbReadResponse(val records: List<JsonObject>)
+data class DbReadResponse(val records: List<JsonObject>? = null)
 @Serializable
-data class DbRenameTableRequest(val from: String, val to: String)
+data class DbRenameTableRequest(val from: String? = null, val to: String? = null)
 @Serializable
-data class DbTruncateRequest(val table: String)
+data class DbTruncateRequest(val table: String? = null)
 @Serializable
-data class DbUpdateRequest(val id: String, val record: JsonObject, val table: String)
+data class DbUpdateRequest(val id: String? = null, val record: JsonObject? = null, val table: String? = null)

@@ -24,8 +24,8 @@ object IdServ {
       }
 }
 @Serializable
-data class IdGenerateRequest(val type: String)
+data class IdGenerateRequest(val type: String? = null)
 @Serializable
-data class IdGenerateResponse(val id: String, val type: String)
+data class IdGenerateResponse(val id: String? = null, val type: String? = null)
 @Serializable
-data class IdTypesResponse(val types: List<String>)
+data class IdTypesResponse(val types: List<String>? = null)

@@ -24,42 +24,42 @@ object EvchargersServ {
       }
 }
 @Serializable
-data class EvchargersAddress(val address_line_1: String, val address_line_2: String, val country_id: String, val lat_lng: String, val postcode: String, val title: String, val access_comments: String, val country: EvchargersCountry, val location: EvchargersCoordinates, val state_or_province: String, val town: String)
+data class EvchargersAddress(val country: EvchargersCountry? = null, val lat_lng: String? = null, val location: EvchargersCoordinates? = null, val postcode: String? = null, val state_or_province: String? = null, val title: String? = null, val town: String? = null, val access_comments: String? = null, val address_line_1: String? = null, val address_line_2: String? = null, val country_id: String? = null)
 @Serializable
-data class EvchargersBoundingBox(val bottom_left: EvchargersCoordinates, val top_right: EvchargersCoordinates)
+data class EvchargersBoundingBox(val bottom_left: EvchargersCoordinates? = null, val top_right: EvchargersCoordinates? = null)
 @Serializable
-data class EvchargersChargerType(val id: String, val is_fast_charge_capable: Boolean, val title: String, val comments: String)
+data class EvchargersChargerType(val comments: String? = null, val id: String? = null, val is_fast_charge_capable: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersCheckinStatusType(val id: String, val is_automated: Boolean, val is_positive: Boolean, val title: String)
+data class EvchargersCheckinStatusType(val id: String? = null, val is_automated: Boolean? = null, val is_positive: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersConnection(val connection_type: EvchargersConnectionType, val current: String, val level_id: String, val voltage: Double, val amps: Double, val connection_type_id: String, val level: EvchargersChargerType, val power: Double, val reference: String)
+data class EvchargersConnection(val connection_type: EvchargersConnectionType? = null, val level: EvchargersChargerType? = null, val level_id: String? = null, val voltage: Double? = null, val amps: Double? = null, val connection_type_id: String? = null, val current: String? = null, val power: Double? = null, val reference: String? = null)
 @Serializable
-data class EvchargersConnectionType(val formal_name: String, val id: String, val is_discontinued: Boolean, val is_obsolete: Boolean, val title: String)
+data class EvchargersConnectionType(val formal_name: String? = null, val id: String? = null, val is_discontinued: Boolean? = null, val is_obsolete: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersCoordinates(val latitude: Double, val longitude: Double)
+data class EvchargersCoordinates(val latitude: Double? = null, val longitude: Double? = null)
 @Serializable
-data class EvchargersCountry(val continent_code: String, val id: String, val iso_code: String, val title: String)
+data class EvchargersCountry(val id: String? = null, val iso_code: String? = null, val title: String? = null, val continent_code: String? = null)
 @Serializable
-data class EvchargersCurrentType(val description: String, val id: String, val title: String)
+data class EvchargersCurrentType(val description: String? = null, val id: String? = null, val title: String? = null)
 @Serializable
-data class EvchargersDataProvider(val title: String, val website: String, val comments: String, val data_provider_status_type: EvchargersDataProviderStatusType, val id: String, val license: String)
+data class EvchargersDataProvider(val website: String? = null, val comments: String? = null, val data_provider_status_type: EvchargersDataProviderStatusType? = null, val id: String? = null, val license: String? = null, val title: String? = null)
 @Serializable
-data class EvchargersDataProviderStatusType(val title: String, val id: String, val is_provider_enabled: Boolean)
+data class EvchargersDataProviderStatusType(val id: String? = null, val is_provider_enabled: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersOperator(val fault_report_email: String, val id: String, val is_private_individual: Boolean, val phone_secondary: String, val comments: String, val contact_email: String, val phone_primary: String, val title: String, val website: String)
+data class EvchargersOperator(val comments: String? = null, val fault_report_email: String? = null, val id: String? = null, val contact_email: String? = null, val is_private_individual: Boolean? = null, val phone_primary: String? = null, val phone_secondary: String? = null, val title: String? = null, val website: String? = null)
 @Serializable
-data class EvchargersPoi(val usage_type: EvchargersUsageType, val operator_id: String, val address: EvchargersAddress, val connections: List<EvchargersConnection>, val cost: String, val data_provider_id: String, val id: String, val num_points: Long, val operator: EvchargersOperator, val usage_type_id: String)
+data class EvchargersPoi(val address: EvchargersAddress? = null, val operator_id: String? = null, val usage_type: EvchargersUsageType? = null, val usage_type_id: String? = null, val connections: List<EvchargersConnection>? = null, val cost: String? = null, val data_provider_id: String? = null, val id: String? = null, val num_points: Long? = null, val operator: EvchargersOperator? = null)
 @Serializable
-data class EvchargersReferenceDataResponse(val submission_status_types: List<EvchargersSubmissionStatusType>, val user_comment_types: List<EvchargersUserCommentType>, val charger_types: List<EvchargersChargerType>, val checkin_status_types: List<EvchargersCheckinStatusType>, val current_types: List<EvchargersCurrentType>, val data_providers: List<EvchargersDataProvider>, val operators: List<EvchargersOperator>, val status_types: List<EvchargersStatusType>, val usage_types: List<EvchargersUsageType>, val connection_types: List<EvchargersConnectionType>, val countries: List<EvchargersCountry>)
+data class EvchargersReferenceDataResponse(val charger_types: List<EvchargersChargerType>? = null, val current_types: List<EvchargersCurrentType>? = null, val data_providers: List<EvchargersDataProvider>? = null, val operators: List<EvchargersOperator>? = null, val status_types: List<EvchargersStatusType>? = null, val submission_status_types: List<EvchargersSubmissionStatusType>? = null, val usage_types: List<EvchargersUsageType>? = null, val checkin_status_types: List<EvchargersCheckinStatusType>? = null, val connection_types: List<EvchargersConnectionType>? = null, val countries: List<EvchargersCountry>? = null, val user_comment_types: List<EvchargersUserCommentType>? = null)
 @Serializable
-data class EvchargersSearchRequest(val distance: Long, val operators: List<String>, val usage_types: List<String>, val connection_types: List<String>, val country_id: String, val levels: List<String>, val location: EvchargersCoordinates, val max_results: Long, val min_power: Long, val box: EvchargersBoundingBox)
+data class EvchargersSearchRequest(val operators: List<String>? = null, val usage_types: List<String>? = null, val box: EvchargersBoundingBox? = null, val distance: Long? = null, val location: EvchargersCoordinates? = null, val max_results: Long? = null, val min_power: Long? = null, val connection_types: List<String>? = null, val country_id: String? = null, val levels: List<String>? = null)
 @Serializable
-data class EvchargersSearchResponse(val pois: List<EvchargersPoi>)
+data class EvchargersSearchResponse(val pois: List<EvchargersPoi>? = null)
 @Serializable
-data class EvchargersStatusType(val id: String, val is_operational: Boolean, val title: String)
+data class EvchargersStatusType(val id: String? = null, val is_operational: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersSubmissionStatusType(val id: String, val is_live: Boolean, val title: String)
+data class EvchargersSubmissionStatusType(val id: String? = null, val is_live: Boolean? = null, val title: String? = null)
 @Serializable
-data class EvchargersUsageType(val id: String, val is_access_key_required: Boolean, val is_membership_required: Boolean, val is_pay_at_location: Boolean, val title: String)
+data class EvchargersUsageType(val is_pay_at_location: Boolean? = null, val title: String? = null, val id: String? = null, val is_access_key_required: Boolean? = null, val is_membership_required: Boolean? = null)
 @Serializable
-data class EvchargersUserCommentType(val id: String, val title: String)
+data class EvchargersUserCommentType(val id: String? = null, val title: String? = null)

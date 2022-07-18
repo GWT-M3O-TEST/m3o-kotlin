@@ -21,6 +21,6 @@ object ThumbnailServ {
       }
 }
 @Serializable
-data class ThumbnailScreenshotRequest(val height: Int, val url: String, val width: Int)
+data class ThumbnailScreenshotRequest(val height: Int? = null, val url: String? = null, val width: Int? = null)
 @Serializable
-data class ThumbnailScreenshotResponse(val imageURL: String)
+data class ThumbnailScreenshotResponse(val imageURL: String? = null)

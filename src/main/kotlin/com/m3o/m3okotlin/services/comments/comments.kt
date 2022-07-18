@@ -46,26 +46,26 @@ object CommentsServ {
       }
 }
 @Serializable
-data class CommentsComment(val created: String, val id: String, val subject: String, val text: String, val updated: String)
+data class CommentsComment(val updated: String? = null, val created: String? = null, val id: String? = null, val subject: String? = null, val text: String? = null)
 @Serializable
-data class CommentsCreateRequest(val text: String, val subject: String)
+data class CommentsCreateRequest(val text: String? = null, val subject: String? = null)
 @Serializable
-data class CommentsCreateResponse(val comment: CommentsComment)
+data class CommentsCreateResponse(val comment: CommentsComment? = null)
 @Serializable
-data class CommentsDeleteRequest(val id: String)
+data class CommentsDeleteRequest(val id: String? = null)
 @Serializable
-data class CommentsDeleteResponse(val comment: CommentsComment)
+data class CommentsDeleteResponse(val comment: CommentsComment? = null)
 @Serializable
-data class CommentsEventsRequest(val id: String)
+data class CommentsEventsRequest(val id: String? = null)
 @Serializable
-data class CommentsEventsResponse(val comment: CommentsComment, val event: String)
+data class CommentsEventsResponse(val comment: CommentsComment? = null, val event: String? = null)
 @Serializable
-data class CommentsListResponse(val comments: List<CommentsComment>)
+data class CommentsListResponse(val comments: List<CommentsComment>? = null)
 @Serializable
-data class CommentsReadRequest(val id: String)
+data class CommentsReadRequest(val id: String? = null)
 @Serializable
-data class CommentsReadResponse(val comment: CommentsComment)
+data class CommentsReadResponse(val comment: CommentsComment? = null)
 @Serializable
-data class CommentsUpdateRequest(val comment: CommentsComment)
+data class CommentsUpdateRequest(val comment: CommentsComment? = null)
 @Serializable
-data class CommentsUpdateResponse(val comment: CommentsComment)
+data class CommentsUpdateResponse(val comment: CommentsComment? = null)
